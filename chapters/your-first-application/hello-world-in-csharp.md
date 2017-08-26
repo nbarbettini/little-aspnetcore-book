@@ -1,5 +1,5 @@
 ## Hello World in C# #
-Before you dive into ASP.NET Core, try creating and running a simple C# application. You can do this all from the command line. First, create a new folder for the project (you can put this anywhere, such as your Documents folder):
+Before you dive into ASP.NET Core, try creating and running a simple C# application. You can do this all from the command line. First, create a new folder for the project (you can put this anywhere, such as your home or Documents folder):
 
 ```
 mkdir CsharpHelloWorld
@@ -12,9 +12,9 @@ Next, use `dotnet` to create a new project:
 dotnet new console
 ```
 
-This creates a basic C# program that writes output to the console, comprised of two files: a project file (with a csproj extension) and a C# code file (with a cs extension). Open them both in an editor and you'll see this:
+This creates a basic C# program that writes some text to the screen. The program is comprised of two files: a project file (with a `.csproj` extension) and a C# code file (with a `.cs` extension). Open them both in an editor and you'll see this:
 
-#### `CsharpHelloWorld.csproj`
+##### `CsharpHelloWorld.csproj`
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -27,9 +27,9 @@ This creates a basic C# program that writes output to the console, comprised of 
 </Project>
 ```
 
-The project file is XML-based and defines some metadata about the project. Later, when you reference other packages, those will be listed here (similar to a `project.json` file for npm). You won't have to edit this file directly often.
+The project file is XML-based and defines some metadata about the project. Later, when you reference other packages, those will be listed here (similar to a `project.json` file for npm). You won't have to edit this file by hand often.
 
-#### `Program.cs`
+##### `Program.cs`
 
 ```csharp
 using System;
