@@ -1,4 +1,4 @@
 # Summary
 
-* [Your first application](ch2-YourFirstApplication.md)
-* [MVC basics](ch3-MvcBasics.md)
+* [Your first application](YourFirstApplication.md)
+* [MVC basics](MvcBasics.md)
