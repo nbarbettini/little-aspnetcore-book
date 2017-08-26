@@ -40,7 +40,7 @@ Microsoft .NET Core Shared Framework Host
 ```
 
 If you see output like the above, you're ready to go!
-## Hello World in C#
+## Hello World in C# #
 Before you dive into ASP.NET Core, try creating and running a simple C# application. You can do this all from the command line. First, create a new folder for the project (you can put this anywhere, such as your Documents folder):
 
 ```bash
