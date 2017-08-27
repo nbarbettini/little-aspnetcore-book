@@ -1,9 +1,12 @@
 ## Integration testing
+
 Compared to unit tests, integration tests exercise the whole application stack (routing, controllers, services, database). Instead of isolating one class or component, integration tests ensure that all of the components of your application are working together properly.
 
 Integration tests are slower and more involved than unit tests, so it's common for a project to have lots of unit tests but only a handful of integration tests.
 
-You could manually start your application, and then run tests that make requests to `http://localhost:5000` (and hope the app is still running), but ASP.NET Core provides a nicer way to host your application for testing using the `TestServer` class. The `TestServer` will host your application for the duration of the test, and then stop it automatically when the test is complete.
+In order to test the whole stack (including controller routing), integration tests typically make HTTP calls to your application just like a web browser would.
+
+To write integration tests that make HTTP requests, you could manually start your application run tests that make requests to `http://localhost:5000` (and hope the app is still running). ASP.NET Core provides a nicer way to host your application for testing, however: using the `TestServer` class. `TestServer` can host your application for the duration of the test, and then stop it automatically when the test is complete.
 
 ### Create a test project
 
@@ -11,7 +14,7 @@ You could keep your unit tests and integration tests in the same project (feel f
 
 If you're currently in your project directory, `cd` up one level to the base `AspNetCoreTodo` directory. Use these commands to scaffold a new test project:
 
-```bash
+```
 mkdir AspNetCoreTodo.IntegrationTests
 cd AspNetCoreTodo.IntegrationTests
 dotnet new xunit
@@ -24,7 +27,7 @@ AspNetCoreTodo/
     AspNetCoreTodo/
         AspNetCoreTodo.csproj
         Controllers/
-        (etc)
+        (etc...)
 
     AspNetCoreTodo.UnitTests/
         AspNetCoreTodo.UnitTests.csproj
@@ -35,23 +38,23 @@ AspNetCoreTodo/
 
 Since the test project will use the classes defined in your main project, you'll need to add a reference to the main project:
 
-```bash
+```
 dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 ```
 
 You'll also need to add the `Microsoft.AspNetCore.TestHost` NuGet package:
 
-```bash
+```
 dotnet add package Microsoft.AspNetCore.TestHost
 ```
 
-Delete the `UnitTest1.cs` file that's automatically created in the project. You're ready to write an integration test.
+Delete the `UnitTest1.cs` file that's created by `dotnet new`. You're ready to write an integration test.
 
 ### Write an integration test
 
 There are a few things that need to be configured on the test server before each test. Instead of cluttering the test with this setup code, you can factor out this setup to a separate class. Create a new class called `TestFixture`:
 
-**TestFixture.cs**
+##### `AspNetCoreTodo.IntegrationTests/TestFixture.cs`
 
 ```csharp
 using System;
@@ -64,19 +67,24 @@ using Microsoft.Extensions.Configuration;
 
 namespace AspNetCoreTodo.IntegrationTests
 {
-    public class TestFixture<TStartup> : IDisposable
-        where TStartup : class  
+    public class TestFixture : IDisposable  
     {
         private readonly TestServer _server;
 
         public TestFixture()
         {
             var builder = new WebHostBuilder()
-                .UseStartup<TStartup>()
-                .ConfigureAppConfiguration((context, configBuilder) => {
+                .UseStartup<AspNetCoreTodo.Startup>()
+                .ConfigureAppConfiguration((context, configBuilder) =>
+                {
+                    configBuilder.SetBasePath(Path.Combine(
+                        Directory.GetCurrentDirectory(), "..\\..\\..\\..\\AspNetCoreTodo"));
 
-                    // Add configuration for Facebook middleware (to avoid startup errors)
-                    configBuilder.AddInMemoryCollection(new Dictionary<string, string>() {
+                    configBuilder.AddJsonFile("appsettings.json");
+
+                    // Add fake configuration for Facebook middleware (to avoid startup errors)
+                    configBuilder.AddInMemoryCollection(new Dictionary<string, string>()
+                    {
                         ["Facebook:AppId"] = "fake-app-id",
                         ["Facebook:AppSecret"] = "fake-app-secret"
                     });
@@ -100,11 +108,11 @@ namespace AspNetCoreTodo.IntegrationTests
 
 This class takes care of setting up a `TestServer`, and will help keep the tests themselves clean and tidy.
 
-> Sidebar: If you configured Facebook login in chapter 7, it's necessary to add fake values for the Facebook app ID and secret (the `ConfigureAppConfiguration` block above). This is because the test server doesn't have access to the values in the Secrets Manager. Adding some fake values in this fixture class will prevent an error when the test server starts up.
+> If you configured Facebook login in chapter 7, it's necessary to add fake values for the Facebook app ID and secret (in the `ConfigureAppConfiguration` block above). This is because the test server doesn't have access to the values in the Secrets Manager. Adding some fake values in this fixture class will prevent an error when the test server starts up.
 
 Now you're (really) ready to write an integration test. Create a new class called `TodoRouteShould`:
 
-**TodoRouteShould.cs**
+##### `AspNetCoreTodo.IntegrationTests/TodoRouteShould.cs`
 
 ```csharp
 using System.Net;
@@ -129,10 +137,10 @@ namespace AspNetCoreTodo.IntegrationTests
             // Arrange
             var request = new HttpRequestMessage(HttpMethod.Get, "/todo");
 
-            // Act
+            // Act: request the /todo route
             var response = await _client.SendAsync(request);
 
-            // Assert
+            // Assert: anonymous user is redirected to the login page
             Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
             Assert.Equal("http://localhost:5000/Account/Login?ReturnUrl=%2Ftodo",
                         response.Headers.Location.ToString());
@@ -143,8 +151,25 @@ namespace AspNetCoreTodo.IntegrationTests
 
 This test makes an anonymous (not-logged-in) request to the `/todo` route and verifies that the browser is redirected to the login page.
 
-This is a good candidate for an integration test, because it involves multiple components of the application: the routing system, the controller, the fact that the controller is marked with `[Authorize]`, and so on. It's also a good test because it ensures you won't ever accidentally remove the `[Authorize]` attribute and make the to-do view accessible to everyone.
+This scenario is a good candidate for an integration test, because it involves multiple components of the application: the routing system, the controller, the fact that the controller is marked with `[Authorize]`, and so on. It's also a good test because it ensures you won't ever accidentally remove the `[Authorize]` attribute and make the to-do view accessible to everyone.
+
+Run the test in the terminal with `dotnet test`. If everything's working right, you'll see a success message:
+
+```
+Starting test execution, please wait...
+[xUnit.net 00:00:00.7237031]   Discovering: AspNetCoreTodo.IntegrationTests
+[xUnit.net 00:00:00.8118035]   Discovered:  AspNetCoreTodo.IntegrationTests
+[xUnit.net 00:00:00.8779059]   Starting:    AspNetCoreTodo.IntegrationTests
+[xUnit.net 00:00:01.5828576]   Finished:    AspNetCoreTodo.IntegrationTests
+
+Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
+Test Run Successful.
+Test execution time: 2.0588 Seconds
+```
+
+
 ## Wrap up
-Testing is a broad topic, and there's much more to learn. This chapter doesn't touch on UI testing or testing frontend (JavaScript) code, which deserve entire books of their own. You should, however, have the skills and base knowledge you need to practice and learn more about writing tests for ASP.NET Core applications.
+
+Testing is a broad topic, and there's much more to learn. This chapter doesn't touch on UI testing or testing frontend (JavaScript) code, which probably deserve entire books of their own. You should, however, have the skills and base knowledge you need to practice and learn more about writing tests for your own applications.
 
 As always, the ASP.NET Core documentation (https://docs.asp.net) and StackOverflow are good resources for learning more and finding answers when you get stuck.

@@ -8,7 +8,7 @@ Security is a major concern of any modern web application or API. It's important
 * Giving users a way to securely sign in with a password or social login credentials
 * Designing password reset or multi-factor authentication flows with security in mind
 
-ASP.NET Core can help make all of this easier to implement. The first two (protection against SQL injection and cross-domain attacks) is already built-in, and you can add a few lines of code to enable HTTPS support. This chapter will mainly focus on the **identity** aspects of security: handling user accounts (registration, login), authenticating (logging in) your users securely, and making authorization decisions once they are authenticated.
+ASP.NET Core can help make all of this easier to implement. The first two (protection against SQL injection and cross-domain attacks) are already built-in, and you can add a few lines of code to enable HTTPS support. This chapter will mainly focus on the **identity** aspects of security: handling user accounts (registration, login), authenticating (logging in) your users securely, and making authorization decisions once they are authenticated.
 
 > Authentication and authorization are distinct ideas that are often confused. **Authentication** deals with whether a user is logged in, while **authorization** deals with what they are allowed to do *after* they log in. You can think of authentication as asking the question, "Do I know who this user is?" While authorization asks, "Does this user have permission to do X?"
 
