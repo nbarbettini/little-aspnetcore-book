@@ -1,7 +1,10 @@
 ## Create a controller
-There's already one controller in the project, `HomeController`, which renders the welcome screen. You can ignore that for now. Create a new controller for the to-do list functionality, called `TodoController`. By convention, controllers are placed in the `Controllers` directory.
 
-**Controllers/TodoController.cs**
+There are already a few controllers in the project's Controllers folder, including the `HomeController` that renders the default welcome screen you see when you visit `http://localhost:5000`. You can ignore these controllers for now.
+
+Create a new controller for the to-do list functionality, called `TodoController`, and add the following code:
+
+##### `Controllers/TodoController.cs`
 
 ``` csharp
 using System;
@@ -19,19 +22,17 @@ namespace AspNetCoreTodo.Controllers
 }
 ```
 
-Routes that are handled by controllers are called **actions**, and are represented by methods in the controller class. For example, the Home controller includes three action methods (`Index()`, `About()`, and `Contact()`) which are mapped by ASP.NET Core to these URLs by the application:
+Routes that are handled by controllers are called **actions**, and are represented by methods (functions) in the controller class. For example, the `HomeController` includes three action methods (`Index`, `About`, and `Contact`) which are mapped by ASP.NET Core to these route URLs by the application:
 
 ```
-localhost:5000/Home  -> Index()
-localhost:5000/Home/About  -> About()
-localhost:5000/Home/Contact  -> Contact()
+localhost:5000/Home         -> Index()
+localhost:5000/Home/About   -> About()
+localhost:5000/Home/Contact -> Contact()
 ```
 
-There are a number of conventions used by ASP.NET Core MVC, such as the pattern that `FooController` becomes `/Foo`, and the `Index` action can be left out of the URL. You can customize the behavior of this routing if you'd like, but for now, we'll stick to the default conventions.
+There are a number of conventions (common patterns) used by ASP.NET Core, such as the pattern that `FooController` becomes `/Foo`, and the `Index` action name can be left out of the URL. You can customize this behavior if you'd like, but for now, we'll stick to the default conventions.
 
-Action methods return some type of **action result**. This can be an HTTP status code like 200 or 404, a rendered view, or some JSON data. The method signature of the action method can explicitly declare the type of result the action returns, or you can mark it as returning `IActionResult` (an interface that represents *any* action result) for maximum flexibility.
-
-Add a new action called `Index` to the `TodoController`:
+Add a new action called `Index` to the `TodoController`, replacing the  `// Actions go here` comment:
 
 ```csharp
 public class TodoController : Controller
@@ -47,6 +48,9 @@ public class TodoController : Controller
 }
 ```
 
+Action methods can return views, JSON data, or HTTP status codes like `200 OK` or `404 Not Found`. The `IActionResult` return type gives you the flexibility to return any of these from the action.
+
 It's a best practice to keep controllers as lightweight as possible. In this case, the controller should only be responsible for getting the to-do items from the database, and sending the view back to the user's browser (along with a model containing the items pulled from the database).
+
 
 Before you can write the rest of the controller code, you need to create a model and a view.
