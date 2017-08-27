@@ -86,4 +86,6 @@ This command will cause Entity Framework Core to create the `Items` table in the
 > `dotnet ef database update CreateIdentitySchema`
 > This will run the `Down` methods of any migrations newer than the migration you specify.
 
+> If you need to completely erase the database and start over, run `dotnet ef database drop` followed by `dotnet ef database update` to re-scaffold the database and bring it up to the current migration.
+
 That's it! Both the database and the context are ready to go. Next, you'll use the context in your service layer.
