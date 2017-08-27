@@ -18,7 +18,7 @@
     * [Create a migration](chapters/use-a-database/create-migration.md)
     * [Create a new service class](chapters/use-a-database/create-service-class.md)
 * [Add more features](chapters/add-more-features/README.md)
-    * [Add new to-do items](chapters/add-more-features/add-todo-item.md)
+    * [Add new to-do items](chapters/add-more-features/add-todo-items.md)
     * [Complete items with a checkbox](chapters/add-more-features/complete-with-checkbox.md)
 * [Security and identity](chapters/security-and-identity/README.md)
     * [Add Facebook login](chapters/security-and-identity/add-facebook-login.md)
