@@ -47,4 +47,6 @@ namespace AspNetCoreTodo.Models
 
 `IEnumerable<>` is a fancy C# way of saying that the `Items` property contains zero, one, or many `TodoItem`s. (In technical terms, it's not quite an array, but rather an array-like interface for any sequence that can be enumerated or iterated over.)
 
+> The `IEnumerable<>` interface exists in the `System.Collections.Generic` namespace, so you need a `using` statement at the top of the file.
+
 Now that you have some models, it's time to create a view that will take a `TodoViewModel` and render the right HTML to show the user their to-do list.

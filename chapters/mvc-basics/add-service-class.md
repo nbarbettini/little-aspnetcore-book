@@ -13,6 +13,7 @@ First, create an interface that will represent the service that can interact wit
 
 ```csharp
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AspNetCoreTodo.Models;
 
@@ -45,6 +46,7 @@ Now that the interface is defined, you're ready to create the actual service cla
 
 ```csharp
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AspNetCoreTodo.Models;
 
@@ -55,7 +57,7 @@ namespace AspNetCoreTodo.Services
         public Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
         {
             // Return an array of TodoItems
-            var items = new[]
+            IEnumerable<TodoItem> items = new[]
             {
                 new TodoItem
                 {

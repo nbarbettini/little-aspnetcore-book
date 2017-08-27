@@ -79,7 +79,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Add a new line anywhere inside the method that tells ASP.NET Core to use the `FakeTodoItemService` for the `ITodoItemService` interface:
+Add a new line anywhere inside the `Configureservices` method that tells ASP.NET Core to use the `FakeTodoItemService` for the `ITodoItemService` interface:
 
 ```csharp
 services.AddScoped<ITodoItemService, FakeTodoItemService>();
