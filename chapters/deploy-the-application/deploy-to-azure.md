@@ -1,4 +1,5 @@
 ## Deploy to Azure
+
 Deploying your ASP.NET Core application to Azure only takes a few steps. You can do it through the Azure web portal, or on the command line using the Azure CLI. I'll cover the latter.
 
 ### What you'll need
@@ -12,7 +13,7 @@ Deploying your ASP.NET Core application to Azure only takes a few steps. You can
 
 Since there are multiple projects in your directory structure (the web application, and two test projects), Azure won't know which one to show to the world. To fix this, create a file called `.deployment` at the very top of your directory structure:
 
-**.deployment**
+##### `.deployment`
 
 ```ini
 [config]
@@ -35,20 +36,19 @@ AspNetCoreTodo.UnitTests
 
 If you just installed the Azure CLI for the first time, run
 
-```bash
+```
 az login
 ```
 
 and follow the prompts to log in on your machine. Then, create a new Resource Group for this application:
 
-```bash
-# You can specify any region you want: westus, eastus, etc
+```
 az group create -l westus -n AspNetCoreTodoGroup
 ```
 
 Next, create an App Service plan in the group you just created:
 
-```bash
+```
 az appservice plan create -g AspNetCoreTodoGroup -n AspNetCoreTodoPlan --sku F1
 ```
 
@@ -56,7 +56,7 @@ az appservice plan create -g AspNetCoreTodoGroup -n AspNetCoreTodoPlan --sku F1
 
 Now create a Web App in the App Service plan:
 
-```bash
+```
 az webapp create -g AspNetCoreTodoGroup -p AspNetCoreTodoPlan -n MyTodoApp
 ```
 
@@ -78,7 +78,7 @@ Your application won't start up properly if it's missing the `Facebook:AppId` an
 
 You can use Git to push your application files up to the Azure Web App. If your local directory isn't already tracked as a Git repo, run these commands to set it up:
 
-```bash
+```
 git init
 git add .
 git commit -m "First commit!"
@@ -86,30 +86,27 @@ git commit -m "First commit!"
 
 Next, create an Azure username and password for deployment:
 
-```bash
+```
 az webapp deployment user set --user-name nate
-# Follow the instructions to create a password
 ```
 
-Then use `config-local-git` to spit out a Git URL:
+Follow the instructions to create a password. Then use `config-local-git` to spit out a Git URL:
 
-```bash
+```
 az webapp deployment source config-local-git -g AspNetCoreTodoGroup -n MyTodoApp --out tsv
 
 https://nate@mytodoapp.scm.azurewebsites.net/MyTodoApp.git
-# Copy this value
 ```
 
 Copy the URL to the clipboard, and use it to add a Git remote to your local repository:
 
-```bash
+```
 git remote add azure <paste>
 ```
 
 You only need to do these steps once. Now, whenever you want to push your application files to Azure, check them in with Git and run
 
-```bash
-# Assuming you want to push local branch 'master'
+```
 git push azure master
 ```
 
