@@ -119,7 +119,11 @@ using (var inMemoryContext = new ApplicationDbContext(options))
 {
     var service = new TodoItemService(inMemoryContext);
 
-    var fakeUser = new ApplicationUser { Id = "fake-000", UserName = "fake@fake" };
+    var fakeUser = new ApplicationUser
+    {
+        Id = "fake-000",
+        UserName = "fake@fake"
+    };
 
     await service.AddItemAsync(new NewTodoItem { Title = "Testing?" }, fakeUser);
 }

@@ -15,6 +15,6 @@ If you've worked with MVC in other stacks, you'll feel right at home in ASP.NET 
 ## What you'll build
 The "Hello World" exercise of MVC is building a to-do list application. It's a great project since it's small and simple in scope, but it touches each part of MVC and covers many of the concepts you'd use in a larger application.
 
-In this book, you'll build a to-do app that lets the user add items to their to-do list and check them off once complete. You'll build the server (the "backend") using ASP.NET Core, C#, and the MVC pattern. You'll also use HTML, CSS, and a little JavaScript in the views (also called the "frontend").
+In this book, you'll build a to-do app that lets the user add items to their to-do list and check them off once complete. You'll build the server (the "backend") using ASP.NET Core, C#, and the MVC pattern. You'll also use HTML, CSS, and JavaScript in the views (also called the "frontend").
 
 If you haven't already created a new ASP.NET Core project using `dotnet new mvc`, follow the steps in the previous chapter. You should be able to build and run the project and see the default welcome screen.
