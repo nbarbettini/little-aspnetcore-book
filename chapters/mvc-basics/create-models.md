@@ -1,9 +1,9 @@
 ## Create models
-There are two separate model classes that need to be created: a model that represents a to-do item stored in the database (sometimes called an *entity*), and the model that will be combined with a view (the *MV* in MVC) and sent back to the user's browser. Because both of them can be referred to as "models", I'll refer to the latter as a *view model*.
+There are two separate model classes that need to be created: a model that represents a to-do item stored in the database (sometimes called an **entity**), and the model that will be combined with a view (the **MV** in MVC) and sent back to the user's browser. Because both of them can be referred to as "models", I'll refer to the latter as a *view model*.
 
 First, create a class called `TodoItem` in the Models directory:
 
-##### `Models/TodoItem.cs`
+**`Models/TodoItem.cs`**
 
 ```csharp
 using System;
@@ -23,7 +23,7 @@ namespace AspNetCoreTodo.Models
 }
 ```
 
-This class defines what the database will need to store for each to-do item: an ID, a title or name, whether the item is complete, and what the due date is. Each line defines a property of the class, its type (boolean, string, guid), and getters and setters for the property (which makes it read/write).
+This class defines what the database will need to store for each to-do item: an ID, a title or name, whether the item is complete, and what the due date is. Each line defines a property of the class: its name, its type (boolean, string, guid), and getter/setter methods (which makes the property read/write).
 
 > A **g**lobally **u**nique **id**entifier (guid or GUID) is a long string of letters and numbers, like `43ec09f2-7f70-4f4b-9559-65011d5781bb`. Because they are random and are extremely unlikely to ever be accidentally duplicated, they are commonly used for things like IDs.
 
@@ -31,11 +31,11 @@ This class defines what the database will need to store for each to-do item: an 
 
 At this point, it doesn't matter what the underlying database technology is. It could be SQL Server, MySQL, MongoDB, Redis, or something more exotic. This model defines what the database row or entry will look like in C# code so you don't have to worry about the low-level database stuff. It's sometimes called a "plain ol' C# object" or POCO.
 
-Often, the model (entity) you store in the database is similar but not *exactly* the same as the model you want to use in MVC (the view model). In this case, the `TodoItem` model represents a single item in the database, but the view the controller will render could have two, ten, or a hundred to-do items (depending on how badly the user is procrastinating).
+Often, the model (entity) you store in the database is similar but not *exactly* the same as the model you want to use in MVC (the view model). In this case, the `TodoItem` model represents a single item in the database, but the view might need to display two, ten, or a hundred to-do items (depending on how badly the user is procrastinating).
 
 Because of this, the view model should be a class that holds an array of `TodoItem`s:
 
-##### `Models/TodoViewModel.cs`
+**`Models/TodoViewModel.cs`**
 
 ```csharp
 using System.Collections.Generic;

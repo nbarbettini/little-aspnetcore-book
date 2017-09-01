@@ -12,7 +12,9 @@ Next, create a new project with `dotnet new`, this time with some extra options:
 dotnet new mvc --auth Individual
 ```
 
-This creates a new project from the `mvc` template, and adds some additional authentication and security bits to the project. You'll see quite a few files show up in the project directory, but all you have to do is run the project:
+This creates a new project from the `mvc` template, and adds some additional authentication and security bits to the project. (I'll cover security in a later chapter.)
+
+You'll see quite a few files show up in the project directory. All you have to do right now is run the project:
 
 ```
 dotnet run
@@ -21,7 +23,7 @@ Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.
 ```
 
-Instead of printing to the console and quitting, this application starts a web server and waits for requests on port 5000.
+Instead of printing to the console and exiting, this program starts a web server and waits for requests on port 5000.
 
 Open your web browser and navigate to `http://localhost:5000`. You'll see the default ASP.NET Core splash page, which means your project is working! When you're done, press Ctrl-C in the terminal window to stop the server.
 
@@ -30,11 +32,11 @@ The `dotnet new mvc` template generates a number of files and directories for yo
 
 * The **Program.cs** and **Startup.cs** files set up the web server and ASP.NET Core pipeline. The `Startup` class is where you can add middleware that handles and modifies incoming requests, and serves things like static content or error pages. It's also where you add your own services to the dependency injection container (more on this later).
 
-* The **Models**, **Views**, and **Controllers** directories contain the components of the Model-View-Controller (MVC) architecture. You'll create all three in the next chapter.
+* The **Models**, **Views**, and **Controllers** directories contain the components of the Model-View-Controller (MVC) architecture. You'll explore all three in the next chapter.
 
-* The **wwwroot** directory contains static assets like CSS, JavaScript, and image files. By default, bower is used to manage CSS and JavaScript libraries, but you can use whatever package manager you prefer (npm and yarn are popular choices). Files in wwwroot will be served as static content, and can be bundled and minified automatically.
+* The **wwwroot** directory contains static assets like CSS, JavaScript, and image files. By default, the bower tool is used to manage CSS and JavaScript packages, but you can use whatever package manager you prefer (npm and yarn are popular choices). Files in `wwwroot` will be served as static content, and can be bundled and minified automatically.
 
-* The **appsettings.json** file contains configuration settings ASP.NET Core will load on startup. You can use this to database connection strings or other things that you don't want to hard-code.
+* The **appsettings.json** file contains configuration settings ASP.NET Core will load on startup. You can use this to store database connection strings or other things that you don't want to hard-code.
 
 ### Tips for Visual Studio Code
 
@@ -44,7 +46,7 @@ If you're using Visual Studio Code (or Visual Studio) for the first time, here a
 
 ![Breakpoint in Visual Studio Code](breakpoint.png)
 
-* **Lightbulb to fix problems**: If your code contains red squigglies (compiler errors), put your cursor on the code that's red and look for the lightbulb icon on the left margin. The lightbulb menu will suggest common fixes like adding a missing `using` statement to your code.
+* **Lightbulb to fix problems**: If your code contains red squiggles (compiler errors), put your cursor on the code that's red and look for the lightbulb icon on the left margin. The lightbulb menu will suggest common fixes, like adding a missing `using` statement to your code:
 
 ![Lightbulb suggestions](lightbulb.png)
 
@@ -52,6 +54,6 @@ If you're using Visual Studio Code (or Visual Studio) for the first time, here a
 
 ### A note about Git
 
-If you use Git or GitHub to keep track of your source code, now is a good time to do `git init` and initialize a Git repo in the project directory. Make sure you add a `.gitignore` file that ignores the `bin` and `obj` directories. The Visual Studio template on GitHub's gitignore template repository (https://github.com/github/gitignore) works great.
+If you use Git or GitHub to manage your source code, now is a good time to do `git init` and initialize a Git repository in the project directory. Make sure you add a `.gitignore` file that ignores the `bin` and `obj` directories. The Visual Studio template on GitHub's gitignore template repo (https://github.com/github/gitignore) works great.
 
 There's plenty more to explore, so let's dive in and start building an application!

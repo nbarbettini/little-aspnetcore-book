@@ -4,7 +4,7 @@ There are already a few controllers in the project's Controllers folder, includi
 
 Create a new controller for the to-do list functionality, called `TodoController`, and add the following code:
 
-##### `Controllers/TodoController.cs`
+**`Controllers/TodoController.cs`**
 
 ``` csharp
 using System;
@@ -22,7 +22,7 @@ namespace AspNetCoreTodo.Controllers
 }
 ```
 
-Routes that are handled by controllers are called **actions**, and are represented by methods (functions) in the controller class. For example, the `HomeController` includes three action methods (`Index`, `About`, and `Contact`) which are mapped by ASP.NET Core to these route URLs by the application:
+Routes that are handled by controllers are called **actions**, and are represented by methods (functions) in the controller class. For example, the `HomeController` includes three action methods (`Index`, `About`, and `Contact`) which are mapped by ASP.NET Core to these route URLs:
 
 ```
 localhost:5000/Home         -> Index()
@@ -50,7 +50,6 @@ public class TodoController : Controller
 
 Action methods can return views, JSON data, or HTTP status codes like `200 OK` or `404 Not Found`. The `IActionResult` return type gives you the flexibility to return any of these from the action.
 
-It's a best practice to keep controllers as lightweight as possible. In this case, the controller should only be responsible for getting the to-do items from the database, and sending the view back to the user's browser (along with a model containing the items pulled from the database).
-
+It's a best practice to keep controllers as lightweight as possible. In this case, the controller should only be responsible for getting the to-do items from the database, putting those items into a model the view can understand, and sending the view back to the user's browser.
 
 Before you can write the rest of the controller code, you need to create a model and a view.

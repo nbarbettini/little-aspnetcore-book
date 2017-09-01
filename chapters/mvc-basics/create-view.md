@@ -5,7 +5,7 @@ Most view code is just HTML, with the occasional C# statement added in to pull d
 
 The view rendered by the `Index` action of the `TodoController` needs to take the data in the view model (an array of to-do items) and display it as a nice table for the user. By convention, views are placed in the `Views` directory, in a subdirectory corresponding to the controller name. The file name of the view is the name of the action with a `.cshtml` extension.
 
-##### `Views/Todo/Index.cshtml`
+**`Views/Todo/Index.cshtml`**
 
 ```html
 @model TodoViewModel;
@@ -51,4 +51,4 @@ The default ASP.NET Core template includes Bootstrap and jQuery in this layout f
 
 !TODO: update layout to look nice
 
-ASP.NET Core and Razor can do much more, such as partial views and server-rendered view components, but a simple layout and view is all you need for now. The official ASP.NET Core documentation (at `https://docs.asp.net`) has a plethora of examples you can use to learn more.
+ASP.NET Core and Razor can do much more, such as partial views and server-rendered view components, but a simple layout and view is all you need for now. The official ASP.NET Core documentation (at `https://docs.asp.net`) contains a number of examples if you'd like to learn more.
