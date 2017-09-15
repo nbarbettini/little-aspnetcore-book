@@ -6,7 +6,7 @@ Roles are a common approach to handling authorization and permissions in a web a
 
 First, create a new controller:
 
-##### `Controllers/ManageUsersController.cs`
+**`Controllers/ManageUsersController.cs`**
 
 ```csharp
 using System;
@@ -54,7 +54,7 @@ Setting the `Roles` property on the `[Authorize]` attribute will ensure that the
 
 Next, create a view model:
 
-##### `Models/ManageUsersViewModel.cs`
+**`Models/ManageUsersViewModel.cs`**
 
 ```csharp
 using System.Collections.Generic;
@@ -73,7 +73,7 @@ namespace AspNetCoreTodo
 
 Finally, create a view for the Index action:
 
-##### `Views/ManageUsers/Index.cshtml`
+**`Views/ManageUsers/Index.cshtml`**
 
 ```html
 @model ManageUsersViewModel
@@ -136,7 +136,7 @@ For obvious security reasons, there isn't a checkbox on the registration page th
 
 Add this code to the `if (env.IsDevelopment())` branch of the `Configure` method:
 
-##### `Startup.cs`
+**`Startup.cs`**
 
 ```csharp
 if (env.IsDevelopment())
@@ -176,7 +176,7 @@ private static async Task EnsureRolesAsync(RoleManager<IdentityRole> roleManager
 
 This method checks to see if an `Administrator` role exists in the database. If not, it creates one. Instead of repeatedly typing the string `"Administrator"`, create a small class called `Constants` to hold the value:
 
-##### `Constants.cs`
+**`Constants.cs`**
 
 ```csharp
 namespace AspNetCoreTodo
@@ -192,7 +192,7 @@ namespace AspNetCoreTodo
 
 Next, write the `EnsureTestAdminAsync` method:
 
-##### `Startup.cs`
+**`Startup.cs`**
 
 ```csharp
 private static async Task EnsureTestAdminAsync(UserManager<ApplicationUser> userManager)
@@ -223,7 +223,7 @@ The `[Authorize]` attribute makes it easy to perform an authorization check in a
 
 You can inject the `UserManager` directly into a view to do these types of authorization checks. To keep your views clean and organized, create a new partial view that will add an item to the navbar in the layout:
 
-##### `Views/Shared/_AdminActionsPartial.cshtml`
+**`Views/Shared/_AdminActionsPartial.cshtml`**
 
 ```html
 @using Microsoft.AspNetCore.Identity
@@ -253,7 +253,7 @@ This partial view first uses the `SignInManager` to quickly determine whether th
 
 To include this partial in the main layout, edit `_Layout.cshtml` and add it in the navbar section:
 
-##### `Views/Shared/_Layout.cshtml`
+**`Views/Shared/_Layout.cshtml`**
 
 ```html
 <div class="navbar-collapse collapse">

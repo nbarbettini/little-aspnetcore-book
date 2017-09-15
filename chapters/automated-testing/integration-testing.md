@@ -54,7 +54,7 @@ Delete the `UnitTest1.cs` file that's created by `dotnet new`. You're ready to w
 
 There are a few things that need to be configured on the test server before each test. Instead of cluttering the test with this setup code, you can factor out this setup to a separate class. Create a new class called `TestFixture`:
 
-##### `AspNetCoreTodo.IntegrationTests/TestFixture.cs`
+**`AspNetCoreTodo.IntegrationTests/TestFixture.cs`**
 
 ```csharp
 using System;
@@ -112,7 +112,7 @@ This class takes care of setting up a `TestServer`, and will help keep the tests
 
 Now you're (really) ready to write an integration test. Create a new class called `TodoRouteShould`:
 
-##### `AspNetCoreTodo.IntegrationTests/TodoRouteShould.cs`
+**`AspNetCoreTodo.IntegrationTests/TodoRouteShould.cs`**
 
 ```csharp
 using System.Net;

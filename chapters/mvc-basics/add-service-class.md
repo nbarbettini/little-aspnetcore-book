@@ -9,7 +9,7 @@ You could write this database code directly in the controller, but it's a better
 
 First, create an interface that will represent the service that can interact with to-do items in the database. By convention, interfaces are prefixed with "I". Create a new file in the Services directory:
 
-##### `Services/ITodoItemService.cs`
+**`Services/ITodoItemService.cs`**
 
 ```csharp
 using System;
@@ -42,7 +42,7 @@ The `Task` type is similar to a future or a promise, and it's used here because 
 
 Now that the interface is defined, you're ready to create the actual service class. I'll cover database code in depth in chapter 5, so for now you'll just fake it and return hard-coded values:
 
-##### `Services/FakeTodoItemService.cs`
+**`Services/FakeTodoItemService.cs`**
 
 ```csharp
 using System;

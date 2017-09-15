@@ -102,7 +102,7 @@ Finally, if everything looks good, the `Ok()` method is used to return status co
 
 First, add `MarkDoneAsync` to the interface definition:
 
-##### `Services/ITodoItemService.cs`
+**`Services/ITodoItemService.cs`**
 
 ```csharp
 Task<bool> MarkDoneAsync(Guid id);
@@ -110,7 +110,7 @@ Task<bool> MarkDoneAsync(Guid id);
 
 Then, add the concrete implementation to the `TodoItemService`:
 
-##### `Services/TodoItemService.cs`
+**`Services/TodoItemService.cs`**
 
 ```csharp
 public async Task<bool> MarkDoneAsync(Guid id)

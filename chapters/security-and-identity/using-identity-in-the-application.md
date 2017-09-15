@@ -4,7 +4,7 @@ The to-do list items themselves are still shared between all users, because the 
 
 First, inject a `UserManager<ApplicationUser>` into the `TodoController`:
 
-##### `Controllers/TodoController.cs`
+**`Controllers/TodoController.cs`**
 
 ```csharp
 [Authorize]
@@ -65,7 +65,7 @@ if (currentUser == null) return Challenge();
 
 Since you're now passing an `ApplicationUser` parameter to `GetIncompleteItemsAsync`, you'll need to update the `ITodoItemService` interface:
 
-##### `Services/ITodoItemService.cs`
+**`Services/ITodoItemService.cs`**
 
 ```csharp
 public interface ITodoItemService
@@ -106,7 +106,7 @@ dotnet ef database update
 
 With the database and the database context updated, you can now update the `GetIncompleteItemsAsync` method in the `TodoItemService` and add another clause to the `Where` statement:
 
-##### `Services/TodoItemService.cs`
+**`Services/TodoItemService.cs`**
 
 ```csharp
 public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync(ApplicationUser user)

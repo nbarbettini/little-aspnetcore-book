@@ -13,7 +13,7 @@ Deploying your ASP.NET Core application to Azure only takes a few steps. You can
 
 Since there are multiple projects in your directory structure (the web application, and two test projects), Azure won't know which one to show to the world. To fix this, create a file called `.deployment` at the very top of your directory structure:
 
-##### `.deployment`
+**`.deployment`**
 
 ```ini
 [config]

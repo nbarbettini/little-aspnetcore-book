@@ -79,7 +79,7 @@ These decisions make sense, and it also makes sense to have a test that ensures 
 
 To write a unit test that will verify the logic in the `TodoItemService`, create a new class in your test project:
 
-##### `AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs`
+**`AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs`**
 
 ```csharp
 using System.Threading.Tasks;
@@ -152,7 +152,7 @@ Asserting a datetime value is a little tricky, since comparing two dates for equ
 
 Here's the final version of the `AddNewItem` test:
 
-##### `AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs`
+**`AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs`**
 
 ```csharp
 public class TodoItemServiceShould

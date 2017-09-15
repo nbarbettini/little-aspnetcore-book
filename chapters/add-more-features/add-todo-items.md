@@ -89,7 +89,7 @@ public async Task<IActionResult> AddItem(NewTodoItem newItem)
 
 The method signature defines a `NewTodoItem` parameter, which is a new model that doesn't exist yet. You'll need to create it:
 
-##### `Models/NewTodoItem.cs`
+**`Models/NewTodoItem.cs`**
 
 ```csharp
 using System;

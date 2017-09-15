@@ -63,7 +63,7 @@ The last line of the Dockerfile starts up your application with the `dotnet run`
 
 The full Dockerfile looks like this:
 
-##### `Dockerfile`
+**`Dockerfile`**
 
 ```dockerfile
 FROM microsoft/dotnet:latest
@@ -108,7 +108,7 @@ mkdir nginx
 
 Create a new Dockerfile and add these lines:
 
-##### `nginx/Dockerfile`
+**`nginx/Dockerfile`**
 
 ```dockerfile
 FROM nginx
@@ -117,7 +117,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 Next, create an `nginx.conf` file:
 
-##### `nginx/nginx.conf`
+**`nginx/nginx.conf`**
 
 ```
 events { worker_connections 1024; }
@@ -145,7 +145,7 @@ This configuration file tells Nginx to proxy incoming requests to `http://kestre
 
 There's one more file to create. Up in the web application root directory, create `docker-compose.yml`:
 
-##### `docker-compose.yml`
+**`docker-compose.yml`**
 
 ```yaml
 nginx:

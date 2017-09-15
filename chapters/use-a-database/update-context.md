@@ -2,7 +2,7 @@
 
 There's not a whole lot going on in the database context yet:
 
-##### `Data/ApplicationDbContext.cs`
+**`Data/ApplicationDbContext.cs`**
 
 ```csharp
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

@@ -4,7 +4,7 @@ Back in chapter 3, you created a `FakeTodoItemService` that contained hard-coded
 
 Delete the `FakeTodoItemService.cs` file, and create a new file:
 
-##### `Services/TodoItemService.cs`
+**`Services/TodoItemService.cs`**
 
 ```csharp
 using System;
