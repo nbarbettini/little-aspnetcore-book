@@ -2,7 +2,7 @@
 
 The user will add new to-do items with a simple form below the list:
 
-!TODO: screenshot of final pretty interface
+![Final form](final-form.png)
 
 Adding this feature requires a few steps:
 

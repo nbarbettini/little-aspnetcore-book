@@ -269,7 +269,7 @@ To include this partial in the main layout, edit `_Layout.cshtml` and add it in 
 
 When you log in with an administrator account, you'll now see a new item on the top right:
 
-!TODO: screenshot
+![Manage Users link](manage-users.png)
 
 ## Wrap up
 

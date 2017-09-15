@@ -4,11 +4,11 @@ One of the big advantages of using a mature stack like .NET is that the ecosyste
 NuGet is both the package manager tool and the official package repository (at https://www.nuget.org). You can search for NuGet packages on the web, and install them from your local machine through the terminal (or the GUI, if you're using Visual Studio).
 
 ## Install the Humanizer package
-At the end of chapter 3, the to-do application displayed this view:
+At the end of chapter 3, the to-do application displayed to-do items like this:
 
-!TODO: screenshot
+![Dates in ISO 8601 format](iso8601.png)
 
-The due date column is displaying dates in a format that's good for machines (called ISO 8601), but clunky for humans. Wouldn't it be nicer if it simply read "3 days from now"? You could write the logic that converted a date into a human-friendly string, but fortunately, there's a faster way.
+The due date column is displaying dates in a format that's good for machines (called ISO 8601), but clunky for humans. Wouldn't it be nicer if it simply read "X days from now"? You could write code that converted a date into a human-friendly string, but fortunately, there's a faster way.
 
 The Humanizer package on NuGet (https://www.nuget.org/packages/Humanizer) solves this problem by providing methods that can "humanize" or rewrite almost anything: dates, times, durations, numbers, and so on. It's a fantastic and useful open-source project that's published under the permissive MIT license.
 
@@ -35,7 +35,7 @@ Since Humanizer will be used to rewrite dates rendered in the view, you can use 
 // ...
 ```
 
-Then, replace the line that writes the `DueAt` property to a `<td>` cell and use Humanizer's `Humanize` method:
+Then, update the line that writes the `DueAt` property to use Humanizer's `Humanize` method:
 
 ```html
 <td>@item.DueAt.Humanize()</td>
@@ -43,7 +43,7 @@ Then, replace the line that writes the `DueAt` property to a `<td>` cell and use
 
 Now the dates are much more readable:
 
-!TODO: screenshot
+![Human-readable dates](friendly-dates.png)
 
 There are packages available on NuGet for everything from parsing XML to machine learning to posting to Twitter. ASP.NET Core itself, under the hood, is nothing more than a collection of NuGet packages that are added to your project.
 
