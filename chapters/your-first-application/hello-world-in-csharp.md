@@ -7,17 +7,11 @@ You can do this all from the command line. First, open up the Terminal (or Power
 cd Documents
 ```
 
-Then, create a new directory for the project:
+Use the `dotnet` command to create a new project:
 
 ```
-mkdir CsharpHelloWorld
+dotnet new console -o CsharpHelloWorld
 cd CsharpHelloWorld
-```
-
-Next, use `dotnet` to create a new project:
-
-```
-dotnet new console
 ```
 
 This creates a basic C# program that writes some text to the screen. The program is comprised of two files: a project file (with a `.csproj` extension) and a C# code file (with a `.cs` extension). If you open the former in a text or code editor, you'll see this:

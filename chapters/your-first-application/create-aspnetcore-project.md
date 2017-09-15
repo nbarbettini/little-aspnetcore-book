@@ -1,15 +1,15 @@
 ## Create an ASP.NET Core project
-If you're still in the directory you created for the Hello World sample, move up and create a new directory:
+If you're still in the directory you created for the Hello World sample, move back up to your Documents or home directory:
 
 ```
 cd ..
-mkdir AspNetCoreTodo
 ```
 
 Next, create a new project with `dotnet new`, this time with some extra options:
 
 ```
-dotnet new mvc --auth Individual
+dotnet new mvc --auth Individual -o AspNetCoreTodo
+cd AspNetCoreTodo
 ```
 
 This creates a new project from the `mvc` template, and adds some additional authentication and security bits to the project. (I'll cover security in a later chapter.)
