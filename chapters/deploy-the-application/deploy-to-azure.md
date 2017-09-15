@@ -64,7 +64,7 @@ The name of the app (`MyTodoApp` above) must be globally unique in Azure. Once t
 
 ### Update the application settings
 
-> Sidebar: This is only necessary if you configured Facebook login in chapter 7.
+> Sidebar: This is only necessary if you configured Facebook login in the *Security and identity* chapter.
 
 Your application won't start up properly if it's missing the `Facebook:AppId` and `Facebook:AppSecret` configuration values. You'll need to add these using the Azure web portal:
 

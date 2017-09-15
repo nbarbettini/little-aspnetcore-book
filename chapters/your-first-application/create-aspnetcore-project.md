@@ -12,7 +12,7 @@ dotnet new mvc --auth Individual -o AspNetCoreTodo
 cd AspNetCoreTodo
 ```
 
-This creates a new project from the `mvc` template, and adds some additional authentication and security bits to the project. (I'll cover security in a later chapter.)
+This creates a new project from the `mvc` template, and adds some additional authentication and security bits to the project. (I'll cover security in the *Security and identity* chapter.)
 
 You'll see quite a few files show up in the project directory. All you have to do right now is run the project:
 

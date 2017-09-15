@@ -4,7 +4,7 @@ One of the big advantages of using a mature stack like .NET is that the ecosyste
 NuGet is both the package manager tool and the official package repository (at https://www.nuget.org). You can search for NuGet packages on the web, and install them from your local machine through the terminal (or the GUI, if you're using Visual Studio).
 
 ## Install the Humanizer package
-At the end of chapter 3, the to-do application displayed to-do items like this:
+At the end of the last chapter, the to-do application displayed to-do items like this:
 
 ![Dates in ISO 8601 format](iso8601.png)
 

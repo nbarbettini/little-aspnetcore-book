@@ -5,7 +5,7 @@ You could write this database code directly in the controller, but it's a better
 
 > Separating your application logic into one layer that handles database access and another layer that handles presenting a view is sometimes called a layered, 3-tier, or n-tier architecture.
 
-.NET and C# include the concept of **interfaces**, where the definition of an object's methods and properties is separate from the class that actually contains the code for those methods and properties. Interfaces make it easy to keep your classes decoupled and easy to test, as you'll see here (and later in the chapter on testing).
+.NET and C# include the concept of **interfaces**, where the definition of an object's methods and properties is separate from the class that actually contains the code for those methods and properties. Interfaces make it easy to keep your classes decoupled and easy to test, as you'll see here (and later in the *Automated testing* chapter).
 
 First, create an interface that will represent the service that can interact with to-do items in the database. By convention, interfaces are prefixed with "I". Create a new file in the Services directory:
 
@@ -40,7 +40,7 @@ Since this is an interface, there isn't any actual code here, just the definitio
 
 The `Task` type is similar to a future or a promise, and it's used here because this method will be **asynchronous**. In other words, the method may not be able to return the list of to-do items right away because it needs to go talk to the database first. (More on this later.)
 
-Now that the interface is defined, you're ready to create the actual service class. I'll cover database code in depth in chapter 5, so for now you'll just fake it and return hard-coded values:
+Now that the interface is defined, you're ready to create the actual service class. I'll cover database code in depth in the *Use a database* chapter, but for now you'll just fake it and return hard-coded values:
 
 **`Services/FakeTodoItemService.cs`**
 
@@ -77,4 +77,4 @@ namespace AspNetCoreTodo.Services
 }
 ```
 
-This `FakeTodoItemService` implements the `ITodoItemService` interface but always returns the same array of two `TodoItem`s. You'll use this to test the controller and view, and then add real database code in chapter 5.
+This `FakeTodoItemService` implements the `ITodoItemService` interface but always returns the same array of two `TodoItem`s. You'll use this to test the controller and view, and then add real database code in *Use a database*.

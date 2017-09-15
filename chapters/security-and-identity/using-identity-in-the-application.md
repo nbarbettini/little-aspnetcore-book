@@ -94,7 +94,7 @@ dotnet ef migrations add AddItemOwnerId
 
 This creates a new migration called `AddItemOwner` which will add a new column to the `Items` table, mirroring the change you made to the `TodoItem` entity model.
 
-> Note: You'll need to manually tweak the migration file if you're using SQLite as your database. See the Create a migration section in the database chapter for more details.
+> Note: You'll need to manually tweak the migration file if you're using SQLite as your database. See the *Create a migration* section in the *Use a database* chapter for more details.
 
 Use `dotnet ef` again to apply it to the database:
 

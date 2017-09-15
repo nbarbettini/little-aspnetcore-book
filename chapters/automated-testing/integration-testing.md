@@ -108,7 +108,7 @@ namespace AspNetCoreTodo.IntegrationTests
 
 This class takes care of setting up a `TestServer`, and will help keep the tests themselves clean and tidy.
 
-> If you configured Facebook login in chapter 7, it's necessary to add fake values for the Facebook app ID and secret (in the `ConfigureAppConfiguration` block above). This is because the test server doesn't have access to the values in the Secrets Manager. Adding some fake values in this fixture class will prevent an error when the test server starts up.
+> If you configured Facebook login in the *Security and identity* chapter., it's necessary to add fake values for the Facebook app ID and secret (in the `ConfigureAppConfiguration` block above). This is because the test server doesn't have access to the values in the Secrets Manager. Adding some fake values in this fixture class will prevent an error when the test server starts up.
 
 Now you're (really) ready to write an integration test. Create a new class called `TodoRouteShould`:
 

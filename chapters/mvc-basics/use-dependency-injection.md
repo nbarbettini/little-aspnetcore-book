@@ -32,7 +32,7 @@ The first line of the class declares a private variable to hold a reference to t
 
 The `public TodoController(ITodoItemService todoItemService)` line defines a **constructor** for the class. The constructor runs only once when the class is first initialized, and you've now declared that the `TodoController` class will need to be given an `ITodoItemService` to be initialized properly.
 
-> Interfaces are awesome because they help decouple (separate) the logic of your application. Since the controller depends on the `ITodoItemService` interface, and not on any *specific* service class, it doesn't know or care which class it's actually given. It could be the `FakeTodoItemService`, one that talks to a live database, or something else! As long as it matches the interface, the controller doesn't care. This makes it really easy to test parts of your application separately. (I'll cover testing more in chapter 8.)
+> Interfaces are awesome because they help decouple (separate) the logic of your application. Since the controller depends on the `ITodoItemService` interface, and not on any *specific* service class, it doesn't know or care which class it's actually given. It could be the `FakeTodoItemService`, one that talks to a live database, or something else! As long as it matches the interface, the controller doesn't care. This makes it really easy to test parts of your application separately. (I'll cover testing more in the *Automated testing* chapter.)
 
 Now you can finally use the `ITodoItemService` in your action method to get to-do items from the service layer:
 
