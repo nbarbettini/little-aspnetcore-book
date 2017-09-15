@@ -11,31 +11,42 @@ The view rendered by the `Index` action of the `TodoController` needs to take th
 @model TodoViewModel;
 
 @{
-  ViewData["Title"] = "Manage your todo list";
+    ViewData["Title"] = "Manage your todo list";
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="panel panel-default todo-panel">
+  <div class="panel-heading">@ViewData["Title"]</div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <td>Done?</td>
-      <td>Item</td>
-      <td>Due</td>
-    </tr>
-  </thead>
-  
-  @foreach (var item in Model.Items)
-  {
-    <tr>
-      <td class="done-cell">
-        <input type="checkbox" name="@item.Id" value="true" class="done-checkbox">
-      </td>
-      <td>@item.Title</td>
-      <td>@item.DueAt</td>
-    </tr>
-  }
-</table>
+  <table class="table table-hover">
+      <thead>
+          <tr>
+              <td>&#x2714;</td>
+              <td>Item</td>
+              <td>Due</td>
+          </tr>
+      </thead>
+      
+      @foreach (var item in Model.Items)
+      {
+          <tr>
+              <td>
+                <input type="checkbox" name="@item.Id" value="true" class="done-checkbox">
+              </td>
+              <td>@item.Title</td>
+              <td>@item.DueAt</td>
+          </tr>
+      }
+  </table>
+
+  <div class="panel-footer add-item-form">
+    <form>
+        <div id="add-item-error" class="text-danger"></div>
+        <label for="add-item-title">Add a new item:</label>
+        <input id="add-item-title">
+        <button type="button" id="add-item-button">Add</button>
+    </form>
+  </div>
+</div>
 ```
 
 At the very top of the file, the `@model` directive tells Razor which model to expect this view to be bound to. The model is accessed through the `Model` property.
@@ -49,6 +60,21 @@ The default ASP.NET Core template includes Bootstrap and jQuery in this layout f
 
 ### Customizing the stylesheet
 
-!TODO: update layout to look nice
+For now, just add these CSS style rules to the bottom of the `site.css` file:
+
+**`wwwroot/css/site.css`**
+
+```css
+div.todo-panel {
+  margin-top: 15px;
+}
+
+table tr.done {
+  text-decoration: line-through;
+  color: #888;
+}
+```
+
+You can use CSS rules like these to completely customize how your pages look and feel.
 
 ASP.NET Core and Razor can do much more, such as partial views and server-rendered view components, but a simple layout and view is all you need for now. The official ASP.NET Core documentation (at `https://docs.asp.net`) contains a number of examples if you'd like to learn more.
