@@ -18,7 +18,6 @@ This is what the whole flow will look like:
 
 ### Add JavaScript code
 
-TODO
 First, open `site.js` and add this code to the `$(document).ready` block:
 
 **wwwroot/js/site.js**
