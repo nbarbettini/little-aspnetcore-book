@@ -91,7 +91,7 @@ using Xunit;
 
 namespace AspNetCoreTodo.UnitTests
 {
-    public class EfCoreTodoItemServiceShould
+    public class TodoItemServiceShould
     {
         [Fact]
         public async Task AddNewItem()
