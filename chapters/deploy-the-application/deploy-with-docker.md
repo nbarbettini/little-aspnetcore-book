@@ -98,12 +98,7 @@ The `-it` flag tells Docker to run the container in interactive mode. When you w
 
 At the beginning of this chapter, I mentioned that you should use a reverse proxy like Nginx to proxy requests to Kestrel. You can use Docker for this, too.
 
-The overall architecture will have two containers, with an Nginx container (1) listening on port 80, forwarding requests to Kestrel listening on port 5000 in your application container (2):
-
-!TODO: diagram
-0 - internet
-1 - nginx
-2 - kestrel
+The overall architecture will consist of two containers: an Nginx container listening on port 80, forwarding requests to a separate container running Kestrel and listening on port 5000.
 
 The Nginx container needs its own Dockerfile. To keep it from colliding with the Dockerfile you just created, make a new directory in the web application root:
 
