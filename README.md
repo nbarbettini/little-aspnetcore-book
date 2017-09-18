@@ -19,7 +19,7 @@ The code for the finished version of the application you'll build is available o
 The book itself is updated frequently with bug fixes and new content. If you're reading a PDF, e-book, or print version, check the official website (https://www.littleasp.net/book) to see if there's an updated version available. Check the very last page of the book for version information and a changelog.
 
 ## Who this book is for
-If you're new to programming, this book will introduce you to the patterns and concepts used to build modern web applications. You'll learn how to build a web app (and how the big pieces fit together) by building something from sctrach! While this little book won't be able to cover absolutely everything you need to know about programming, it'll give you a starting point so you can learn more advanced topics.
+If you're new to programming, this book will introduce you to the patterns and concepts used to build modern web applications. You'll learn how to build a web app (and how the big pieces fit together) by building something from scratch! While this little book won't be able to cover absolutely everything you need to know about programming, it'll give you a starting point so you can learn more advanced topics.
 
 If you already code in a backend language like Node, Python, Ruby, Go, or Java, you'll notice a lot of familiar ideas like MVC, view templates, and dependency injection. The code will be in C#, but it won't look too different from what you already know.
 
