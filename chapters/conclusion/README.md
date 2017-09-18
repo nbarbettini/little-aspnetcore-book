@@ -22,8 +22,8 @@ You can stay in touch with me on Twitter ([@nbarbettini](https://twitter.com/nba
 
 ## Special thanks
 
-To my wife, who puts up with my crazy ideas.
+To Jennifer, who always supports my crazy ideas.
 
 ## Changelog
 
-**1.0.0** (2017-08-29): Initial draft.
+**1.0.0** (2017-09-18): Initial release.
