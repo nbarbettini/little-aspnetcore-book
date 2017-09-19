@@ -11,7 +11,7 @@ dotnet ef migrations add AddItems
 This creates a new migration called `AddItems` by examining any changes you've made to the context.
 
 > If you get an error like:
-> `No executable found matching command "dotnet-ef"
+> `No executable found matching command "dotnet-ef"`
 > Make sure you're in the right directory. These commands must be run from the project root directory (where the `Program.cs` file is).
 
 If you open up the `Data/Migrations` directory, you'll see a few files:
