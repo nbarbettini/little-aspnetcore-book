@@ -31,4 +31,5 @@ To the following contributors who improved the Little ASP.NET Core Book:
 ## Changelog
 
 **1.0.1** (2017-09-23): Bug fixes and small improvements.
+
 **1.0.0** (2017-09-18): Initial release.
