@@ -15,10 +15,10 @@ The Humanizer package on NuGet (https://www.nuget.org/packages/Humanizer) solves
 To add it to your project, run this command in the terminal:
 
 ```
-dotnet add package Humanizer.Core
+dotnet add package Humanizer
 ```
 
-If you peek at the `AspNetCoreTodo.csproj` project file, you'll see a new `PackageReference` line that references `Humanizer.Core`.
+If you peek at the `AspNetCoreTodo.csproj` project file, you'll see a new `PackageReference` line that references `Humanizer`.
 
 ## Use Humanizer in the view
 
