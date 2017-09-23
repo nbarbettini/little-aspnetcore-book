@@ -17,6 +17,15 @@ public async Task<IActionResult> Index()
 }
 ```
 
+If you haven't already, make sure these `using` statements are at the top of the file:
+
+```csharp
+using AspNetCoreTodo.Services;
+using AspNetCoreTodo.Models;
+```
+
+If you're using Visual Studio or Visual Studio Code, the editor will suggest these `using` statements when you put your cursor on a red squiggly line.
+
 ## Test it out
 To start the application, press F5 (if you're using Visual Studio or Visual Studio Code), or just run `dotnet run` in the terminal. If the code compiles without errors, the server will spin up on port 5000 by default.
 
