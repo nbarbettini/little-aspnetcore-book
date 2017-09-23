@@ -6,29 +6,13 @@ The user will add new to-do items with a simple form below the list:
 
 Adding this feature requires a few steps:
 
-* Modifying the view to add the HTML form elements
 * Adding JavaScript that will send the data to the server
 * Creating a new action on the controller to handle this request
 * Adding code to the service layer to update the database
 
-### Add a form to the view
-
-First, add some HTML to the bottom of `Views/Todo/Index.cshtml`:
-
-```html
-<div class="add-item-form">
-    <form>
-        <div id="add-item-error" class="text-danger"></div>
-        <label for="add-item-title">Add a new item:</label>
-        <input id="add-item-title">
-        <button type="button" id="add-item-button">Add</button>
-    </form>
-</div>
-```
-
-You'll use jQuery to send a POST request to the server when the Add button is clicked.
-
 ### Add JavaScript code
+
+The `Todo/Index.cshtml` view already includes an HTML form that has a textbox and a button for adding a new item. You'll use jQuery to send a POST request to the server when the Add button is clicked.
 
 Open the `wwwroot/site.js` file and add this code:
 
