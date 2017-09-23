@@ -149,7 +149,7 @@ Finally, if everything completed without errors, the action returns `200 OK`.
 
 ### Add a service method
 
-If you're using a code editor that understands C#, you'll see red squiggely lines under `AddItemAsync` because the method doesn't exist yet. As a last step, you need to add the `AddItem` method to the service layer.
+If you're using a code editor that understands C#, you'll see red squiggely lines under `AddItemAsync` because the method doesn't exist yet. As a last step, you need to add method to the service layer.
 
 First, add it to the interface definition in `ITodoItemService`:
 
@@ -158,14 +158,14 @@ public interface ITodoItemService
 {
     Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync();
 
-    Task<bool> AddItem(NewTodoItem newItem);
+    Task<bool> AddItemAsync(NewTodoItem newItem);
 }
 ```
 
 Then, the actual implementation in `TodoItemService`:
 
 ```csharp
-public async Task<bool> AddItem(NewTodoItem newItem)
+public async Task<bool> AddItemAsync(NewTodoItem newItem)
 {
     var entity = new TodoItem
     {
