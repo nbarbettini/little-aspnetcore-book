@@ -188,6 +188,6 @@ This method creates a new `TodoItem` (the model that represents the database ent
 
 ### Try it out
 
-Run the application and add some items to your to-do list with the form. Since the items are being stored in the database, they still be there even after you stop and start the application again.
+Run the application and add some items to your to-do list with the form. Since the items are being stored in the database, they'll still be there even after you stop and start the application again.
 
 > As a further challenge, try adding a date picker using HTML and JavaScript, and let the user choose an (optional) date for the `DueAt` property. Then, use that date instead of always making new tasks that are due in 3 days.
