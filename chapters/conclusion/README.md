@@ -24,6 +24,11 @@ You can stay in touch with me on Twitter ([@nbarbettini](https://twitter.com/nba
 
 To Jennifer, who always supports my crazy ideas.
 
+To the following contributors who improved the Little ASP.NET Core Book:
+
+* 0xNF
+
 ## Changelog
 
+**1.0.1** (2017-09-23): Bug fixes and small improvements.
 **1.0.0** (2017-09-18): Initial release.
