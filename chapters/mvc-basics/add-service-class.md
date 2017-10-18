@@ -34,9 +34,9 @@ Because this file (in the `AspNetCoreTodo.Services` namespace) references the `T
 The type or namespace name 'TodoItem' could not be found (are you missing a using directive or an assembly reference?)
 ```
 
-Since this is an interface, there isn't any actual code here, just the definition of the `GetIncompleteItemsAsync` method. This method returns a `Task<IEnumerable<TodoItem>>`, instead of just an `IEnumerable<TodoItem>`.
+Since this is an interface, there isn't any actual code here, just the definition (or **method signature**) of the `GetIncompleteItemsAsync` method. This method requires no parameters and returns a `Task<IEnumerable<TodoItem>>`.
 
-> If this syntax looks confusing, think, "a Task that contains a list that contains TodoItems".
+> If this syntax looks confusing, think: "a Task that contains a list of TodoItems".
 
 The `Task` type is similar to a future or a promise, and it's used here because this method will be **asynchronous**. In other words, the method may not be able to return the list of to-do items right away because it needs to go talk to the database first. (More on this later.)
 
