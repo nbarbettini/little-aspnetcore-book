@@ -28,7 +28,13 @@ To the following contributors who improved the Little ASP.NET Core Book:
 
 * 0xNF
 
+To these amazing polyglot programmers who translated the Little ASP.NET Core Book:
+
+* sahinyanlik (Turkish translation)
+
 ## Changelog
+
+**1.0.2** (2017-10-20): More bug fixes and small improvements. Added link to translations.
 
 **1.0.1** (2017-09-23): Bug fixes and small improvements.
 
