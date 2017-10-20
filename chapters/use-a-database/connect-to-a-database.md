@@ -19,4 +19,4 @@ services.AddDbContext<ApplicationDbContext>(options =>
 
 这些代码放在`ApplicationDbContext`添加到服务容器里,并告诉Entity Framework Core从文件(`appsettings.json`)获取配置，和使用SQLite数据库.
 
-你可以看到,`dotnet new`创建了很多东西给你! 数据库已经配置完成并准备使用. 然而,还没有实体类. 为了保存`TodoItem`实体,你需要更新上下文并迁移数据库.
+你可以看到,`dotnet new`创建了很多东西给你! 数据库已经配置完成并准备使用. 然而,还没有实体类. 为了保存`TodoItem`实体,你需要更新上下文并更新数据库.

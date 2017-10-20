@@ -1,14 +1,14 @@
-## 创建一个迁移(migration)
+## 创建一个变更(migration)
 
-迁移库随时记录表结构的变化,有可能撤销(回滚)一组更改,或者创建与初始时相同表结构的数据库.随着迁移, 你有一个完整的添加或删除字段、表的历史记录.
+变更库随时记录表结构的变化,有可能撤销(回滚)一组更改,或者创建与初始时相同表结构的数据库.随着变更, 你有一个完整的添加或删除字段、表的历史记录.
 
-由于现在上下文和数据库不同步, 你要创建一个迁移来更新数据库并且在你定义的上下文中添加`Items`.
+由于现在上下文和数据库不同步, 你要创建一个变更来更新数据库并且在你定义的上下文中添加`Items`.
 
 ```
 dotnet ef migrations add AddItems
 ```
 
-这将根据检查上下文的任何变化创建一个叫`AddItems`的新的迁移.
+这将根据检查上下文的任何变化创建一个叫`AddItems`的新的变更.
 
 > 如果你得到一个错误:
 > `No executable found matching command "dotnet-ef"`
@@ -18,11 +18,11 @@ dotnet ef migrations add AddItems
 
 ![Multiple migrations](migrations.png)
 
-第一个迁移文件(`00_CreateIdentitySchema.cs`) 是为你创建的, 并且通过 `dotnet new`已经应用到数据库中. 当你创建 `AddItem` 迁移时是带时间戳的.
+第一个变更文件(`00_CreateIdentitySchema.cs`) 是为你创建的, 并且通过 `dotnet new`已经应用到数据库中. 当你创建 `AddItem` 变更时是带时间戳的.
 
-> 提示:你可以用 `dotnet ef migrations list`看到一个迁移列表.
+> 提示:你可以用 `dotnet ef migrations list`看到一个变更列表.
 
-如果你打开一个迁移文件, 你将看见两个叫`Up` and `Down`的方法:
+如果你打开一个变更文件, 你将看见两个叫`Up` and `Down`的方法:
 
 **`Data/Migrations/<date>_AddItems.cs`**
 
@@ -59,9 +59,9 @@ protected override void Down(MigrationBuilder migrationBuilder)
 }
 ```
 
-The `Up` method runs when you apply the migration to the database. Since you added a `DbSet<TodoItem>` to the database context, Entity Framework Core will create an `Items` table (with columns that match a `TodoItem`) when you apply the migration.
+将变更应用到数据库时将运行`Up`方法.自你添加`DbSet<TodoItem>`到数据库上下文中, 当你应用变更时Entity Framework Core 将会创建一个`Items` 表 (列匹配`TodoItem`).
 
-The `Down` method does the opposite: if you need to undo (roll back) the migration, the `Items` table will be dropped.
+ `Down` 方法正好相反: 当你需要撤销(回滚)变更时, `Items` 表将会被删除.
 
 ### Workaround for SQLite limitations
 
