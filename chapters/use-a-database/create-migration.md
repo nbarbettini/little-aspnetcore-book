@@ -1,8 +1,8 @@
 ## Create a migration
 
-Migrations keep track of changes to the database structure over time, and make it possible to undo (roll back) a set of changes, or create a second database with the same structure as the first. With migrations, you have a full history of modifications like adding or removing columns (and entire tables).
+Migrations keep track of changes to the database structure over time. They make it possible to undo (roll back) a set of changes, or create a second database with the same structure as the first. With migrations, you have a full history of modifications like adding or removing columns (and entire tables).
 
-Since the context and the database are now out of sync, you'll create a migration to update the database and add the `Items` table you defined in the context.
+In the previous chapter, you added an `Items` set to the context. Since the context now includes a set (or table) that doesn't exist in the database, you need to create a migration to update the database:
 
 ```
 dotnet ef migrations add AddItems
@@ -10,17 +10,15 @@ dotnet ef migrations add AddItems
 
 This creates a new migration called `AddItems` by examining any changes you've made to the context.
 
-> If you get an error like:
-> `No executable found matching command "dotnet-ef"`
-> Make sure you're in the right directory. These commands must be run from the project root directory (where the `Program.cs` file is).
+> If you get an error like `No executable found matching command "dotnet-ef"`, make sure you're in the right directory. These commands must be run from the project root directory (where the `Program.cs` file is).
 
 If you open up the `Data/Migrations` directory, you'll see a few files:
 
 ![Multiple migrations](migrations.png)
 
-The first migration file (with a name like `00_CreateIdentitySchema.cs`) was created for you, and already applied to the database, by `dotnet new`. Your `AddItem` migration is prefixed with a timestamp when you create it.
+The first migration file (with a name like `00_CreateIdentitySchema.cs`) was created and applied for you way back when you ran `dotnet new`. Your new `AddItem` migration is prefixed with a timestamp when you create it.
 
-> Tip: You can see a list of migrations with `dotnet ef migrations list.
+> You can see a list of migrations with `dotnet ef migrations list`.
 
 If you open your migration file, you'll see two methods called `Up` and `Down`:
 
