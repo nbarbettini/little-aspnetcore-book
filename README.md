@@ -20,9 +20,9 @@ The book itself is updated frequently with bug fixes and new content. If you're 
 
 ### Reading in your own language
 
-Thanks to some fantastic multilingual folks, the Little ASP.NET Core book has been translated into other languages:
+Thanks to some fantastic multilingual folks, the Little ASP.NET Core Book has been translated into other languages:
 
-* **ASP.NET Core El Kitabı (Turkish)**
+* **ASP.NET Core El Kitabı** (Turkish)
 
   https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
 
