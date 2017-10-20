@@ -16,7 +16,16 @@ Don't worry, you don't need to know anything about ASP.NET Core (or any of the a
 
 The code for the finished version of the application you'll build is available on GitHub (https://www.github.com/nbarbettini/little-aspnetcore-todo). Feel free to download it if you want to compare as you write your own code.
 
-The book itself is updated frequently with bug fixes and new content. If you're reading a PDF, e-book, or print version, check the official website ([littleasp.net/book](http://www.littleasp.net/book)) to see if there's an updated version available. Check the very last page of the book for version information and a changelog.
+The book itself is updated frequently with bug fixes and new content. If you're reading a PDF, e-book, or print version, check the official website ([littleasp.net/book](http://www.littleasp.net/book)) to see if there's an updated version available. The very last page of the book contains version information and a changelog.
+
+### Reading in your own language
+
+Thanks to some fantastic multilingual folks, the Little ASP.NET Core book has been translated into other languages:
+
+* **ASP.NET Core El Kitabı (Turkish)**
+
+  https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
+
 
 ## Who this book is for
 If you're new to programming, this book will introduce you to the patterns and concepts used to build modern web applications. You'll learn how to build a web app (and how the big pieces fit together) by building something from scratch! While this little book won't be able to cover absolutely everything you need to know about programming, it'll give you a starting point so you can learn more advanced topics.
