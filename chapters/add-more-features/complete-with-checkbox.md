@@ -48,7 +48,7 @@ function markCompleted(checkbox) {
 }
 ```
 
-This code uses jQuery to send an HTTP POST request to `http://localhost:5000/Todo/MarkDone`. Included in the request will be one paramter, `id`, containing the item's ID (pulled from the `name` attribute).
+This code uses jQuery to send an HTTP POST request to `http://localhost:5000/Todo/MarkDone`. Included in the request will be one parameter, `id`, containing the item's ID (pulled from the `name` attribute).
 
 If you open the Network Tools in your web browser and click on a checkbox, you'll see a request like:
 

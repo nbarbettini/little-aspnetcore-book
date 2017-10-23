@@ -14,7 +14,7 @@ Adding this feature requires a few steps:
 
 The `Todo/Index.cshtml` view already includes an HTML form that has a textbox and a button for adding a new item. You'll use jQuery to send a POST request to the server when the Add button is clicked.
 
-Open the `wwwroot/site.js` file and add this code:
+Open the `wwwroot/js/site.js` file and add this code:
 
 ```javascript
 $(document).ready(function() {
@@ -133,9 +133,9 @@ Finally, if everything completed without errors, the action returns `200 OK`.
 
 ### Add a service method
 
-If you're using a code editor that understands C#, you'll see red squiggely lines under `AddItemAsync` because the method doesn't exist yet. As a last step, you need to add method to the service layer.
+If you're using a code editor that understands C#, you'll see red squiggely lines under `AddItemAsync` because the method doesn't exist yet.
 
-First, add it to the interface definition in `ITodoItemService`:
+As a last step, you need to add a method to the service layer. First, add it to the interface definition in `ITodoItemService`:
 
 ```csharp
 public interface ITodoItemService
