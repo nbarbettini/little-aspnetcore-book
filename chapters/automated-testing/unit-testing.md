@@ -41,6 +41,12 @@ Since the test project will use the classes defined in your main project, you'll
 dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 ```
 
+This test project will also make use of the Microsoft EntityFrameworkCore package, so be sure to add that as well:
+
+```
+dotnet add package Microsoft.EntityFrameworkCore
+```
+
 Delete the `UnitTest1.cs` file that's automatically created. You're ready to write your first test.
 
 ### Write a service test
