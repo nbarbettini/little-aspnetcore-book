@@ -35,9 +35,9 @@ namespace AspNetCoreTodo.Services
 The type or namespace name 'TodoItem' could not be found (are you missing a using directive or an assembly reference?)
 ```
 
-因为这是一个接口，所以不包含任何实现相关的代码，只有 `GetIncompleteItemsAsync` 方法的定义。该方法返回一个 `Task<IEnumerable<TodoItem>>`，而不不是`IEnumerable<TodoItem>`。
+因为这是一个接口，所以不包含任何实现相关的代码，只有 `GetIncompleteItemsAsync` 方法的定义（或者叫 **方法签名(method signature)**）。该方法不需要任何参数，并且返回一个 `Task<IEnumerable<TodoItem>>`。
 
-> 如果对这种语法看上去感到困惑，就这么理解，“一个 Task 装着一个列表，列表里装着 TodoItem”。
+> 如果对这种语法看上去感到困惑，就这么理解：“一个 Task 里面装着一个 TodoItem 的列表”。
 
 `Task` 类型类似于一个 future 或者 promise[^1]，这里使用它，是因为这将是个 **异步的(asynchronous)** 方法。换句话说，这个方法可能不会即时返回待办事项的列表，因为它需要先查询数据库。（详情见后续章节。）
 

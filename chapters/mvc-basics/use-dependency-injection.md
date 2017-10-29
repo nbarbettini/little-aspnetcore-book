@@ -80,7 +80,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-在`Configureservices`中的任意位置添一行代码，让 ASP.NET Core 使用 `FakeTodoItemService` 作为 `ITodoItemService` 接口的实现：
+在`ConfigureServices`中的任意位置添一行代码，让 ASP.NET Core 使用 `FakeTodoItemService` 作为 `ITodoItemService` 接口的实现：
 
 ```csharp
 services.AddScoped<ITodoItemService, FakeTodoItemService>();
