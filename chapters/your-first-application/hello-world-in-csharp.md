@@ -94,7 +94,7 @@ This creates a basic C# program that writes some text to the screen. The program
 </Project>
 ```
 
-The project file is XML-based and defines some metadata about the project. Later, when you reference other packages, those will be listed here (similar to a `project.json` file for npm). You won't have to edit this file by hand often.
+The project file is XML-based and defines some metadata about the project. Later, when you reference other packages, those will be listed here (similar to a `package.json` file for npm). You won't have to edit this file by hand often.
 
 **`Program.cs`**
 

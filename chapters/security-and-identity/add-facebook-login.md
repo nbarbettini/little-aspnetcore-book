@@ -13,7 +13,7 @@ You can create new Facebook apps using the Facebook Developer console at https:/
 
 > Sidebar: If you don't have a Facebook account, you can set up Google or Twitter login instead. The steps on the provider's site will be different, but the code is almost identical.
 
-Next, set up Facebook Login and then click Settings on the left side:
+Next, set up Facebook Login and then click Settings on the left side, under Facebook Login:
 
 ![Settings button](facebook-login-settings.png)
 

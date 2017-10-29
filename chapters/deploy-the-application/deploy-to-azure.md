@@ -46,6 +46,8 @@ and follow the prompts to log in on your machine. Then, create a new Resource Gr
 az group create -l westus -n AspNetCoreTodoGroup
 ```
 
+This creates a Resource Group in the West US region. If you're located far away from the western US, use `az account list-locations` to get a list of locations and find one closer to you.
+
 Next, create an App Service plan in the group you just created:
 
 ```
