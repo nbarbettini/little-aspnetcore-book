@@ -9,7 +9,7 @@
     * [创建模型](chapters/mvc-basics/create-models.md)
     * [创建视图](chapters/mvc-basics/create-view.md)
     * [添加一个服务类](chapters/mvc-basics/add-service-class.md)
-    * [Use dependency injection](chapters/mvc-basics/use-dependency-injection.md)
+    * [运用依赖注入](chapters/mvc-basics/use-dependency-injection.md)
     * [Finish the controller](chapters/mvc-basics/finish-controller.md)
 * [Add external packages](chapters/add-external-packages/README.md)
 * [Use a database](chapters/use-a-database/README.md)
