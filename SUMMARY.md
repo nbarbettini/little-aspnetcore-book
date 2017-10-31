@@ -12,7 +12,7 @@
     * [运用依赖注入](chapters/mvc-basics/use-dependency-injection.md)
     * [完成控制器](chapters/mvc-basics/finish-controller.md)
 * [添加外来软件包](chapters/add-external-packages/README.md)
-* [Use a database](chapters/use-a-database/README.md)
+* [运用数据库](chapters/use-a-database/README.md)
     * [Connect to a database](chapters/use-a-database/connect-to-a-database.md)
     * [Update the context](chapters/use-a-database/update-context.md)
     * [Create a migration](chapters/use-a-database/create-migration.md)
