@@ -17,7 +17,7 @@
     * [Update the context](chapters/use-a-database/update-context.md)
     * [Create a migration](chapters/use-a-database/create-migration.md)
     * [Create a new service class](chapters/use-a-database/create-service-class.md)
-* [Add more features](chapters/add-more-features/README.md)
+* [添加新特性](chapters/add-more-features/README.md)
     * [Add new to-do items](chapters/add-more-features/add-todo-items.md)
     * [Complete items with a checkbox](chapters/add-more-features/complete-with-checkbox.md)
 * [Security and identity](chapters/security-and-identity/README.md)
