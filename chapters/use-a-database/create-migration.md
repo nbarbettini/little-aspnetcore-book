@@ -1,8 +1,8 @@
 ## 创建一个迁移
 
-迁移随时记录表结构的变化,有可能撤销(回滚)一组更改,或者创建与初始时相同表结构的数据库.随着迁移, 你有一个完整的添加或删除字段、表的历史记录。
+迁移随时记录表结构的变化，有可能撤销(回滚)一组更改，或者创建与初始时相同表结构的数据库.随着迁移，你有一个完整的添加或删除字段、表的历史记录。
 
-由于现在上下文和数据库不同步, 你要创建一个迁移来更新数据库并且在你定义的上下文中添加`Items`。
+由于现在上下文和数据库不同步，你要创建一个迁移来更新数据库并且在你定义的上下文中添加`Items`。
 
 ```
 dotnet ef migrations add AddItems
@@ -14,15 +14,15 @@ dotnet ef migrations add AddItems
 > `No executable found matching command "dotnet-ef"`
 > 请确认在正确的目录下执行。 这些命令必须在项目的根目录下执行(`Program.cs`所在目录)。
 
-如果你打开`Data/Migrations` 目录,你将会看到:
+如果你打开`Data/Migrations` 目录，你将会看到:
 
 ![Multiple migrations](migrations.png)
 
-第一个迁移文件(`00_CreateIdentitySchema.cs`) 是为你创建的, 并且通过 `dotnet new`已经应用到数据库中。 当你创建 `AddItem` 迁移时是带时间戳的。
+第一个迁移文件(`00_CreateIdentitySchema.cs`) 是为你创建的，并且通过 `dotnet new`已经应用到数据库中。 当你创建 `AddItem` 迁移时是带时间戳的。
 
 > 提示:你可以用 `dotnet ef migrations list`看到一个迁移列表。
 
-如果你打开一个迁移文件, 你将看见两个叫`Up` and `Down`的方法:
+如果你打开一个迁移文件，你将看见两个叫`Up` and `Down`的方法:
 
 **`Data/Migrations/<date>_AddItems.cs`**
 
@@ -59,9 +59,9 @@ protected override void Down(MigrationBuilder migrationBuilder)
 }
 ```
 
-将迁移应用到数据库时将运行`Up`方法。自你添加`DbSet<TodoItem>`到数据库上下文中, 当你应用迁移时Entity Framework Core 将会创建一个`Items` 表 (列匹配`TodoItem`)。
+将迁移应用到数据库时将运行`Up`方法。自你添加`DbSet<TodoItem>`到数据库上下文中，当你应用迁移时Entity Framework Core 将会创建一个`Items` 表 (列匹配`TodoItem`)。
 
- `Down` 方法正好相反: 当你需要撤销(回滚)迁移时, `Items` 表将会被删除。
+ `Down` 方法正好相反: 当你需要撤销(回滚)迁移时，`Items` 表将会被删除。
 
 ### SQLite局限性的解决办法
 
@@ -70,7 +70,7 @@ protected override void Down(MigrationBuilder migrationBuilder)
 * 在 `Up` 方法里注释　`migrationBuilder.AddForeignKey` 一行。
 * 在　`Down`方法里注释 `migrationBuilder.DropForeignKey` 一行。
 
-如果你使用完整的数据库,如 SQL Server 或者 MySQL, 就不存在这个问题。
+如果你使用完整的数据库，如 SQL Server 或者 MySQL，就不存在这个问题。
 
 ### 应用迁移
 
@@ -82,13 +82,13 @@ dotnet ef database update
 
 Entity Framework Core用这条命令在数据库中创建 `Items` 表。
 
-> 如果你想回滚数据库, 你可以提供 *以前* 迁移的名称:
+> 如果你想回滚数据库，你可以提供 *以前* 迁移的名称:
 > `dotnet ef database update CreateIdentitySchema`
 > 这将运行任何比你指定的迁移更新的 `Down` 方法。
 
-> 如果你需要完整的抹去数据库并重新开始, 运行 `dotnet ef database drop` 然后运行 `dotnet ef database update` ，新建数据库框架并推到当前迁移。
+> 如果你需要完整的抹去数据库并重新开始，运行 `dotnet ef database drop` 然后运行 `dotnet ef database update` ，新建数据库框架并推到当前迁移。
 
-就这样! 数据库和上下文都准备好了。 下一步, 你将在服务层使用上下文。
+就这样! 数据库和上下文都准备好了。 下一步，你将在服务层使用上下文。
 
 ## --------以下原文-----
 
