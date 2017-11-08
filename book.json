@@ -4,5 +4,6 @@
     "author": "Nate Barbettini",
     "pdf": {
         "paperSize": "a5"
-    }
+    },
+    "plugins": ["expandable-chapters-small"]
 }
