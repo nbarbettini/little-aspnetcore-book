@@ -13,8 +13,8 @@
 Entity Framework Core 用数据库上下文、连接字符串建立数据连接。 你需要在`Startup`类的`ConfigureServices`方法中告诉Entity Framework Core哪个上下文，连接字符串和数据库类型。 例:
 
 ```csharp
-services。AddDbContext<ApplicationDbContext>(options =>
-    options。UseSqlite(Configuration。GetConnectionString("DefaultConnection")));
+service.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 ```
 
 这些代码放在`ApplicationDbContext`添加到服务容器里，并告诉Entity Framework Core从文件(`appsettings.json`)获取配置，和使用SQLite数据库。
