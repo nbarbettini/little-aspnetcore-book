@@ -52,7 +52,7 @@ Then, the `Where` method is used to filter only the items that are not complete:
 .Where(x => x.IsDone == false)
 ```
 
-The `Where` method is a feature of C# called LINQ (language integrated query), which takes cues from functional programming and makes it easy to express database queries in code. Under the hood, Entity Framework Core translates the method into a statement like `SELECT * FROM Items WHERE IsDone = 0`, or an equivalent query document in a NoSQL database.
+The `Where` method is a feature of C# called LINQ (**l**anguage **in**tegrated **q**uery), which takes cues from functional programming and makes it easy to express database queries in code. Under the hood, Entity Framework Core translates the method into a statement like `SELECT * FROM Items WHERE IsDone = 0`, or an equivalent query document in a NoSQL database.
 
 Finally, the `ToArrayAsync` method tells Entity Framework Core to get all the entities that matched the filter and return them as an array. The `ToArrayAsync` method is asynchronous (it returns a `Task`), so it must be `await`ed to get its value.
 
@@ -74,6 +74,10 @@ Because you deleted the `FakeTodoItemService` class, you'll need to update the l
 ```csharp
 services.AddScoped<ITodoItemService, TodoItemService>();
 ```
+
+`AddScoped` adds your service to the service container using the **scoped** lifecycle. This means that a new instance of the `TodoItemService` class will be created during each web request. This is required for service classes that interact with a database.
+
+> Adding a service class that interacts with Entity Framework Core (and your database) with the singleton lifecycle (or other lifecycles) can cause problems, because of how Entity Framework Core manages database connections per request under the hood. To avoid that, always use the scoped lifecycle for services that interact with Entity Framework Core.
 
 The `TodoController` that depends on `ITodoItemService` will be blissfully unaware of the change, but under the hood you'll be using Entity Framework Core and talking to a real database!
 
