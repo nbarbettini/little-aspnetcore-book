@@ -22,7 +22,7 @@ namespace AspNetCoreTodo.Controllers
 }
 ```
 
-Routes that are handled by controllers are called **actions**, and are represented by methods (functions) in the controller class. For example, the `HomeController` includes three action methods (`Index`, `About`, and `Contact`) which are mapped by ASP.NET Core to these route URLs:
+Routes that are handled by controllers are called **actions**, and are represented by methods in the controller class. For example, the `HomeController` includes three action methods (`Index`, `About`, and `Contact`) which are mapped by ASP.NET Core to these route URLs:
 
 ```
 localhost:5000/Home         -> Index()
