@@ -20,7 +20,7 @@
 * [添加新特性](chapters/add-more-features/README.md)
     * [Add new to-do items](chapters/add-more-features/add-todo-items.md)
     * [Complete items with a checkbox](chapters/add-more-features/complete-with-checkbox.md)
-* [Security and identity](chapters/security-and-identity/README.md)
+* [安全和身份](chapters/security-and-identity/README.md)
     * [Add Facebook login](chapters/security-and-identity/add-facebook-login.md)
     * [Require authentication](chapters/security-and-identity/require-authentication.md)
     * [Using identity in the application](chapters/security-and-identity/using-identity-in-the-application.md)

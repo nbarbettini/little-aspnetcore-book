@@ -31,7 +31,6 @@ namespace AspNetCoreTodo.Services
             var items = await _context.Items
                 .Where(x => x.IsDone == false)
                 .ToArrayAsync();
-
             return items;
         }
     }
@@ -41,17 +40,13 @@ namespace AspNetCoreTodo.Services
 你会发现同样的依赖注入部分在MVC基础章节也有, 除了这一次 `ApplicationDbContext` 被注入到服务。`ApplicationDbContext` 在`ConfigureServices`方法里已经被添加到服务容器里, 所以在这里可以直接用。
 
 让我们仔细看 `GetIncompleteItemsAsync` 方法的代码。首先, 用上下文中 `Items` 的属性获取 `DbSet` 中所有的待办项:
-
 ```csharp
 var items = await _context.Items
 ```
-
 然后, `Where` 用于过滤不完整的项:
-
 ```csharp
 .Where(x => x.IsDone == false)
 ```
-
 `Where`方法是C#里的一个特性，叫Linq，一种带提示的编程功能并使的在代码里查询数据库变的简单。在这引擎下，Entity Framework Core 把这个方法翻译成 `SELECT * FROM Items WHERE IsDone = 0`，或NoSQL数据库中等效的查询文本。
 
 最后，`ToArrayAsync` 方法告诉 Entity Framework Core 取出所有过滤后的数据并返回一个数组。 `ToArrayAsync` 是异步的 (像 `Task`)，所以必须使用`await`等结束后获取值。
@@ -70,11 +65,9 @@ public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
 ### 更新服务容器
 
 由于你删除了 `FakeTodoItemService` 类，你需要更新 `ConfigureServices`行，这是配置`ITodoItemService` 接口:
-
 ```csharp
 services.AddScoped<ITodoItemService, TodoItemService>();
 ```
-
 `TodoController`依赖于`ITodoItemService`将会变化，但在头上你要要使用Entity Framework Core 并告诉它真实的数据库！
 
 ### 测试
