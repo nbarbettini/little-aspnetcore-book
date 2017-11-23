@@ -25,7 +25,7 @@
     * [Require authentication](chapters/security-and-identity/require-authentication.md)
     * [Using identity in the application](chapters/security-and-identity/using-identity-in-the-application.md)
     * [Authorization with roles](chapters/security-and-identity/authorization-with-roles.md)
-* [Automated testing](chapters/automated-testing/README.md)
+* [自动化测试](chapters/automated-testing/README.md)
     * [Unit testing](chapters/automated-testing/unit-testing.md)
     * [Integration testing](chapters/automated-testing/integration-testing.md)
 * [Deploy the application](chapters/deploy-the-application/README.md)
