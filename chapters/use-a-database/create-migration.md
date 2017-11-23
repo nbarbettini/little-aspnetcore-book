@@ -67,8 +67,8 @@ protected override void Down(MigrationBuilder migrationBuilder)
 
 使用SQLite时，如果你用迁移的方法会有一些局限性。在使用这个方法以前一直存在:
 
-* 在 `Up` 方法里注释　`migrationBuilder.AddForeignKey` 一行。
-* 在　`Down`方法里注释 `migrationBuilder.DropForeignKey` 一行。
+* 在 `Up`方法里注释 `migrationBuilder.AddForeignKey` 一行。
+* 在 `Down`方法里注释 `migrationBuilder.DropForeignKey` 一行。
 
 如果你使用完整的数据库，如 SQL Server 或者 MySQL，就不存在这个问题。
 
@@ -82,11 +82,11 @@ dotnet ef database update
 
 Entity Framework Core用这条命令在数据库中创建 `Items` 表。
 
-> 如果你想回滚数据库，你可以提供 *以前* 迁移的名称:
+> 如果你想回滚数据库，你可以提供*以前*迁移的名称：
 > `dotnet ef database update CreateIdentitySchema`
 > 这将运行任何比你指定的迁移更新的 `Down` 方法。
 
-> 如果你需要完整的抹去数据库并重新开始，运行 `dotnet ef database drop` 然后运行 `dotnet ef database update` ，新建数据库框架并推到当前迁移。
+> 如果你需要完整的抹去数据库并重新开始，运行 `dotnet ef database drop` 然后运行 `dotnet ef database update`，新建数据库框架并推到当前迁移。
 
 就这样! 数据库和上下文都准备好了。 下一步，你将在服务层使用上下文。
 
