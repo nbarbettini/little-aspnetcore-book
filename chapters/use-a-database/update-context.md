@@ -37,13 +37,13 @@ public DbSet<TodoItem> Items { get; set; }
 
 `DbSet`代表数据库表或者集合。创建一个 `DbSet<TodoItem>` 属性叫 `Items`，告诉Entity Framework Core 你需要存储 `TodoItem` 表实体并叫`Items`。
 
-这就是上下文更新所有需要的内容，但是有个小问题: 现在上下文和数据库不同步，因为数据库实际上并不存在 `Items` 表。 (仅更新上下文中的代码并不会改变数据库本身。)
+你现在完成了对上下文类的更新，但是有个小问题: 现在上下文和数据库变得不再同步了，因为数据库里实际上并不存在 `Items` 这个表。 (仅更新上下文中的代码并不会改变数据库本身。)
 
 为了把在上下文中的改动映射到数据库，你需要创建一个 **migration**。
 
+> 如果你已经有一个现存的数据库，请在网络上搜索“scaffold-dbcontext existing database”相关的内容，并阅读微软关于使用 `Scaffold-DbContext` 工具的文档，以此对你的数据库进行逆向工程，自动地为数据库结构生成相应的 `DbContext` 和模型类。
 
-## --------以下原文-----
-
+---
 
 ## Update the context
 

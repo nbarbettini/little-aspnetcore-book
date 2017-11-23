@@ -22,7 +22,7 @@ namespace AspNetCoreTodo.Controllers
 }
 ```
 
-由控制器本身处理的路由叫**action**，由控制器类里的方法（函数）表示。比如，`HomeController` 包含三个 action 方法（`Index`，`About`，和 `Contact`），由 ASP.NET Core 分别映射到如下的 URL：
+由控制器本身处理的路由叫 **action** ，由控制器类里的方法表示。比如，`HomeController` 包含三个 action 方法（`Index`，`About`，和 `Contact`），由 ASP.NET Core 分别映射到如下的 URL：
 
 ```text
 localhost:5000/Home         -> Index()
@@ -53,12 +53,6 @@ public class TodoController : Controller
 使控制器尽可能保持轻量化，是一个良好的习惯。在现在的情形里，这个控制器应该仅仅完成这些事情：从数据库取出待办事项的记录，把这些事项包装在一个可用于视图的模型中，并把这个视图发送到用户的浏览器。
 
 继续编码这个控制器之前，你需要创建一个模型和一个视图。
-
-Action methods can return views, JSON data, or HTTP status codes like `200 OK` or `404 Not Found`. The `IActionResult` return type gives you the flexibility to return any of these from the action.
-
-It's a best practice to keep controllers as lightweight as possible. In this case, the controller should only be responsible for getting the to-do items from the database, putting those items into a model the view can understand, and sending the view back to the user's browser.
-
-Before you can write the rest of the controller code, you need to create a model and a view.
 
 ---
 
