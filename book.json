@@ -2,7 +2,7 @@
     "title": "ASP.NET Core 简明手册",
     "description": "一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。",
     "author": "Nate Barbettini",
-    "language": "zh",
+    "language": "zh-hans",
     "pdf": {
         "fontSize": 13,
         "fontFamily": "Microsoft YaHei",
