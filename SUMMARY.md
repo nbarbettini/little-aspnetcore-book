@@ -30,5 +30,5 @@
     * [集成测试](chapters/automated-testing/integration-testing.md)
 * [部署程序](chapters/deploy-the-application/README.md)
     * [部署到 Azure](chapters/deploy-the-application/deploy-to-azure.md)
-    * [Deploy with Docker](chapters/deploy-the-application/deploy-with-docker.md)
+    * [使用 Docker 进行部署](chapters/deploy-the-application/deploy-with-docker.md)
 * [Conclusion](chapters/conclusion/README.md)
