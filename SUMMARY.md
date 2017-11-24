@@ -26,7 +26,7 @@
     * [Using identity in the application](chapters/security-and-identity/using-identity-in-the-application.md)
     * [Authorization with roles](chapters/security-and-identity/authorization-with-roles.md)
 * [自动化测试](chapters/automated-testing/README.md)
-    * [Unit testing](chapters/automated-testing/unit-testing.md)
+    * [单元测试](chapters/automated-testing/unit-testing.md)
     * [Integration testing](chapters/automated-testing/integration-testing.md)
 * [Deploy the application](chapters/deploy-the-application/README.md)
     * [Deploy to Azure](chapters/deploy-the-application/deploy-to-azure.md)
