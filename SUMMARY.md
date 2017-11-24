@@ -28,7 +28,7 @@
 * [自动化测试](chapters/automated-testing/README.md)
     * [单元测试](chapters/automated-testing/unit-testing.md)
     * [集成测试](chapters/automated-testing/integration-testing.md)
-* [Deploy the application](chapters/deploy-the-application/README.md)
+* [部署程序](chapters/deploy-the-application/README.md)
     * [Deploy to Azure](chapters/deploy-the-application/deploy-to-azure.md)
     * [Deploy with Docker](chapters/deploy-the-application/deploy-with-docker.md)
 * [Conclusion](chapters/conclusion/README.md)
