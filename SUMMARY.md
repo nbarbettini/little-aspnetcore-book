@@ -21,7 +21,7 @@
     * [添加新的 待办事项 条目](chapters/add-more-features/add-todo-items.md)
     * [使用复选框标记条目完成](chapters/add-more-features/complete-with-checkbox.md)
 * [安全和身份](chapters/security-and-identity/README.md)
-    * [Add Facebook login](chapters/security-and-identity/add-facebook-login.md)
+    * [添加 Facebook 登录功能](chapters/security-and-identity/add-facebook-login.md)
     * [Require authentication](chapters/security-and-identity/require-authentication.md)
     * [Using identity in the application](chapters/security-and-identity/using-identity-in-the-application.md)
     * [Authorization with roles](chapters/security-and-identity/authorization-with-roles.md)
