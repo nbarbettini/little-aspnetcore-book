@@ -68,7 +68,7 @@ public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
 ```csharp
 services.AddScoped<ITodoItemService, TodoItemService>();
 ```
-`TodoController`依赖于`ITodoItemService`将会变化，但在头上你要要使用Entity Framework Core 并告诉它真实的数据库！
+`TodoController`依赖于`ITodoItemService`将会变化，但在头上你需要使用Entity Framework Core 并告诉它真实的数据库！
 
 ### 测试
 
