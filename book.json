@@ -13,7 +13,7 @@
             "left": 12,
             "right": 12
         },
-        "paperSize": "a5"
+        "paperSize": "b5"
     },
     "plugins": ["expandable-chapters-small"]
 }
