@@ -23,7 +23,7 @@
 * [安全和身份](chapters/security-and-identity/README.md)
     * [添加 Facebook 登录功能](chapters/security-and-identity/add-facebook-login.md)
     * [提示认证](chapters/security-and-identity/require-authentication.md)
-    * [Using identity in the application](chapters/security-and-identity/using-identity-in-the-application.md)
+    * [在程序中使用身份](chapters/security-and-identity/using-identity-in-the-application.md)
     * [Authorization with roles](chapters/security-and-identity/authorization-with-roles.md)
 * [自动化测试](chapters/automated-testing/README.md)
     * [单元测试](chapters/automated-testing/unit-testing.md)

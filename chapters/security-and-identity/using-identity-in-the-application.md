@@ -1,3 +1,209 @@
+## 在程序中使用身份
+
+待办事项列表依然由所有用户共享，因为 待办事项条目 并未关联到特定的用户。现在，`[Authorize]` 属性确保了见到 待办事项视图 的人一定登录过，你就有能力在数据库查询的时候按照登录者的身份进行过滤了。
+
+首先，在 `TodoController` 中注入一个 `UserManager<ApplicationUser>`：
+
+**`Controllers/TodoController.cs`**
+
+```csharp
+[Authorize]
+public class TodoController : Controller
+{
+    private readonly ITodoItemService _todoItemService;
+    private readonly UserManager<ApplicationUser> _userManager;
+
+    public TodoController(ITodoItemService todoItemService,
+        UserManager<ApplicationUser> userManager)
+    {
+        _todoItemService = todoItemService;
+        _userManager = userManager;
+    }
+
+    // ...
+}
+```
+
+还要在文件顶部加一个新的 `using` 语句:
+
+```csharp
+using Microsoft.AspNetCore.Identity;
+```
+
+`UserManager` 包含在 ASP.NET Core Identity 里。你可以用它在 `Index` action 里查找当前用户：
+
+```csharp
+public async Task<IActionResult> Index()
+{
+    var currentUser = await _userManager.GetUserAsync(User);
+    if (currentUser == null) return Challenge();
+
+    var todoItems = await _todoItemService.GetIncompleteItemsAsync(currentUser);
+
+    var model = new TodoViewModel()
+    {
+        Items = todoItems
+    };
+
+    return View(model);
+}
+```
+
+这个 action 方法的顶部添加了新代码，这行代码用 `UserManager` 从 `User` 属性中获取当前登录的用户——该属性在这个 action 里有效：
+
+```csharp
+var currentUser = await _userManager.GetUserAsync(User);
+```
+
+如果当前用户登录过了， `User` 属性就持有一个轻量级的对象，包括了用户的一些（并非全部）信息。`UserManager` 使用它，通过 `GetUserAsync` 在数据库里查找该用户的详细信息。
+
+因为控制器使用了 `[Authorize]` 属性，`currentUser` 的值绝不应该是 null。无论如何，做个警醒的检查都是个好主意，以防万一嘛。如果用户信息没找到，你可以用 `Challenge()` 方法强制用户再次登录：
+
+```csharp
+if (currentUser == null) return Challenge();
+```
+
+既然你现在把一个 `ApplicationUser` 参数传给了 `GetIncompleteItemsAsync`，就该修改 `ITodoItemService` 接口了：
+
+**`Services/ITodoItemService.cs`**
+
+```csharp
+public interface ITodoItemService
+{
+    Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync(ApplicationUser user);
+
+    // ...
+}
+```
+
+下一步是修改数据库查询，仅为当前用户呈现他(她)自己的那些条目。
+
+### 修改数据库
+
+你需要在 `TodoItem` 实体上添加一个新的属性，以便每个条目都能够指向它的所有者：
+
+```csharp
+public string OwnerId { get; set; }
+```
+
+既然你修改了数据库上下文里的实体模型，就应该更新数据库。在终端窗口里用 `dotnet ef` 指令创建一个新的迁移：
+
+```
+dotnet ef migrations add AddItemOwnerId
+```
+
+这新建了一个名为 `AddItemOwner` 的迁移，它将给 `Items` 表添加一个新的列，以反应你在 `TodoItem` 实体模型上做出的修改：
+
+> 注意：如果你在使用 SQLite 数据库，还需要手动调整迁移文件。详情请查看 *运用数据库* 那章的 *创建一个迁移* 小节。
+
+再使用 `dotnet ef` 指令应用到数据库上：
+
+```
+dotnet ef database update
+```
+
+### 修改服务类
+
+有了对数据库和数据库上下文的改动，你现在可以修改 `TodoItemService` 中的 `GetIncompleteItemsAsync` 方法和其中的 `Where` 查询子句了：
+
+**`Services/TodoItemService.cs`**
+
+```csharp
+public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync(ApplicationUser user)
+{
+    return await _context.Items
+        .Where(x => x.IsDone == false && x.OwnerId == user.Id)
+        .ToArrayAsync();
+}
+```
+
+如果你现在运行程序并注册或者登录，你将又一次见到一个空的 待办事项列表。糟糕的是，你尝试添加的任何条目也都会消失不见，因为你还没修改 添加条目 的操作，把用户信息存储到条目里：
+
+### 修改 添加条目 和 完成事项 操作
+
+在 `AddItem` 和 `MarkDone` 这两个 action 的方法里，你也需要使用 `UserManager` 获取当前用户的信息，就像在 `Index` 里那样。唯一的区别是，这两个方法会向前端代码返回 `401 Unauthorized`，而非把用户重定向到登录页面。
+
+下面是 `TodoController` 控制器里对这两个方法的修改：
+
+```csharp
+public async Task<IActionResult> AddItem(NewTodoItem newItem)
+{
+    if (!ModelState.IsValid)
+    {
+        return BadRequest(ModelState);
+    }
+
+    var currentUser = await _userManager.GetUserAsync(User);
+    if (currentUser == null) return Unauthorized();
+
+    var successful = await _todoItemService.AddItemAsync(newItem, currentUser);
+    if (!successful)
+    {
+        return BadRequest(new { error = "Could not add item." });
+    }
+
+    return Ok();
+}
+
+public async Task<IActionResult> MarkDone(Guid id)
+{
+    if (id == Guid.Empty) return BadRequest();
+
+    var currentUser = await _userManager.GetUserAsync(User);
+    if (currentUser == null) return Unauthorized();
+
+    var successful = await _todoItemService.MarkDoneAsync(id, currentUser);
+    if (!successful) return BadRequest();
+
+    return Ok();
+}
+```
+
+这两个服务方法现在也必须接受 `ApplicationUser` 参数了，修改 `ITodoItemService` 里定义的接口：
+
+```csharp
+Task<bool> AddItemAsync(NewTodoItem newItem, ApplicationUser user);
+
+Task<bool> MarkDoneAsync(Guid id, ApplicationUser user);
+```
+
+最后，修改 `TodoItemService` 里面的实现方法。
+
+在 `AddItemAsync` 方法里，构造一个 `new TodoItem` 的时候，设置 `Owner` 属性：
+
+```csharp
+public async Task<bool> AddItemAsync(NewTodoItem newItem, ApplicationUser user)
+{
+    var entity = new TodoItem
+    {
+        Id = Guid.NewGuid(),
+        OwnerId = user.Id,
+        IsDone = false,
+        Title = newItem.Title,
+        DueAt = DateTimeOffset.Now.AddDays(3)
+    };
+
+    // ...
+}
+```
+
+`MarkDoneAsync` 方法里的 `Where` 查询子句也需要检查用户的 ID，以防止恶意的用户通过猜测 ID 的方法把其他用户的事项标记为完成状态。
+
+```csharp
+public async Task<bool> MarkDoneAsync(Guid id, ApplicationUser user)
+{
+    var item = await _context.Items
+        .Where(x => x.Id == id && x.OwnerId == user.Id)
+        .SingleOrDefaultAsync();
+
+    // ...
+}
+```
+
+搞定！请用两个不同的账号尝试一下。待办事项条目现在是每个账户的私密信息了。
+
+---
+
 ## Using identity in the application
 
 The to-do list items themselves are still shared between all users, because the to-do entities aren't tied to a particular user. Now that the `[Authorize]` attribute ensures that you must be logged in to see the to-do view, you can filter the database query based on who is logged in.
