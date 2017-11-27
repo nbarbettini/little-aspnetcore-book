@@ -1,6 +1,6 @@
 ## 获取 SDK
 
-搜索“下载 .net core”，在微软针对你所用平台的下载页，按按指令操作。SDK装好之后，开启一个终端窗口（或者 Windows 上的 PowerShell），并使用 `dotnet` 命令行工具（command line tool，也叫 **CLI**）验证一切工作正常：
+搜索“下载 .net core”，在微软为你所用平台提供的下载页，按指令操作。SDK装好之后，开启一个终端窗口（或者 Windows 上的 PowerShell），并使用 `dotnet` 命令行工具（command line tool，也叫 **CLI**）验证一切工作正常：
 
 ```shell
 dotnet --version
