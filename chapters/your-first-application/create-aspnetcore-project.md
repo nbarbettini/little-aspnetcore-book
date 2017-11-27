@@ -13,9 +13,9 @@ dotnet new mvc --auth Individual -o AspNetCoreTodo
 cd AspNetCoreTodo
 ```
 
-这个命令，使用 `mvc` 模板创建了一个新的项目，并添加了一些额外的验证和安全性相关的内容。（我会在 *安全性与身份* 一章涉及安全性的内容）
+这个命令，使用 `mvc` 模板创建了一个新的项目，并添加了一些额外的验证和安全性相关的内容。（我会在 *安全性与身份* 一章讲解安全性的内容）
 
-在项目文件夹里，你会看到添加了好几个文件，而你现在要做的事情就是运行这个项目：
+在项目文件夹里，你会看到增加了好几个文件，而你现在直接运行这个项目就好：
 
 ```shell
 dotnet run
@@ -24,33 +24,33 @@ Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.
 ```
 
-这个程序不再打印到控制台并退出，而是启动了一个 web 服务器，并在端口 5000 上等待访问请求。
+这个程序不再打印到控制台后直接退出，而是启动了一个 web 服务器，并在端口 5000 上等待访问请求。
 
-打开你的网络浏览器，打开 `http://localhost:5000`。你将看到 ASP.NET Core 程序的默认欢迎页面，说明你的程序工作正常！看够了这个页面之后，在终端窗口内按下 Ctrl-C 以便停止这个服务器。
+开启你的网络浏览器，浏览 `http://localhost:5000`。你将看到 ASP.NET Core 程序的默认欢迎页面，说明你的程序工作正常！看够了这个页面之后，在终端窗口内按下 Ctrl-C 以便停止这个服务器。
 
 ### 一个 ASP.NET Core 项目的各部分
 
-`dotnet new mvc` 模板为你生成了多个文件和目录。在你即时看到的内容里，这几个是最重要的：
+`dotnet new mvc` 模板为你生成了多个文件和目录。在默认创建的基本内容里，这几个是最重要的：
 
-* `Program.cs` 和 `Startup.cs` 文件，设置 web 服务器和 ASP.NET Core 的处理管线。在`Startup` 类里，你可以添加中间件，它们用于处理和调整传入的请求、提供静态内容和错误页面。在这里，你还可以向依赖注入容器中添加你自己的服务（后面细说）。
+* `Program.cs` 和 `Startup.cs` 文件，设置 web 服务器和 ASP.NET Core 的处理管线。在`Startup` 类里，你可以添加中间件，它们用于 处理和调整传入的请求、提供静态内容和错误页面。在这里，你还可以向依赖注入容器中添加你自己的服务（后面细说）。
 
-* `Models`，`Views`，和 `Controllers`目录里放置着 模型-视图-控制器（MVC，Model-View-Controller）架构的组件。下一章，你将一探他们仨的究竟。
+* `Models`、`Views`，和 `Controllers`目录里放置着 模型-视图-控制器（MVC，Model-View-Controller）架构的组件。下一章，你将一探他们三者的究竟。
 
-* `wwwroot` 目录里放着 CSS，JavaScript，图片文件这些静态资源。默认情况下， bower 工具用于管理 CSS 和 Javascript 的包，但是你可以使用任何想用的包管理器（npm 和 yarn 是常见的选项）。 `wwwroot` 里的文件将作为静态内容，将会自动被打包和压缩。
+* `wwwroot` 目录里放着 CSS、JavaScript、图片文件 这些静态资源。默认情况下， bower 工具用于管理 CSS 和 JavaScript 的包，但是你可以使用任何喜欢的包管理器（npm 和 yarn 是常见的选项）。 `wwwroot` 里的文件将作为静态内容，将会自动被打包和压缩。
 
-* `appsettings.json` 文件里包含着 ASP.NET Core 启动时要读取的配置信息。你可以用它来保存数据库连接字符串或者其它你不想硬编码的任何内容。
+* `appsettings.json` 文件里包含着 ASP.NET Core 启动时读取的配置信息。你可以用它来保存数据库连接字符串或者其它你不想硬编码的任何内容。
 
 ### Visual Studio Code 技巧
 
-如果你是初次使用 Visual Studio Code （或者 Visual Studio），下面这几个有益的小技巧将帮你轻松上手：
+如果你是初次使用 Visual Studio Code（或者 Visual Studio），下面这几个有益的小技巧将帮你轻松上手：
 
 * **用 F5 运行（并调试断点）**：使你的项目处于打开状态，按下 F5 以调试模式运行项目。这跟命令行的 `dotnet run` 功能相同，但有一个额外好处——你可以在代码编辑器的左边栏上点击，以设置一个断点：
 
-![Visual Studio Code 中的断点](breakpoint.png)
+    ![Visual Studio Code 中的断点](breakpoint.png)
 
-* **潜在问题的小灯泡提示**：如果你的代码里有红色波浪线（编译错误），把编辑的光标放在红线里，在左边栏里找那个小灯泡的图标，小灯泡的提示信息会给出常见问题的修改建议，比如在代码里添加一个 `using` 语句：
+* **潜在问题的小灯泡提示**：如果你的代码里有红色波浪线（编译错误），把编辑的光标放在红线里，到左边栏里找那个小灯泡的图标，小灯泡的提示信息会给出常见问题的修改建议，比如在代码里添加一个 `using` 语句：
 
-![小灯泡提示](lightbulb.png)
+    ![小灯泡提示](lightbulb.png)
 
 * **随手编译**：使用快捷键 `Command-Shift-B` 或者 `Control-Shift-B` 运行编译任务，这跟 `dotnet build` 的效果一样。
 
