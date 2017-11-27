@@ -14,7 +14,7 @@
 * [添加外来软件包](chapters/add-external-packages/README.md)
 * [运用数据库](chapters/use-a-database/README.md)
     * [连接数据库](chapters/use-a-database/connect-to-a-database.md)
-    * [更新数据库上下文](chapters/use-a-database/update-context.md)
+    * [修改数据库上下文](chapters/use-a-database/update-context.md)
     * [创建迁移](chapters/use-a-database/create-migration.md)
     * [创建服务类](chapters/use-a-database/create-service-class.md)
 * [添加新特性](chapters/add-more-features/README.md)
