@@ -15,5 +15,10 @@
         },
         "paperSize": "b5"
     },
-    "plugins": ["expandable-chapters-small"]
+    "plugins": ["expandable-chapters-small", "disqus", "splitter", "anchors", "copy-code-button"],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "little-aspnetcore-book-cn"
+        }
+    }
 }
