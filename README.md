@@ -1,75 +1,73 @@
 # 前言
 
-感谢你捧起这本 ASP.NET Core 小册子！我写这个小品的目的，是帮助开发者和爱好者了解 ASP.NET Core 2.0，一个崭新的，用于创建 Web 应用和 API 的框架。
+感谢你捧起这本 简明 ASP.NET Core 手册！我写这本小书的目的，是帮助开发者和爱好者了解 ASP.NET Core 2.0，一个崭新的，用于创建 Web应用 和 API 的框架。
 
-这本 ASP.NET Core 小册子 行文组织为一篇教程。你将从零开始，完整的构建一个 待办事项（to-do） 应用，同时了解以下内容：
+这本 简明 ASP.NET Core 手册 内容组织成了一篇教程。你将从零开始，完整地构建一个 待办事项（to-do） 应用，同时了解以下内容：
 
 * MVC (Model-View-Controller) 模式的基本内容
 * 前端代码（HTML, CSS, JavaScript）怎样与后端代码交互
 * 什么是依赖注入以及它的实用之处
 * 如何进行数据库的读写操作
-* 如何添加 登录、注册功能，以及提升安全性
+* 如何添加 登录、注册功能，以及如何提升安全性
 * 如何部署该应用到网络上
 
 别担心，你可以在 对 ASP.NET Core （以及上面列表的内容）一无所知的状态下开始学习。
 
 ## 开始之前
 
-你将要构建的这个应用，其完整源码置于 GitHub(https://www.github.com/nbarbettini/little-aspnetcore-todo) 。如果需要与你自己的代码做对比，可任意下载。
+你将要构建的这个应用，其完整源码位于 GitHub(https://www.github.com/nbarbettini/little-aspnetcore-todo) 。如果需要与你自己的代码做对比，可任意下载。
 
-这本书本身也会由于修订和内容的增加而频繁更新。如果你阅读的是 PDF，电子书，或者打印版，请查阅官网([littleasp.net/book](http://www.littleasp.net/book))的版本更新。有关版本信息和更新内容，请查阅本书的最后一页。
+这本书本身也会由于修订和内容的增加而频繁更新。如果你阅读的是 PDF、电子书，或者打印版，请查阅官网([littleasp.net/book](http://www.littleasp.net/book))的版本更新。有关版本信息和更新内容，请查阅本书的最后一页。
 
 ## 本书的目标读者
 
-如果你刚开始编程，本书将使你了解构建最新web应用的模式和概念。通过从头开始创建一些东西，你将学习构建一个 web 应用的方法（以及合理组织各模块的方法）。尽管这个小册子不能面面俱到你对编程所需的全部内容，但它将成为你的一个起点，通向更多高级的主题。
+如果你刚开始编程，本书将使你了解构建最新web应用的模式和概念。通过从头开始创建一些东西，你将学习构建一个 web 应用的方法（以及合理组织各模块的方法）。尽管这个手册不能事无巨细地讲解你对编程所需的全部内容，但它将成为你的一个起点，通向更多高级的主题。
 
-如果你已经在使用诸如 Node、Python、Ruby、Go或者Java 之类的后端语言写代码，你会注意到很多熟悉的概念，比如 MVC、视图模板和依赖注入。你将使用 C# 进行进行编程，但跟你先前熟知的内容不会差异太大。
+如果你已经在使用诸如 Node、Python、Ruby、Go 或者 Java 之类的后端语言写代码，你会注意到很多熟悉的概念，比如 MVC、视图模板和依赖注入。你将使用 C# 进行进行编程，但跟你先前熟知的内容不会差异太大。
 
-如果你是一个 ASP.NET MVC 开发者，你将如鱼得水。 ASP.NET Core 增添了一些新工具并复用（及简化）了你用过的那些东西。我会在后面指出其中的一些差异。
+如果你是一个 ASP.NET MVC 开发者，你将如鱼得水。 ASP.NET Core 增添了一些新工具并复用（及简化）了你用过的那些东西。我会在后面指出其中的部分差异。
 
 不论你此前在 web 编程方面经验如何，本书都会倾囊相授，足以使你用 ASP.NET Core 创建一个简单但实用的 web 应用。你将学习如何用前后端代码实现设计目标，如何与数据库交互，如何测试并部署应用到真实环境。
 
 ## 什么是 ASP.NET Core？
 
-ASP.NET Core 是一个由微软创建的，用于构建 web 应用、API、微服务的 web 框架。它使用常见的模式，诸如 MVC（Model-View-Controller），依赖注入，和一个由中间件构成的请求处理管线。它基于 Apache 2.0 许可证开放源码，就是说，源代码可以自由获取，并且欢迎社区成员以缺陷修复和新功能提交的方式进行贡献。
+ASP.NET Core 是一个由微软创建的，用于构建 web 应用、API、微服务 的 web 框架。它使用常见的模式，诸如 MVC（Model-View-Controller）、依赖注入，和一个由中间件构成的请求处理管线。它基于 Apache 2.0 许可证开放源码，就是说，源代码可以自由获取，并且欢迎社区成员以 缺陷修复 和 新功能提交 的方式进行贡献。
 
-ASP.NET Core 运行在微软的 .NET 运行时库上，类似于 Java 的 虚拟机（JVM）或者 Ruby 的解释器。有几种语言（C#，Visual Basic，F#）可以用来编写 ASP.NET Core 程序。C# 是最常见的选择，我在本书中也会采用它。你可以在 Windows，Mac，和 Linux 上构建并运行 ASP.NET Core 应用。
+ASP.NET Core 运行在微软的 .NET 运行时库上，类似于 Java 的 虚拟机（JVM）或者 Ruby 的解释器。有几种语言（C#，Visual Basic，F#）可以用来编写 ASP.NET Core 程序。C# 是最常见的选择，我在本书中也会采用它。你可以在 Windows、Mac，和 Linux 上构建并运行 ASP.NET Core 应用。
 
 ## 又一个 web 框架，需求何在？
 
-现存的 web 框架选项已经很多了：Node/Express，Spring，Ruby on Rails，Django，Laravel，等等数不胜数。ASP.NET Core 又有什么可取之处呢？
+现存的 web 框架选项已经很多了：Node/Express、Spring、Ruby on Rails、Django、Laravel 等等，数不胜数。ASP.NET Core 又有什么可取之处呢？
 
-* **速度** ASP.NET Core 很快。因为 .NET Core 是编译运行的，执行速度远高于解释执行的语言，比如 JavaScript 或者 Ruby。ASP.NET Core 也已经为多线程和异步任务作了专门的优化。与使用 Node.js 写的代码相比，执行速度提升 5-10 倍是很正常的。
+* **速度** ASP.NET Core 很快。因为 .NET Core 是编译运行的，执行速度远高于解释执行的语言，比如 JavaScript 或者 Ruby、ASP.NET Core 也已经为多线程和异步任务作了专门的优化。与使用 Node.js 写的代码相比，执行速度高出 5-10 倍是很正常的。
 
-* **生态** ASP.NET Core 可能初出茅庐，但 .NET 却久经考验了。在 NuGet（.NET 的包管理系统；类似 npm，Ruby gems， 或者 Maven）上有成千上万的软件包。有现成的包可用来完成 JSON 反序列化、数据库连接、PDF生成，或者几乎你能想到的任何需求。
+* **生态** ASP.NET Core 可能初出茅庐，但 .NET 却已久经考验。在 NuGet（.NET 的包管理系统，类似 npm、Ruby gems，或者 Maven）上有成千上万的软件包。有现成的包可用来完成 JSON 反序列化、数据库连接、PDF生成，或者几乎你能想到的任何需求。
 
-* **安全性** 微软的开团队很注重安全性，ASP.NET Core 从基础创建就是安全的。它已经自动处理了净化输入数据和跨域伪造请求(XSRF)，你就可以省心了。你同时还享有 .NET 编译器的静态类型检测的好处，它像个时刻警惕着，还有些强迫症的审校者。这样，在使用一个变量或者某些数据时，那些无意识的错误就插翅难逃了。
+* **安全性** 微软的开团队很注重安全性，ASP.NET Core 从创建基础就是安全的。它已经自动处理了 净化输入数据 和 跨域伪造请求(XSRF)，你就不用操心这些了。你同时还享有 .NET 编译器的静态类型检测的福利，它像个时刻警惕着，还有些强迫症的审校者。这样，在使用一个变量或者某些数据时，那些无意识的错误就插翅难逃。
 
 ## .NET Core 和 .NET 标准
 
 贯穿本书，你将学习有关 ASP.NET Core （web 框架）的知识。我会偶尔提及 .NET 运行时（用于运行 .NET 代码的支持库）。
-Throughout this book, you'll be learning about ASP.NET Core (the web framework). I'll occasionally mention the .NET runtime (the supporting library that runs .NET code).
 
-你可能还会听说 .NET Core 和 .NET 标准，这些命名有些混乱，所以在此做一简短的释疑：
-You may also hear about .NET Core and .NET Standard. The naming gets confusing, so here's a simple explanation:
+你可能还会听说 .NET Core 和 .NET标准，这些命名有些混乱，所以在此做一简短的释疑：
 
-**.NET 标准** 是一个平台无关的接口，它定义了 .NET 中具有哪些特性和 API。 .NET 标准并不等同于任何实际的代码或者功能，仅仅是 API 的定义。.NET 标准现存多个不同的“版本”或者说级别，反映出可用 API 的数量（或者说 API 所覆盖的广度）。比如 .NET 标准 2.0 的 API 数量比 .NET 标准 1.5 多，后者的 API 又比 .NET 标准 1.0 多。
+**.NET 标准** 是一个平台无关的接口，它定义了 .NET 中具有哪些特性和 API。 .NET 标准并不等同于任何实际的代码或者功能，仅仅是 API 的定义。.NET 标准现存多个不同的“版本”或者说级别，反映出提供 API 的数量（或者说 API 所覆盖的广度）。比如 .NET标准2.0 的 API 数量比 .NET标准1.5 多，后者的 API 又比 .NET标准1.0 多。
 
-**.NET Core** 是可安装在 Windows、Mac或者Linux上的 .NET 运行时库。它在各个操作系统上，使用对应的平台相关代码实现了定义于 .NET 标准中的 API。这是你将要安装到机器上，用于构建和运行 ASP.NET Core 应用程序的东西。
+**.NET Core** 是可安装在 Windows、Mac或者Linux上的 .NET 运行时库。它在各个操作系统上，使用对应的平台相关代码实现了定义于 .NET 标准中的 API。你将要把它安装到机器上，用来构建和运行 ASP.NET Core 应用程序。
 
-出于对比的目的，要提一下， **.NET Framework** 是另一个 .NET 标准的实现，它只能运行在 Windows 上。在 .NET Core 出现并把 .NET 推向 Mac 和 Linux 之前，它是唯一的 .NET 运行时库。 ASP.NET Core 也可以跑在 Windows 专用的 .NET Framework 上，但我不会过多涉及这个主题。
+作为对比，这里要指出， **.NET Framework** 是另一个 .NET标准 的实现，它只能运行在 Windows 上。在 .NET Core 出现并把 .NET 推向 Mac 和 Linux 之前，它是唯一的 .NET 运行时库。 ASP.NET Core 也可以跑在 Windows 专用的 .NET Framework 上，但我不会过多涉及这个主题。
 
-如果你已经被这些命名搞糊涂了，别发愁！咱们稍后就要编码实践了。
+如果你已经被这些命名搞糊涂了，别发愁！咱们马上就要写代码进行实践了。
 
 ## ASP.NET 4 开发者注意
 
 如果你从没用过 ASP.NET 以前的版本，直接看下一章去吧！
 
-ASP.NET Core 是对 ASP.NET 彻底的重写，重点关注于让该框架应用新的开发方法，并最终使其与 System.Web，IIS，和 Windows 解耦。你要是还记得 ASP.NET 4 的 OWIN/Katana 那些内容，你就已经学会一半了： Katana 项目成了 ASP.NET 5，而后者的名字最终被改成了 ASP.NET Core。
+ASP.NET Core 是对 ASP.NET 彻底的重写，重点关注于让该框架应用新的开发方法，并最终使其与 System.Web、IIS、和 Windows 解耦。你要是还记得 ASP.NET 4 的 OWIN/Katana 那些内容，你就已经学会一半了： Katana 项目成了 ASP.NET 5，而后者的名字最终被改成了 ASP.NET Core。
 
-基于 Katana 的产物， `Startup` 类成了起始和中心，`Application_Start` 和 `Global.asax` 则不复存在了。整个处理管线由中间件驱动，MVC 和 Web API 不再有区别：控制器可以方便的返回视图，状态码，或者数据。依赖注入功能已经内置了，所以，如果你不想的话，完全可以不用再安装并配置一个服务容器了，比如 StructureMap 或者 Ninject 这样的。整个框架已经针对速度和运行时效率进行了优化。
+作为 Katana 的传承， `Startup` 类成了起始和中心，`Application_Start` 和 `Global.asax` 则不复存在了。整个处理管线由中间件驱动，MVC 和 Web API 不再有区别：控制器可以方便的返回视图、状态码，或者数据。依赖注入功能已经内置了，所以，如果你不想费劲的话，完全可以不用再安装并配置一个服务容器了，比如 StructureMap 或者 Ninject。整个框架已经针对速度和运行时效率进行了优化。
 
-好了，前言就到这儿。来看看 ASP.NET Core 吧。
+好了，前言就到这儿。开始学习 ASP.NET Core 吧。
 
 ---
 
