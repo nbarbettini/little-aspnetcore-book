@@ -2,9 +2,9 @@
 
 ASP.NET Core 里的视图使用 Razor 模板语言编写，这种模板语言混杂了 HTML 和 C# 的代码。（如果你在 JavaScript 下用 Jade、Pug或者 Handlebars moustaches，在 Ruby on Rails 下用 ERB，在 Java 下用 Thymeleaf 写过页面，那你就已经了解其基本概念了.）
 
-绝大多数视图代码就是 HTML，间或掺杂一点 C# 语句，用以从视图模型里抽取数据并转换为文本或者 HTML。这些 C# 语句以符号 `@` 作为前缀。
+绝大多数视图代码就是 HTML，偶尔掺杂一点 C# 语句，用以从视图模型里抽取数据并转换为文本或者 HTML。这些 C# 语句以符号 `@` 作为前缀。
 
-由 `TodoController` 中的 action `Index` 生成的视图，需要从视图模型（一个待办事项的数组）获取数据，并用一个适当的表格展示给用户。按规定，视图要置于 `Views` 目录下，在一个跟所在控制器同名的子目录下。视图文件的文件名就是 action 的名字加上一个 `.cshtml` 扩展名。
+由 `TodoController` 中的 action `Index` 生成的视图，需要从视图模型（一个待办事项的数组）获取数据，并用一个适当的表格展示给用户。按规定，视图要置于 `Views` 目录里，在一个与所属控制器同名的子目录下。视图文件的文件名就是 action 的名字加上一个 `.cshtml` 扩展名。
 
 **`Views/Todo/Index.cshtml`**
 
@@ -56,13 +56,13 @@ ASP.NET Core 里的视图使用 Razor 模板语言编写，这种模板语言混
 
 ### 布局文件
 
-你可能会纳闷，其余的 HTML：`<body>` 标签，或者页首和页脚 哪儿去了？ASP.NET Core 使用一个布局视图，用以定义容纳视图的基础结构的其余部分。布局视图被保存在 `Views/Shared/_Layout.cshtml`。
+你可能会纳闷，其余的 HTML：`<body>` 标签，或者 页首 和 页脚 在哪儿？ASP.NET Core 使用一个布局视图，用以定义容纳视图的基础结构的其余部分。布局视图被保存在 `Views/Shared/_Layout.cshtml`。
 
 默认的 ASP.NET Core 模板在布局文件中包含了 Bootstrap 和 jQuery，便于你快捷地创建一个 web 应用程序。当然，只要你愿意，你可以使用自己的 CSS 和 JavaScript 库。
 
 ### 定制样式表
 
-现在，先在 `site.css` 文件的底部添加以下这些 CSS 样式规则：
+现在，请在 `site.css` 文件的底部添加以下这些 CSS 样式规则：
 
 **`wwwroot/css/site.css`**
 
@@ -79,7 +79,7 @@ table tr.done {
 
 你可以用类似的规则完全自定义页面的外观和体验。
 
-ASP.NET Core 和 Razor 还有更多功能，比如部分视图和后端渲染的视图组件，但你现在只需要一个简单的布局和试图。想要了解更多的话，ASP.NET Core 的官方文档（位于 `https://docs.asp.net`）有几个示例可以参考。
+ASP.NET Core 和 Razor 还有更多功能，比如部分视图和后端渲染的视图组件，但你现在只需要一个简单的布局和视图。想要了解更多的内容，ASP.NET Core 的官方文档（位于 `https://docs.asp.net`）有几个示例可以参考。
 
 ---
 
