@@ -1,8 +1,8 @@
-## 创建一个新的服务类
+## 创建服务类
 
-回顾 *MVC 基础* 章节, 你创建了一个 `FakeTodoItemService` 包含硬编码的代办事项。现在你有一个数据库上下文，你可以创建一个新的服务类，它将用Entity Framework Core 从数据库中获取实际项目。
+回顾 *MVC基础* 章节, 你创建了一个 `FakeTodoItemService`，其中包含硬编码的 待办事项。现在你有了一个数据库上下文，就可以创建一个新的服务类，以便通过 Entity Framework Core 从数据库中获取真实内容。
 
-删除文件`FakeTodoItemService.cs`，并创建一个新文件:
+删除文件 `FakeTodoItemService.cs`，并创建一个新文件:
 
 **`Services/TodoItemService.cs`**
 
@@ -37,21 +37,25 @@ namespace AspNetCoreTodo.Services
 }
 ```
 
-你会发现同样的依赖注入部分在MVC基础章节也有, 除了这一次 `ApplicationDbContext` 被注入到服务。`ApplicationDbContext` 在`ConfigureServices`方法里已经被添加到服务容器里, 所以在这里可以直接用。
+你应该注意到相同的的依赖注入模式，跟 MVC基础 章节一样，知识这一次被注入的服务容器 `ApplicationDbContext`。`ApplicationDbContext` 已经在`ConfigureServices` 方法里被添加到服务容器里，所以在这里可以直接使用。
 
-让我们仔细看 `GetIncompleteItemsAsync` 方法的代码。首先, 用上下文中 `Items` 的属性获取 `DbSet` 中所有的待办项:
+让我们仔细探究 `GetIncompleteItemsAsync` 方法的代码。首先，它用上下文中的 `Items` 的属性获取 `DbSet` 中所有的 待办事项:
+
 ```csharp
 var items = await _context.Items
 ```
-然后, `Where` 用于过滤不完整的项:
+
+然后，`Where` 用于过滤出所有“未完成”的条目:
+
 ```csharp
 .Where(x => x.IsDone == false)
 ```
-`Where`方法是C#里的一个特性，叫Linq，一种带提示的编程功能并使的在代码里查询数据库变的简单。在这引擎下，Entity Framework Core 把这个方法翻译成 `SELECT * FROM Items WHERE IsDone = 0`，或NoSQL数据库中等效的查询文本。
 
-最后，`ToArrayAsync` 方法告诉 Entity Framework Core 取出所有过滤后的数据并返回一个数组。 `ToArrayAsync` 是异步的 (像 `Task`)，所以必须使用`await`等结束后获取值。
+`Where` 方法来自 C# 里的一个名为 `LINQ`(language integrated query) 的特性，它从函数式编程获取灵感，简化了在程序代码里数据库查询的写法。在底层，Entity Framework Core 把这个方法翻译成一个类似的语句 `SELECT * FROM Items WHERE IsDone = 0`，或在 NoSQL数据库 里一个等效的查询。
 
-为了使这个方法简洁，你可以删除中间 `items` 变量，直接返回查询结果 (同样的结果):
+最后，`ToArrayAsync` 方法吩咐 Entity Framework Core 取出所有过滤后的数据并作为一个数组返回。`ToArrayAsync` 是异步的(返回一个 `Task`)，所以必须使用`await` 等以获取其中的值。
+
+要把这个方法变简短，你可以删除中间变量 `items`，直接返回查询结果（跟原来功能一样）：
 
 ```csharp
 public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
@@ -59,26 +63,26 @@ public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
     return await _context.Items
         .Where(x => x.IsDone == false)
         .ToArrayAsync();
-}//这部分有点多余了 0.0
+}
 ```
 
-### 更新服务容器
+### 修改服务容器
 
-由于你删除了 `FakeTodoItemService` 类，你需要更新 `ConfigureServices`行，这是配置`ITodoItemService` 接口:
+由于你删除了 `FakeTodoItemService` 类，就需要更新 `ConfigureServices` 里配置`ITodoItemService` 接口的那一行:
+
 ```csharp
 services.AddScoped<ITodoItemService, TodoItemService>();
 ```
-`TodoController`依赖于`ITodoItemService`将会变化，但在头上你需要使用Entity Framework Core 并告诉它真实的数据库！
 
-### 测试
+依赖于 `ITodoItemService` 的 `TodoController` 将将幸福地对这个变化一无所知，但在底层，你将使用 Entity Framework Core 与真实的数据库进行交互！
 
-启动程序并导航至 `http://localhost:5000/todo`。假的项目不见了，你的程序正查询真正的数据库。只是碰巧没有任何保存的待办事项。
+### 试试看
 
-下一章，你将在程序中添加更多的功能，从创建新的待办事项的能力开始。
+启动程序并导航至 `http://localhost:5000/todo`。伪项目不见了，你的程序对数据库发起了真正的查询。只是刚好还没有任何 待办事项 被保存。
 
+下一章，你将在程序中添加更多的功能，从“创建新 待办事项 的能力”开始。
 
-## --------以下原文-----
-
+---
 
 ## Create a new service class
 
