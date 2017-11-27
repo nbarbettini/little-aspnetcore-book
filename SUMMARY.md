@@ -1,6 +1,6 @@
 # Summary
 
-* [你的第一个应用程序](chapters/your-first-application/README.md)
+* [你的第一个程序](chapters/your-first-application/README.md)
     * [获取 SDK](chapters/your-first-application/get-the-sdk.md)
     * [C# 版的 Hello World](chapters/your-first-application/hello-world-in-csharp.md)
     * [创建一个 ASP.NET Core 项目](chapters/your-first-application/create-aspnetcore-project.md)
