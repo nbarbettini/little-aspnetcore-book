@@ -15,7 +15,7 @@
 * [运用数据库](chapters/use-a-database/README.md)
     * [连接数据库](chapters/use-a-database/connect-to-a-database.md)
     * [修改数据库上下文](chapters/use-a-database/update-context.md)
-    * [创建迁移](chapters/use-a-database/create-migration.md)
+    * [创建变更](chapters/use-a-database/create-migration.md)
     * [创建服务类](chapters/use-a-database/create-service-class.md)
 * [添加新特性](chapters/add-more-features/README.md)
     * [添加新的 待办事项 条目](chapters/add-more-features/add-todo-items.md)

@@ -1,28 +1,26 @@
-## 创建一个迁移
+## 创建变更
 
-迁移随时记录表结构的变化，有可能撤销(回滚)一组更改，或者创建与初始时相同表结构的数据库.随着迁移，你有一个完整的添加或删除字段、表的历史记录。
+变更按时间记录着数据库结构的变化。它们使以下的操作成为可能：撤销(回滚)一部分修改，或创建一个新的数据库——与原有数据库结构一致。有了变更，你有一个完整的数据库历史，记录着对数据库的修改，例如添加或删除字段（以及整个表）。
 
-由于现在上下文和数据库不同步，你要创建一个迁移来更新数据库并且在你定义的上下文中添加`Items`。
+上一章节里，你在数据库上下文里添加了一个 Items 集合。既然现在数据库上下文里包括了一个集合（或者说表），而数据库里没有它，你就需要创建一个变更来修改数据库：
 
 ```
 dotnet ef migrations add AddItems
 ```
 
-这将根据检查上下文的任何变化创建一个叫`AddItems`的新的迁移。
+这行代码通过检查你在数据库上下文里所做的修改，创建了一个新的变更，名为 `AddItems`。
 
-> 如果你得到一个错误:
-> `No executable found matching command "dotnet-ef"`
-> 请确认在正确的目录下执行。 这些命令必须在项目的根目录下执行(`Program.cs`所在目录)。
+> 如果你看到这样的报错: `No executable found matching command "dotnet-ef"`，请确保在正确的目录下。 这些命令必须在项目的根目录下执行(`Program.cs`所在目录)。
 
-如果你打开`Data/Migrations` 目录，你将会看到:
+如果你打开 `Data/Migrations` 目录，你将会看到:
 
 ![Multiple migrations](migrations.png)
 
-第一个迁移文件(`00_CreateIdentitySchema.cs`) 是为你创建的，并且通过 `dotnet new`已经应用到数据库中。 当你创建 `AddItem` 迁移时是带时间戳的。
+第一个变更文件（`00_CreateIdentitySchema.cs`），是在你执行 `dotnet new` 的时候创建并应用的。 变更 `AddItem` 带有你创建它时候的时间戳。
 
-> 提示:你可以用 `dotnet ef migrations list`看到一个迁移列表。
+> 你可以用 `dotnet ef migrations list` 命令查看一个变更的列表。
 
-如果你打开一个迁移文件，你将看见两个叫`Up` and `Down`的方法:
+如果你打开一个变更文件，可以看到两个方法，名字分别是 `Up` 和 `Down`:
 
 **`Data/Migrations/<date>_AddItems.cs`**
 
@@ -59,39 +57,35 @@ protected override void Down(MigrationBuilder migrationBuilder)
 }
 ```
 
-将迁移应用到数据库时将运行`Up`方法。自你添加`DbSet<TodoItem>`到数据库上下文中，当你应用迁移时Entity Framework Core 将会创建一个`Items` 表 (列匹配`TodoItem`)。
+将变更应用到数据库时将 `Up` 方法会被执行。因为你在数据库上下文里添加了一个 `DbSet<TodoItem>` ，应用变更时 Entity Framework Core 会创建一个 `Items` 表（其列与 `TodoItem` 相匹配)。
 
- `Down` 方法正好相反: 当你需要撤销(回滚)迁移时，`Items` 表将会被删除。
+ `Down` 方法刚好相反：当你需要撤销(回滚)变更时，`Items` 表将会被丢弃。
 
-### SQLite局限性的解决办法
+### 绕开 SQLite 的局限性
 
-使用SQLite时，如果你用迁移的方法会有一些局限性。在使用这个方法以前一直存在:
+如果你按原样执行变更，会遭遇 SQLite 数据库的局限性带来的问题，要修复它，可以这样绕开：
 
-* 在 `Up`方法里注释 `migrationBuilder.AddForeignKey` 一行。
-* 在 `Down`方法里注释 `migrationBuilder.DropForeignKey` 一行。
+* 在 `Up` 方法里注释掉 `migrationBuilder.AddForeignKey` 那些行。
+* 在 `Down` 方法里注释掉 `migrationBuilder.DropForeignKey` 那些行。
 
-如果你使用完整的数据库，如 SQL Server 或者 MySQL，就不存在这个问题。
+如果你使用完善的数据库，如 SQL Server 或者 MySQL，就不需要这样（有点旁门左道的）绕弯了。
 
-### 应用迁移
+### 应用变更
 
-创建迁移最后一步就是要应用到数据库中:
+创建变更的最后一步，就是要应用它(们)到数据库中:
 
 ```
 dotnet ef database update
 ```
 
-Entity Framework Core用这条命令在数据库中创建 `Items` 表。
+这条命令会导致 Entity Framework Core 在数据库中创建 `Items` 表。
 
-> 如果你想回滚数据库，你可以提供*以前*迁移的名称：
-> `dotnet ef database update CreateIdentitySchema`
-> 这将运行任何比你指定的迁移更新的 `Down` 方法。
+> 如果你想回滚数据库，你可以提供 *上一个* 迁移的名称：`dotnet ef database update CreateIdentitySchema` 这将运行所有迟于你指定变更的 `Down` 方法。  
+如果你需要完整的抹掉数据库并重新开始，运行 `dotnet ef database drop` 然后运行 `dotnet ef database update`，重新搭建数据库并应用到到当前的变更。
 
-> 如果你需要完整的抹去数据库并重新开始，运行 `dotnet ef database drop` 然后运行 `dotnet ef database update`，新建数据库框架并推到当前迁移。
+搞定! 数据库和上下文都已就绪。接下来，你将在服务层使用上下文。
 
-就这样! 数据库和上下文都准备好了。 下一步，你将在服务层使用上下文。
-
-## --------以下原文-----
-
+---
 
 ## Create a migration
 
