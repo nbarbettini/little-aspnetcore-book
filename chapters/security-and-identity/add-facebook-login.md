@@ -2,16 +2,16 @@
 
 Individual Auth 项目模板包括了“开箱即用”式的“使用电子邮件地址和密码注册”的功能。你可以添加额外的身份供应者（比如 Google 和 Facebook）来扩展这个功能。
 
-对于任何一个供应者，你一般需要做这两件事：
+要接入任何一个身份供应商，你通常需要做这两件事：
 
-1. 在供应者那里创建一个 应用（有时候也叫*客户(client)*），以此代表你的程序
-1. 复制供应者生成的 ID 和 密码，放进你的代码里
+1. 在供应商那里创建一个 应用（有时候也叫*客户(client)*），以此代表你的程序
+1. 复制供应商生成的 ID 和 密码，放进你的代码里
 
 ### 在 Facebook 创建一个应用
 
 你可以使用位于 https://developers.facebook.com/apps 的 Facebook 开发者控制台创建一个新的 Facebook 应用。点击 **Add a New App** 并按提示创建一个应用 ID。
 
-> 提示：如果你没有 Facebook 账号，可以换成 Google 或者 Twitter 登录功能。在供应者网站上的操作会有些差异，但在代码里基本一致。
+> 提示：如果你没有 Facebook 账号，可以换成 Google 或者 Twitter 登录功能。在供应商网站上的操作会有些差异，但在代码里基本一致。
 
 下一步，设置 Facebook Login 然后点击左边栏的 Settings —— 在 Facebook Login 下面：
 
@@ -23,9 +23,9 @@ Individual Auth 项目模板包括了“开箱即用”式的“使用电子邮�
 http://localhost:5000/signin-facebook
 ```
 
-点击 **Save Changes**，然后打开 Dashboard 页面。在这里你可以看到 Facebook 生成的 应用ID 和 密码，稍后就会用到（保持这个页面打开）。
+点击 **Save Changes**，然后打开 Dashboard 页面。在这里你可以看到由 Facebook 创建的 应用ID 和 密码，这些稍后就会用到（请保持这个页面开启）。
 
-要在 ASP.NET Core Identity 里启用 Facebook 登录功能，把这段代码添加到 `Startup` 类里 `ConfigureServices` 方法中的任意位置：
+要在 ASP.NET Core Identity 里启用 Facebook 登录功能，把下面这段代码添加到 `Startup` 类里 `ConfigureServices` 方法中的任意位置：
 
 ```csharp
 services
@@ -37,7 +37,7 @@ services
     });
 ```
 
-为免把 Facebook 应用ID 和 密码 硬编码在程序里，这些值应该从配置系统里获取。一般情况下 `appsettings.json` 文件是为项目保存配置信息的地方。尽管如此，既然它会被提交到版本控制系统里，就不太适合 应用ID 和 密码 这些敏感信息。（比方说，你的密码推送到了 GitHub，任何人都可能窃取它，并用它来损害你的利益。）
+为免把 Facebook 应用ID 和 密码 硬编码在程序里，这些值应该从配置系统里获取。一般情况下 `appsettings.json` 文件是保存项目配置信息的地方。尽管如此，既然它会被提交到版本控制系统里，就不太适合 应用ID 和 密码 这些敏感信息。（比方说，你的密码推送到了 GitHub，任何人都可能窃取它，并滥用它来损害你的利益。）
 
 ### 通过 Secrets Manager 来安全地保存密码
 
