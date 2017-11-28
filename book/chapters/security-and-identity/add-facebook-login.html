@@ -1,0 +1,798 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>添加 Facebook 登录功能 · ASP.NET Core 简明手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Nate Barbettini">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="require-authentication.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../your-first-application/">
+            
+                <a href="../your-first-application/">
+            
+                    
+                    你的第一个程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../your-first-application/get-the-sdk.html">
+            
+                <a href="../your-first-application/get-the-sdk.html">
+            
+                    
+                    获取 SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../your-first-application/hello-world-in-csharp.html">
+            
+                <a href="../your-first-application/hello-world-in-csharp.html">
+            
+                    
+                    C# 版的 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../your-first-application/create-aspnetcore-project.html">
+            
+                <a href="../your-first-application/create-aspnetcore-project.html">
+            
+                    
+                    创建一个 ASP.NET Core 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mvc-basics/">
+            
+                <a href="../mvc-basics/">
+            
+                    
+                    MVC 基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mvc-basics/create-controller.html">
+            
+                <a href="../mvc-basics/create-controller.html">
+            
+                    
+                    创建控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../mvc-basics/create-models.html">
+            
+                <a href="../mvc-basics/create-models.html">
+            
+                    
+                    创建模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../mvc-basics/create-view.html">
+            
+                <a href="../mvc-basics/create-view.html">
+            
+                    
+                    创建视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../mvc-basics/add-service-class.html">
+            
+                <a href="../mvc-basics/add-service-class.html">
+            
+                    
+                    添加一个服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../mvc-basics/use-dependency-injection.html">
+            
+                <a href="../mvc-basics/use-dependency-injection.html">
+            
+                    
+                    运用依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../mvc-basics/finish-controller.html">
+            
+                <a href="../mvc-basics/finish-controller.html">
+            
+                    
+                    完成控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../add-external-packages/">
+            
+                <a href="../add-external-packages/">
+            
+                    
+                    添加外来软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../use-a-database/">
+            
+                <a href="../use-a-database/">
+            
+                    
+                    运用数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../use-a-database/connect-to-a-database.html">
+            
+                <a href="../use-a-database/connect-to-a-database.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../use-a-database/update-context.html">
+            
+                <a href="../use-a-database/update-context.html">
+            
+                    
+                    修改数据库上下文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../use-a-database/create-migration.html">
+            
+                <a href="../use-a-database/create-migration.html">
+            
+                    
+                    创建变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../use-a-database/create-service-class.html">
+            
+                <a href="../use-a-database/create-service-class.html">
+            
+                    
+                    创建服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../add-more-features/">
+            
+                <a href="../add-more-features/">
+            
+                    
+                    添加新特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../add-more-features/add-todo-items.html">
+            
+                <a href="../add-more-features/add-todo-items.html">
+            
+                    
+                    添加 待办事项 条目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../add-more-features/complete-with-checkbox.html">
+            
+                <a href="../add-more-features/complete-with-checkbox.html">
+            
+                    
+                    使用复选框标记条目完成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    安全和身份
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.7.1" data-path="add-facebook-login.html">
+            
+                <a href="add-facebook-login.html">
+            
+                    
+                    添加 Facebook 登录功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="require-authentication.html">
+            
+                <a href="require-authentication.html">
+            
+                    
+                    提示认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="using-identity-in-the-application.html">
+            
+                <a href="using-identity-in-the-application.html">
+            
+                    
+                    在程序中使用身份
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="authorization-with-roles.html">
+            
+                <a href="authorization-with-roles.html">
+            
+                    
+                    按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../automated-testing/">
+            
+                <a href="../automated-testing/">
+            
+                    
+                    自动化测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../automated-testing/unit-testing.html">
+            
+                <a href="../automated-testing/unit-testing.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../automated-testing/integration-testing.html">
+            
+                <a href="../automated-testing/integration-testing.html">
+            
+                    
+                    集成测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../deploy-the-application/">
+            
+                <a href="../deploy-the-application/">
+            
+                    
+                    部署程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../deploy-the-application/deploy-to-azure.html">
+            
+                <a href="../deploy-the-application/deploy-to-azure.html">
+            
+                    
+                    部署到 Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../deploy-the-application/deploy-with-docker.html">
+            
+                <a href="../deploy-the-application/deploy-with-docker.html">
+            
+                    
+                    使用 Docker 进行部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../conclusion/">
+            
+                <a href="../conclusion/">
+            
+                    
+                    结束语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >添加 Facebook 登录功能</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6DFB;&#x52A0;-facebook-&#x767B;&#x5F55;&#x529F;&#x80FD;"><a name="&#x6DFB;&#x52A0;-facebook-&#x767B;&#x5F55;&#x529F;&#x80FD;" class="plugin-anchor" href="#&#x6DFB;&#x52A0;-facebook-&#x767B;&#x5F55;&#x529F;&#x80FD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0; Facebook &#x767B;&#x5F55;&#x529F;&#x80FD;</h2>
+<p>Individual Auth &#x9879;&#x76EE;&#x6A21;&#x677F;&#x5305;&#x62EC;&#x4E86;&#x201C;&#x5F00;&#x7BB1;&#x5373;&#x7528;&#x201D;&#x5F0F;&#x7684;&#x201C;&#x4F7F;&#x7528;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#x5730;&#x5740;&#x548C;&#x5BC6;&#x7801;&#x6CE8;&#x518C;&#x201D;&#x7684;&#x529F;&#x80FD;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x989D;&#x5916;&#x7684;&#x8EAB;&#x4EFD;&#x4F9B;&#x5E94;&#x8005;&#xFF08;&#x6BD4;&#x5982; Google &#x548C; Facebook&#xFF09;&#x6765;&#x6269;&#x5C55;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x8981;&#x63A5;&#x5165;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x8EAB;&#x4EFD;&#x4F9B;&#x5E94;&#x5546;&#xFF0C;&#x4F60;&#x901A;&#x5E38;&#x9700;&#x8981;&#x505A;&#x8FD9;&#x4E24;&#x4EF6;&#x4E8B;&#xFF1A;</p>
+<ol>
+<li>&#x5728;&#x4F9B;&#x5E94;&#x5546;&#x90A3;&#x91CC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; &#x5E94;&#x7528;&#xFF08;&#x6709;&#x65F6;&#x5019;&#x4E5F;&#x53EB;<em>&#x5BA2;&#x6237;(client)</em>&#xFF09;&#xFF0C;&#x4EE5;&#x6B64;&#x4EE3;&#x8868;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;</li>
+<li>&#x590D;&#x5236;&#x4F9B;&#x5E94;&#x5546;&#x751F;&#x6210;&#x7684; ID &#x548C; &#x5BC6;&#x7801;&#xFF0C;&#x653E;&#x8FDB;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x91CC;</li>
+</ol>
+<h3 id="&#x5728;-facebook-&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;"><a name="&#x5728;-facebook-&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;" class="plugin-anchor" href="#&#x5728;-facebook-&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728; Facebook &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;</h3>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4F4D;&#x4E8E; <a href="https://developers.facebook.com/apps" target="_blank">https://developers.facebook.com/apps</a> &#x7684; Facebook &#x5F00;&#x53D1;&#x8005;&#x63A7;&#x5236;&#x53F0;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Facebook &#x5E94;&#x7528;&#x3002;&#x70B9;&#x51FB; <strong>Add a New App</strong> &#x5E76;&#x6309;&#x63D0;&#x793A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528; ID&#x3002;</p>
+<blockquote>
+<p>&#x63D0;&#x793A;&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x6CA1;&#x6709; Facebook &#x8D26;&#x53F7;&#xFF0C;&#x53EF;&#x4EE5;&#x6362;&#x6210; Google &#x6216;&#x8005; Twitter &#x767B;&#x5F55;&#x529F;&#x80FD;&#x3002;&#x5728;&#x4F9B;&#x5E94;&#x5546;&#x7F51;&#x7AD9;&#x4E0A;&#x7684;&#x64CD;&#x4F5C;&#x4F1A;&#x6709;&#x4E9B;&#x5DEE;&#x5F02;&#xFF0C;&#x4F46;&#x5728;&#x4EE3;&#x7801;&#x91CC;&#x57FA;&#x672C;&#x4E00;&#x81F4;&#x3002;</p>
+</blockquote>
+<p>&#x4E0B;&#x4E00;&#x6B65;&#xFF0C;&#x8BBE;&#x7F6E; Facebook Login &#x7136;&#x540E;&#x70B9;&#x51FB;&#x5DE6;&#x8FB9;&#x680F;&#x7684; Settings &#x2014;&#x2014; &#x5728; Facebook Login &#x4E0B;&#x9762;&#xFF1A;</p>
+<p><img src="facebook-login-settings.png" alt="Settings button"></p>
+<p>&#x628A;&#x4EE5;&#x4E0B; URL &#x6DFB;&#x52A0;&#x5230; <strong>Valid OAuth redirect URIs</strong> &#x6587;&#x672C;&#x6846;&#x91CC;&#x3002;</p>
+<pre><code>http://localhost:5000/signin-facebook
+</code></pre><p>&#x70B9;&#x51FB; <strong>Save Changes</strong>&#xFF0C;&#x7136;&#x540E;&#x6253;&#x5F00; Dashboard &#x9875;&#x9762;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7531; Facebook &#x521B;&#x5EFA;&#x7684; &#x5E94;&#x7528;ID &#x548C; &#x5BC6;&#x7801;&#xFF0C;&#x8FD9;&#x4E9B;&#x7A0D;&#x540E;&#x5C31;&#x4F1A;&#x7528;&#x5230;&#xFF08;&#x8BF7;&#x4FDD;&#x6301;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x5F00;&#x542F;&#xFF09;&#x3002;</p>
+<p>&#x8981;&#x5728; ASP.NET Core Identity &#x91CC;&#x542F;&#x7528; Facebook &#x767B;&#x5F55;&#x529F;&#x80FD;&#xFF0C;&#x628A;&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x6DFB;&#x52A0;&#x5230; <code>Startup</code> &#x7C7B;&#x91CC; <code>ConfigureServices</code> &#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-csharp">services
+    .AddAuthentication()
+    .AddFacebook(options =&gt;
+    {
+        options.AppId = Configuration[<span class="hljs-string">&quot;Facebook:AppId&quot;</span>];
+        options.AppSecret = Configuration[<span class="hljs-string">&quot;Facebook:AppSecret&quot;</span>];
+    });
+</code></pre>
+<p>&#x4E3A;&#x514D;&#x628A; Facebook &#x5E94;&#x7528;ID &#x548C; &#x5BC6;&#x7801; &#x786C;&#x7F16;&#x7801;&#x5728;&#x7A0B;&#x5E8F;&#x91CC;&#xFF0C;&#x8FD9;&#x4E9B;&#x503C;&#x5E94;&#x8BE5;&#x4ECE;&#x914D;&#x7F6E;&#x7CFB;&#x7EDF;&#x91CC;&#x83B7;&#x53D6;&#x3002;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B; <code>appsettings.json</code> &#x6587;&#x4EF6;&#x662F;&#x4FDD;&#x5B58;&#x9879;&#x76EE;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x7684;&#x5730;&#x65B9;&#x3002;&#x5C3D;&#x7BA1;&#x5982;&#x6B64;&#xFF0C;&#x65E2;&#x7136;&#x5B83;&#x4F1A;&#x88AB;&#x63D0;&#x4EA4;&#x5230;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;&#x91CC;&#xFF0C;&#x5C31;&#x4E0D;&#x592A;&#x9002;&#x5408; &#x5E94;&#x7528;ID &#x548C; &#x5BC6;&#x7801; &#x8FD9;&#x4E9B;&#x654F;&#x611F;&#x4FE1;&#x606F;&#x3002;&#xFF08;&#x6BD4;&#x65B9;&#x8BF4;&#xFF0C;&#x4F60;&#x7684;&#x5BC6;&#x7801;&#x63A8;&#x9001;&#x5230;&#x4E86; GitHub&#xFF0C;&#x4EFB;&#x4F55;&#x4EBA;&#x90FD;&#x53EF;&#x80FD;&#x7A83;&#x53D6;&#x5B83;&#xFF0C;&#x5E76;&#x6EE5;&#x7528;&#x5B83;&#x6765;&#x635F;&#x5BB3;&#x4F60;&#x7684;&#x5229;&#x76CA;&#x3002;&#xFF09;</p>
+<h3 id="&#x901A;&#x8FC7;-secrets-manager-&#x6765;&#x5B89;&#x5168;&#x5730;&#x4FDD;&#x5B58;&#x5BC6;&#x7801;"><a name="&#x901A;&#x8FC7;-secrets-manager-&#x6765;&#x5B89;&#x5168;&#x5730;&#x4FDD;&#x5B58;&#x5BC6;&#x7801;" class="plugin-anchor" href="#&#x901A;&#x8FC7;-secrets-manager-&#x6765;&#x5B89;&#x5168;&#x5730;&#x4FDD;&#x5B58;&#x5BC6;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x901A;&#x8FC7; Secrets Manager &#x6765;&#x5B89;&#x5168;&#x5730;&#x4FDD;&#x5B58;&#x5BC6;&#x7801;</h3>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x628A; Secrets Manager &#x5DE5;&#x5177;&#x7528;&#x4E8E; &#x5E94;&#x7528;&#x5BC6;&#x7801; &#x8FD9;&#x79CD;&#x654F;&#x611F;&#x4FE1;&#x606F;&#x3002;&#x5728;&#x7EC8;&#x7AEF;&#x7A97;&#x53E3;&#x91CC;&#x6267;&#x884C;&#x8FD9;&#x4E00;&#x884C;&#x4EE5;&#x786E;&#x4FDD;&#x5B83;&#x5B89;&#x88C5;&#x8FC7;&#x4E86;&#xFF08;&#x5148;&#x786E;&#x4FDD;&#x4F60;&#x5F53;&#x524D;&#x4F4D;&#x4E8E;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E2D;&#xFF09;&#xFF1A;</p>
+<pre><code>dotnet user-secrets --help
+</code></pre><p>&#x4ECE; Facebook &#x5E94;&#x7528;&#x7BA1;&#x7406;&#x9875;&#x9762;&#x590D;&#x5236; &#x5E94;&#x7528;ID &#x548C; &#x5BC6;&#x7801;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; <code>set</code> &#x547D;&#x4EE4;&#x5C06;&#x5B83;&#x4EEC;&#x7684;&#x503C;&#x4FDD;&#x5B58;&#x5728; Secrets Manager &#x91CC;&#xFF1A;</p>
+<pre><code>dotnet user-secrets set Facebook:AppId &lt;&#x7C98;&#x8D34; &#x5E94;&#x7528;ID&gt;
+dotnet user-secrets set Facebook:AppSecret &lt;&#x7C98;&#x8D34; &#x5E94;&#x7528;&#x5BC6;&#x7801;&gt;
+</code></pre><p>&#x5F53;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;Secrets Manager &#x91CC;&#x7684;&#x503C;&#x4F1A;&#x52A0;&#x8F7D;&#x5230; <code>Configuration</code> &#x5C5E;&#x6027;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x521A;&#x624D;&#x5728; <code>ConfigureServices</code> &#x4E2D;&#x6DFB;&#x52A0;&#x7684;&#x4EE3;&#x7801;&#x80FD;&#x591F;&#x8BBF;&#x95EE;&#x5230;&#x5B83;&#x4EEC;&#x3002;</p>
+<p>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#xFF0C;&#x5728;&#x5BFC;&#x822A;&#x6761;&#x4E0A;&#x70B9;&#x51FB; Login&#xFF0C;&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6309;&#x94AE;&#xFF0C;&#x7528;&#x4E8E; Facebook &#x767B;&#x5F55;&#x529F;&#x80FD;&#xFF1A;</p>
+<p><img src="facebook-login-button.png" alt="Facebook login button"></p>
+<p>&#x8BD5;&#x4E00;&#x4E0B; Facebook &#x767B;&#x5F55;&#x529F;&#x80FD;&#x3002;&#x4F60;&#x4F1A;&#x88AB;&#x91CD;&#x5B9A;&#x5411;&#x5230; Facebook &#x5E76;&#x88AB;&#x63D0;&#x793A;&#x5411;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x6388;&#x6743;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x5B9A;&#x5411;&#x56DE;&#x6765;&#x518D;&#x767B;&#x5F55;&#x8FDB;&#x53BB;&#x3002;</p>
+<hr>
+<h2 id="add-facebook-login"><a name="add-facebook-login" class="plugin-anchor" href="#add-facebook-login"><i class="fa fa-link" aria-hidden="true"></i></a>Add Facebook login</h2>
+<p>Out of the box, the Individual Auth template includes functionality for registering using an email and password. You can extend this by plugging in additional identity providers like Google and Facebook.</p>
+<p>For any external provider, you typically need to do two things:</p>
+<ol>
+<li>Create an app (sometimes called a <em>client</em>) on the external provider that represents your application</li>
+<li>Copy the ID and secret generated by the provider and put them in your code</li>
+</ol>
+<h3 id="create-an-app-in-facebook"><a name="create-an-app-in-facebook" class="plugin-anchor" href="#create-an-app-in-facebook"><i class="fa fa-link" aria-hidden="true"></i></a>Create an app in Facebook</h3>
+<p>You can create new Facebook apps using the Facebook Developer console at <a href="https://developers.facebook.com/apps" target="_blank">https://developers.facebook.com/apps</a>. Click <strong>Add a New App</strong> and follow the instructions to create an app ID.</p>
+<blockquote>
+<p>Sidebar: If you don&apos;t have a Facebook account, you can set up Google or Twitter login instead. The steps on the provider&apos;s site will be different, but the code is almost identical.</p>
+</blockquote>
+<p>Next, set up Facebook Login and then click Settings on the left side, under Facebook Login:</p>
+<p><img src="facebook-login-settings.png" alt="Settings button"></p>
+<p>Add the following URL to the <strong>Valid OAuth redirect URIs</strong> box:</p>
+<pre><code>http://localhost:5000/signin-facebook
+</code></pre><p>Click <strong>Save Changes</strong> and then head over to the Dashboard page. Here you can see the app ID and secret generated by Facebook, which you&apos;ll need in a moment (keep this tab open).</p>
+<p>To enable Facebook login in ASP.NET Core Identity, add this code anywhere in the <code>ConfigureServices</code> method in the <code>Startup</code> class:</p>
+<pre><code class="lang-csharp">services
+    .AddAuthentication()
+    .AddFacebook(options =&gt;
+    {
+        options.AppId = Configuration[<span class="hljs-string">&quot;Facebook:AppId&quot;</span>];
+        options.AppSecret = Configuration[<span class="hljs-string">&quot;Facebook:AppSecret&quot;</span>];
+    });
+</code></pre>
+<p>Instead of hardcoding the Facebook app ID and secret in your code, the values are pulled from the configuration system. The <code>appsettings.json</code> file is normally the place to store configuration data for your project. However, since it&apos;s checked into source control, it&apos;s not good for sensitive data like an app secret. (If your app secret was pushed to GitHub, for example, anyone could steal it and do bad things on your behalf.)</p>
+<h3 id="store-secrets-safely-with-the-secrets-manager"><a name="store-secrets-safely-with-the-secrets-manager" class="plugin-anchor" href="#store-secrets-safely-with-the-secrets-manager"><i class="fa fa-link" aria-hidden="true"></i></a>Store secrets safely with the Secrets Manager</h3>
+<p>You can use the Secrets Manager tool for sensitive data like an app secret. Run this line in the terminal to make sure it&apos;s installed (make sure you&apos;re currently in the project directory):</p>
+<pre><code>dotnet user-secrets --help
+</code></pre><p>Copy the app ID and secret from the Facebook app dashboard and use the <code>set</code> command to save the values in the Secrets Manager:</p>
+<pre><code>dotnet user-secrets set Facebook:AppId &lt;paste app id&gt;
+dotnet user-secrets set Facebook:AppSecret &lt;paste app secret&gt;
+</code></pre><p>The values from the Secrets Manager are loaded into the <code>Configuration</code> property when your application starts up, so they&apos;re available to the code in <code>ConfigureServices</code> you added before.</p>
+<p>Run your application and click the Login link in the navbar. You&apos;ll see a new button for logging in with Facebook:</p>
+<p><img src="facebook-login-button.png" alt="Facebook login button"></p>
+<p>Try logging in with Facebook. You&apos;ll be redirected and prompted to give your app permission in Facebook, then redirected back and logged in.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 安全和身份">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="require-authentication.html" class="navigation navigation-next " aria-label="Next page: 提示认证">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"添加 Facebook 登录功能","level":"1.7.1","depth":2,"next":{"title":"提示认证","level":"1.7.2","depth":2,"path":"chapters/security-and-identity/require-authentication.md","ref":"chapters/security-and-identity/require-authentication.md","articles":[]},"previous":{"title":"安全和身份","level":"1.7","depth":1,"path":"chapters/security-and-identity/README.md","ref":"chapters/security-and-identity/README.md","articles":[{"title":"添加 Facebook 登录功能","level":"1.7.1","depth":2,"path":"chapters/security-and-identity/add-facebook-login.md","ref":"chapters/security-and-identity/add-facebook-login.md","articles":[]},{"title":"提示认证","level":"1.7.2","depth":2,"path":"chapters/security-and-identity/require-authentication.md","ref":"chapters/security-and-identity/require-authentication.md","articles":[]},{"title":"在程序中使用身份","level":"1.7.3","depth":2,"path":"chapters/security-and-identity/using-identity-in-the-application.md","ref":"chapters/security-and-identity/using-identity-in-the-application.md","articles":[]},{"title":"按角色进行授权","level":"1.7.4","depth":2,"path":"chapters/security-and-identity/authorization-with-roles.md","ref":"chapters/security-and-identity/authorization-with-roles.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"b5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":12,"left":12,"top":12,"bottom":12,"comment_from_windsting":"these margin settings not working."}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ASP.NET Core 简明手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/security-and-identity/add-facebook-login.md","mtime":"2017-11-28T05:51:30.441Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-28T08:26:14.319Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

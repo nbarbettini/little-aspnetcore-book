@@ -1,0 +1,994 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>添加 待办事项 条目 · ASP.NET Core 简明手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Nate Barbettini">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="complete-with-checkbox.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../your-first-application/">
+            
+                <a href="../your-first-application/">
+            
+                    
+                    你的第一个程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../your-first-application/get-the-sdk.html">
+            
+                <a href="../your-first-application/get-the-sdk.html">
+            
+                    
+                    获取 SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../your-first-application/hello-world-in-csharp.html">
+            
+                <a href="../your-first-application/hello-world-in-csharp.html">
+            
+                    
+                    C# 版的 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../your-first-application/create-aspnetcore-project.html">
+            
+                <a href="../your-first-application/create-aspnetcore-project.html">
+            
+                    
+                    创建一个 ASP.NET Core 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mvc-basics/">
+            
+                <a href="../mvc-basics/">
+            
+                    
+                    MVC 基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mvc-basics/create-controller.html">
+            
+                <a href="../mvc-basics/create-controller.html">
+            
+                    
+                    创建控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../mvc-basics/create-models.html">
+            
+                <a href="../mvc-basics/create-models.html">
+            
+                    
+                    创建模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../mvc-basics/create-view.html">
+            
+                <a href="../mvc-basics/create-view.html">
+            
+                    
+                    创建视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../mvc-basics/add-service-class.html">
+            
+                <a href="../mvc-basics/add-service-class.html">
+            
+                    
+                    添加一个服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../mvc-basics/use-dependency-injection.html">
+            
+                <a href="../mvc-basics/use-dependency-injection.html">
+            
+                    
+                    运用依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../mvc-basics/finish-controller.html">
+            
+                <a href="../mvc-basics/finish-controller.html">
+            
+                    
+                    完成控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../add-external-packages/">
+            
+                <a href="../add-external-packages/">
+            
+                    
+                    添加外来软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../use-a-database/">
+            
+                <a href="../use-a-database/">
+            
+                    
+                    运用数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../use-a-database/connect-to-a-database.html">
+            
+                <a href="../use-a-database/connect-to-a-database.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../use-a-database/update-context.html">
+            
+                <a href="../use-a-database/update-context.html">
+            
+                    
+                    修改数据库上下文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../use-a-database/create-migration.html">
+            
+                <a href="../use-a-database/create-migration.html">
+            
+                    
+                    创建变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../use-a-database/create-service-class.html">
+            
+                <a href="../use-a-database/create-service-class.html">
+            
+                    
+                    创建服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    添加新特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="add-todo-items.html">
+            
+                <a href="add-todo-items.html">
+            
+                    
+                    添加 待办事项 条目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="complete-with-checkbox.html">
+            
+                <a href="complete-with-checkbox.html">
+            
+                    
+                    使用复选框标记条目完成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../security-and-identity/">
+            
+                <a href="../security-and-identity/">
+            
+                    
+                    安全和身份
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/add-facebook-login.html">
+            
+                <a href="../security-and-identity/add-facebook-login.html">
+            
+                    
+                    添加 Facebook 登录功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/require-authentication.html">
+            
+                <a href="../security-and-identity/require-authentication.html">
+            
+                    
+                    提示认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/using-identity-in-the-application.html">
+            
+                <a href="../security-and-identity/using-identity-in-the-application.html">
+            
+                    
+                    在程序中使用身份
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/authorization-with-roles.html">
+            
+                <a href="../security-and-identity/authorization-with-roles.html">
+            
+                    
+                    按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../automated-testing/">
+            
+                <a href="../automated-testing/">
+            
+                    
+                    自动化测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../automated-testing/unit-testing.html">
+            
+                <a href="../automated-testing/unit-testing.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../automated-testing/integration-testing.html">
+            
+                <a href="../automated-testing/integration-testing.html">
+            
+                    
+                    集成测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../deploy-the-application/">
+            
+                <a href="../deploy-the-application/">
+            
+                    
+                    部署程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../deploy-the-application/deploy-to-azure.html">
+            
+                <a href="../deploy-the-application/deploy-to-azure.html">
+            
+                    
+                    部署到 Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../deploy-the-application/deploy-with-docker.html">
+            
+                <a href="../deploy-the-application/deploy-with-docker.html">
+            
+                    
+                    使用 Docker 进行部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../conclusion/">
+            
+                <a href="../conclusion/">
+            
+                    
+                    结束语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >添加 待办事项 条目</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6DFB;&#x52A0;-&#x5F85;&#x529E;&#x4E8B;&#x9879;-&#x6761;&#x76EE;"><a name="&#x6DFB;&#x52A0;-&#x5F85;&#x529E;&#x4E8B;&#x9879;-&#x6761;&#x76EE;" class="plugin-anchor" href="#&#x6DFB;&#x52A0;-&#x5F85;&#x529E;&#x4E8B;&#x9879;-&#x6761;&#x76EE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0; &#x5F85;&#x529E;&#x4E8B;&#x9879; &#x6761;&#x76EE;</h2>
+<p>&#x4F7F;&#x7528;&#x5217;&#x8868;&#x4E0B;&#x9762;&#x90A3;&#x4E2A;&#x7B80;&#x6613;&#x7684;&#x8868;&#x5355;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x65B0;&#x7684; &#x5F85;&#x529E;&#x4E8B;&#x9879; &#x6761;&#x76EE;&#xFF1A;</p>
+<p><img src="final-form.png" alt="Final form"></p>
+<p>&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;&#x9700;&#x8981;&#x51E0;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ul>
+<li>&#x6DFB;&#x52A0; JavaScript &#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x6570;&#x636E;</li>
+<li>&#x5728;&#x63A7;&#x5236;&#x5668;&#x91CC;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684; action &#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;</li>
+<li>&#x5728;&#x670D;&#x52A1;&#x5C42;&#x6DFB;&#x52A0;&#x4EE3;&#x7801;&#xFF0C;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x8FDB;&#x884C;&#x4FEE;&#x6539;</li>
+</ul>
+<h3 id="&#x6DFB;&#x52A0;-javascript-&#x4EE3;&#x7801;"><a name="&#x6DFB;&#x52A0;-javascript-&#x4EE3;&#x7801;" class="plugin-anchor" href="#&#x6DFB;&#x52A0;-javascript-&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0; JavaScript &#x4EE3;&#x7801;</h3>
+<p>&#x89C6;&#x56FE; <code>Todo/Index.cshtml</code> &#x91CC;&#x5DF2;&#x7ECF;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x8868;&#x5355;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x6587;&#x672C;&#x6846;&#x3001;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x65B0;&#x6761;&#x76EE;&#x3002;&#x7528;&#x6237;&#x70B9;&#x51FB; Add &#x6309;&#x94AE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x5C06;&#x501F;&#x52A9; jQuery &#x53D1;&#x9001;&#x4E00;&#x4E2A; POST &#x8BF7;&#x6C42;&#x5230;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<p>&#x6253;&#x5F00;&#x6587;&#x4EF6; <code>wwwroot/js/site.js</code> &#x5E76;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-javascript">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-comment">// Wire up the Add button to send the new item to the server</span>
+    $(<span class="hljs-string">&apos;#add-item-button&apos;</span>).on(<span class="hljs-string">&apos;click&apos;</span>, addItem);
+
+});
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x5E95;&#x90E8;&#x5199;&#x4E0A;&#x8FD9;&#x4E2A; <code>addItem</code> &#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addItem</span>(<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">&apos;#add-item-error&apos;</span>).hide();
+    <span class="hljs-keyword">var</span> newTitle = $(<span class="hljs-string">&apos;#add-item-title&apos;</span>).val();
+
+    $.post(<span class="hljs-string">&apos;/Todo/AddItem&apos;</span>, { title: newTitle }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">window</span>.location = <span class="hljs-string">&apos;/Todo&apos;</span>;
+    })
+    .fail(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+        <span class="hljs-keyword">if</span> (data &amp;&amp; data.responseJSON) {
+            <span class="hljs-keyword">var</span> firstError = data.responseJSON[<span class="hljs-built_in">Object</span>.keys(data.responseJSON)[<span class="hljs-number">0</span>]];
+            $(<span class="hljs-string">&apos;#add-item-error&apos;</span>).text(firstError);
+            $(<span class="hljs-string">&apos;#add-item-error&apos;</span>).show();
+        }
+    });
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4F1A;&#x53D1;&#x9001;&#x4E00;&#x4E2A; POST &#x8BF7;&#x6C42;&#x5230; <code>http://localhost:5000/Todo/AddItem</code>&#xFF0C;&#x91CC;&#x9762;&#x5E26;&#x6709;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x540D;&#x79F0;&#x3002;&#x4F20;&#x9012;&#x7ED9; <code>$.post</code> &#x65B9;&#x6CD5;(&#x51FD;&#x6570;)&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A; &#x5E38;&#x89C4;&#x5904;&#x7406;&#x65B9;&#x6CD5;(success handler)&#xFF0C;&#x5B83;&#x5C06;&#x5728;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94; <code>200 OK</code> &#x7684;&#x65F6;&#x5019;&#x88AB;&#x6267;&#x884C;&#x3002;&#x8FD9;&#x4E2A; &#x5E38;&#x89C4;&#x5904;&#x7406;&#x65B9;&#x6CD5; &#x51FD;&#x6570;&#x4F7F;&#x7528; <code>window.location</code> &#x5237;&#x65B0;&#x9875;&#x9762;&#xFF08;&#x628A; location &#x8BBE;&#x7F6E;&#x4E3A; <code>/Todo</code>&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5F53;&#x524D;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x6240;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#xFF09;&#x3002;&#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94; <code>400 Bad Request</code>&#xFF0C;&#x90A3;&#x4E48;&#x4F9D;&#x9644;&#x5728; <code>$.post</code> &#x65B9;&#x6CD5;&#x4E0A;&#x7684; <code>fail</code> &#x5904;&#x7406;&#x65B9;&#x6CD5;&#x5C06;&#x8BD5;&#x56FE;&#x63D0;&#x53D6;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x5728; id &#x4E3A; <code>add-item-error</code> &#x7684; <code>&lt;div&gt;</code> &#x4E2D;&#x663E;&#x793A;&#x5B83;&#x3002;</p>
+<h3 id="&#x6DFB;&#x52A0;-action"><a name="&#x6DFB;&#x52A0;-action" class="plugin-anchor" href="#&#x6DFB;&#x52A0;-action"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0; action</h3>
+<p>&#x4E0A;&#x9762;&#x7684; JavaScript &#x8FD8;&#x4E0D;&#x80FD;&#x594F;&#x6548;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD8;&#x6CA1;&#x6709;&#x4EFB;&#x4F55; action &#x5BF9; <code>/Todo/AddItem</code> &#x8FD9;&#x4E2A;&#x8DEF;&#x5F84;&#x4E0A;&#x7684;&#x8BF7;&#x6C42;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;&#x5982;&#x679C;&#x4F60;&#x73B0;&#x5728;&#x5C1D;&#x8BD5;&#xFF0C;ASP.NET Core &#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>404 Not Found</code> &#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x4F60;&#x9700;&#x8981;&#x5728; <code>TodoConteoller</code> &#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>AddItem</code> &#x7684;&#x65B0; action&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;IActionResult&gt; <span class="hljs-title">AddItem</span>(<span class="hljs-params">NewTodoItem newItem</span>)
+</span>{
+    <span class="hljs-keyword">if</span> (!ModelState.IsValid)
+    {
+        <span class="hljs-keyword">return</span> BadRequest(ModelState);
+    }
+
+    <span class="hljs-keyword">var</span> successful = <span class="hljs-keyword">await</span> _todoItemService.AddItemAsync(newItem);
+    <span class="hljs-keyword">if</span> (!successful)
+    {
+        <span class="hljs-keyword">return</span> BadRequest(<span class="hljs-keyword">new</span> { error = <span class="hljs-string">&quot;Could not add item&quot;</span> });
+    }
+
+    <span class="hljs-keyword">return</span> Ok();
+}
+</code></pre>
+<p>&#x65B9;&#x6CD5;&#x7B7E;&#x540D;&#x91CC;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x53C2;&#x6570; <code>NewTodoItem</code>&#xFF0C;&#x662F;&#x4E2A;&#x5C1A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x65B0;&#x6A21;&#x578B;&#x3002;&#x4F60;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x521B;&#x5EFA;&#x5B83;&#xFF1A;</p>
+<p><strong><code>Models/NewTodoItem.cs</code></strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.ComponentModel.DataAnnotations;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">NewTodoItem</span>
+    {
+        [Required]
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Title { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x7684;&#x5B9A;&#x4E49;&#xFF08;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>Title</code> &#x7684;&#x5C5E;&#x6027;&#xFF09;&#x4E0E;&#x4F60;&#x501F;&#x52A9; jQuery &#x53D1;&#x9001;&#x7ED9; action &#x7684;&#x6570;&#x636E;&#x76F8;&#x5339;&#x914D;&#xFF1A;</p>
+<pre><code class="lang-javascript">$.post(<span class="hljs-string">&apos;/Todo/AddItem&apos;</span>, { title: newTitle }  <span class="hljs-comment">// ...</span>
+
+<span class="hljs-comment">// &#x5E26;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x7684; JSON &#x5BF9;&#x8C61;&#xFF1A;</span>
+<span class="hljs-comment">// {</span>
+<span class="hljs-comment">//   title: (&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x67D0;&#x4E9B;&#x5185;&#x5BB9;)</span>
+<span class="hljs-comment">// }</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x88AB;&#x79F0;&#x4F5C; <strong>&#x6A21;&#x578B;&#x7ED1;&#x5B9A;(model binding)</strong> &#x7684;&#x6D41;&#x7A0B;&#xFF0C;ASP.NET Core &#x628A; POST &#x8BF7;&#x6C42;&#x91CC;&#x9762;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x8DDF;&#x4F60;&#x521B;&#x5EFA;&#x7684;&#x6A21;&#x578B;&#x5B9A;&#x4E49;&#x8FDB;&#x884C;&#x914D;&#x5BF9;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x540D;&#x5339;&#x914D;(&#x5FFD;&#x7565;&#x8BF8;&#x5982;&#x5927;&#x5C0F;&#x5199;&#x8FD9;&#x79CD;&#x56E0;&#x7D20;)&#xFF0C;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x5C06;&#x88AB;&#x7F6E;&#x5165;&#x5230;&#x6A21;&#x578B;&#x91CC;&#x3002;</p>
+<p>&#x628A;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x5230;&#x6A21;&#x578B;&#x4E4B;&#x540E;&#xFF0C;ASP.NET Core &#x8FD8;&#x4F1A;&#x6267;&#x884C; <strong>&#x6A21;&#x578B;&#x9A8C;&#x8BC1;(model validation)</strong>&#x3002; <code>Title</code> &#x5B57;&#x6BB5;&#x7684;&#x5C5E;&#x6027; <code>[Required]</code> &#x544A;&#x77E5;&#x9A8C;&#x8BC1;&#x5668;&#x201C;<code>Title</code>&#x5B57;&#x6BB5;&#x4E0D;&#x5E94;&#x8BE5;&#x88AB;&#x6F0F;&#x6389;(&#x7A7A;&#x767D;)&#x201D;&#x3002;&#x5982;&#x679C;&#x6A21;&#x578B;&#x6CA1;&#x80FD;&#x901A;&#x8FC7;&#x9A8C;&#x8BC1;&#xFF0C;&#x9A8C;&#x8BC1;&#x5668;&#x4E0D;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#xFF0C;&#x4F46;&#x662F;&#x9A8C;&#x8BC1;&#x72B6;&#x6001;&#x4F1A;&#x88AB;&#x4FDD;&#x5B58;&#x4E0B;&#x6765;&#xFF0C;&#x4EE5;&#x4FBF;&#x4F60;&#x5728;&#x63A7;&#x5236;&#x5668;&#x91CC;&#x67E5;&#x9605;&#x5B83;&#x3002;</p>
+<blockquote>
+<p>&#x8865;&#x5145;&#x9605;&#x8BFB;&#xFF1A;&#x672C;&#x6765;&#x6709;&#x53EF;&#x80FD;&#x590D;&#x7528;&#x6A21;&#x578B; <code>TodoItem</code>&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <code>NewTodoItem</code>&#xFF0C;&#x4F46;&#x662F; <code>TodoItem</code> &#x91CC;&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x6C38;&#x8FDC;&#x90FD;&#x4E0D;&#x4F1A;&#x88AB;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;&#x5B57;&#x6BB5;(ID &#x548C; done)&#x3002;&#x800C;&#x73B0;&#x5728;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x5219;&#x66F4;&#x5E72;&#x51C0;&#x5229;&#x843D;&#xFF1A;&#x5728;&#x6DFB;&#x52A0;&#x65B0;&#x7684; &#x5F85;&#x529E;&#x4E8B;&#x9879; &#x6761;&#x76EE;&#x65F6;&#xFF0C;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6A21;&#x578B;&#x6765;&#x786E;&#x5207;&#x5730;&#x8868;&#x793A;&#x76F8;&#x5173;&#x5C5E;&#x6027;&#x3002;</p>
+</blockquote>
+<p>&#x56DE;&#x5230; <code>TodoController</code> &#x91CC;&#x7684; action <code>AddItem</code>&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x4EE3;&#x7801;&#x5757;&#x68C0;&#x67E5;&#x201C;&#x6A21;&#x578B;&#x662F;&#x5426;&#x7B26;&#x5408;&#x9A8C;&#x8BC1;&#x5904;&#x7406;&#x7684;&#x6761;&#x4EF6;&#x201D;&#x3002;&#x4E60;&#x60EF;&#x4E0A;&#xFF0C;&#x8FD9;&#x4EF6;&#x4E8B;&#x5E94;&#x8BE5;&#x5728;&#x65B9;&#x6CD5;&#x7684;&#x6700;&#x5F00;&#x59CB;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">if</span> (!ModelState.IsValid)
+{
+    <span class="hljs-keyword">return</span> BadRequest(ModelState);
+}
+</code></pre>
+<p>&#x5982;&#x679C; <code>ModelState</code> &#x662F;&#x65E0;&#x6548;&#x7684;&#xFF08;&#x56E0;&#x4E3A;&#x6240;&#x9700;&#x7684;&#x5B57;&#x6BB5;&#x7A7A;&#x7F3A;&#x4E86;&#xFF09;&#xFF0C;action &#x4F1A;&#x8FDE;&#x5E26;&#x6A21;&#x578B;&#x72B6;&#x6001;&#x4E00;&#x8D77;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; 400 Bad Request&#xFF0C;&#x8FD9;&#x968F;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x5730;&#x88AB;&#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#xFF0C;&#x544A;&#x77E5;&#x7528;&#x6237;&#x51FA;&#x4E86;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x63A7;&#x5236;&#x5668;&#x8C03;&#x7528;&#x5230;&#x670D;&#x52A1;&#x5C42;&#xFF0C;&#x6267;&#x884C;&#x5177;&#x4F53;&#x7684;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> successful = <span class="hljs-keyword">await</span> _todoItemService.AddItemAsync(newItem);
+<span class="hljs-keyword">if</span> (!successful)
+{
+    <span class="hljs-keyword">return</span> BadRequest(<span class="hljs-keyword">new</span> { error = <span class="hljs-string">&quot;Could not add item.&quot;</span> });
+}
+</code></pre>
+<p>&#x53D6;&#x51B3;&#x4E8E;&#x8BE5;&#x6761;&#x76EE;&#x6DFB;&#x52A0;&#x5230;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7ED3;&#x679C;&#x6210;&#x529F;&#x4E0E;&#x5426;&#xFF0C;<code>AddItemAsync</code> &#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE; <code>true</code> &#x6216;&#x8005; <code>false</code>&#x3002;&#x5982;&#x679C;&#x8BE5;&#x64CD;&#x4F5C;&#x56E0;&#x4E3A;&#x67D0;&#x4E9B;&#x539F;&#x56E0;&#x5931;&#x8D25;&#x4E86;&#xFF0C;action &#x4F1A;&#x8FDE;&#x5E26;&#x4E00;&#x4E2A;&#x5305;&#x542B; <code>error</code> &#x5B57;&#x6BB5;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD4;&#x56DE; <code>400 Bad Request</code>&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x987A;&#x5229;&#x5B8C;&#x6210;&#xFF0C;action &#x8FD4;&#x56DE; <code>200 OK</code>&#x3002;</p>
+<h3 id="&#x6DFB;&#x52A0;&#x670D;&#x52A1;&#x65B9;&#x6CD5;&#x51FD;&#x6570;"><a name="&#x6DFB;&#x52A0;&#x670D;&#x52A1;&#x65B9;&#x6CD5;&#x51FD;&#x6570;" class="plugin-anchor" href="#&#x6DFB;&#x52A0;&#x670D;&#x52A1;&#x65B9;&#x6CD5;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0;&#x670D;&#x52A1;&#x65B9;&#x6CD5;(&#x51FD;&#x6570;)</h3>
+<p>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x4EE3;&#x7801;&#x7F16;&#x8F91;&#x5668;&#x4E86;&#x89E3; C# &#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x4F60;&#x4F1A;&#x5728; <code>AddItemAsync</code> &#x4E0B;&#x9762;&#x770B;&#x5230;&#x7EA2;&#x8272;&#x7684;&#x6CE2;&#x6D6A;&#x7EBF;&#xFF0C;&#x56E0;&#x4E3A;&#x8BE5;&#x65B9;&#x6CD5;&#x5C1A;&#x672A;&#x5B9A;&#x4E49;&#x3002;</p>
+<p>&#x4F5C;&#x4E3A;&#x6700;&#x540E;&#x4E00;&#x6B65;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5728;&#x670D;&#x52A1;&#x5C42;&#x91CC;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x5728; <code>ITodoItemService</code> &#x63A5;&#x53E3;&#x91CC;&#x6DFB;&#x52A0;&#x5B83;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">ITodoItemService</span>
+{
+    Task&lt;IEnumerable&lt;TodoItem&gt;&gt; GetIncompleteItemsAsync();
+
+    <span class="hljs-function">Task&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">AddItemAsync</span>(<span class="hljs-params">NewTodoItem newItem</span>)</span>;
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5728; <code>TodoItemService</code> &#x91CC;&#x9762;&#x6DFB;&#x52A0;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">AddItemAsync</span>(<span class="hljs-params">NewTodoItem newItem</span>)
+</span>{
+    <span class="hljs-keyword">var</span> entity = <span class="hljs-keyword">new</span> TodoItem
+    {
+        Id = Guid.NewGuid(),
+        IsDone = <span class="hljs-keyword">false</span>,
+        Title = newItem.Title,
+        DueAt = DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>)
+    };
+
+    _context.Items.Add(entity);
+
+    <span class="hljs-keyword">var</span> saveResult = <span class="hljs-keyword">await</span> _context.SaveChangesAsync();
+    <span class="hljs-keyword">return</span> saveResult == <span class="hljs-number">1</span>;
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>TodoItem</code>&#xFF08;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x4EE3;&#x8868;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x5B9E;&#x4F53;&#xFF09;&#xFF0C;&#x5E76;&#x4ECE; <code>NewTodoItem</code> &#x91CC;&#x9762;&#x590D;&#x5236;&#x4E86; <code>Title</code>&#x3002;&#x7136;&#x540E;&#xFF0C;&#x628A;&#x5B83;&#x6DFB;&#x52A0;&#x5230; context &#x91CC;&#xFF0C;&#x53C8;&#x7528; <code>SaveChangesAsync</code> &#x65B9;&#x6CD5;&#x5728;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x4F7F;&#x4E4B;&#x88AB;&#x6301;&#x4E45;&#x5316;&#x3002;</p>
+<blockquote>
+<p>&#x8865;&#x5145;&#x9605;&#x8BFB;&#xFF1A;&#x4E0A;&#x9762;&#x4EC5;&#x4EC5;&#x662F;&#x8BE5;&#x529F;&#x80FD;&#x7684;&#x4E00;&#x79CD;&#x201C;&#x53EF;&#x884C;&#x7684;&#x201D;&#x65B9;&#x6848;&#x3002;&#x5982;&#x679C;&#x5E0C;&#x671B;&#x4F60;&#x4E3A;&#x201C;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x6761;&#x76EE;&#x201D;&#x663E;&#x793A;&#x72EC;&#x7ACB;&#x7684;&#x9875;&#x9762;&#xFF08;&#x6BD4;&#x65B9;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A;&#x5F88;&#x590D;&#x6742;&#x7684;&#x6761;&#x76EE;&#xFF0C;&#x5305;&#x542B;&#x5F88;&#x591A;&#x5B57;&#x6BB5;&#xFF09;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x89C6;&#x56FE;&#xFF0C;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#xFF0C;&#x4F9B;&#x7528;&#x6237;&#x8F93;&#x5165;&#x5B57;&#x6BB5;&#x503C;&#x3002;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <strong>tag helper</strong> &#x7684;&#x7279;&#x6027;&#xFF0C;ASP.NET Core&#x80FD;&#x591F;&#x81EA;&#x52A8;&#x4E3A;&#x8BE5;&#x6A21;&#x578B;&#x7684;&#x5404;&#x5B57;&#x6BB5;&#x6E32;&#x67D3;&#x4E00;&#x4E2A;&#x8868;&#x5355;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728; <a href="https://docs.asp.net" target="_blank">https://docs.asp.net</a> &#x4E0A; ASP.NET Core &#x7684;&#x6587;&#x6863;&#x91CC;&#x627E;&#x5230;&#x76F8;&#x5173;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+</blockquote>
+<h3 id="&#x8BD5;&#x8BD5;&#x770B;"><a name="&#x8BD5;&#x8BD5;&#x770B;" class="plugin-anchor" href="#&#x8BD5;&#x8BD5;&#x770B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BD5;&#x8BD5;&#x770B;</h3>
+<p>&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F7F;&#x7528;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x8868;&#x5355;&#x6DFB;&#x52A0;&#x51E0;&#x4E2A;&#x6761;&#x76EE;&#x5230; &#x5F85;&#x529E;&#x4E8B;&#x9879; &#x5217;&#x8868;&#x91CC;&#x3002;&#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;&#x6761;&#x76EE;&#x5B58;&#x50A8;&#x5728;&#x6570;&#x636E;&#x5E93;&#x91CC;&#xFF0C;&#x5C31;&#x7B97;&#x4F60;&#x5173;&#x95ED;&#x7A0B;&#x5E8F;&#x540E;&#x518D;&#x91CD;&#x65B0;&#x8FD0;&#x884C;&#xFF0C;&#x8FD9;&#x4E9B;&#x6761;&#x76EE;&#x90FD;&#x8FD8;&#x4FDD;&#x5B58;&#x5728;&#x90A3;&#x91CC;&#x3002;</p>
+<blockquote>
+<p>&#x4E00;&#x4E2A;&#x9644;&#x52A0;&#x7EC3;&#x4E60;&#xFF0C;&#x8BF7;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528; HTML &#x548C; JavaScript &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65E5;&#x671F;&#x9009;&#x62E9;&#x6846;&#xFF0C;&#x5E76;&#x8BA9;&#x7528;&#x6237;&#x4E3A; <code>DueAt</code> &#x5C5E;&#x6027;&#x9009;&#x62E9;&#x4E00;&#x4E2A;(&#x53EF;&#x9009;&#x7684;)&#x65E5;&#x671F;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x7528;&#x8FD9;&#x4E2A;&#x65E5;&#x671F;&#x66FF;&#x6362;&#x90A3;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x201C;3&#x5929;&#x540E;&#x5230;&#x671F;&#x201D;&#x3002;</p>
+</blockquote>
+<hr>
+<h2 id="add-new-to-do-items"><a name="add-new-to-do-items" class="plugin-anchor" href="#add-new-to-do-items"><i class="fa fa-link" aria-hidden="true"></i></a>Add new to-do items</h2>
+<p>The user will add new to-do items with a simple form below the list:</p>
+<p><img src="final-form.png" alt="Final form"></p>
+<p>Adding this feature requires a few steps:</p>
+<ul>
+<li>Adding JavaScript that will send the data to the server</li>
+<li>Creating a new action on the controller to handle this request</li>
+<li>Adding code to the service layer to update the database</li>
+</ul>
+<h3 id="add-javascript-code"><a name="add-javascript-code" class="plugin-anchor" href="#add-javascript-code"><i class="fa fa-link" aria-hidden="true"></i></a>Add JavaScript code</h3>
+<p>The <code>Todo/Index.cshtml</code> view already includes an HTML form that has a textbox and a button for adding a new item. You&apos;ll use jQuery to send a POST request to the server when the Add button is clicked.</p>
+<p>Open the <code>wwwroot/js/site.js</code> file and add this code:</p>
+<pre><code class="lang-javascript">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-comment">// Wire up the Add button to send the new item to the server</span>
+    $(<span class="hljs-string">&apos;#add-item-button&apos;</span>).on(<span class="hljs-string">&apos;click&apos;</span>, addItem);
+
+});
+</code></pre>
+<p>Then, write the <code>addItem</code> function at the bottom of the file:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addItem</span>(<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">&apos;#add-item-error&apos;</span>).hide();
+    <span class="hljs-keyword">var</span> newTitle = $(<span class="hljs-string">&apos;#add-item-title&apos;</span>).val();
+
+    $.post(<span class="hljs-string">&apos;/Todo/AddItem&apos;</span>, { title: newTitle }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">window</span>.location = <span class="hljs-string">&apos;/Todo&apos;</span>;
+    })
+    .fail(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+        <span class="hljs-keyword">if</span> (data &amp;&amp; data.responseJSON) {
+            <span class="hljs-keyword">var</span> firstError = data.responseJSON[<span class="hljs-built_in">Object</span>.keys(data.responseJSON)[<span class="hljs-number">0</span>]];
+            $(<span class="hljs-string">&apos;#add-item-error&apos;</span>).text(firstError);
+            $(<span class="hljs-string">&apos;#add-item-error&apos;</span>).show();
+        }
+    });
+}
+</code></pre>
+<p>This function will send a POST request to <code>http://localhost:5000/Todo/AddItem</code> with the name the user typed. The third parameter passed to the <code>$.post</code> method (the function) is a success handler that will run if the server responds with <code>200 OK</code>. The success handler function uses <code>window.location</code> to refresh the page (by setting the location to <code>/Todo</code>, the same page the browser is currently on). If the server responds with <code>400 Bad Request</code>, the <code>fail</code> handler attached to the <code>$.post</code> method will try to pull out an error message and display it in a the <code>&lt;div&gt;</code> with id <code>add-item-error</code>.</p>
+<h3 id="add-an-action"><a name="add-an-action" class="plugin-anchor" href="#add-an-action"><i class="fa fa-link" aria-hidden="true"></i></a>Add an action</h3>
+<p>The above JavaScript code won&apos;t work yet, because there isn&apos;t any action that can handle the <code>/Todo/AddItem</code> route. If you try it now, ASP.NET Core will return a <code>404 Not Found</code> error.</p>
+<p>You&apos;ll need to create a new action called <code>AddItem</code> on the <code>TodoController</code>:</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;IActionResult&gt; <span class="hljs-title">AddItem</span>(<span class="hljs-params">NewTodoItem newItem</span>)
+</span>{
+    <span class="hljs-keyword">if</span> (!ModelState.IsValid)
+    {
+        <span class="hljs-keyword">return</span> BadRequest(ModelState);
+    }
+
+    <span class="hljs-keyword">var</span> successful = <span class="hljs-keyword">await</span> _todoItemService.AddItemAsync(newItem);
+    <span class="hljs-keyword">if</span> (!successful)
+    {
+        <span class="hljs-keyword">return</span> BadRequest(<span class="hljs-keyword">new</span> { error = <span class="hljs-string">&quot;Could not add item&quot;</span> });
+    }
+
+    <span class="hljs-keyword">return</span> Ok();
+}
+</code></pre>
+<p>The method signature defines a <code>NewTodoItem</code> parameter, which is a new model that doesn&apos;t exist yet. You&apos;ll need to create it:</p>
+<p><strong><code>Models/NewTodoItem.cs</code></strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.ComponentModel.DataAnnotations;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">NewTodoItem</span>
+    {
+        [Required]
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Title { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    }
+}
+</code></pre>
+<p>This model definition (one property called <code>Title</code>) matches the data you&apos;re sending to the action with jQuery:</p>
+<pre><code class="lang-javascript">$.post(<span class="hljs-string">&apos;/Todo/AddItem&apos;</span>, { title: newTitle }  <span class="hljs-comment">// ...</span>
+
+<span class="hljs-comment">// A JSON object with one property:</span>
+<span class="hljs-comment">// {</span>
+<span class="hljs-comment">//   title: (whatever the user typed)</span>
+<span class="hljs-comment">// }</span>
+</code></pre>
+<p>ASP.NET Core uses a process called <strong>model binding</strong> to match up the parameters submitted in the POST request to the model definition you created. If the parameter names match (ignoring things like case), the request data will be placed into the model.</p>
+<p>After binding the request data to the model, ASP.NET Core also performs <strong>model validation</strong>. The <code>[Required]</code> attribute on the <code>Title</code> property informs the validator that the <code>Title</code> property should not be missing (blank). The validator won&apos;t throw an error if the model fails validation, but the validation status will be saved so you can check it in the controller.</p>
+<blockquote>
+<p>Sidebar: It would have been possible to reuse the <code>TodoItem</code> model instead of creating the <code>NewTodoItem</code> model, but <code>TodoItem</code> contains properties that will never be submitted by the user (ID and done). It&apos;s cleaner to declare a new model that represents the exact set of properties that are relevant when adding a new item.</p>
+</blockquote>
+<p>Back to the <code>AddItem</code> action method on the <code>TodoController</code>: the first block checks whether the model passed the model validation process. It&apos;s customary to do this right at the beginning of the method:</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">if</span> (!ModelState.IsValid)
+{
+    <span class="hljs-keyword">return</span> BadRequest(ModelState);
+}
+</code></pre>
+<p>If the <code>ModelState</code> is invalid (because the required property is empty), the action will return 400 Bad Request along with the model state, which is automatically converted into an error message that tells the user what is wrong.</p>
+<p>Next, the controller calls into the service layer to do the actual database operation:</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> successful = <span class="hljs-keyword">await</span> _todoItemService.AddItemAsync(newItem);
+<span class="hljs-keyword">if</span> (!successful)
+{
+    <span class="hljs-keyword">return</span> BadRequest(<span class="hljs-keyword">new</span> { error = <span class="hljs-string">&quot;Could not add item.&quot;</span> });
+}
+</code></pre>
+<p>The <code>AddItemAsync</code> method will return <code>true</code> or <code>false</code> depending on whether the item was successfully added to the database. If it fails for some reason, the action will return <code>400 Bad Request</code> along with an object that contains an <code>error</code> property.</p>
+<p>Finally, if everything completed without errors, the action returns <code>200 OK</code>.</p>
+<h3 id="add-a-service-method"><a name="add-a-service-method" class="plugin-anchor" href="#add-a-service-method"><i class="fa fa-link" aria-hidden="true"></i></a>Add a service method</h3>
+<p>If you&apos;re using a code editor that understands C#, you&apos;ll see red squiggely lines under <code>AddItemAsync</code> because the method doesn&apos;t exist yet.</p>
+<p>As a last step, you need to add a method to the service layer. First, add it to the interface definition in <code>ITodoItemService</code>:</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">ITodoItemService</span>
+{
+    Task&lt;IEnumerable&lt;TodoItem&gt;&gt; GetIncompleteItemsAsync();
+
+    <span class="hljs-function">Task&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">AddItemAsync</span>(<span class="hljs-params">NewTodoItem newItem</span>)</span>;
+}
+</code></pre>
+<p>Then, the actual implementation in <code>TodoItemService</code>:</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">AddItemAsync</span>(<span class="hljs-params">NewTodoItem newItem</span>)
+</span>{
+    <span class="hljs-keyword">var</span> entity = <span class="hljs-keyword">new</span> TodoItem
+    {
+        Id = Guid.NewGuid(),
+        IsDone = <span class="hljs-keyword">false</span>,
+        Title = newItem.Title,
+        DueAt = DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>)
+    };
+
+    _context.Items.Add(entity);
+
+    <span class="hljs-keyword">var</span> saveResult = <span class="hljs-keyword">await</span> _context.SaveChangesAsync();
+    <span class="hljs-keyword">return</span> saveResult == <span class="hljs-number">1</span>;
+}
+</code></pre>
+<p>This method creates a new <code>TodoItem</code> (the model that represents the database entity) and copies the <code>Title</code> from the <code>NewTodoItem</code> model. Then, it adds it to the context and uses <code>SaveChangesAsync</code> to persist the entity in the database.</p>
+<blockquote>
+<p>Sidebar: The above is just one way to build this functionality. If you want to display a separate page for adding a new item (for a complicated entity that contains a lot of properties, for example), you could create a new view that&apos;s bound to the model you need the user to provide values for. ASP.NET Core can render a form automatically for the properties of the model using a feature called <strong>tag helpers</strong>. You can find examples in the ASP.NET Core documentation at <a href="https://docs.asp.net" target="_blank">https://docs.asp.net</a>.</p>
+</blockquote>
+<h3 id="try-it-out"><a name="try-it-out" class="plugin-anchor" href="#try-it-out"><i class="fa fa-link" aria-hidden="true"></i></a>Try it out</h3>
+<p>Run the application and add some items to your to-do list with the form. Since the items are being stored in the database, they&apos;ll still be there even after you stop and start the application again.</p>
+<blockquote>
+<p>As a further challenge, try adding a date picker using HTML and JavaScript, and let the user choose an (optional) date for the <code>DueAt</code> property. Then, use that date instead of always making new tasks that are due in 3 days.</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 添加新特性">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="complete-with-checkbox.html" class="navigation navigation-next " aria-label="Next page: 使用复选框标记条目完成">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"添加 待办事项 条目","level":"1.6.1","depth":2,"next":{"title":"使用复选框标记条目完成","level":"1.6.2","depth":2,"path":"chapters/add-more-features/complete-with-checkbox.md","ref":"chapters/add-more-features/complete-with-checkbox.md","articles":[]},"previous":{"title":"添加新特性","level":"1.6","depth":1,"path":"chapters/add-more-features/README.md","ref":"chapters/add-more-features/README.md","articles":[{"title":"添加 待办事项 条目","level":"1.6.1","depth":2,"path":"chapters/add-more-features/add-todo-items.md","ref":"chapters/add-more-features/add-todo-items.md","articles":[]},{"title":"使用复选框标记条目完成","level":"1.6.2","depth":2,"path":"chapters/add-more-features/complete-with-checkbox.md","ref":"chapters/add-more-features/complete-with-checkbox.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"b5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":12,"left":12,"top":12,"bottom":12,"comment_from_windsting":"these margin settings not working."}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ASP.NET Core 简明手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/add-more-features/add-todo-items.md","mtime":"2017-11-28T03:13:19.869Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-28T08:26:14.319Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

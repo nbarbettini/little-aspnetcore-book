@@ -1,0 +1,836 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>创建模型 · ASP.NET Core 简明手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Nate Barbettini">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="create-view.html" />
+    
+    
+    <link rel="prev" href="create-controller.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../your-first-application/">
+            
+                <a href="../your-first-application/">
+            
+                    
+                    你的第一个程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../your-first-application/get-the-sdk.html">
+            
+                <a href="../your-first-application/get-the-sdk.html">
+            
+                    
+                    获取 SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../your-first-application/hello-world-in-csharp.html">
+            
+                <a href="../your-first-application/hello-world-in-csharp.html">
+            
+                    
+                    C# 版的 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../your-first-application/create-aspnetcore-project.html">
+            
+                <a href="../your-first-application/create-aspnetcore-project.html">
+            
+                    
+                    创建一个 ASP.NET Core 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    MVC 基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="create-controller.html">
+            
+                <a href="create-controller.html">
+            
+                    
+                    创建控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="create-models.html">
+            
+                <a href="create-models.html">
+            
+                    
+                    创建模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="create-view.html">
+            
+                <a href="create-view.html">
+            
+                    
+                    创建视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="add-service-class.html">
+            
+                <a href="add-service-class.html">
+            
+                    
+                    添加一个服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="use-dependency-injection.html">
+            
+                <a href="use-dependency-injection.html">
+            
+                    
+                    运用依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="finish-controller.html">
+            
+                <a href="finish-controller.html">
+            
+                    
+                    完成控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../add-external-packages/">
+            
+                <a href="../add-external-packages/">
+            
+                    
+                    添加外来软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../use-a-database/">
+            
+                <a href="../use-a-database/">
+            
+                    
+                    运用数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../use-a-database/connect-to-a-database.html">
+            
+                <a href="../use-a-database/connect-to-a-database.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../use-a-database/update-context.html">
+            
+                <a href="../use-a-database/update-context.html">
+            
+                    
+                    修改数据库上下文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../use-a-database/create-migration.html">
+            
+                <a href="../use-a-database/create-migration.html">
+            
+                    
+                    创建变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../use-a-database/create-service-class.html">
+            
+                <a href="../use-a-database/create-service-class.html">
+            
+                    
+                    创建服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../add-more-features/">
+            
+                <a href="../add-more-features/">
+            
+                    
+                    添加新特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../add-more-features/add-todo-items.html">
+            
+                <a href="../add-more-features/add-todo-items.html">
+            
+                    
+                    添加 待办事项 条目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../add-more-features/complete-with-checkbox.html">
+            
+                <a href="../add-more-features/complete-with-checkbox.html">
+            
+                    
+                    使用复选框标记条目完成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../security-and-identity/">
+            
+                <a href="../security-and-identity/">
+            
+                    
+                    安全和身份
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/add-facebook-login.html">
+            
+                <a href="../security-and-identity/add-facebook-login.html">
+            
+                    
+                    添加 Facebook 登录功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/require-authentication.html">
+            
+                <a href="../security-and-identity/require-authentication.html">
+            
+                    
+                    提示认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/using-identity-in-the-application.html">
+            
+                <a href="../security-and-identity/using-identity-in-the-application.html">
+            
+                    
+                    在程序中使用身份
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/authorization-with-roles.html">
+            
+                <a href="../security-and-identity/authorization-with-roles.html">
+            
+                    
+                    按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../automated-testing/">
+            
+                <a href="../automated-testing/">
+            
+                    
+                    自动化测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../automated-testing/unit-testing.html">
+            
+                <a href="../automated-testing/unit-testing.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../automated-testing/integration-testing.html">
+            
+                <a href="../automated-testing/integration-testing.html">
+            
+                    
+                    集成测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../deploy-the-application/">
+            
+                <a href="../deploy-the-application/">
+            
+                    
+                    部署程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../deploy-the-application/deploy-to-azure.html">
+            
+                <a href="../deploy-the-application/deploy-to-azure.html">
+            
+                    
+                    部署到 Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../deploy-the-application/deploy-with-docker.html">
+            
+                <a href="../deploy-the-application/deploy-with-docker.html">
+            
+                    
+                    使用 Docker 进行部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../conclusion/">
+            
+                <a href="../conclusion/">
+            
+                    
+                    结束语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >创建模型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x521B;&#x5EFA;&#x6A21;&#x578B;"><a name="&#x521B;&#x5EFA;&#x6A21;&#x578B;" class="plugin-anchor" href="#&#x521B;&#x5EFA;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x6A21;&#x578B;</h2>
+<p>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x6A21;&#x578B;&#x7C7B;&#xFF1A;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x8868;&#x793A;&#x4FDD;&#x5B58;&#x5728;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x7684;&#x6761;&#x76EE;&#xFF08;&#x6709;&#x65F6;&#x5019;&#x4E5F;&#x79F0;&#x4E3A;&#x4E00;&#x4E2A; <strong>&#x8BB0;&#x5F55;(entity)</strong>&#xFF09;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x5C06;&#x4E0E;&#x89C6;&#x56FE;&#x7ED3;&#x5408;&#xFF08;MVC&#x91CC;&#x7684; <strong>MV</strong>&#xFF09;&#x53D1;&#x9001;&#x5230;&#x7528;&#x6237;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x3002;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x90FD;&#x53EF;&#x4EE5;&#x88AB;&#x79F0;&#x4E3A;&#x6A21;&#x578B;&#xFF0C;&#x6211;&#x5C06;&#x79F0;&#x540E;&#x8005;&#x4E3A; <strong>&#x89C6;&#x56FE;&#x6A21;&#x578B;&#xFF08;view model&#xFF09;</strong>&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5728; Models &#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>TodoItem</code> &#x7684;&#x7C7B;&#xFF1A;</p>
+<p><strong><code>Models/TodoItem.cs</code></strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoItem</span>
+    {
+        <span class="hljs-keyword">public</span> Guid Id { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> IsDone { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Title { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-keyword">public</span> DateTimeOffset? DueAt { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x7C7B;&#x5B9A;&#x4E49;&#x4E86;&#x6BCF;&#x4E2A;&#x5F85;&#x529E;&#x4E8B;&#x9879;&#x90FD;&#x8981;&#x4FDD;&#x5B58;&#x7684;&#x5185;&#x5BB9;&#xFF1A;&#x4E00;&#x4E2A; ID&#x3001;&#x4E00;&#x4E2A;&#x6807;&#x9898;&#x6216;&#x8005;&#x540D;&#x79F0;&#x3001;&#x8BE5;&#x4E8B;&#x9879;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#xFF0C;&#x4EE5;&#x53CA;&#x622A;&#x81F3;&#x65E5;&#x671F;&#x662F;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x3002;&#x6BCF;&#x884C;&#x5B9A;&#x4E49;&#x4E86;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li><p><strong>Id</strong> &#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A; guid&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x662F; &#x5168;&#x5C40;(<strong>g</strong>lobally) &#x552F;&#x4E00;(<strong>u</strong>nique) &#x6807;&#x8BC6;&#x7B26;(<strong>id</strong>entifier). Guid&#xFF08;&#x6216;&#x8005;GUID&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x7531;&#x5B57;&#x6BCD;&#x548C;&#x6570;&#x5B57;&#x7EC4;&#x6210;&#x7684;&#x957F;&#x957F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x662F;&#x8FD9;&#x6837;&#x7684; <code>43ec09f2-7f70-4f4b-9559-65011d5781bb</code>&#x3002;&#x56E0;&#x4E3A; guid &#x662F;&#x968F;&#x673A;&#x7684;&#xFF0C;&#x5E76;&#x6781;&#x5C11;&#x4F1A;&#x6709;&#x91CD;&#x590D;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x5E38;&#x88AB;&#x7528;&#x4F5C;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6570;&#x5B57;&#xFF08;&#x6574;&#x5F62; integer&#xFF09;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x5E93;&#x8BB0;&#x5F55;&#x7684;&#x6807;&#x8BC6;&#xFF0C;&#x4F46;&#x4F60;&#x9700;&#x8981;&#x5728;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x914D;&#x7F6E;&#xFF0C;&#x4EE5;&#x4FBF;&#x8FD9;&#x4E2A;&#x6570;&#x5B57;&#x5728;&#x6DFB;&#x52A0;&#x65B0;&#x6761;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x59CB;&#x7EC8;&#x589E;&#x957F;&#x3002;&#x56E0;&#x4E3A; Guid &#x662F;&#x968F;&#x673A;&#x751F;&#x4EA7;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x4F60;&#x4E0D;&#x5FC5;&#x518D;&#x62C5;&#x5FC3;&#x8FD9;&#x4E2A; &#x81EA;&#x589E; &#x7684;&#x95EE;&#x9898;&#x4E86;&#x3002;</p>
+</li>
+<li><p><strong>IsDone</strong> &#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A; &#x5E03;&#x5C14;&#x503C;&#xFF08;&#x503C;&#x4E3A; true/false&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6240;&#x6709;&#x65B0;&#x5EFA;&#x6761;&#x76EE;&#x7684;&#x8BE5;&#x503C;&#x4E3A; <code>false</code>&#x3002;&#x4F60;&#x540E;&#x9762;&#x4F1A;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#xFF0C;&#x5728;&#x7528;&#x6237;&#x5728;&#x89C6;&#x56FE;&#x91CC;&#x70B9;&#x51FB;&#x6761;&#x76EE;&#x7684;&#x590D;&#x9009;&#x6846;&#x65F6;&#xFF0C;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x4E3A; <code>true</code>&#x3002;</p>
+</li>
+<li><p><strong>Title</strong> &#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x5F85;&#x529E;&#x4E8B;&#x9879;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8005;&#x7B80;&#x8FF0;&#x3002;</p>
+</li>
+<li><p><strong>DueAt</strong> &#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A; <code>DateTimeOffset</code>&#xFF0C;C# &#x7528;&#x4E8E;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A; &#x65E5;&#x671F;/&#x65F6;&#x95F4; &#x7684;&#x6233;&#x8BB0;&#x548C;&#x4E00;&#x4E2A;&#x4E0E; UTC &#x504F;&#x79FB;&#x91CF;&#x8868;&#x793A;&#x7684;&#x65F6;&#x533A;&#x3002;&#x628A;&#x65F6;&#x671F;&#x3001;&#x65F6;&#x95F4;&#x548C;&#x65F6;&#x533A;&#x4E00;&#x8D77;&#x4FDD;&#x5B58;&#xFF0C;&#x6709;&#x52A9;&#x4E8E;&#x5728;&#x4E0D;&#x540C;&#x65F6;&#x533A;&#x7684;&#x7CFB;&#x7EDF;&#x4E0A;&#x51C6;&#x786E;&#x5730;&#x663E;&#x793A;&#x65F6;&#x95F4;&#x3002;</p>
+</li>
+</ul>
+<p>&#x770B;&#x5230; <code>DateTimeOffset</code> &#x7C7B;&#x578B;&#x540E;&#x9762;&#x90A3;&#x4E2A;&#x95EE;&#x53F7; <code>?</code> &#x4E86;&#x5417;&#xFF1F;&#x5B83;&#x8868;&#x793A; DueAt &#x5C5E;&#x6027; <em>&#x53EF;&#x7A7A;(nullable)</em>&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x52A0;&#x8FD9;&#x4E2A; <code>?</code>&#xFF0C;&#x6BCF;&#x4E2A;&#x5F85;&#x529E;&#x4E8B;&#x9879;&#x90FD;&#x5FC5;&#x987B;&#x5E26;&#x6709;&#x4E00;&#x4E2A;&#x622A;&#x6B62;&#x65E5;&#x671F;&#x3002;Id &#x548C; IsDone &#x5C5E;&#x6027;&#x6CA1;&#x6709;&#x6807;&#x8BB0;&#x4E3A;&#x53EF;&#x7A7A;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x59CB;&#x7EC8;&#x6709;&#x503C;&#xFF08;&#x6216;&#x8005;&#x662F;&#x4E00;&#x4E2A;&#x7F3A;&#x7701;&#x503C;&#xFF09;&#x3002;</p>
+<blockquote>
+<p>C#&#x91CC;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x603B;&#x662F;&#x53EF;&#x7A7A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6CA1;&#x5FC5;&#x8981;&#x7ED9; Title &#x5C5E;&#x6027;&#x6DFB;&#x52A0;&#x53EF;&#x7A7A;&#x6807;&#x8BB0;&#x3002;C# &#x5B57;&#x7B26;&#x4E32;&#x53EF;&#x4EE5;&#x6CA1;&#x6709;&#x503C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x7A7A;&#x767D;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x5305;&#x542B;&#x4EFB;&#x610F;&#x6587;&#x672C;&#x3002;</p>
+</blockquote>
+<p>&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x540E;&#x9762;&#x90FD;&#x8DDF;&#x7740; <code>get; set;</code> &#xFF0C;&#x8FD9;&#x662F;&#x4E2A;&#x7B80;&#x5199;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x5C5E;&#x6027; &#x53EF;&#x8BFB;/&#x53EF;&#x5199;(read/write)&#xFF08;&#x6216;&#x8005;&#x66F4;&#x786E;&#x5207;&#x5730;&#x8BF4;&#xFF0C;&#x5B83;&#x6709; getter &#x548C; setter &#x65B9;&#x6CD5;&#x5404;&#x4E00;&#x4E2A;&#xFF09;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x6682;&#x4E14;&#x4E0D;&#x5FC5;&#x5173;&#x5FC3;&#x5E95;&#x5C42;&#x6570;&#x636E;&#x5E93;&#x91C7;&#x7528;&#x7684;&#x662F;&#x54EA;&#x79CD;&#x5B9E;&#x73B0;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x662F; SQL Server&#xFF0C;MySQL&#xFF0C;MongoDB&#xFF0C;Redis&#xFF0C;&#x6216;&#x8005;&#x4EC0;&#x4E48;&#x5176;&#x5B83;&#x7A00;&#x5947;&#x53E4;&#x602A;&#x7684;&#x73A9;&#x610F;&#x513F;&#x3002;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x5B9A;&#x4E49;&#x4E86;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x7684;&#x884C;&#x6216;&#x8005;&#x8BB0;&#x5F55;&#x5728; C# &#x91CC;&#x770B;&#x8D77;&#x6765;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x65E0;&#x987B;&#x5728;&#x4EE3;&#x7801;&#x5C42;&#x9762;&#x62C5;&#x5FC3;&#x6570;&#x636E;&#x5E93;&#x5C42;&#x9762;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x8FD9;&#x79CD;&#x6A21;&#x578B;&#x7684;&#x98CE;&#x683C;&#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x6734;&#x5B9E;&#x53EF;&#x7231;&#x7684; C# &#x5BF9;&#x8C61;(plain ol&apos; C# object)&#x201D; &#x6216;&#x8005; POCO&#x3002;</p>
+<h3 id="&#x89C6;&#x56FE;&#x6A21;&#x578B;"><a name="&#x89C6;&#x56FE;&#x6A21;&#x578B;" class="plugin-anchor" href="#&#x89C6;&#x56FE;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89C6;&#x56FE;&#x6A21;&#x578B;</h3>
+<p>&#x901A;&#x5E38;&#xFF0C;&#x4F60;&#x4FDD;&#x5B58;&#x5728;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x7684;&#x6A21;&#x578B;&#xFF08;&#x5B9E;&#x4F53;&#xFF09;&#xFF0C;&#x8DDF;&#x4F60;&#x5728; MVC &#x91CC;&#x7528;&#x7684;&#x6A21;&#x578B;&#xFF08;&#x89C6;&#x56FE;&#x6A21;&#x578B;&#xFF09;&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x53C8;&#x4E0D;&#x5C3D;&#x76F8;&#x540C;&#x3002;&#x5728;&#x73B0;&#x5728;&#x7684;&#x60C5;&#x5F62;&#x4E0B;&#xFF0C; <code>TodoItem</code> &#x6A21;&#x578B;&#x4EE3;&#x8868;&#x5355;&#x4E00;&#x7684;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x7684;&#x6761;&#x76EE;&#xFF0C;&#x800C;&#x89C6;&#x56FE;&#x5219;&#x9700;&#x8981;&#x5C55;&#x793A;&#x4E24;&#x4E2A;&#x3001;&#x5341;&#x4E2A;&#xFF0C;&#x751A;&#x81F3;&#x662F;&#x4E00;&#x767E;&#x4E2A;&#x5F85;&#x529E;&#x4E8B;&#x9879;&#xFF08;&#x53D6;&#x51B3;&#x4E8E;&#x7528;&#x6237;&#x62D6;&#x5EF6;&#x75C7;&#x7684;&#x75C5;&#x60C5;&#x8F7B;&#x91CD;&#xFF09;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x89C6;&#x56FE;&#x6A21;&#x578B;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x7C7B;&#xFF0C;&#x91CC;&#x9762;&#x5305;&#x542B;&#x7740;&#x4E00;&#x4E2A; <code>TodoItem</code> &#x7684;&#x6570;&#x7EC4;&#xFF1A;</p>
+<p><strong><code>Models/TodoViewModel.cs</code></strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System.Collections.Generic;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoViewModel</span>
+    {
+        <span class="hljs-keyword">public</span> IEnumerable&lt;TodoItem&gt; Items { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    }
+}
+</code></pre>
+<p><code>IEnumerable&lt;&gt;</code> &#x662F; C# &#x91CC;&#x4E00;&#x4E2A;&#x4F18;&#x96C5;&#x7684;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;&#xFF0C;&#x5B83;&#x4EE3;&#x8868;&#x7740; <code>Items</code> &#x5C5E;&#x6027;&#x53EF;&#x80FD;&#x5BB9;&#x7EB3;&#x7740;&#x96F6;&#x4E2A;&#x3001;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x5F88;&#x591A;&#x4E2A; <code>TodoItem</code>&#x3002;&#xFF08;&#x7528;&#x4E13;&#x4E1A;&#x672F;&#x8BED;&#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x662F;&#x4E2A;&#x7C7B;&#x6570;&#x7EC4;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x679A;&#x4E3E;&#x6216;&#x8FED;&#x4EE3;&#x64CD;&#x4F5C;&#x7684;&#x4EFB;&#x4F55;&#x5E8F;&#x5217;&#x3002;&#xFF09;</p>
+<blockquote>
+<p><code>IEnumerable&lt;&gt;</code> &#x63A5;&#x53E3;&#x5728; <code>System.Collections.Generic</code> &#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5185;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5728;&#x6587;&#x4EF6;&#x9876;&#x7AEF;&#x6DFB;&#x52A0;&#x4E00;&#x6761; <code>using System.Collections.Generic</code> &#x8BED;&#x53E5;&#x3002;</p>
+</blockquote>
+<p>&#x597D;&#x4E86;&#xFF0C;&#x73B0;&#x5728;&#x6A21;&#x578B;&#x4E5F;&#x6709;&#x4E86;&#xFF0C;&#x662F;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x63A5;&#x6536; <code>TodoViewModel</code> &#x5E76;&#x4EE5; HTML &#x5411;&#x7528;&#x6237;&#x5C55;&#x793A;&#x5F85;&#x529E;&#x4E8B;&#x9879;&#x5217;&#x8868;&#x7684;&#x89C6;&#x56FE;&#x4E86;&#x3002;</p>
+<hr>
+<h2 id="create-models"><a name="create-models" class="plugin-anchor" href="#create-models"><i class="fa fa-link" aria-hidden="true"></i></a>Create models</h2>
+<p>There are two separate model classes that need to be created: a model that represents a to-do item stored in the database (sometimes called an <strong>entity</strong>), and the model that will be combined with a view (the <strong>MV</strong> in MVC) and sent back to the user&apos;s browser. Because both of them can be referred to as &quot;models&quot;, I&apos;ll refer to the latter as a <em>view model</em>.</p>
+<p>First, create a class called <code>TodoItem</code> in the Models directory:</p>
+<p><strong><code>Models/TodoItem.cs</code></strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoItem</span>
+    {
+        <span class="hljs-keyword">public</span> Guid Id { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> IsDone { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Title { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-keyword">public</span> DateTimeOffset? DueAt { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    }
+}
+</code></pre>
+<p>This class defines what the database will need to store for each to-do item: an ID, a title or name, whether the item is complete, and what the due date is. Each line defines a property of the class:</p>
+<ul>
+<li><p>The <strong>Id</strong> property is a guid, or a <strong>g</strong>lobally <strong>u</strong>nique <strong>id</strong>entifier. Guids (or GUIDs) are long strings of letters and numbers, like <code>43ec09f2-7f70-4f4b-9559-65011d5781bb</code>. Because guids are random and are extremely unlikely to be accidentally duplicated, they are commonly used as unique IDs. You could also use a number (integer) as a database entity ID, but you&apos;d need to configure your database to always increment the number when new rows are added to the database. Guids are generated randomly, so you don&apos;t have to worry about auto-incrementing.</p>
+</li>
+<li><p>The <strong>IsDone</strong> property is a boolean (true/false value). By default, it will be <code>false</code> for all new items. Later you&apos;ll use write code to switch this property to <code>true</code> when the user clicks the item&apos;s checkbox in the view.</p>
+</li>
+<li><p>The <strong>Title</strong> property is a string. This will hold the name or description of the to-do item.</p>
+</li>
+<li><p>The <strong>DueAt</strong> property is a <code>DateTimeOffset</code>, which is a C# type that stores a date/time stamp along with a timezone offset from UTC. Storing the date, time, and timezone offset together makes it easy to render dates accurately on systems in different timezones.</p>
+</li>
+</ul>
+<p>Notice the <code>?</code> question mark after the <code>DateTimeOffset</code> type? That marks the DueAt property as <em>nullable</em>, or optional. If the <code>?</code> wasn&apos;t included, every to-do item would need to have a due date. The Id and IsDone properties aren&apos;t marked as nullable, so they are required and will always have a value (or a default value).</p>
+<blockquote>
+<p>Strings in C# are always nullable, so there&apos;s no need to mark the Title property as nullable. C# strings can be null, empty, or contain text.</p>
+</blockquote>
+<p>Each property is followed by <code>get; set;</code>, which is a shorthand way of saying the property is read/write (or more technically, it has a getter and setter methods).</p>
+<p>At this point, it doesn&apos;t matter what the underlying database technology is. It could be SQL Server, MySQL, MongoDB, Redis, or something more exotic. This model defines what the database row or entry will look like in C# so you don&apos;t have to worry about the low-level database stuff in your code. This style of model is sometimes called a &quot;plain ol&apos; C# object&quot; or POCO.</p>
+<h3 id="the-view-model"><a name="the-view-model" class="plugin-anchor" href="#the-view-model"><i class="fa fa-link" aria-hidden="true"></i></a>The view model</h3>
+<p>Often, the model (entity) you store in the database is similar but not <em>exactly</em> the same as the model you want to use in MVC (the view model). In this case, the <code>TodoItem</code> model represents a single item in the database, but the view might need to display two, ten, or a hundred to-do items (depending on how badly the user is procrastinating).</p>
+<p>Because of this, the view model should be a separate class that holds an array of <code>TodoItem</code>s:</p>
+<p><strong><code>Models/TodoViewModel.cs</code></strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System.Collections.Generic;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoViewModel</span>
+    {
+        <span class="hljs-keyword">public</span> IEnumerable&lt;TodoItem&gt; Items { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    }
+}
+</code></pre>
+<p><code>IEnumerable&lt;&gt;</code> is a fancy C# way of saying that the <code>Items</code> property contains zero, one, or many <code>TodoItem</code>s. (In technical terms, it&apos;s not quite an array, but rather an array-like interface for any sequence that can be enumerated or iterated over.)</p>
+<blockquote>
+<p>The <code>IEnumerable&lt;&gt;</code> interface exists in the <code>System.Collections.Generic</code> namespace, so you need a <code>using System.Collections.Generic</code> statement at the top of the file.</p>
+</blockquote>
+<p>Now that you have some models, it&apos;s time to create a view that will take a <code>TodoViewModel</code> and render the right HTML to show the user their to-do list.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="create-controller.html" class="navigation navigation-prev " aria-label="Previous page: 创建控制器">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="create-view.html" class="navigation navigation-next " aria-label="Next page: 创建视图">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"创建模型","level":"1.3.2","depth":2,"next":{"title":"创建视图","level":"1.3.3","depth":2,"path":"chapters/mvc-basics/create-view.md","ref":"chapters/mvc-basics/create-view.md","articles":[]},"previous":{"title":"创建控制器","level":"1.3.1","depth":2,"path":"chapters/mvc-basics/create-controller.md","ref":"chapters/mvc-basics/create-controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"b5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":12,"left":12,"top":12,"bottom":12,"comment_from_windsting":"these margin settings not working."}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ASP.NET Core 简明手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/mvc-basics/create-models.md","mtime":"2017-11-28T03:13:19.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-28T08:26:14.319Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
