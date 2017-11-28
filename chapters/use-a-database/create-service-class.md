@@ -1,6 +1,6 @@
 ## 创建服务类
 
-回顾 *MVC基础* 章节, 你创建了一个 `FakeTodoItemService`，其中包含硬编码的 待办事项。现在你有了一个数据库上下文，就可以创建一个新的服务类，以便通过 Entity Framework Core 从数据库中获取真实内容。
+回顾 *MVC基础* 章节, 你创建了一个 `FakeTodoItemService`，其中包含硬编码的 待办事项。现在你有了数据库上下文，就可以创建一个新的服务类，从而借助 Entity Framework Core 从数据库中获取真实内容。
 
 删除文件 `FakeTodoItemService.cs`，并创建一个新文件:
 
@@ -37,9 +37,9 @@ namespace AspNetCoreTodo.Services
 }
 ```
 
-你应该注意到相同的的依赖注入模式，跟 MVC基础 章节一样，知识这一次被注入的服务容器 `ApplicationDbContext`。`ApplicationDbContext` 已经在`ConfigureServices` 方法里被添加到服务容器里，所以在这里可以直接使用。
+你应该注意到相同的依赖注入模式，如你在 MVC基础 章节所见到的那样，只是这次被注入的服务是 `ApplicationDbContext`。`ApplicationDbContext` 已经在`ConfigureServices` 方法里被添加到服务容器里，所以在这里可以直接使用。
 
-让我们仔细探究 `GetIncompleteItemsAsync` 方法的代码。首先，它用上下文中的 `Items` 的属性获取 `DbSet` 中所有的 待办事项:
+让我们仔细探究 `GetIncompleteItemsAsync` 方法的代码。首先，它用数据库上下文中的 `Items` 的属性获取 `DbSet` 中所有的 待办事项:
 
 ```csharp
 var items = await _context.Items
@@ -51,11 +51,11 @@ var items = await _context.Items
 .Where(x => x.IsDone == false)
 ```
 
-`Where` 方法来自 C# 里的一个名为 `LINQ`(language integrated query) 的特性，它从函数式编程获取灵感，简化了在程序代码里数据库查询的写法。在底层，Entity Framework Core 把这个方法翻译成一个类似的语句 `SELECT * FROM Items WHERE IsDone = 0`，或在 NoSQL数据库 里一个等效的查询。
+`Where` 方法来自 C# 里的一个名为 `LINQ`(language integrated query) 的特性，它受到函数式编程的启发，简化了在程序代码里数据库查询的写法。在底层，Entity Framework Core 把这个方法翻译成一个类似的语句 `SELECT * FROM Items WHERE IsDone = 0`，或在 NoSQL数据库 里的一个等效查询。
 
-最后，`ToArrayAsync` 方法吩咐 Entity Framework Core 取出所有过滤后的数据并作为一个数组返回。`ToArrayAsync` 是异步的(返回一个 `Task`)，所以必须使用`await` 等以获取其中的值。
+最后，`ToArrayAsync` 方法吩咐 Entity Framework Core 取出所有过滤后的数据，并作为一个数组返回。`ToArrayAsync` 是异步的(返回一个 `Task`)，所以必须执行一次 `await`（等待） 以获取其中的值。
 
-要把这个方法变简短，你可以删除中间变量 `items`，直接返回查询结果（跟原来功能一样）：
+如果想使这个方法变简短一点，你可以删除中间变量 `items`，直接返回查询结果（跟原来功能一样）：
 
 ```csharp
 public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
@@ -68,17 +68,17 @@ public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
 
 ### 修改服务容器
 
-由于你删除了 `FakeTodoItemService` 类，就需要更新 `ConfigureServices` 里配置`ITodoItemService` 接口的那一行:
+由于你删除了 `FakeTodoItemService` 类，就需要修改 `ConfigureServices` 方法里配置`ITodoItemService` 接口的那一行:
 
 ```csharp
 services.AddScoped<ITodoItemService, TodoItemService>();
 ```
 
-依赖于 `ITodoItemService` 的 `TodoController` 将将幸福地对这个变化一无所知，但在底层，你将使用 Entity Framework Core 与真实的数据库进行交互！
+依赖于 `ITodoItemService` 的 `TodoController` 将幸福地对这个变化毫无察觉，但在底层，你将使用 Entity Framework Core 与真实的数据库进行交互！
 
 ### 试试看
 
-启动程序并导航至 `http://localhost:5000/todo`。伪项目不见了，你的程序对数据库发起了真正的查询。只是刚好还没有任何 待办事项 被保存。
+启动程序并导航至 `http://localhost:5000/todo`。硬编码的那些条目不见了，你的程序对数据库发起了真正的查询。只是刚好还没有任何 待办事项 被保存。
 
 下一章，你将在程序中添加更多的功能，从“创建新 待办事项 的能力”开始。
 
