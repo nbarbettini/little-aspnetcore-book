@@ -1,10 +1,10 @@
 ## 按角色进行授权
 
-在网络应用里，使用角色处理授权和权限是个常见的方法。例如，你可能有一个 Administrator 角色，允许管理员们查看并管理应用里所有注册用户，而普通用户只能查看他们自己的信息。
+在网络应用里，使用角色处理 授权 和 许可 是个常见的方法。例如，你可能有一个 Administrator 角色，允许管理员们查看并管理应用里所有注册用户，而普通用户只能查看他们自己的信息。
 
 ### 添加用户管理页面
 
-首先，创建一个新的控制器：
+首先，创建一个新控制器：
 
 **`Controllers/ManageUsersController.cs`**
 
@@ -131,7 +131,7 @@ namespace AspNetCoreTodo
 
 ### 创建一个测试用的管理员账号
 
-出于显而易见的原因，注册页面不会有一个“我是管理员”的复选框，因为这会导致任何注册用户都能轻易地成为管理员。相反，你可以在 `Startup` 类里添加一些代码，在程序初次启动的时候，创建一个测试管理账号。
+出于显而易见的原因，注册页面不会有一个“我要注册为管理员”的复选框，因为这会导致任何注册用户都能轻易地成为管理员。相反，你可以在 `Startup` 类里添加一些代码，在程序初次启动的时候，创建一个测试管理账号。
 
 在 `Configure` 方法的 `if (env.IsDevelopment())` 分支里添加这些内容：
 
@@ -173,7 +173,7 @@ private static async Task EnsureRolesAsync(RoleManager<IdentityRole> roleManager
 }
 ```
 
-这个方法查看数据库里是否存在一个 `Administrator` 角色。如果没有，它就创建一个。为免反复地输入字符串 `"Administrator"`，创建一个名为 `Constants` 的小类以保存它的值：
+这个方法查看数据库里是否有一个 `Administrator` 角色。如果没有，它就创建一个。为免反复地输入字符串 `"Administrator"`，创建一个名为 `Constants` 的小类以保存它的值：
 
 **`Constants.cs`**
 
@@ -208,7 +208,7 @@ private static async Task EnsureTestAdminAsync(UserManager<ApplicationUser> user
 }
 ```
 
-如果数据库里不存在一个用户名为 `admin@todo.local` 的用户，这个方法将创建它并给它一个临时的密码。在你初次登录之后，就应该出于安全考虑改掉这个密码。
+如果数据库里没有一个用户名为 `admin@todo.local` 的用户，这个方法将创建它并给它一个临时的密码。在你初次登录之后，就应该出于安全考虑改掉这个密码。
 
 > 因为是异步执行并返回一个 `Task`，`Configure` 方法中就必须使用 `Wait` 方法以确保等待它们执行完成，再执行后续的代码。你一般是用 `await` 做这件事，但是因为技术原因，你无法在 `Configure` 方法上使用 `await`。这是个罕见的例外 —— 所有其它地方你都应该用 `await`！
 
@@ -216,7 +216,7 @@ private static async Task EnsureTestAdminAsync(UserManager<ApplicationUser> user
 
 > 作为练习，请在这个页面添加更多管理功能特性。例如，添加一个按钮，给管理员提供“删除一个用户”的功能。
 
-### 在一个页面里查看认证状态
+### 在视图里查看认证状态
 
 `[Authorize]` 属性让控制器里执行认证操作变得很方便，但是如果你需要在视图里进行认证操作呢？比如，在导航条上为登入的管理员用户显示一个“管理用户”的链接。
 
@@ -272,7 +272,7 @@ private static async Task EnsureTestAdminAsync(UserManager<ApplicationUser> user
 
 ## 总结
 
-ASP.NET Core Identity 是个强大的安全和身份系统，能为你添加认证和授权检查，并简化外部身份提供者的集成。`dotnet new` 的模板提供了预制的视图和控制器，用于处理常见的诸如登录和注册这些情形，让你更迅速的构建和运行。
+ASP.NET Core Identity 是个强大的安全和身份系统，能为你添加认证和授权检查，并简化第三方身份提供商的接入。`dotnet new` 的模板提供了预设的视图和控制器，用于处理常见的诸如登录和注册这些情形，让你能更迅速地构建和运行程序。
 
 ASP.NET Core Identity 还有很多功能，你可以在 https://docs.asp.net 了解更多文档和示例。
 
