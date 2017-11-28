@@ -2,7 +2,7 @@
 
 万事俱备，只欠东风。当一个良好的程序构建完成，就应该与全世界分享它了。
 
-因为 ASP.NET Core 程序能够运行在 Windows、Mac 以及 Linux 上，你拥有多种不同的方式去部署程序。这一章里，我将教给你最常用(也是最简单)的上线方式。
+因为 ASP.NET Core 程序能够运行在 Windows、Mac 以及 Linux 上，你拥有多种部署程序的方式。这一章里，我将教给你最常用(也是最简单)的上线方式。
 
 ## 部署方式
 
@@ -22,11 +22,9 @@ ASP.NET Core 通常会部署到下列环境之一：
 
 ASP.NET Core 里包含一个名为 Kestrel 的快速轻量级的 web 开发服务器。你每次在本地启动程序并浏览 `http://localhost:5000` 的时候，用的就是这个服务器。当你把程序部署到生产环境的时候，它仍会在幕后使用 Kestrel。但强烈建议你在 Kestrel 之前添加一个反向代理，因为 Kestrel 并不具有负载均衡和其它更大 Web 服务器所具有的其它特性。
 
-ASP.NET Core includes a fast, lightweight development web server called Kestrel. It's the server you've been using every time you ran the app locally and browsed to `http://localhost:5000`. When you deploy your application to a production environment, it'll still use Kestrel behind the scenes. However, it's recommended that you put a reverse proxy in front of Kestrel, because Kestrel doesn't yet have load balancing and other features that bigger web servers have.
+在 Linux（和 Docker 容器）里，你可以用 Nginx 或者 Apache web 服务器接收从互联网上传入的请求，并派发到你用 Kestrel 托管的程序。如果你用的是 Windows，IIS 也能处理这个工作。
 
-On Linux (and in Docker containers), you can use Nginx or the Apache web server to receive incoming requests from the internet and route them to your application hosted with Kestrel. If you're on Windows, IIS does the same thing.
-
-If you're using Azure to host your application, this is all taken care of for you automatically. I'll cover setting up Nginx as a reverse proxy in the Docker section.
+如果你把程序托管在 Azure，这些就都是自动为你处理的。在 Docker 那一节，我会讲述如何配置 Nginx 进行反向代理。
 
 ---
 
