@@ -1,6 +1,6 @@
 ## 在程序中使用身份
 
-待办事项列表依然由所有用户共享，因为 待办事项条目 并未关联到特定的用户。现在，`[Authorize]` 属性确保了见到 待办事项视图 的人一定登录过，你就有能力在数据库查询的时候按照登录者的身份进行过滤了。
+待办事项列表依然由所有用户共享，因为 待办事项条目 并未关联到特定的用户。现在，`[Authorize]` 属性确保了见到 待办事项视图 的人一定登录过，在查询数据库的时候，你就可以按照登录者的身份进行过滤了。
 
 首先，在 `TodoController` 中注入一个 `UserManager<ApplicationUser>`：
 
@@ -55,9 +55,9 @@ public async Task<IActionResult> Index()
 var currentUser = await _userManager.GetUserAsync(User);
 ```
 
-如果当前用户登录过了， `User` 属性就持有一个轻量级的对象，包括了用户的一些（并非全部）信息。`UserManager` 使用它，通过 `GetUserAsync` 在数据库里查找该用户的详细信息。
+如果当前用户已经登录， `User` 属性就持有一个轻量级的对象，包括了用户的一些（并非全部）信息。`UserManager` 使用它，通过 `GetUserAsync` 在数据库里查找该用户的详细信息。
 
-因为控制器使用了 `[Authorize]` 属性，`currentUser` 的值绝不应该是 null。无论如何，做个警醒的检查都是个好主意，以防万一嘛。如果用户信息没找到，你可以用 `Challenge()` 方法强制用户再次登录：
+因为控制器使用了 `[Authorize]` 属性，`currentUser` 的值绝不应该是 null。无论如何，做个明智的检查都没错，以防万一嘛。如果用户信息没找到，你可以用 `Challenge()` 方法强制用户再次登录：
 
 ```csharp
 if (currentUser == null) return Challenge();
@@ -80,23 +80,23 @@ public interface ITodoItemService
 
 ### 修改数据库
 
-你需要在 `TodoItem` 实体上添加一个新的属性，以便每个条目都能够指向它的所有者：
+你需要在 `TodoItem` 实体上添加一个新的属性，让每个条目都能够指向它的所有者：
 
 ```csharp
 public string OwnerId { get; set; }
 ```
 
-既然你修改了数据库上下文里的实体模型，就应该更新数据库。在终端窗口里用 `dotnet ef` 指令创建一个新的迁移：
+既然你修改了数据库上下文里的实体模型，就应该同步修改数据库。在终端窗口里用 `dotnet ef` 指令创建一个新的变更：
 
 ```
 dotnet ef migrations add AddItemOwnerId
 ```
 
-这新建了一个名为 `AddItemOwner` 的迁移，它将给 `Items` 表添加一个新的列，以反应你在 `TodoItem` 实体模型上做出的修改：
+这个命令新建了一个名为 `AddItemOwner` 的变更，它将给 `Items` 表新添一个列，以反应你在 `TodoItem` 实体模型上所做的修改：
 
-> 注意：如果你在使用 SQLite 数据库，还需要手动调整迁移文件。详情请查看 *运用数据库* 那章的 *创建一个迁移* 小节。
+> 注意：如果你在使用 SQLite 数据库，还需要手动调整变更文件。详情请查看 *运用数据库* 那章的 *创建变更* 小节。
 
-再使用 `dotnet ef` 指令应用到数据库上：
+再通过 `dotnet ef` 指令应用到数据库：
 
 ```
 dotnet ef database update
@@ -104,7 +104,7 @@ dotnet ef database update
 
 ### 修改服务类
 
-有了对数据库和数据库上下文的改动，你现在可以修改 `TodoItemService` 中的 `GetIncompleteItemsAsync` 方法和其中的 `Where` 查询子句了：
+修改了数据库和数据库上下文，你就可以修改 `TodoItemService` 里的 `GetIncompleteItemsAsync` 方法和其中的 `Where` 查询子句了：
 
 **`Services/TodoItemService.cs`**
 
@@ -117,7 +117,7 @@ public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync(ApplicationUser
 }
 ```
 
-如果你现在运行程序并注册或者登录，你将又一次见到一个空的 待办事项列表。糟糕的是，你尝试添加的任何条目也都会消失不见，因为你还没修改 添加条目 的操作，把用户信息存储到条目里：
+如果你现在运行程序并注册或者登录，你将又一次见到一个空的 待办事项列表。糟糕的是，你尝试添加的任何条目也都会凭空消失，因为你还没修改 添加条目 的操作，并把用户信息存储到条目里：
 
 ### 修改 添加条目 和 完成事项 操作
 
