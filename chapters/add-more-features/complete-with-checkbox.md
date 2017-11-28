@@ -1,19 +1,19 @@
 ## 使用复选框标记条目完成
 
-向你的待办事项列表里添加条目这功能很棒，但最终你还是需要把这些事项处理掉。在 `Views/Todo/Index.cshtml` 视图里，为每个待办事项条目显示了一个复选框：
+向 待办事项 列表里添加条目，这功能很棒，但无论如何，这些事项都得被处理掉。在 `Views/Todo/Index.cshtml` 视图里，为每个待办事项条目显示了一个复选框：
 
 ```html
 <input type="checkbox" name="@item.Id" value="true" class="done-checkbox">
 ```
 
-条目的 ID（一个 guid）被保存在该元素的 `name` 属性里。在复选框被勾选的时候，你可以使用这个 ID 告知你的 ASP.NET Core 代码区更新数据库里对应的那个条目。
+条目的 ID（一个 guid）被保存在该元素的 `name` 属性里。当复选框被勾选的时候，你可以使用这个 ID 告知你的 ASP.NET Core 代码区更新数据库里对应的那个条目。
 
 整个流程看起来是这样的：
 
 * 用户勾选复选框，触发一个 JavaScript 函数
 * JavaScript 向控制器上的某个 action 发起一个 API 调用
-* 该 action 调用到服务层去更新数据库里的条目
-* 一个响应回复给 JavaScript 函数，表明更新成功
+* 该 action 调用到服务层去修改数据库里的条目
+* 一个响应回复给 JavaScript 函数，表明成功执行了修改
 * 页面上的 HTML 被更新
 
 ### 添加 JavaScript 代码
@@ -48,9 +48,9 @@ function markCompleted(checkbox) {
 }
 ```
 
-这段代码使用 jQuery 发送一个 HTTP POST 请求到 `http://localhost:5000/Todo/MarkDone`。请求中包括一个参数，`id`，其中是条目的 ID （从 `name` 属性里获取的）。
+这段代码使用 jQuery 发送一个 HTTP POST 请求到 `http://localhost:5000/Todo/MarkDone`。请求中包括一个参数，`id`，持有该条目的 ID （获取自 `name` 属性）。
 
-如果打开你网络浏览器的网络工具，再勾选一个复选框，你会看到一个这样的请求：
+如果打开你 网络浏览器 的 网络工具，再勾选一个复选框，你会看到一个这样的请求：
 
 ```
 POST http://localhost:5000/Todo/MarkDone
@@ -61,7 +61,7 @@ id=<some guid>
 
 传给 `$.post` 的常规处理函数会为该条目所在表格的那行添加一个 class。当这个行被标记上 `done` class，页面上的一个 CSS 规则会改变这一行的外观。
 
-### 在控制器里添加一个 action
+### 在控制器里添加 action
 
 正如你可能已经猜到的那样，你需要在 `TodoController` 里添加一个 action `MarkDone`：
 
@@ -78,7 +78,7 @@ public async Task<IActionResult> MarkDone(Guid id)
 }
 ```
 
-让我们逐行分析这个 action 方法。首先，该方法接受一个名为 `id` 的 `Guid` 类型参数。 不同于使用一个模型（`NewTodoItem`）作为参数并执行模型绑定/验证的 action `AddItem`， `id` 参数非常简单。如果传入的请求中包括一个名为 `id` 的参数， ASP.NET Core 将尝试将其解析为一个 guid。
+让我们逐行分析这个 action 方法。首先，该方法接受一个名为 `id` 的 `Guid` 类型参数。`id` 参数非常简单，这跟 `AddItem` 不同，那个 action 用了一个模型（`NewTodoItem`）作为参数，还进行了 模型绑定/验证 的处理。如果传入的请求中包括一个名为 `id` 的参数， ASP.NET Core 将尝试将其解析为一个 guid。
 
 这里不存在有效性检查的 `ModelState`，但你依然可以进行检查，以确保该guid的有效性。如果出于某些原因，请求中的 `id` 缺失了，或无法解析为一个 guid，那它会具有一个值为 `Guid.Empty`。如果是这种情况，action 可以提早返回：
 
@@ -86,9 +86,9 @@ public async Task<IActionResult> MarkDone(Guid id)
 if (id == Guid.Empty) return BadRequest();
 ```
 
-`BadRequest()` 方法是个便捷方法，用于方便地返回 HTTP 状态吗码 `400 Bad Request`。
+`BadRequest()` 方法是个便捷方法，简化了返回 HTTP 状态码 `400 Bad Request` 的处理。
 
-接下来，控制器需要调用到服务中去更新数据库。这将由`ITodoItemService`中一个名为 `MarkDoneAsync`的新方法处理，处理后取决于更新成功与否，会返回 true 或者 false：
+接下来，控制器需要调用到服务中去修改数据库。这将由 `ITodoItemService` 中一个名为 `MarkDoneAsync` 的新方法处理，处理后，根据于修改结果成功与否，会返回 true 或者 false：
 
 ```csharp
 var successful = await _todoItemService.MarkDoneAsync(id);
