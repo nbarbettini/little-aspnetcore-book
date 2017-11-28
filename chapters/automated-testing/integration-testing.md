@@ -1,12 +1,12 @@
 ## 集成测试
 
-与单元测试相比，集成测试检验整个程序栈（路由、控制器、服务、数据库）。集成测试并不会隔离出一个类或组件，而是确保你程序的所有组件能够良好协作。
+与单元测试相比，集成测试检验整个程序栈（路由、控制器、服务、数据库）。集成测试并不会隔离出一个类或组件，而是确保你程序的所有组件协作良好。
 
 集成测试较慢，并且比单元测试涵盖的范围大，所以，一般来说，一个项目会有大量的单元测试内容，而集成测试的内容则屈指可数。
 
 为了测试整个程序栈（包括控制器路由），集成测试往往像网络浏览器那样向程序发起 HTTP 请求。
 
-为了编写那种发起 HTTP 请求的集成测试，你可以手动开启程序运行测试，向 `http://localhost:5000` 发起请求（并祈祷程序还在运行）。ASP.NET Core 提供了一个更好的方式来托管程序进行测试，就是：使用 `TestServer` 类。`TestServer` 能够在测试期间托管你的程序，并在测试结束之后自动关闭它。
+为了编写那种发起 HTTP 请求的集成测试，你可以手动开启程序，并运行测试，向 `http://localhost:5000` 发起请求（并祈祷程序还在运行）。ASP.NET Core 提供了一个更好的方式来托管程序进行测试，就是：使用 `TestServer` 类。`TestServer` 能够在测试期间托管你的程序，并在测试结束之后自动关闭它。
 
 ### 创建一个测试项目
 
@@ -36,19 +36,19 @@ AspNetCoreTodo/
         AspNetCoreTodo.IntegrationTests.csproj
 ```
 
-既然这个测试项目也要用到你主项目中的类，你需要添加一个引用指向主项目：
+既然这个测试项目也要用到主项目中的类，你需要添加一个引用指向主项目：
 
 ```
 dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 ```
 
-你还需要添加 NuGet 包 `Microsoft.AspNetCore.TestHost` ：
+还需要添加 NuGet 包 `Microsoft.AspNetCore.TestHost` ：
 
 ```
 dotnet add package Microsoft.AspNetCore.TestHost
 ```
 
-删除 `dotnet new` 默认创建出来的文件 `UnitTest1.cs`，这样你就为编写集成测试准备就绪了。
+删除 `dotnet new` 默认创建的文件 `UnitTest1.cs`，这样你就为集成测试的编写准备就绪了。
 
 ### 编写集成测试
 
@@ -106,9 +106,9 @@ namespace AspNetCoreTodo.IntegrationTests
 }
 ```
 
-这个类被用于配置好一个 `TestServer`，并使测试代码干净利索。
+这个类配置好了一个 `TestServer`，并使测试代码干净利索。
 
-> 如果你在 *安全和身份* 那章配置了 Facebook 登录，就有必要（在上面的 `ConfigureAppConfiguration` 代码块里）为 Facebook app ID 和 密码添加一些假值。这是因为测试服务器无法获取 Secrets Manager 中的信息。在这个框架类里添加假值能避免测试服务器启动时报错。
+> 如果你在 *安全和身份* 那章配置了 Facebook 登录，就有必要（在上面的 `ConfigureAppConfiguration` 代码块里）为 Facebook应用ID 和 密码 添加一些伪值。这是因为测试服务器无法获取 Secrets Manager 中的信息。在这个框架类里添加伪值可以避免测试服务器启动时报错。
 
 现在你（真的）可以开始编写集成测试了。创建一个名为  `TodoRouteShould` 的类：
 
