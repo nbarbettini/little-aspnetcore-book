@@ -1,18 +1,18 @@
-## 添加新的 待办事项 条目
+## 添加 待办事项 条目
 
-使用列表下方简易的表单，用户可以添加新的待办事项条目：
+使用列表下面那个简易的表单，用户可以添加新的 待办事项 条目：
 
 ![Final form](final-form.png)
 
 添加这个功能，需要几个步骤：
 
-* 添加 JavaScript 代码，向服务器发送数据
-* 在控制器里添加一个 action 处理这个请求
-* 在服务层添加代码，以更新数据库
+* 添加 JavaScript 代码，并使用这段代码向服务器发送数据
+* 在控制器里添加一个新的 action 处理这个请求
+* 在服务层添加代码，对数据库进行修改
 
 ### 添加 JavaScript 代码
 
-视图`Todo/Index.cshtml`里已经有一个表单，其中有一个文本框、一个按钮用来添加新条目。用户点击 Add 按钮的时候，你将使用 jQuery 发送一个 POST 请求到服务器。
+视图 `Todo/Index.cshtml` 里已经包含了一个表单，其中有一个文本框、一个按钮用于添加新条目。用户点击 Add 按钮的时候，你将借助 jQuery 发送一个 POST 请求到服务器。
 
 打开文件 `wwwroot/js/site.js` 并添加如下代码：
 
@@ -45,11 +45,11 @@ function addItem() {
 }
 ```
 
-这个函数会发送一个 POST 请求到 `http://localhost:5000/Todo/AddItem`，里面带有用户输入的名称。传递给 `$.post` 方法(函数)的第三个参数是一个 常规处理方法(success handler)，会在服务器响应 `200 OK` 的时候运行。这个 常规处理方法 函数使用 `window.location` 刷新页面（把 location 设置为 `/Todo`，也就是当前这个页面所在的位置）。如果服务器响应 `400 Bad Request`，那么`$.post`方法中的 `fail` 处理方法将试图提取一个错误信息，并在 id 为 `add-item-error` 的 `<div>` 中显示它。
+这个函数会发送一个 POST 请求到 `http://localhost:5000/Todo/AddItem`，里面带有用户输入的名称。传递给 `$.post` 方法(函数)的第三个参数是一个 常规处理方法(success handler)，它将在服务器响应 `200 OK` 的时候被执行。这个 常规处理方法 函数使用 `window.location` 刷新页面（把 location 设置为 `/Todo`，也就是当前这个页面所在的位置）。如果服务器响应 `400 Bad Request`，那么依附在 `$.post` 方法上的 `fail` 处理方法将试图提取一个错误信息，并在 id 为 `add-item-error` 的 `<div>` 中显示它。
 
 ### 添加 action
 
-上面的 JavaScript 还不能起作用，因为还没有任何 action 会处理 `/Todo/AddItem` 这个路径。如果你现在尝试， ASP.NET Core 会返回一个 `404 Not Found` 错误。
+上面的 JavaScript 还不能奏效，因为还没有任何 action 对 `/Todo/AddItem` 这个路径上的请求进行处理。如果你现在尝试，ASP.NET Core 会返回一个 `404 Not Found` 错误。
 
 你需要在 `TodoConteoller` 中添加一个名为 `AddItem` 的新 action：
 
@@ -89,7 +89,7 @@ namespace AspNetCoreTodo.Models
 }
 ```
 
-这个模型的定义（一个名为`Title`的属性）与你使用 jQuery 发送给 action 的数据是匹配的：
+这个模型的定义（一个名为 `Title` 的属性）与你借助 jQuery 发送给 action 的数据相匹配：
 
 ```javascript
 $.post('/Todo/AddItem', { title: newTitle }  // ...
@@ -100,13 +100,13 @@ $.post('/Todo/AddItem', { title: newTitle }  // ...
 // }
 ```
 
-通过一个被称为 **模型绑定(model binding)** 的流程，ASP.NET Core 把 POST 请求里面的参数，跟你创建的模型定义进行配对。如果参数名匹配(忽略诸如大小写这种因素)，请求数据将被置入到模型里。
+通过一个被称作 **模型绑定(model binding)** 的流程，ASP.NET Core 把 POST 请求里面的参数，跟你创建的模型定义进行配对。如果参数名匹配(忽略诸如大小写这种因素)，请求数据将被置入到模型里。
 
-把请求数据绑定到模型之后，ASP.NET Core 还会执行 **模型验证(model validation)**。 `Title` 字段的属性 `[Required]` 告知验证器，`Title`字段不应该被漏掉(空白)。如果模型没能通过验证，验证器不会抛出一个异常，但是验证状态会被保存下来，以便你在控制器里查阅它。
+把请求数据绑定到模型之后，ASP.NET Core 还会执行 **模型验证(model validation)**。 `Title` 字段的属性 `[Required]` 告知验证器“`Title`字段不应该被漏掉(空白)”。如果模型没能通过验证，验证器不会抛出一个异常，但是验证状态会被保存下来，以便你在控制器里查阅它。
 
-> 补充阅读：本来有可能复用模型`TodoItem`，而不是创建一个`NewTodoItem`，但是`TodoItem`里包含一些用户永远都不会提交的字段(ID 和 done)。而现在这样处理将会更加干净利落：在添加一个新的待办事项条目时，定义一个新的模型来确切地表示有关字段。
+> 补充阅读：本来有可能复用模型 `TodoItem`，而不是创建一个 `NewTodoItem`，但是 `TodoItem` 里包含一些永远都不会被用户提交的字段(ID 和 done)。而现在的处理方式则更干净利落：在添加新的 待办事项 条目时，定义一个新的模型来确切地表示相关属性。
 
-回到 `TodoController` 里的 action `AddItem`：第一个代码块检查模型是否符合验证处理的条件。习惯上，这件事会在方法一开始的地方处理：
+回到 `TodoController` 里的 action `AddItem`：第一个代码块检查“模型是否符合验证处理的条件”。习惯上，这件事应该在方法的最开始进行处理：
 
 ```csharp
 if (!ModelState.IsValid)
@@ -115,9 +115,9 @@ if (!ModelState.IsValid)
 }
 ```
 
-如果 `ModelState` 是无效的（因为所需的字段空着），action 会连带模型状态一起返回一个 400 Bad Request，这随后会自动地被转换为一个错误消息，告知用户出了什么问题。
+如果 `ModelState` 是无效的（因为所需的字段空缺了），action 会连带模型状态一起，返回一个 400 Bad Request，这随后会自动地被转换为一个错误消息，告知用户出了什么问题。
 
-接下来，控制器调用到服务层，执行数据库操作：
+接下来，控制器调用到服务层，执行具体的数据库操作：
 
 ```csharp
 var successful = await _todoItemService.AddItemAsync(newItem);
@@ -127,15 +127,15 @@ if (!successful)
 }
 ```
 
-取决于该条目是否成功地添加到数据库中，`AddItemAsync` 方法会返回 `true` 或者 `false`。如果该操作因为某些原因失败了，action 会连带一个包含 `error` 字段的对象，返回 `400 Bad Request`。
+取决于该条目添加到数据库的结果成功与否，`AddItemAsync` 方法会返回 `true` 或者 `false`。如果该操作因为某些原因失败了，action 会连带一个包含 `error` 字段的对象，返回 `400 Bad Request`。
 
 最后，如果所有操作顺利完成，action 返回 `200 OK`。
 
-### 添加一个服务方法(函数)
+### 添加服务方法(函数)
 
-如果你使用的代码编辑器了解 C# 的语法，你将在 `AddItemAsync` 下面看到红色的波浪线，因为该方法尚未定义。
+如果你使用的代码编辑器了解 C# 的语法，你会在 `AddItemAsync` 下面看到红色的波浪线，因为该方法尚未定义。
 
-作为最后一步，你需要在服务层里添加一个方法。首先，在 `ITodoItemService` 接口里添加定义：
+作为最后一步，你需要在服务层里添加一个方法。首先，在 `ITodoItemService` 接口里添加它的定义：
 
 ```csharp
 public interface ITodoItemService
@@ -166,13 +166,13 @@ public async Task<bool> AddItemAsync(NewTodoItem newItem)
 }
 ```
 
-这个方法创建一个新的 `TodoItem`（代表着数据库中实体的那个模型），并从 `NewTodoItem` 里面复制了 `Title`。然后，把它添加到 context 里，又用`SaveChangesAsync`方法在数据库里使之被持久化。
+这个方法创建一个新的 `TodoItem`（这个模型代表数据库中的实体），并从 `NewTodoItem` 里面复制了 `Title`。然后，把它添加到 context 里，又用 `SaveChangesAsync` 方法在数据库里使之被持久化。
 
-> 补充阅读：上面仅仅是该功能的一种“可行的”方案。如果希望你为“添加一个新条目”显示一个独立的页面（比方说，一个很复杂的条目，有很多个字段），你可以创建一个新的视图，绑定一个模型，供用户输入字段值。通过一个名为 **tag helper** 的特性，ASP.NET Core能够自动为该模型的各字段渲染一个表单，你可以在 https://docs.asp.net 上 ASP.NET Core 的文档里找到相关的示例。
+> 补充阅读：上面仅仅是该功能的一种“可行的”方案。如果希望你为“添加一个新条目”显示独立的页面（比方说，一个很复杂的条目，包含很多字段），你可以创建一个新的视图，绑定一个模型，供用户输入字段值。通过一个名为 **tag helper** 的特性，ASP.NET Core能够自动为该模型的各字段渲染一个表单，你可以在 https://docs.asp.net 上 ASP.NET Core 的文档里找到相关的示例。
 
 ### 试试看
 
-运行程序，使用里面的表单添加几个条目到你的待办事项列表里。因为这些条目存储在数据库里，就算你关闭程序后重新运行，这些条目都还保存在那里。
+运行程序，使用页面上的表单添加几个条目到 待办事项 列表里。因为这些条目存储在数据库里，就算你关闭程序后再重新运行，这些条目都还保存在那里。
 
 > 一个附加练习，请尝试使用 HTML 和 JavaScript 添加一个日期选择框，并让用户为 `DueAt` 属性选择一个(可选的)日期。然后，用这个日期替换那个默认的“3天后到期”。
 

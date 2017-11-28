@@ -18,7 +18,7 @@
     * [创建变更](chapters/use-a-database/create-migration.md)
     * [创建服务类](chapters/use-a-database/create-service-class.md)
 * [添加新特性](chapters/add-more-features/README.md)
-    * [添加新的 待办事项 条目](chapters/add-more-features/add-todo-items.md)
+    * [添加 待办事项 条目](chapters/add-more-features/add-todo-items.md)
     * [使用复选框标记条目完成](chapters/add-more-features/complete-with-checkbox.md)
 * [安全和身份](chapters/security-and-identity/README.md)
     * [添加 Facebook 登录功能](chapters/security-and-identity/add-facebook-login.md)
