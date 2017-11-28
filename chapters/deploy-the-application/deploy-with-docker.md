@@ -1,6 +1,6 @@
 ## 使用 Docker 进行部署
 
-像 Docker 这样的容器化技术极大地简化了 web 程序的部署工作。不再需要浪费时间在一个服务器上配置运行你程序所需的依赖、复制文件、重启进程，你只需要创建一个 Docker 镜像，里面包含你程序运行所需的一切，然后在任何 Docker 宿主机上作为容器启动起来就行了。
+像 Docker 这样的容器化技术极大地简化了 web 程序的部署工作。不再需要浪费时间在一个服务器上配置你程序所需的依赖、复制文件、重启进程，你只需要创建一个 Docker 镜像，里面包含你程序运行所需的一切，然后在任何 Docker 宿主机上作为容器启动起来就行了。
 
 Docker 也便于把你的应用扩展为多个服务器。一旦你创建了一个镜像，用它来创建 1 个容器和 100 个容器所需要的工作是一样的。
 
@@ -22,7 +22,7 @@ docker --version
 FROM microsoft/dotnet:latest
 ```
 
-这告知 Docker 以一个现存的微软发布的镜像开始创建你的镜像。这将确保容器具有需要运行一个 ASP.NET Core 应用所需的一切。
+这告知 Docker 开始创建你的镜像，以一个现存的微软发布的镜像为基础。这将确保容器包含运行 ASP.NET Core 应用所需的一切。
 
 ```dockerfile
 COPY . /app
@@ -78,7 +78,7 @@ ENTRYPOINT ["dotnet", "run"]
 
 ### 创建一个镜像
 
-确保 Dockerfile 已经保存过了，然后用 `docker build` 命令创建一个镜像：
+确保 Dockerfile 已经保存好了，然后用 `docker build` 命令创建一个镜像：
 
 ```
 docker build -t aspnetcoretodo .
@@ -86,11 +86,12 @@ docker build -t aspnetcoretodo .
 
 不要漏掉结尾那个句点！它告诉 Docker 在当前目录下查找 Dockerfile。
 
-一旦镜像创建完成，你可以运行 `docker images` 命令列出你本地电脑上的全部镜像。要用一个容器尝试一下，执行：
+一旦镜像创建完成，你可以运行 `docker images` 命令列出你本地电脑上的全部镜像。要通过容器尝试一下，请执行：
 
 ```
 docker run -it -p 5000:5000 aspnetcoretodo
 ```
+
 `-it` 标识告诉 Docker 以交互模式运行这个容器。当你想要停止这个容器的时候，按 `Control-C`。
 
 ### 设置 Nginx
@@ -138,7 +139,7 @@ http {
 }
 ```
 
-这个配置文件告诉 Nginx 把接到的请求转发到 `http://kestrel:5000`。（你马上就会知道为什么要使用 `kestrel:500` ）
+这个配置文件告诉 Nginx 把接到的请求转发到 `http://kestrel:5000`。（你马上就会知道为什么要使用 `kestrel:5000` ）
 
 ### 设置 Docker Compose
 
@@ -159,7 +160,7 @@ kestrel:
         - "5000"
 ```
 
-Docker Compose 是个帮助你创建并运行多容器程序的工具。这个配置文件定义了两个容器： 用 `./nginx/Dockerfile` 清单创建 `nginx`，用 `./Dockerfile` 创建 `kestrel`。这两个容器显示的链接了起来，所以它们可以互相通信。
+Docker Compose 是个帮助你创建并运行多容器程序的工具。这个配置文件定义了两个容器： 用 `./nginx/Dockerfile` 清单创建 `nginx`，用 `./Dockerfile` 创建 `kestrel`。这两个容器显式地链接在一起，所以它们可以互相通信。
 
 你可以运行以下指令来启动这个多容器程序：
 
@@ -173,7 +174,7 @@ docker-compose up
 
 详尽的设置指令超出了这本**小**书的范畴，但是任何新式的 Linux 发行版（例如 Ubuntu）都可以搭建成一个 Docker 宿主。例如，你可以用亚马逊 EC2 创建一个虚拟机，在上面安装 Docker 服务，为此你可以搜索 “amazon ec2 set up docker” 以获取说明。
 
-我更偏好使用 DigitalOcean，因为他们把入门的门槛变得非常低。DigitalOcean 既有现成的 Docker 虚拟机，也有关于搭建和运行 Docker 的深度教程（搜索“digitalocean docker”）。
+我更偏好使用 DigitalOcean，因为他们把入门的门槛降得非常低。DigitalOcean 既有现成的 Docker 虚拟机，也有关于搭建和运行 Docker 的深度教程（搜索“digitalocean docker”）。
 
 ---
 
