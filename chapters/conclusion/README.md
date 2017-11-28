@@ -1,6 +1,6 @@
 # 结束语
 
-感谢你读完了这本简明 ASP.NET Core 手册！ASP.NET Core 还有很多功能但却无法纳入到这本小书里，包括：
+感谢你读完了这本简明 ASP.NET Core 手册！ASP.NET Core 还有很多功能，但是无法纳入到这本小册子里，包括：
 
 * 构建 RESTFul 的 API 和 微服务
 * 把 ASP.NET Core 用于 单页面应用，例如 Angular 和 React
@@ -8,7 +8,7 @@
 * 打包和压缩静态资源
 * WebSockets
 
-我自己的博客 https://www.recaffeinate.co 上有很多关这些主题的博文。
+作者自己的博客 https://www.recaffeinate.co 上有很多关这些主题的博文。
 
 ASP.NET Core 官方文档也都涵盖了这些主题以及更多内容：https://docs.asp.net
 
@@ -18,7 +18,7 @@ ASP.NET Core 官方文档也都涵盖了这些主题以及更多内容：https:/
 
 嗨，我是 Nate！我在一个灌着咖啡的周末写了这本 简明 ASP.NET Core 手册，因为我热爱 .NET 社区，并希望以我的微薄之力付出回报。希望它帮助你学了一点儿新东西。
 
-你可以在 Twitter（[@nbarbettini](https://twitter.com/nbarbettini)）上和我保持联系，或这在我的博客上（https://www.recaffeinate.co）。
+你可以在 Twitter（[@nbarbettini](https://twitter.com/nbarbettini)）上和我保持联系，或者在我的博客上（https://www.recaffeinate.co）。
 
 ## 特别致谢
 
