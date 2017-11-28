@@ -67,7 +67,7 @@ az webapp create -g AspNetCoreTodoGroup -p AspNetCoreTodoPlan -n MyTodoApp
 
 > 提示：只有当你在 *安全与身份* 章节配置过 Facebook 登录，才需要这么做。
 
-如果配置里 `Facebook:AppId` 和 `Facebook:AppSecret` 的值缺失，你的程序就无法正确启动。你需要使用 Azure 应用门户添加以下内容：
+如果配置里 `Facebook:AppId` 和 `Facebook:AppSecret` 的值缺失，你的程序就无法正常启动。你需要使用 Azure 应用门户添加以下内容：
 
 1. 在 https://portal.azure.com 用你的 Azure 账户登录
 1. 打开你的 Web 应用（上面那个叫 `MyTodoApp` 的）
