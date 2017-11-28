@@ -1,8 +1,24 @@
 {
-    "title": "The Little ASP.NET Core Book",
-    "description": "A friendly introduction to building web applications with the ASP.NET Core framework.",
+    "title": "简明 ASP.NET Core 手册",
+    "description": "一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。",
     "author": "Nate Barbettini",
+    "language": "zh-hans",
     "pdf": {
-        "paperSize": "a5"
+        "fontSize": 13,
+        "fontFamily": "Microsoft YaHei",
+        "margin": {
+            "comment_from_windsting": "these margin settings not working.",
+            "top": 12,
+            "bottom": 12,
+            "left": 12,
+            "right": 12
+        },
+        "paperSize": "b5"
+    },
+    "plugins": ["expandable-chapters-small", "disqus", "splitter", "anchors", "copy-code-button"],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "little-aspnetcore-book-cn"
+        }
     }
 }

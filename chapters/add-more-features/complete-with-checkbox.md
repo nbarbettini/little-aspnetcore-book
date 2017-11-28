@@ -1,3 +1,150 @@
+## 使用复选框标记条目完成
+
+向 待办事项 列表里添加条目，这功能很棒，但无论如何，这些事项都得被处理掉。在 `Views/Todo/Index.cshtml` 视图里，为每个待办事项条目显示了一个复选框：
+
+```html
+<input type="checkbox" name="@item.Id" value="true" class="done-checkbox">
+```
+
+条目的 ID（一个 guid）被保存在该元素的 `name` 属性里。当复选框被勾选的时候，你可以使用这个 ID 告知你的 ASP.NET Core 代码区更新数据库里对应的那个条目。
+
+整个流程看起来是这样的：
+
+* 用户勾选复选框，触发一个 JavaScript 函数
+* JavaScript 向控制器上的某个 action 发起一个 API 调用
+* 该 action 调用到服务层去修改数据库里的条目
+* 一个响应回复给 JavaScript 函数，表明成功执行了修改
+* 页面上的 HTML 被更新
+
+### 添加 JavaScript 代码
+
+首先，打开 `site.js` 并在 `$(document).ready` 代码块里添加如下内容：
+
+**wwwroot/js/site.js**
+
+```javascript
+$(document).ready(function() {
+
+    // ...
+
+    // Wire up all of the checkboxes to run markCompleted()
+    $('.done-checkbox').on('click', function(e) {
+        markCompleted(e.target);
+    });
+
+});
+```
+
+然后，在该文件底部添加 `markCompleted` 函数：
+
+```javascript
+function markCompleted(checkbox) {
+    checkbox.disabled = true;
+
+    $.post('/Todo/MarkDone', { id: checkbox.name }, function() {
+        var row = checkbox.parentElement.parentElement;
+        $(row).addClass('done');
+    });
+}
+```
+
+这段代码使用 jQuery 发送一个 HTTP POST 请求到 `http://localhost:5000/Todo/MarkDone`。请求中包括一个参数，`id`，持有该条目的 ID （获取自 `name` 属性）。
+
+如果打开你 网络浏览器 的 网络工具，再勾选一个复选框，你会看到一个这样的请求：
+
+```
+POST http://localhost:5000/Todo/MarkDone
+Content-Type: application/x-www-form-urlencoded
+
+id=<some guid>
+```
+
+传给 `$.post` 的常规处理函数会为该条目所在表格的那行添加一个 class。当这个行被标记上 `done` class，页面上的一个 CSS 规则会改变这一行的外观。
+
+### 在控制器里添加 action
+
+正如你可能已经猜到的那样，你需要在 `TodoController` 里添加一个 action `MarkDone`：
+
+```csharp
+public async Task<IActionResult> MarkDone(Guid id)
+{
+    if (id == Guid.Empty) return BadRequest();
+
+    var successful = await _todoItemService.MarkDoneAsync(id);
+
+    if (!successful) return BadRequest();
+
+    return Ok();
+}
+```
+
+让我们逐行分析这个 action 方法。首先，该方法接受一个名为 `id` 的 `Guid` 类型参数。`id` 参数非常简单，这跟 `AddItem` 不同，那个 action 用了一个模型（`NewTodoItem`）作为参数，还进行了 模型绑定/验证 的处理。如果传入的请求中包括一个名为 `id` 的参数， ASP.NET Core 将尝试将其解析为一个 guid。
+
+这里不存在有效性检查的 `ModelState`，但你依然可以进行检查，以确保该guid的有效性。如果出于某些原因，请求中的 `id` 缺失了，或无法解析为一个 guid，那它会具有一个值为 `Guid.Empty`。如果是这种情况，action 可以提早返回：
+
+```csharp
+if (id == Guid.Empty) return BadRequest();
+```
+
+`BadRequest()` 方法是个便捷方法，简化了返回 HTTP 状态码 `400 Bad Request` 的处理。
+
+接下来，控制器需要调用到服务中去修改数据库。这将由 `ITodoItemService` 中一个名为 `MarkDoneAsync` 的新方法处理，处理后，根据于修改结果成功与否，会返回 true 或者 false：
+
+```csharp
+var successful = await _todoItemService.MarkDoneAsync(id);
+if (!successful) return BadRequest();
+```
+
+最终，如果一切顺利，`Ok()` 方法会被用来返回状态码`200 OK`。复杂一些的 API 也可能会返回 JSON 或者其他数据格式，但你目前的情况，返回一个状态码就够用了。
+
+### 添加服务方法
+
+首先，在接口定义中添加 `MarkDoneAsync`：
+
+**`Services/ITodoItemService.cs`**
+
+```csharp
+Task<bool> MarkDoneAsync(Guid id);
+```
+
+然后，在 `TodoItemService` 中添加具体的实现：
+
+**`Services/TodoItemService.cs`**
+
+```csharp
+public async Task<bool> MarkDoneAsync(Guid id)
+{
+    var item = await _context.Items
+        .Where(x => x.Id == id)
+        .SingleOrDefaultAsync();
+
+    if (item == null) return false;
+
+    item.IsDone = true;
+
+    var saveResult = await _context.SaveChangesAsync();
+    return saveResult == 1; // One entity should have been updated
+}
+```
+
+该方法使用 Entity Framework Core 和 `Where` 在数据库中按 `ID` 查找一个条目。`SingleOrDefaultAsync` 方法要么返回该条目(若存在)，要么返回 `null`——如果 ID 是假的。如果它不存在，代码将提前返回。
+
+一旦你确定 `item` 不是 null，设置 `IsDone` 属性就是小事一桩了：
+
+```csharp
+item.IsDone = true;
+```
+
+修改该属性仅仅影响该条目的本地拷贝，`SaveChangesAsync` 被调用之后才会把修改的内容持久化到数据库里。`SaveChangesAsync` 返回一个整数，表示在这次保存操作中被更新的条目的数量。在当前的情况下，它要么是1(条目更新了)，要么是0(有错误发生)。
+
+### 试试看
+
+运行程序并勾选列表中的某些条目完成掉。刷新页面，它们将自动消失掉，这归功于 `GetIncompleteItemsAsync` 方法中的 `Where` 过滤器。
+
+现在，程序里包含一个单一、共享的待办事项列表。如果它为每个用户保存独立的列表，将会更有用。下一章，你将使用 ASP.NET Core Identity，为项目添加安全及认证等特性。
+
+---
+
 ## Complete items with a checkbox
 
 Adding items to your to-do list is great, but eventually you'll need to get things done, too. In the `Views/Todo/Index.cshtml` view, a checkbox is rendered for each to-do item:

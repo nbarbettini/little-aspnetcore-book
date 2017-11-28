@@ -1,3 +1,68 @@
+## C# 版的 Hello World
+
+深入钻研 ASP.NET Core 之前，先试着创建并运行一个简单的应用程序吧。
+
+这个可以在命令行下执行。首先开启一个终端窗口（或者 Windows 上的 PowerShell）。一路 `cd` 到要放置你项目的路径下，比如你的“我的文档”目录：
+
+```shell
+cd Documents
+```
+
+使用 `dotnet` 命令创建一个新的项目：
+
+```shell
+dotnet new console -o CsharpHelloWorld
+cd CsharpHelloWorld
+```
+
+以上命令创建了一个基本的 C# 程序，它输出一些文本到屏幕上。这个程序由两个文件构成：一个项目文件（使用 `.csproj` 扩展名）和一个 C# 源文件（带有 `.cs` 扩展名），打开前面那个文件的话，可以看到以下内容：
+
+**`CsharpHelloWorld.csproj`**
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
+```
+
+项目文件基于 XML，其中定义了一些关于项目的元数据。到后面，你引用其它包的时候，那些包将被记录在这里（类似于 npm 的 `package.json`），你不需要经常手动编辑这个文件。
+
+**`Program.cs`**
+
+```csharp
+using System;
+
+namespace CsharpHelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
+```
+
+`static void Main` 是一个 C# 程序的入口点方法，按照惯例，会被置于一个叫 `Program` 的类（一种代码结构或模块）里。最上面的 `using` 语句引入了 .NET 内置于 System 的那些类，并使它们可以被用于这个类里。
+
+在项目的目录里，用 `dotnet run` 指令运行这个程序，在代码编译完成之后，你将看到输出在控制台里面的内容：
+
+```shell
+dotnet run
+
+Hello World!
+```
+
+这就是构建一个 .NET 程序所需的所有步骤！下一节，你将把同样的流程应用在一个 ASP.NET Core 程序上。
+
+---
+
 ## Hello World in C# #
 Before you dive into ASP.NET Core, try creating and running a simple C# application.
 
