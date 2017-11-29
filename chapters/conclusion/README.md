@@ -31,6 +31,7 @@ To the following contributors who improved the Little ASP.NET Core Book:
 To these amazing polyglot programmers who translated the Little ASP.NET Core Book:
 
 * sahinyanlik (Turkish translation)
+* windsting (Chinese translation)
 
 ## Changelog
 
