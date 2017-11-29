@@ -99,6 +99,10 @@ Thanks to some fantastic multilingual folks, the Little ASP.NET Core Book has be
 
   https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
 
+* **简明 ASP.NET Core 手册** (Chinese)
+
+  https://windsting.github.io/little-aspnetcore-book/book/
+
 
 ## Who this book is for
 If you're new to programming, this book will introduce you to the patterns and concepts used to build modern web applications. You'll learn how to build a web app (and how the big pieces fit together) by building something from scratch! While this little book won't be able to cover absolutely everything you need to know about programming, it'll give you a starting point so you can learn more advanced topics.
