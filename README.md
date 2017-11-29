@@ -26,7 +26,7 @@ Thanks to some fantastic multilingual folks, the Little ASP.NET Core Book has be
 
   https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
 
-* **简明 ASP.NET Core 手册** (Chinese)
+* **简明 ASP.NET Core 手册** (Simplified Chinese)
 
   https://windsting.github.io/little-aspnetcore-book/book/
 
