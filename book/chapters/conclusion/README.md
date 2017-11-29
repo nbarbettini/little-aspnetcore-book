@@ -31,6 +31,7 @@ Jennifer，她总是支持我各种疯狂的点子。
 以下这些很棒的各国程序员，翻译了本书：
 
 * sahinyanlik (土耳其语)
+* windsting、yuyi (简体中文)
 
 ## 变更记录
 
@@ -77,6 +78,7 @@ To the following contributors who improved the Little ASP.NET Core Book:
 To these amazing polyglot programmers who translated the Little ASP.NET Core Book:
 
 * sahinyanlik (Turkish translation)
+* windsting (Chinese translation)
 
 ## Changelog
 
