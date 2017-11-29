@@ -19,6 +19,18 @@
 
 这本书本身也会由于修订和内容的增加而频繁更新。如果你阅读的是 PDF、电子书，或者打印版，请查阅官网([littleasp.net/book](http://www.littleasp.net/book))的版本更新。有关版本信息和更新内容，请查阅本书的最后一页。
 
+### 选择你的语言阅读
+
+感谢那些多语言的读者，简明 ASP.NET Core 手册 已经被翻译成其它语言：
+
+* **The Little ASP.NET Core Book** (English -- original version)
+
+  https://www.recaffeinate.co/book/
+
+* **ASP.NET Core El Kitabı** (Turkish)
+
+  https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
+
 ## 本书的目标读者
 
 如果你刚开始编程，本书将使你了解构建最新web应用的模式和概念。通过从头开始创建一些东西，你将学习构建一个 web 应用的方法（以及合理组织各模块的方法）。尽管这个手册不能事无巨细地讲解你对编程所需的全部内容，但它将成为你的一个起点，通向更多高级的主题。
