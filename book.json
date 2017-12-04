@@ -15,10 +15,14 @@
         },
         "paperSize": "b5"
     },
-    "plugins": ["expandable-chapters-small", "disqus", "splitter", "anchors", "copy-code-button"],
+    "plugins": ["expandable-chapters-small", "disqus", "splitter", "anchors", "copy-code-button", "forkmegithub"],
     "pluginsConfig": {
         "disqus": {
             "shortName": "little-aspnetcore-book-cn"
+        },
+        "forkmegithub": {
+            "color": "orange",
+            "url": "https://github.com/windsting/little-aspnetcore-book"
         }
     }
 }
