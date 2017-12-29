@@ -14,7 +14,7 @@ cd AspNetCoreTodo
 
 This creates a new project from the `mvc` template, and adds some additional authentication and security bits to the project. (I'll cover security in the *Security and identity* chapter.)
 
-You'll see quite a few files show up in the project directory. All you have to do right now is run the project:
+The `-o AspNetCoreTodo` flag tells `dotnet new` to create a new directory called `AspNetCoreTodo` for all the output files. You'll see quite a few files show up in this project directory. Once you `cd` into the new directory, all you have to do is run the project:
 
 ```
 dotnet run
