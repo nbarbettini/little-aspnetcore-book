@@ -43,7 +43,7 @@ public class TodoController : Controller
 
         // Put items into a model
 
-        // Pass the view to a model and render
+        // Render view using the model
     }
 }
 ```
