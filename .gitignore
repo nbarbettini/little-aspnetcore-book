@@ -1,3 +1,4 @@
 _book/
 _ebook/
 *.pdf
+node_modules/

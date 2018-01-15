@@ -4,5 +4,12 @@
     "author": "Nate Barbettini",
     "pdf": {
         "paperSize": "a5"
+    },
+    "plugins": ["expandable-chapters-small", "anchors", "forkmegithub"],
+    "pluginsConfig": {
+        "forkmegithub": {
+            "color": "green",
+            "url": "https://github.com/nbarbettini/little-aspnetcore-book"
+        }
     }
 }
