@@ -8,7 +8,7 @@ The view rendered by the `Index` action of the `TodoController` needs to take th
 **`Views/Todo/Index.cshtml`**
 
 ```html
-@model TodoViewModel;
+@model TodoViewModel
 
 @{
     ViewData["Title"] = "Manage your todo list";
