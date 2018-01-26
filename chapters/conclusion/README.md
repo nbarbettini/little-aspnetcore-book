@@ -35,6 +35,8 @@ To these amazing polyglot programmers who translated the Little ASP.NET Core Boo
 
 ## Changelog
 
+**1.0.4** (2018-01-15): Added explanation of service container lifecycles, clarified server ports and the -o flag, and removed semicolons after Razor directives. Corrected Chinese translation author credit. Fixed other small typos and issues noticed by readers.
+
 **1.0.3** (2017-11-13): Typo fixes and small improvements suggested by readers.
 
 **1.0.2** (2017-10-20): More bug fixes and small improvements. Added link to translations.
