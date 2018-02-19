@@ -1,6 +1,6 @@
 ## PostgreSQL
 
-Using PostgreSQL for your application instead of SQLite will allow it to support foreign key relationships with Entity Framework Core, allow it to scale better, and give you access to various PostgreSQL features like the [PostGIS extension](https://postgis.net/).
+Using PostgreSQL for your application instead of SQLite will allow it to scale better and give you access to various PostgreSQL features like the [PostGIS extension](https://postgis.net/).
 
 Thanks to the layer of abstraction we get from using Entity Framework Core, modifying our application to use a different database engine is less complex than you would think. We can use our existing models, only having to change the Entity Framework Core provider we use. We will add the [Npgsql EF Core provider](http://www.npgsql.org/efcore/index.html).
 
