@@ -1,4 +1,4 @@
-## Postgresql
+## PostgreSQL
 
 Using PostgreSQL for your application instead of SQLite will allow it to support foreign key relationships with Entity Framework Core, allow it to scale better, and give you access to various PostgreSQL features like the [PostGIS extension](https://postgis.net/).
 
@@ -40,7 +40,7 @@ services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =
     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 ```  
 
-The connection string `DefaultConnection` will also have to updated to reflect connecting to a PostgreSQL database instead of SQLite. Modify the `appsettings.json` file in the project root to change the following connection string:
+The connection string `DefaultConnection` will also have to be updated to reflect connecting to a PostgreSQL database instead of SQLite. Modify the `appsettings.json` file in the project root to change the following connection string:
 
 ```
 "ConnectionStrings": {
@@ -56,7 +56,7 @@ to a new connection string for PostgreSQL:
 }
 ```
 
-### Starting a PostgreSQL
+### Starting a PostgreSQL database
 
 Setting up PostgreSQL on your development machine is outside of the scope of this book. You can install and start PostgreSQL any way you like, however, a convenient modern way of doing this is using Docker. With [Docker installed](https://docs.docker.com/install/) on your machine, you can create and run a container from the [`Postgres`](https://hub.docker.com/_/postgres/) image, using environment variables to set the username, password, and database used in the connection string set above. To do so, use the following command:
 
@@ -78,7 +78,7 @@ While it is true that the migrations we created in the project have already been
 
 ![pgAdmin showing the tables](pgadmin_aspnetcore_tables_created.png)
 
-At this point, you can start your application, visit `localhost:5000` in your browser, and create and manipulate `Todo`s just like before, except this time the data is being saved in the PostgreSQL database. Notice how everything works as before, including:
+At this point, you can start your application, visit `localhost:5000` in your browser, and create and manipulate `Todo` items just like before, except this time the data is being saved in the PostgreSQL database. Notice how everything works as before, including:
 
 * Model validation
 * Identity authentication and authorization
