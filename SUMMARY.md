@@ -32,4 +32,6 @@
 * [Deploy the application](chapters/deploy-the-application/README.md)
     * [Deploy to Azure](chapters/deploy-the-application/deploy-to-azure.md)
     * [Deploy with Docker](chapters/deploy-the-application/deploy-with-docker.md)
+* [Alternative databases](chapters/alternative-databases/README.md)
+    * [PostgreSQL](chapters/alternative-databases/postgresql.md)
 * [Conclusion](chapters/conclusion/README.md)
