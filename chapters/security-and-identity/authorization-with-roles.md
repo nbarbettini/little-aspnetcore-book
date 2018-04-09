@@ -249,6 +249,8 @@ You can inject the `UserManager` directly into a view to do these types of autho
 
 A **partial view** is a small piece of a view that gets embedded into another view. It's common to name partial views starting with an `_` underscore, but it's not necessary.
 
+> If you've used Razor in ASP.NET 4.x, you'll notice some syntax changes. Instead of using `@Html.ActionLink()` to generate a link to the `ManageUsers.Index` action, Razor in ASP.NET Core looks for `asp-controller` and `asp-action` attributes directly on an `<a>` tag and replaces them with the actual link when the view is rendered. This is a new feature called **tag helpers**. You can learn about other tag helpers in the documentation at `https://docs.asp.net`.
+
 This partial view first uses the `SignInManager` to quickly determine whether the user is logged in. If they aren't, the rest of the view code can be skipped. If there *is* a logged-in user, the `UserManager` is used to look up their details and perform an authorization check with `IsInRoleAsync`. If all checks succeed, a navbar item is rendered.
 
 To include this partial in the main layout, edit `_Layout.cshtml` and add it in the navbar section:
