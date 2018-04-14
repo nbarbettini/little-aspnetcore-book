@@ -48,18 +48,14 @@ Delete the `UnitTest1.cs` file that's automatically created. You're ready to wri
 Take a look at the logic in the `AddItemAsync` method of the `TodoItemService`:
 
 ```csharp
-public async Task<bool> AddItemAsync(NewTodoItem newItem, ApplicationUser user)
+public async Task<bool> AddItemAsync(TodoItem newItem, ApplicationUser user)
 {
-    var entity = new TodoItem
-    {
-        Id = Guid.NewGuid(),
-        OwnerId = user.Id,
-        IsDone = false,
-        Title = newItem.Title,
-        DueAt = DateTimeOffset.Now.AddDays(3)
-    };
+    newItem.Id = Guid.NewGuid();
+    newItem.OwnerId = user.Id;
+    newItem.IsDone = false;
+    newItem.DueAt = DateTimeOffset.Now.AddDays(3);
 
-    _context.Items.Add(entity);
+    _context.Items.Add(newItem);
 
     var saveResult = await _context.SaveChangesAsync();
     return saveResult == 1;
@@ -126,7 +122,7 @@ using (var inMemoryContext = new ApplicationDbContext(options))
         UserName = "fake@fake"
     };
 
-    await service.AddItemAsync(new NewTodoItem { Title = "Testing?" }, fakeUser);
+    await service.AddItemAsync(new TodoItem { Title = "Testing?" }, fakeUser);
 }
 ```
 
@@ -162,14 +158,20 @@ public class TodoItemServiceShould
     public async Task AddNewItem()
     {
         var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-            .UseInMemoryDatabase(databaseName: "Test_AddNewItem")
-            .Options;
+            .UseInMemoryDatabase(databaseName: "Test_AddNewItem").Options;
 
         // Set up a context (connection to the DB) for writing
         using (var inMemoryContext = new ApplicationDbContext(options))
         {
             var service = new TodoItemService(inMemoryContext);
-            await service.AddItemAsync(new NewTodoItem { Title = "Testing?" }, null);
+
+            var fakeUser = new ApplicationUser
+            {
+                Id = "fake-000",
+                UserName = "fake@fake"
+            };
+
+            await service.AddItemAsync(new TodoItem { Title = "Testing?" }, fakeUser);
         }
 
         // Use a separate context to read the data back from the DB
@@ -178,6 +180,7 @@ public class TodoItemServiceShould
             Assert.Equal(1, await inMemoryContext.Items.CountAsync());
             
             var item = await inMemoryContext.Items.FirstAsync();
+            Assert.Equal("fake-000", item.OwnerId);
             Assert.Equal("Testing?", item.Title);
             Assert.Equal(false, item.IsDone);
             Assert.True(DateTimeOffset.Now.AddDays(3) - item.DueAt < TimeSpan.FromSeconds(1));

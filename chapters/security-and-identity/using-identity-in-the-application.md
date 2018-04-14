@@ -126,7 +126,7 @@ You'll need to use the `UserManager` to get the current user in the `AddItem` an
 Here are both updated methods in the `TodoController`:
 
 ```csharp
-public async Task<IActionResult> AddItem(NewTodoItem newItem)
+public async Task<IActionResult> AddItem(TodoItem newItem)
 {
     if (!ModelState.IsValid)
     {
@@ -162,7 +162,7 @@ public async Task<IActionResult> MarkDone(Guid id)
 Both service methods must now accept an `ApplicationUser` parameter. Update the interface definition in `ITodoItemService`:
 
 ```csharp
-Task<bool> AddItemAsync(NewTodoItem newItem, ApplicationUser user);
+Task<bool> AddItemAsync(TodoItem newItem, ApplicationUser user);
 
 Task<bool> MarkDoneAsync(Guid id, ApplicationUser user);
 ```
@@ -172,16 +172,12 @@ And finally, update the service method implementations in the `TodoItemService`.
 For the `AddItemAsync` method, set the `Owner` property when you construct a `new TodoItem`:
 
 ```csharp
-public async Task<bool> AddItemAsync(NewTodoItem newItem, ApplicationUser user)
+public async Task<bool> AddItemAsync(TodoItem newItem, ApplicationUser user)
 {
-    var entity = new TodoItem
-    {
-        Id = Guid.NewGuid(),
-        OwnerId = user.Id,
-        IsDone = false,
-        Title = newItem.Title,
-        DueAt = DateTimeOffset.Now.AddDays(3)
-    };
+    newItem.Id = Guid.NewGuid();
+    newItem.OwnerId = user.Id;
+    newItem.IsDone = false;
+    newItem.DueAt = DateTimeOffset.Now.AddDays(3);
 
     // ...
 }
