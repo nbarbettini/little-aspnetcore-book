@@ -54,7 +54,7 @@ Next, create an App Service plan in the group you just created:
 az appservice plan create -g AspNetCoreTodoGroup -n AspNetCoreTodoPlan --sku F1
 ```
 
-> Sidebar: `F1` is the free app plan. If you want to use a custom domain name with your app, use the D1 ($10/month) plan or higher.
+`F1` is the free app plan. If you want to use a custom domain name with your app, use the D1 ($10/month) plan or higher.
 
 Now create a Web App in the App Service plan:
 
