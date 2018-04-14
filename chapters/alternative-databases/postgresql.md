@@ -1,18 +1,21 @@
 ## PostgreSQL
+PostgreSQL is a popular, open-source database.
 
-Using PostgreSQL for your application instead of SQLite will allow it to scale better and give you access to various PostgreSQL features like the [PostGIS extension](https://postgis.net/).
+Compared to SQLite, using it will allow your ASP.NET Core app to scale better and give you access to various PostgreSQL features like the [PostGIS extension](https://postgis.net/).
 
-Thanks to the layer of abstraction we get from using Entity Framework Core, modifying our application to use a different database engine is less complex than you would think. We can use our existing models, only having to change the Entity Framework Core provider we use. We will add the [Npgsql EF Core provider](http://www.npgsql.org/efcore/index.html).
+Thanks to the layer of abstraction you get from using Entity Framework Core, modifying your application to use a different database is less complex than you would think. Because the user interface wouldn't change, you wouldn't change any code in the `Views`, `Controllers`, or `Services` directories. Despite the database changing, you can also use your existing model classes, so no code needs to change in the `Models` directory either.
 
-### Add provider Nuget package
+As you follow the next steps, you'll see that the only code that must change is the code used to hook up the Entity Framework Core provider. You will use the [Npgsql Entity Framework Core provider](http://www.npgsql.org/efcore/index.html).
 
-To add the package, run the following command:
+### Add provider NuGet package
+
+The provider comes as a NuGet package called `Npgsql.EntityFrameworkCore.PostgreSQL`. To add the package, run the following command:
 
 ```
 dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
 ```
 
-After adding the package, you will notice the project's `.csproj` file being updated to reflect the new list of packages:
+After adding the package, you'll notice that the project's `.csproj` file has been updated to reflect the new list of packages:
 
 ```xml
 <ItemGroup>
@@ -26,21 +29,21 @@ After adding the package, you will notice the project's `.csproj` file being upd
 
 ### Modify configuration
 
-In the project's `Startup.cs` file, modify the `ConfigureServices` method to replace the following code that enabled the SQLite provider:
+Your project's `Startup.cs` file's `ConfigureServices` method currently contains the following code, which hooks up the SQLite provider:
 
 ```csharp
 services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 ```
 
-with the following code to instead enable the PostgreSQL provider:
+Change it to the following code, which will instead hook up the PostgreSQL provider:
 
 ```csharp
 services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 ```  
 
-The connection string `DefaultConnection` will also have to be updated to reflect connecting to a PostgreSQL database instead of SQLite. Modify the `appsettings.json` file in the project root to change the following connection string:
+The connection string `DefaultConnection` will also have to be updated to reflect connecting to a different database. Right now, your project's `appsettings.json` file contains the following connection string for SQLite:
 
 ```
 "ConnectionStrings": {
@@ -48,7 +51,7 @@ The connection string `DefaultConnection` will also have to be updated to reflec
 }
 ```
 
-to a new connection string for PostgreSQL:
+Change it to the following code to provide a connection string for PostgreSQL:
 
 ```
 "ConnectionStrings": {
@@ -56,29 +59,39 @@ to a new connection string for PostgreSQL:
 }
 ```
 
+The connection string is composed of four parameters:
+
+- You use `localhost` for the `Server` parameter because you'll be running PostgreSQL on your development machine in this tutorial.
+- You use `5432` for the `Port` parameter because this is the default port for PostgreSQL, which you won't be changing in this tutorial.
+- You use `username` and `secret` for `User Id` and `Password` respectively, because these are simple example values this tutorial uses. In a real world deployment, you would use more secure credentials and tools like the [Secret Manager](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.1&tabs=visual-studio) to store them.
+
 ### Starting a PostgreSQL database
 
-Setting up PostgreSQL on your development machine is outside of the scope of this book. You can install and start PostgreSQL any way you like, however, a convenient modern way of doing this is using Docker. With [Docker installed](https://docs.docker.com/install/) on your machine, you can create and run a container from the [`Postgres`](https://hub.docker.com/_/postgres/) image, using environment variables to set the username, password, and database used in the connection string set above. To do so, use the following command:
+Setting up PostgreSQL on your development machine is outside of the scope of this book. You can install and start PostgreSQL any way you like, however, a convenient modern way of doing this is using [Docker](https://www.docker.com/). If you've used virtual machines before, Docker "containers" are a similar concept. Think virtualization but without a hypervisor. The containers get direct access to the kernel of the host machine.
+
+With [Docker installed](https://docs.docker.com/install/) on your machine, you can create and run a container from the [`Postgres`](https://hub.docker.com/_/postgres/) image. You will use the same parameters from the connection string defined above to create the container, using the following command:
 
 ```
 docker run -d -e POSTGRES_USER=username -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=todos -p 5432:5432 --name postgres-todos postgres:latest
 ```
 
-At this point, the container is running and is exposing port `5432` so that the running ASP.NET Core application and tools like pgAdmin can connect to it at `localhost`.
+After creating and starting the container (which is what the `docker run` command does), the container is running in the background and exposing port `5432` so that the running ASP.NET Core application and tools like [pgAdmin](https://www.pgadmin.org/) can connect to it at `localhost`.
 
 ### Updating the database
 
-At this point, we can update the database with the same command we used before:
+Now that PostgreSQL is running in the background, you can update the database with the same command you used earlier in the tutorial when working with SQLite:
 
 ```
 dotnet ef database update
 ```
 
-While it is true that the migrations we created in the project have already been applied, they were applied when the project was configured to use SQLite. Entity Framework Core knows that with this new database configuration, the migrations have not yet been applied, so it applies them to the PostgreSQL database, resulting in the tables being created. You can use a program like [pgAdmin](https://www.pgadmin.org/) to connect to the database and see the tables that were created:
+The reason you must run the migrations again is because this time the connection string defined for the app points to a different database. This new database does not yet have the needed tables created. Running the migrations again at this point in the tutorial prepares the running PostgreSQL database the same way it prepared the SQLite database earlier.
+
+Now that the migrations have been applied, you can use a program like pgAdmin to connect to the database and see the tables that were created:
 
 ![pgAdmin showing the tables](pgadmin_aspnetcore_tables_created.png)
 
-At this point, you can start your application, visit `localhost:5000` in your browser, and create and manipulate `Todo` items just like before, except this time the data is being saved in the PostgreSQL database. Notice how everything works as before, including:
+Start your app with `dotnet run` and visit `localhost:5000` in your browser. You'll notice that you can create and manipulate `Todo` items just like before, except this time the data is being saved in the PostgreSQL database. Notice how everything works as before, including:
 
 * Model validation
 * Identity authentication and authorization
