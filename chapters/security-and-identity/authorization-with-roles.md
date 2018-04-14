@@ -132,36 +132,41 @@ That's because users aren't assigned the `Administrator` role automatically.
 
 ### Create a test administrator account
 
-For obvious security reasons, there isn't a checkbox on the registration page that makes it easy for anyone to create an administrator account. Instead, you can write some code in the `Startup` class that will create a test admin account the first time the application starts up.
+For obvious security reasons, it isn't possible for anyone to register a new administrator account. Instead, you can add a test administrator account to the database the first time the application starts up. Adding first-time data to the database is called initializing or **seeding** the database.
 
-Add this code to the `if (env.IsDevelopment())` branch of the `Configure` method:
+Create a new class in the root of the project called `SeedData`:
 
-**`Startup.cs`**
+**`SeedData.cs`**
 
 ```csharp
-if (env.IsDevelopment())
-{
-    // (... some code)
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using AspNetCoreTodo.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-    // Make sure there's a test admin account
-    EnsureRolesAsync(roleManager).Wait();
-    EnsureTestAdminAsync(userManager).Wait();
+namespace AspNetCoreTodo
+{
+    public static class SeedData
+    {
+        public static async Task InitializeAsync(IServiceProvider services)
+        {
+            var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+            await EnsureRolesAsync(roleManager);
+
+            var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+            await EnsureTestAdminAsync(userManager);
+        }
+    }
 }
 ```
 
-The `EnsureRolesAsync` and `EnsureTestAdminAsync` methods will need access to the `RoleManager` and `UserManager` services. You can inject them into the `Configure` method, just like you inject any service into your controllers:
+The `InitializeAsync` method uses an `IServiceProvider` (the collection of services that is set up in the `Startup.ConfigureServices` method) to get the `RoleManager` and `UserManager` from ASP.NET Core Identity.
 
-```csharp
-public void Configure(IApplicationBuilder app,
-    IHostingEnvironment env,
-    UserManager<ApplicationUser> userManager,
-    RoleManager<IdentityRole> roleManager)
-{
-    // ...
-}
-```
 
-Add the two new methods below the `Configure` method. First, the `EnsureRolesAsync` method:
+Add two more methods below the `InitializeAsync` method. First, the `EnsureRolesAsync` method:
 
 ```csharp
 private static async Task EnsureRolesAsync(RoleManager<IdentityRole> roleManager)
@@ -188,11 +193,11 @@ namespace AspNetCoreTodo
 }
 ```
 
-> Feel free to update the `ManageUsersController` you created before to use this constant value as well.
+> If you want, you can update the `ManageUsersController` you created before to use this constant value as well.
 
 Next, write the `EnsureTestAdminAsync` method:
 
-**`Startup.cs`**
+**`SeedData.cs`**
 
 ```csharp
 private static async Task EnsureTestAdminAsync(UserManager<ApplicationUser> userManager)
@@ -211,7 +216,64 @@ private static async Task EnsureTestAdminAsync(UserManager<ApplicationUser> user
 
 If there isn't already a user with the username `admin@todo.local` in the database, this method will create one and assign a temporary password. After you log in for the first time, you should change the account's password to something secure.
 
-> Because these two methods are asynchronous and return a `Task`, the `Wait` method must be used in `Configure` to make sure they finish before `Configure` moves on. You'd normally use `await` for this, but for technical reasons you can't use `await` in `Configure`. This is a rare exception - you should use `await` everywhere else!
+Next, you need to tell your application to run this logic when it starts up. Modify `Program.cs` and update `Main` to call a new method, `InitializeDatabase`:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
+namespace AspNetCoreTodo
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var host = BuildWebHost(args);
+            InitializeDatabase(host);
+            host.Run();
+        }
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .Build();
+    }
+}
+```
+
+Then, add the new method to the class:
+
+```csharp
+private static void InitializeDatabase(IWebHost host)
+{
+    using (var scope = host.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+
+        try
+        {
+            SeedData.InitializeAsync(services).Wait();
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "An error occurred seeding the DB.");
+        }
+    }
+}
+```
+
+This method gets the service collection and passes it to `SeedData.InitializeAsync` to run the database seeding logic. If something goes wrong, an error is logged.
+
+> Because `InitializeAsync` returns a `Task`, the `Wait` method must be used to make sure it finishes before the application starts up. You'd normally use `await` for this, but for technical reasons you can't use `await` in the `Program` class. This is a rare exception - you should use `await` everywhere else!
 
 When you start the application next, the `admin@todo.local` account will be created and assigned the `Administrator` role. Try logging in with this account, and navigating to `http://localhost:5000/ManageUsers`. You'll see a list of all users registered for the application.
 
