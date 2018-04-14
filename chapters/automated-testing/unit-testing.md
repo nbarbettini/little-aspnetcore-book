@@ -62,14 +62,12 @@ public async Task<bool> AddItemAsync(TodoItem newItem, ApplicationUser user)
 }
 ```
 
-This method makes a number of decisions or assumptions about the new item before it actually saves it to the database:
+This method makes a number of decisions or assumptions about (or, performs business logic on) the new item before it actually saves it to the database:
 
 * The `OwnerId` property should be set to the user's ID
 * New items should always be incomplete (`IsDone = false`)
 * The title of the new item should be copied from `newItem.Title`
 * New items should always be due 3 days from now
-
-> These types of decisions made by your code are called *business logic*, because it's logic that relates to the purpose or "business" of your application. Other examples of business logic include things like calculating a total cost based on product prices and tax rates, or checking whether a player has enough points to level up in a game.
 
 These decisions make sense, and it also makes sense to have a test that ensures that this logic doesn't change down the road. (Imagine if you or someone else refactored the `AddItemAsync` method and forgot about one of these assumptions. It might be unlikely when your services are simple, but it becomes important to have automated checks as your application becomes more complicated.)
 
