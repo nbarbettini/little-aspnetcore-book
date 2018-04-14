@@ -10,8 +10,6 @@ Before you start, you need the Docker CLI installed on your development machine.
 docker --version
 ```
 
-> If you set up Facebook login in the *Security and identity* chapter, you'll need to use Docker secrets to securely set the Facebook app secret inside your container. Working with Docker secrets is outside the scope of this book. If you want, you can comment out the `AddFacebook` line in the `ConfigureServices` method to disable Facebook log in.
-
 ### Add a Dockerfile
 
 The first thing you'll need is a Dockerfile, which is like a recipe that tells Docker what your application needs.

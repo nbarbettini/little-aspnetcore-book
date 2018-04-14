@@ -64,18 +64,6 @@ az webapp create -g AspNetCoreTodoGroup -p AspNetCoreTodoPlan -n MyTodoApp
 
 The name of the app (`MyTodoApp` above) must be globally unique in Azure. Once the app is created, it will have a default URL in the format: http://mytodoapp.azurewebsites.net
 
-### Update the application settings
-
-> Sidebar: This is only necessary if you configured Facebook login in the *Security and identity* chapter.
-
-Your application won't start up properly if it's missing the `Facebook:AppId` and `Facebook:AppSecret` configuration values. You'll need to add these using the Azure web portal:
-
-1. Log in to your Azure account via https://portal.azure.com
-1. Open your Web App (called `MyTodoApp` above)
-1. Click on the **Application settings** tab
-1. Under the **App settings** section, add `Facebook:AppId` and `Facebook:AppSecret` with their respective values
-1. Click **Save** at the top
-
 ### Deploy your project files to Azure
 
 You can use Git to push your application files up to the Azure Web App. If your local directory isn't already tracked as a Git repo, run these commands to set it up:

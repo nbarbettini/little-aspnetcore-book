@@ -21,7 +21,6 @@
     * [Add new to-do items](chapters/add-more-features/add-todo-items.md)
     * [Complete items with a checkbox](chapters/add-more-features/complete-with-checkbox.md)
 * [Security and identity](chapters/security-and-identity/README.md)
-    * [Add Facebook login](chapters/security-and-identity/add-facebook-login.md)
     * [Require authentication](chapters/security-and-identity/require-authentication.md)
     * [Using identity in the application](chapters/security-and-identity/using-identity-in-the-application.md)
     * [Authorization with roles](chapters/security-and-identity/authorization-with-roles.md)
