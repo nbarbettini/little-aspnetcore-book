@@ -4,7 +4,7 @@ Thanks for picking up the Little ASP.NET Core Book! I wrote this short book to h
 The Little ASP.NET Core Book is structured as a tutorial. You'll build a to-do app from start to finish and learn:
 
 * The basics of the MVC (Model-View-Controller) pattern
-* How front-end code (HTML, CSS, JavaScript) works together with back-end code
+* How frontend code (HTML, CSS, JavaScript) works together with backend code
 * What dependency injection is and why it's useful
 * How to read and write data to a database
 * How to add log-in, registration, and security
@@ -20,21 +20,14 @@ The book itself is updated frequently with bug fixes and new content. If you're 
 
 ### Reading in your own language
 
-Thanks to some fantastic multilingual folks, the Little ASP.NET Core Book has been translated into other languages:
+Thanks to some fantastic multilingual contributors, the Little ASP.NET Core Book has been translated into other languages:
 
-{% if output.name === "website" %}
+[**ASP.NET Core El Kitabı**](https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/) (Turkish)
+Website: https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
 
-* [**ASP.NET Core El Kitabı**](https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/) (Turkish)
+[**简明 ASP.NET Core 手册**](https://windsting.github.io/little-aspnetcore-book/book/) (Chinese)
+Website: https://windsting.github.io/little-aspnetcore-book/book/ 
 
-* [**简明 ASP.NET Core 手册**](https://windsting.github.io/little-aspnetcore-book/book/) (Chinese)
-
-{% else %}
-
-**Turkish** - https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
-
-**Chinese** - https://windsting.github.io/little-aspnetcore-book/book/
-
-{% endif %}
 
 ## Who this book is for
 If you're new to programming, this book will introduce you to the patterns and concepts used to build modern web applications. You'll learn how to build a web app (and how the big pieces fit together) by building something from scratch! While this little book won't be able to cover absolutely everything you need to know about programming, it'll give you a starting point so you can learn more advanced topics.
