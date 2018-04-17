@@ -30,7 +30,7 @@ The view rendered by the `Index` action of the `TodoController` needs to take th
       {
           <tr>
               <td>
-                <input type="checkbox" name="@item.Id" value="true" class="done-checkbox">
+                <input type="checkbox" class="done-checkbox">
               </td>
               <td>@item.Title</td>
               <td>@item.DueAt</td>
@@ -39,12 +39,7 @@ The view rendered by the `Index` action of the `TodoController` needs to take th
   </table>
 
   <div class="panel-footer add-item-form">
-    <form>
-        <div id="add-item-error" class="text-danger"></div>
-        <label for="add-item-title">Add a new item:</label>
-        <input id="add-item-title">
-        <button type="button" id="add-item-button">Add</button>
-    </form>
+    <!-- TODO: Add item form -->
   </div>
 </div>
 ```

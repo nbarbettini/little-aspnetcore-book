@@ -3,99 +3,103 @@
 Adding items to your to-do list is great, but eventually you'll need to get things done, too. In the `Views/Todo/Index.cshtml` view, a checkbox is rendered for each to-do item:
 
 ```html
-<input type="checkbox" name="@item.Id" value="true" class="done-checkbox">
+<input type="checkbox" class="done-checkbox">
 ```
 
-The item's ID (a guid) is saved in the `name` attribute of the element. You can use this ID to tell your ASP.NET Core code to update that entity in the database when the checkbox is checked.
+Just like the last chapter, you'll add this behavior using forms and actions (and in this case, a tiny bit of JavaScript code).
 
-This is what the whole flow will look like:
 
-* The user checks the box, which triggers a JavaScript function
-* JavaScript is used to make an API call to an action on the controller
-* The action calls into the service layer to update the item in the database
-* A response is sent back to the JavaScript function to indicate the update was successful
-* The HTML on the page is updated
+### Add form elements to the view
+
+First, update the view and wrap each checkbox with a `<form>` element:
+
+```html
+<td>
+<form asp-action="MarkDone" method="POST">
+    <input type="checkbox" class="done-checkbox">
+    <input type="hidden" name="id" value="@item.Id">
+</form>
+</td>
+```
+
+The hidden input containing `item.Id` will help your action understand which checkbox was actually clicked.
+
+If you run your application right now, the checkboxes still won't do anything, because there's no submit button to tell the browser to create a POST request from the form. It wouldn't be a great experience to make your user click an extra button. Ideally, clicking the checkbox should automatically submit the form. You can achieve that by adding some JavaScript.
+
 
 ### Add JavaScript code
 
-First, open `site.js` and add this code to the `$(document).ready` block:
+Find the `site.js` file in the `wwwroot/js` folder and add this code: 
 
 **wwwroot/js/site.js**
 
 ```javascript
 $(document).ready(function() {
 
-    // ...
-
     // Wire up all of the checkboxes to run markCompleted()
     $('.done-checkbox').on('click', function(e) {
         markCompleted(e.target);
     });
-
 });
-```
 
-Then, add the `markCompleted` function at the bottom of the file:
-
-```javascript
 function markCompleted(checkbox) {
     checkbox.disabled = true;
 
-    $.post('/Todo/MarkDone', { id: checkbox.name }, function() {
-        var row = checkbox.parentElement.parentElement;
-        $(row).addClass('done');
-    });
+    var row = checkbox.closest('tr');
+    $(row).addClass('done');
+
+    var form = checkbox.closest('form');
+    form.submit();
 }
 ```
 
-This code uses jQuery to send an HTTP POST request to `http://localhost:5000/Todo/MarkDone`. Included in the request will be one parameter, `id`, containing the item's ID (pulled from the `name` attribute).
+This code uses jQuery (a JavaScript helper library) to do two things:
+* When any of the checkboxes are clicked, run the `markCompleted()` function
+* When `markCompleted()` runs, change the UI and auto-submit the form
 
-If you open the Network Tools in your web browser and click on a checkbox, you'll see a request like:
+Now it's time to add a new action!
 
-```
-POST http://localhost:5000/Todo/MarkDone
-Content-Type: application/x-www-form-urlencoded
-
-id=<some guid>
-```
-
-The success handler function passed to `$.post` uses jQuery to add a class to the table row that the checkbox sits in. With the row marked with the `done` class, a CSS rule in the page stylesheet will change the way the row looks.
 
 ### Add an action to the controller
 
-As you've probably guessed, you need to add a `MarkDone` action on the `TodoController`:
+As you've probably guessed, you need to add an action called `MarkDone` on the `TodoController`:
 
 ```csharp
+[ValidateAntiForgeryToken]
 public async Task<IActionResult> MarkDone(Guid id)
 {
-    if (id == Guid.Empty) return BadRequest();
+    if (id == Guid.Empty)
+    {
+        return RedirectToAction("Index");
+    }
 
     var successful = await _todoItemService.MarkDoneAsync(id);
+    if (!successful)
+    {
+        return BadRequest("Could not mark item as done.");
+    }
 
-    if (!successful) return BadRequest();
-
-    return Ok();
+    return RedirectToAction("Index");
 }
 ```
 
-Let's step through each piece of this action method. First, the method accepts a `Guid` parameter called `id` in the method signature. Unlike the `AddItem` action, which used a model and model binding/validation, the `id` parameter is very simple. If the incoming request includes a parameter called `id`, ASP.NET Core will try to parse it as a guid.
+Let's step through each piece of this action method. First, the method accepts a `Guid` parameter called `id` in the method signature. Unlike the `AddItem` action, which used a model and model binding/validation, the `id` parameter is very simple. If the incoming request includes a parameter called `id`, ASP.NET Core will try to parse it as a guid. This works because the hidden element you added to the checkbox forms is named `id`.
 
-There's no `ModelState` to check for validity, but you can still check to make sure the guid was valid. If for some reason the `id` parameter in the request was missing couldn't be parsed as a guid, it will have a value of `Guid.Empty`. If that's the case, the action can return early:
+There's no `ModelState` to check for validity, but you can still check to make sure the guid was valid. If for some reason the `id` parameter in the request was missing couldn't be parsed as a guid, it will have a value of `Guid.Empty`. If that's the case, the action tells the browser to redirect to `/Todo/Index` (refresh the page).
 
-```csharp
-if (id == Guid.Empty) return BadRequest();
-```
-
-The `BadRequest()` method is a helper method that simply returns the HTTP status code `400 Bad Request`.
-
-Next, the controller needs to call down into the service to update the database. This will be handled by a new method called `MarkDoneAsync` on the `ITodoItemService`, which will return true or false depending on if the update succeeded:
+Next, the controller needs to call the service layer to update the database. This will be handled by a new method called `MarkDoneAsync` on the `ITodoItemService`, which will return true or false depending on whether the update succeeded:
 
 ```csharp
 var successful = await _todoItemService.MarkDoneAsync(id);
-if (!successful) return BadRequest();
+if (!successful)
+{
+    return BadRequest("Could not mark item as done.");
+}
 ```
 
-Finally, if everything looks good, the `Ok()` method is used to return status code `200 OK`. More complex APIs might return JSON or other data as well, but for now returning a status code is all you need.
+Finally, if everything looks good, the browser is redirected to the `/Todo/Index` action and the page is refreshed.
+
+With the view and controller updated, all that's left is adding the missing service method.
 
 ### Add a service method
 
