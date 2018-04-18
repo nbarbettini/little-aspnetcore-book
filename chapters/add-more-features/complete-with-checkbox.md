@@ -29,7 +29,7 @@ If you run your application right now, the checkboxes still won't do anything, b
 
 ### Add JavaScript code
 
-Find the `site.js` file in the `wwwroot/js` folder and add this code: 
+Find the `site.js` file in the `wwwroot/js` directory and add this code: 
 
 **wwwroot/js/site.js**
 

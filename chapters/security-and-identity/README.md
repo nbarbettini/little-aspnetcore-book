@@ -3,7 +3,7 @@
 Security is a major concern of any modern web application or API. It's important to keep your user or customer data safe and out of the hands of attackers. This encompasses things like
 
 * Sanitizing data input to prevent SQL injection attacks
-* Preventing cross-domain (CSRF/XSRF) attacks in forms
+* Preventing cross-domain (CSRF) attacks in forms
 * Using HTTPS (TLS) so data can't be intercepted as it travels over the Internet
 * Giving users a way to securely sign in with a password or social login credentials
 * Designing password reset or multi-factor authentication flows with security in mind

@@ -16,7 +16,7 @@ Happy coding!
 
 ## About the author
 
-Hey, I'm Nate! I wrote the Little ASP.NET Core Book in a caffeine-fueled weekend because I love the .NET community and wanted to give back in my own little way. I hope it helped you learn something new!
+Hey, I'm Nate! I wrote the Little ASP.NET Core Book in a long, caffeine-fueled weekend because I love the .NET community and wanted to give back in my own little way. I hope it helped you learn something new!
 
 You can stay in touch with me on Twitter ([@nbarbettini](https://twitter.com/nbarbettini)) or on my blog (https://www.recaffeinate.co).
 
@@ -34,6 +34,8 @@ To these amazing polyglot programmers who translated the Little ASP.NET Core Boo
 * windsting, yuyi (Simplified Chinese)
 
 ## Changelog
+
+**1.1.0** (???): TODO
 
 **1.0.4** (2018-01-15): Added explanation of service container lifecycles, clarified server ports and the -o flag, and removed semicolons after Razor directives. Corrected Chinese translation author credit. Fixed other small typos and issues noticed by readers.
 

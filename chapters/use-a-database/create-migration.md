@@ -33,10 +33,10 @@ protected override void Up(MigrationBuilder migrationBuilder)
         name: "Items",
         columns: table => new
         {
-            Id = table.Column<Guid>(type: "BLOB", nullable: false),
-            DueAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
-            IsDone = table.Column<bool>(type: "INTEGER", nullable: false),
-            Title = table.Column<string>(type: "TEXT", nullable: true)
+            Id = table.Column<Guid>(nullable: false),
+            DueAt = table.Column<DateTimeOffset>(nullable: true),
+            IsDone = table.Column<bool>(nullable: false),
+            Title = table.Column<string>(nullable: true)
         },
         constraints: table =>
         {
@@ -65,8 +65,8 @@ The `Down` method does the opposite: if you need to undo (roll back) the migrati
 
 There are some limitations of SQLite that get in the way if you try to run the migration as-is. Until this problem is fixed, use this workaround:
 
-* Comment out the `migrationBuilder.AddForeignKey` lines in the `Up` method.
-* Comment out any `migrationBuilder.DropForeignKey` lines in the `Down` method.
+* Comment out or remove the `migrationBuilder.AddForeignKey` lines in the `Up` method.
+* Comment out or remove any `migrationBuilder.DropForeignKey` lines in the `Down` method.
 
 If you use a full-fledged SQL database, like SQL Server or MySQL, this won't be an issue and you won't need to do this (admittedly hackish) workaround.
 

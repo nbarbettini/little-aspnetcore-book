@@ -9,12 +9,13 @@ Next, create a new project with `dotnet new`, this time with some extra options:
 
 ```
 dotnet new mvc --auth Individual -o AspNetCoreTodo
+
 cd AspNetCoreTodo
 ```
 
 This creates a new project from the `mvc` template, and adds some additional authentication and security bits to the project. (I'll cover security in the *Security and identity* chapter.)
 
-The `-o AspNetCoreTodo` flag tells `dotnet new` to create a new directory called `AspNetCoreTodo` for all the output files. You'll see quite a few files show up in this project directory. Once you `cd` into the new directory, all you have to do is run the project:
+You'll see quite a few files show up in the new project directory. Once you `cd` into the new directory, all you have to do is run the project:
 
 ```
 dotnet run
@@ -34,7 +35,7 @@ The `dotnet new mvc` template generates a number of files and directories for yo
 
 * The **Models**, **Views**, and **Controllers** directories contain the components of the Model-View-Controller (MVC) architecture. You'll explore all three in the next chapter.
 
-* The **wwwroot** directory contains static assets like CSS, JavaScript, and image files. By default, the bower tool is used to manage CSS and JavaScript packages, but you can use whatever package manager you prefer (npm and yarn are popular choices). Files in `wwwroot` will be served as static content, and can be bundled and minified automatically.
+* The **wwwroot** directory contains static assets like CSS, JavaScript, and image files. Files in `wwwroot` will be served as static content, and can be bundled and minified automatically.
 
 * The **appsettings.json** file contains configuration settings ASP.NET Core will load on startup. You can use this to store database connection strings or other things that you don't want to hard-code.
 

@@ -10,7 +10,7 @@ Adding this feature requires a few steps:
 * Creating a new action on the controller to handle the form
 * Adding code to the service layer to update the database
 
-### Add JavaScript code
+### Add a form
 
 The `Views/Todo/Index.cshtml` view has a placeholder for the Add Item form:
 
@@ -20,7 +20,7 @@ The `Views/Todo/Index.cshtml` view has a placeholder for the Add Item form:
 </div>
 ```
 
-To keep things separate and clean, you'll create the form as a **partial view**. A partial view is a small piece of a larger view that lives in a separate file.
+To keep things separate and organized, you'll create the form as a **partial view**. A partial view is a small piece of a larger view that lives in a separate file.
 
 Create an `AddItemPartial.cshtml` view:
 
@@ -42,7 +42,7 @@ The `asp-action` attribute on the `<form>` element is called a **tag helper**. B
 <form action="/Todo/AddItem" method="POST">
 ```
 
-Adding an `asp-` tag helper to the `<form>` element also adds a hidden field to the form containing a verification token. This verification token can be used to prevent Cross-site Request Forgery (CSRF) attacks. You'll verify the token when you write the action.
+Adding an `asp-` tag helper to the `<form>` element also adds a hidden field to the form containing a verification token. This verification token can be used to prevent cross-site request forgery (CSRF) attacks. You'll verify the token when you write the action.
 
 That takes care of creating the partial view. Now, reference it from the main Todo view:
 
@@ -79,17 +79,23 @@ public async Task<IActionResult> AddItem(TodoItem newItem)
 }
 ```
 
-Notice how the new `AddItem` action accepts a `TodoItem` parameter? This is the same `TodoItem` model you created in the _MVC basics_ chapter to store information about a to-do item. When it's used here as an action parameter, ASP.NET Core will automatically perform a process called **model binding**. Model binding looks at the data in a form or AJAX POST request and tries to intelligently match the incoming fields with properties on the model. In other words, when the user submits this form and their browser POSTs to this action, ASP.NET Core will grab the information from the form and place it in the `newItem` variable.
+Notice how the new `AddItem` action accepts a `TodoItem` parameter? This is the same `TodoItem` model you created in the _MVC basics_ chapter to store information about a to-do item. When it's used here as an action parameter, ASP.NET Core will automatically perform a process called **model binding**.
 
-The `[ValidateAntiForgeryToken]` attribute before the action tells ASP.NET Core that it should look for (and verify) the hidden verification token that was added to the form by the `asp-action` tag helper. This is an important security measure to prevent Cross-site Request Forgery (CSRF) attacks, where your users could be tricked into submitting data from a malicious site. The verification token ensures that your application is actually the one that rendered and submitted the form.
+Model binding looks at the data in a request and tries to intelligently match the incoming fields with properties on the model. In other words, when the user submits this form and their browser POSTs to this action, ASP.NET Core will grab the information from the form and place it in the `newItem` variable.
 
-Take a look at the `AddItemPartial.cshtml` view once more. The `@model TodoItem` line at the top of the file tells ASP.NET Core that the view should expect to be paired with the `TodoItem` model. This makes it possible to use `asp-for="Title"` on the `<input>` tag to let ASP.NET Core know that this input element is for the `Title` property. Because of the `@model` line, the partial view will expect to be passed a `TodoItem` object when it's rendered. Passing it a `new TodoItem` via `Html.PartialAsync` initializes the form with an empty item. (Try appending `{ Title = "hello" }` and see what happens!)
+The `[ValidateAntiForgeryToken]` attribute before the action tells ASP.NET Core that it should look for (and verify) the hidden verification token that was added to the form by the `asp-action` tag helper. This is an important security measure to prevent cross-site request forgery (CSRF) attacks, where your users could be tricked into submitting data from a malicious site. The verification token ensures that your application is actually the one that rendered and submitted the form.
+
+Take a look at the `AddItemPartial.cshtml` view once more. The `@model TodoItem` line at the top of the file tells ASP.NET Core that the view should expect to be paired with the `TodoItem` model. This makes it possible to use `asp-for="Title"` on the `<input>` tag to let ASP.NET Core know that this input element is for the `Title` property.
+
+Because of the `@model` line, the partial view will expect to be passed a `TodoItem` object when it's rendered. Passing it a `new TodoItem` via `Html.PartialAsync` initializes the form with an empty item. (Try appending `{ Title = "hello" }` and see what happens!)
 
 During model binding, any model properties that can't be matched up with fields in the request are ignored. Since the form only includes a `Title` input element, you can expect that the other properties on `TodoItem` (the `IsDone` flag, the `DueAt` date) will be empty or contain default values.
 
-> Instead of reusing the `TodoItem` model, another approach could be to create a separate model (like `NewTodoItem`) that's only used for this action and only has the specific properties (Title) you need for adding a new to-do item. Model binding is still used, but this way you've separated the model that's used for storing a to-do item in the database from the model that's used for binding incoming request data. This is sometimes called a **binding model** or a **data transfer object** (DTO). This pattern is common in larger, more complex projects.
+> Instead of reusing the `TodoItem` model, another approach would be to create a separate model (like `NewTodoItem`) that's only used for this action and only has the specific properties (Title) you need for adding a new to-do item. Model binding is still used, but this way you've separated the model that's used for storing a to-do item in the database from the model that's used for binding incoming request data. This is sometimes called a **binding model** or a **data transfer object** (DTO). This pattern is common in larger, more complex projects.
 
-After binding the request data to the model, ASP.NET Core also performs **model validation**. Validation checks whether the data bound to the model from the incoming request makes sense or is valid. You can add attributes to the model to tell ASP.NET Core how it should be validated. For example, add the `[Required]` attribute to mark the `Title` property as a required field:
+After binding the request data to the model, ASP.NET Core also performs **model validation**. Validation checks whether the data bound to the model from the incoming request makes sense or is valid. You can add attributes to the model to tell ASP.NET Core how it should be validated.
+
+Update the `TodoItem` model and add the `[Required]` attribute to mark the `Title` property as a required field:
 
 **`Models/TodoItem.cs`**
 ```csharp
@@ -112,7 +118,7 @@ if (!ModelState.IsValid)
 }
 ```
 
-If the `ModelState` is invalid for any reason, the browser will be redirected to the `/Todo/Index` route, which essentially refreshes the page.
+If the `ModelState` is invalid for any reason, the browser will be redirected to the `/Todo/Index` route, which refreshes the page.
 
 Next, the controller calls into the service layer to do the actual database operation of saving the new to-do item:
 
@@ -124,7 +130,7 @@ if (!successful)
 }
 ```
 
-The `AddItemAsync` method will return `true` or `false` depending on whether the item was successfully added to the database. If it fails for some reason, the action will return an HTTP `400 Bad Request` error along with an object that contains an `error` property.
+The `AddItemAsync` method will return `true` or `false` depending on whether the item was successfully added to the database. If it fails for some reason, the action will return an HTTP `400 Bad Request` error along with an object that contains an error message.
 
 Finally, if everything completed without errors, the action redirects the browser to the `/Todo/Index` route, which refreshes the page and displays the new, updated list of to-do items to the user.
 
@@ -137,7 +143,7 @@ As a last step, you need to add a method to the service layer. First, add it to 
 ```csharp
 public interface ITodoItemService
 {
-    Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync();
+    Task<TodoItem[]> GetIncompleteItemsAsync();
 
     Task<bool> AddItemAsync(TodoItem newItem);
 }
@@ -159,7 +165,7 @@ public async Task<bool> AddItemAsync(TodoItem newItem)
 }
 ```
 
-The `newItem.Title` property has already been set by ASP.NET Core's model binder, so this method only needs to create an ID and set the default values for the other properties. Then, the new item is added to the database context. It isn't actually saved until you call `SaveChangesAsync()`. If the save operation was successful, `SaveChangesAsync()` will return 1.
+The `newItem.Title` property has already been set by ASP.NET Core's model binder, so this method only needs to assign an ID and set the default values for the other properties. Then, the new item is added to the database context. It isn't actually saved until you call `SaveChangesAsync()`. If the save operation was successful, `SaveChangesAsync()` will return 1.
 
 ### Try it out
 

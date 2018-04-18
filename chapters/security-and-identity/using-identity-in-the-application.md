@@ -38,11 +38,11 @@ public async Task<IActionResult> Index()
     var currentUser = await _userManager.GetUserAsync(User);
     if (currentUser == null) return Challenge();
 
-    var todoItems = await _todoItemService.GetIncompleteItemsAsync(currentUser);
+    var items = await _todoItemService.GetIncompleteItemsAsync(currentUser);
 
     var model = new TodoViewModel()
     {
-        Items = todoItems
+        Items = items
     };
 
     return View(model);
@@ -70,7 +70,7 @@ Since you're now passing an `ApplicationUser` parameter to `GetIncompleteItemsAs
 ```csharp
 public interface ITodoItemService
 {
-    Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync(ApplicationUser user);
+    Task<TodoItem[]> GetIncompleteItemsAsync(ApplicationUser user);
     
     // ...
 }
@@ -109,7 +109,7 @@ With the database and the database context updated, you can now update the `GetI
 **`Services/TodoItemService.cs`**
 
 ```csharp
-public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync(ApplicationUser user)
+public async Task<TodoItem[]> GetIncompleteItemsAsync(ApplicationUser user)
 {
     return await _context.Items
         .Where(x => x.IsDone == false && x.OwnerId == user.Id)

@@ -32,7 +32,7 @@ The `COPY` command copies the contents of your local directory (the source code 
 WORKDIR /app
 ```
 
-`WORKDIR` is the Docker equivalent of `cd`. The remainder of the commands in the Dockerfile will run from inside the `/app` folder.
+`WORKDIR` is the Docker equivalent of `cd`. The remainder of the commands in the Dockerfile will run from inside the `/app` directory.
 
 ```dockerfile
 RUN ["dotnet", "restore"]
