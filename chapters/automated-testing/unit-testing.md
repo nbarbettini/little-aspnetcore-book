@@ -1,18 +1,18 @@
 ## Unit testing
 
-Unit tests are small, quick tests that check the behavior of a single method or chunk of logic. Instead of testing a whole group of classes, or the entire system (as integration tests do), unit tests rely on **mocking** or replacing the objects the method-under-test depends on.
+Unit tests are small, short tests that check the behavior of a single method or class. When the code you're testing relies on other methods or classes, unit tests rely on **mocking** those other classes so that the test only focuses on one thing at a time.
 
-For example, the `TodoController` has two dependencies: an `ITodoItemService` and the `UserManager`. The `TodoItemService`, in turn, depends on the `ApplicationDbContext`. (The idea that you can draw a line from `TodoController` -> `TodoItemService` -> `ApplicationDbContext` is called a *dependency graph*).
+For example, the `TodoController` class has two dependencies: an `ITodoItemService` and the `UserManager`. The `TodoItemService`, in turn, depends on the `ApplicationDbContext`. (The idea that you can draw a line from `TodoController` > `TodoItemService` > `ApplicationDbContext` is called a *dependency graph*).
 
-When the application runs normally, the ASP.NET Core dependency injection system injects each of those objects into the dependency graph when the `TodoController` or the `TodoItemService` is created.
+When the application runs normally, the ASP.NET Core service container and dependency injection system injects each of those objects into the dependency graph when the `TodoController` or the `TodoItemService` is created.
 
-When you write a unit test, on the other hand, you'll manually inject mock or test-only versions of those dependencies. This means you can isolate just the logic in the class or method you are testing. (If you're testing a service, you don't want to also be accidentally writing to your database!)
+When you write a unit test, on the other hand, you have to handle the dependency graph yourself. It's typical to provide test-only or "mocked" versions of those dependencies. This means you can isolate just the logic in the class or method you are testing. (This is important! If you're testing a service, you don't want to **also** be accidentally writing to your database.)
 
 ### Create a test project
 
-It's a common practice to create a separate project for your tests, to keep things clean and organized. The new test project should live in a directory that's next to (not inside) your main project's directory.
+It's a best practice to create a separate project for your tests, so they are kept separate from your application code. The new test project should live in a directory that's next to (not inside) your main project's directory.
 
-If you're currently in your project directory, `cd` up one level. (This directory will also be called `AspNetCoreTodo`). Then use these commands to scaffold a new test project:
+If you're currently in your project directory, `cd` up one level. (This root directory will also be called `AspNetCoreTodo`). Then use these commands to scaffold a new test project:
 
 ```
 mkdir AspNetCoreTodo.UnitTests
@@ -43,17 +43,20 @@ dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 
 Delete the `UnitTest1.cs` file that's automatically created. You're ready to write your first test.
 
+> If you're using Visual Studio Code, you may need to close and reopen the Visual Studio Code window to get code completion working in the new project.
+
 ### Write a service test
 
-Take a look at the logic in the `AddItemAsync` method of the `TodoItemService`:
+Take a look at the logic in the `AddItemAsync()` method of the `TodoItemService`:
 
 ```csharp
-public async Task<bool> AddItemAsync(TodoItem newItem, ApplicationUser user)
+public async Task<bool> AddItemAsync(
+    TodoItem newItem, ApplicationUser user)
 {
     newItem.Id = Guid.NewGuid();
-    newItem.OwnerId = user.Id;
     newItem.IsDone = false;
     newItem.DueAt = DateTimeOffset.Now.AddDays(3);
+    newItem.UserId = user.Id;
 
     _context.Items.Add(newItem);
 
@@ -62,18 +65,20 @@ public async Task<bool> AddItemAsync(TodoItem newItem, ApplicationUser user)
 }
 ```
 
-This method makes a number of decisions or assumptions about (or, performs business logic on) the new item before it actually saves it to the database:
+This method makes a number of decisions or assumptions about the new item (in other words, performs business logic on the new item) before it actually saves it to the database:
 
-* The `OwnerId` property should be set to the user's ID
+* The `UserId` property should be set to the user's ID
 * New items should always be incomplete (`IsDone = false`)
 * The title of the new item should be copied from `newItem.Title`
 * New items should always be due 3 days from now
 
-These decisions make sense, and it also makes sense to have a test that ensures that this logic doesn't change down the road. (Imagine if you or someone else refactored the `AddItemAsync` method and forgot about one of these assumptions. It might be unlikely when your services are simple, but it becomes important to have automated checks as your application becomes more complicated.)
+Imagine if you or someone else refactored the `AddItemAsync()` method and forgot about part of this business logic. The behavior of your application could change without you realizing it! You can prevent this by writing a test that double-checks that this business logic hasn't changed (even if the method's internal implementation changes).
+
+> It might seem unlikely now that you could introduce a change in business logic without realizing it, but it becomes much harder to keep track of decisions and assumptions in a large, complex project. The larger your project is, the more important it is to have automated checks that make sure nothing has changed!
 
 To write a unit test that will verify the logic in the `TodoItemService`, create a new class in your test project:
 
-**`AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs`**
+**AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs**
 
 ```csharp
 using System;
@@ -89,7 +94,7 @@ namespace AspNetCoreTodo.UnitTests
     public class TodoItemServiceShould
     {
         [Fact]
-        public async Task AddNewItem()
+        public async Task AddNewItemAsIncompleteWithDueDate()
         {
             // ...
         }
@@ -97,95 +102,63 @@ namespace AspNetCoreTodo.UnitTests
 }
 ```
 
-The `[Fact]` attribute comes from the xUnit.NET package, and it marks this method as a test method.
-
 > There are many different ways of naming and organizing tests, all with different pros and cons. I like postfixing my test classes with `Should` to create a readable sentence with the test method name, but feel free to use your own style!
 
-The `TodoItemService` requires an `ApplicationDbContext`, which is normally connected to your development or live database. You won't want to use that for tests. Instead, you can use Entity Framework Core's in-memory database provider in your test code. Since the entire database exists in memory, it's wiped out every time the test is restarted. And, since it's a proper Entity Framework Core provider, the `TodoItemService` won't know the difference!
+The `[Fact]` attribute comes from the xUnit.NET package, and it marks this method as a test method.
 
-Use a `DbContextOptionsBuilder` to configure the in-memory database provider, and then make a call to `AddItem`:
+The `TodoItemService` requires an `ApplicationDbContext`, which is normally connected to your database. You won't want to use that for tests. Instead, you can use Entity Framework Core's in-memory database provider in your test code. Since the entire database exists in memory, it's wiped out every time the test is restarted. And, since it's a proper Entity Framework Core provider, the `TodoItemService` won't know the difference!
+
+Use a `DbContextOptionsBuilder` to configure the in-memory database provider, and then make a call to `AddItemAsync()`:
 
 ```csharp
 var options = new DbContextOptionsBuilder<ApplicationDbContext>()
     .UseInMemoryDatabase(databaseName: "Test_AddNewItem").Options;
 
-// Set up a context (connection to the DB) for writing
-using (var inMemoryContext = new ApplicationDbContext(options))
+// Set up a context (connection to the "DB") for writing
+using (var context = new ApplicationDbContext(options))
 {
-    var service = new TodoItemService(inMemoryContext);
+    var service = new TodoItemService(context);
 
     var fakeUser = new ApplicationUser
     {
         Id = "fake-000",
-        UserName = "fake@fake"
+        UserName = "fake@example.com"
     };
 
-    await service.AddItemAsync(new TodoItem { Title = "Testing?" }, fakeUser);
+    await service.AddItemAsync(new TodoItem
+    {
+        Title = "Testing?"
+    }, fakeUser);
 }
 ```
 
-The last line creates a new to-do item called `Testing?`, and tells the service to save it to the (in-memory) database. To verify that the business logic ran correctly, retrieve the item:
+The last line creates a new to-do item called `Testing?`, and tells the service to save it to the (in-memory) database.
+
+To verify that the business logic ran correctly, write some more code below the existing `using` block:
 
 ```csharp
-// Use a separate context to read the data back from the DB
-using (var inMemoryContext = new ApplicationDbContext(options))
+// Use a separate context to read data back from the "DB"
+using (var context = new ApplicationDbContext(options))
 {
-    Assert.Equal(1, await inMemoryContext.Items.CountAsync());
+    var itemsInDatabase = await context
+        .Items.CountAsync();
+    Assert.Equal(1, itemsInDatabase);
     
-    var item = await inMemoryContext.Items.FirstAsync();
+    var item = await context.Items.FirstAsync();
     Assert.Equal("Testing?", item.Title);
     Assert.Equal(false, item.IsDone);
-    Assert.True(DateTimeOffset.Now.AddDays(3) - item.DueAt < TimeSpan.FromSeconds(1));
+
+    // Item should be due 3 days from now (give or take a second)
+    var difference = DateTimeOffset.Now.AddDays(3) - item.DueAt;
+    Assert.True(difference < TimeSpan.FromSeconds(1));
 }
 ```
 
-The first verification step is a sanity check: there should never be more than one item saved to the in-memory database. Assuming that's true, the test retrieves the saved item with `FirstAsync` and then asserts that the properties are set to the expected values.
-
-Asserting a datetime value is a little tricky, since comparing two dates for equality will fail if even the millisecond components are different. Instead, the test checks that the `DueAt` value is less than a second away from the expected value.
+The first assertion is a sanity check: there should never be more than one item saved to the in-memory database. Assuming that's true, the test retrieves the saved item with `FirstAsync` and then asserts that the properties are set to the expected values.
 
 > Both unit and integration tests typically follow the AAA (Arrange-Act-Assert) pattern: objects and data are set up first, then some action is performed, and finally the test checks (asserts) that the expected behavior occurred.
 
-Here's the final version of the `AddNewItem` test:
-
-**`AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs`**
-
-```csharp
-public class TodoItemServiceShould
-{
-    [Fact]
-    public async Task AddNewItem()
-    {
-        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-            .UseInMemoryDatabase(databaseName: "Test_AddNewItem").Options;
-
-        // Set up a context (connection to the DB) for writing
-        using (var inMemoryContext = new ApplicationDbContext(options))
-        {
-            var service = new TodoItemService(inMemoryContext);
-
-            var fakeUser = new ApplicationUser
-            {
-                Id = "fake-000",
-                UserName = "fake@fake"
-            };
-
-            await service.AddItemAsync(new TodoItem { Title = "Testing?" }, fakeUser);
-        }
-
-        // Use a separate context to read the data back from the DB
-        using (var inMemoryContext = new ApplicationDbContext(options))
-        {
-            Assert.Equal(1, await inMemoryContext.Items.CountAsync());
-            
-            var item = await inMemoryContext.Items.FirstAsync();
-            Assert.Equal("fake-000", item.OwnerId);
-            Assert.Equal("Testing?", item.Title);
-            Assert.Equal(false, item.IsDone);
-            Assert.True(DateTimeOffset.Now.AddDays(3) - item.DueAt < TimeSpan.FromSeconds(1));
-        }
-    }
-}
-```
+Asserting a datetime value is a little tricky, since comparing two dates for equality will fail if even the millisecond components are different. Instead, the test checks that the `DueAt` value is less than a second away from the expected value.
 
 ### Run the test
 
@@ -195,14 +168,14 @@ On the terminal, run this command (make sure you're still in the `AspNetCoreTodo
 dotnet test
 ```
 
-The `test` command scans the current project for tests (marked with `[Fact]` attributes in this case), and runs all the tests it finds. You'll see an output similar to:
+The `test` command scans the current project for tests (marked with `[Fact]` attributes in this case), and runs all the tests it finds. You'll see output similar to:
 
 ```
 Starting test execution, please wait...
-[xUnit.net 00:00:00.7595476]   Discovering: AspNetCoreTodo.UnitTests
-[xUnit.net 00:00:00.8511683]   Discovered:  AspNetCoreTodo.UnitTests
-[xUnit.net 00:00:00.9222450]   Starting:    AspNetCoreTodo.UnitTests
-[xUnit.net 00:00:01.3862430]   Finished:    AspNetCoreTodo.UnitTests
+ Discovering: AspNetCoreTodo.UnitTests
+ Discovered:  AspNetCoreTodo.UnitTests
+ Starting:    AspNetCoreTodo.UnitTests
+ Finished:    AspNetCoreTodo.UnitTests
 
 Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
 Test Run Successful.
@@ -211,6 +184,6 @@ Test execution time: 1.9074 Seconds
 
 You now have one test providing test coverage of the `TodoItemService`. As an extra-credit challenge, try writing unit tests that ensure:
 
-* `MarkDoneAsync` returns false if it's passed an ID that doesn't exist
-* `MarkDoneAsync` returns true when it makes a valid item as complete
-* `GetIncompleteItemsAsync` returns only the items owned by a particular user
+* The `MarkDoneAsync()` method returns false if it's passed an ID that doesn't exist
+* The `MarkDoneAsync()` method returns true when it makes a valid item as complete
+* The `GetIncompleteItemsAsync()` method returns only the items owned by a particular user

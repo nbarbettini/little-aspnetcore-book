@@ -3,10 +3,11 @@ There are two separate model classes that need to be created: a model that repre
 
 First, create a class called `TodoItem` in the Models directory:
 
-**`Models/TodoItem.cs`**
+**Models/TodoItem.cs**
 
 ```csharp
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace AspNetCoreTodo.Models
 {
@@ -16,6 +17,7 @@ namespace AspNetCoreTodo.Models
         
         public bool IsDone { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
         public DateTimeOffset? DueAt { get; set; }
@@ -29,7 +31,7 @@ This class defines what the database will need to store for each to-do item: an 
 
 * The **IsDone** property is a boolean (true/false value). By default, it will be `false` for all new items. Later you'll use write code to switch this property to `true` when the user clicks an item's checkbox in the view.
 
-* The **Title** property is a string. This will hold the name or description of the to-do item.
+* The **Title** property is a string (text value). This will hold the name or description of the to-do item. The `[Required]` attribute tells ASP.NET Core that this string can't be null or empty.
 
 * The **DueAt** property is a `DateTimeOffset`, which is a C# type that stores a date/time stamp along with a timezone offset from UTC. Storing the date, time, and timezone offset together makes it easy to render dates accurately on systems in different timezones.
 
@@ -47,7 +49,7 @@ Often, the model (entity) you store in the database is similar but not *exactly*
 
 Because of this, the view model should be a separate class that holds an array of `TodoItem`s:
 
-**`Models/TodoViewModel.cs`**
+**Models/TodoViewModel.cs**
 
 ```csharp
 namespace AspNetCoreTodo.Models

@@ -11,9 +11,9 @@ Deploying your ASP.NET Core application to Azure only takes a few steps. You can
 
 ### Create a deployment configuration file
 
-Since there are multiple projects in your directory structure (the web application, and two test projects), Azure won't know which one to show to the world. To fix this, create a file called `.deployment` at the very top of your directory structure:
+Since there are multiple projects in your directory structure (the web application, and two test projects), Azure won't know which one to publish. To fix this, create a file called `.deployment` at the very top of your directory structure:
 
-**`.deployment`**
+**.deployment**
 
 ```ini
 [config]
@@ -54,7 +54,7 @@ Next, create an App Service plan in the group you just created:
 az appservice plan create -g AspNetCoreTodoGroup -n AspNetCoreTodoPlan --sku F1
 ```
 
-`F1` is the free app plan. If you want to use a custom domain name with your app, use the D1 ($10/month) plan or higher.
+> F1 is the free app plan. If you want to use a custom domain name with your app, use the D1 ($10/month) plan or higher.
 
 Now create a Web App in the App Service plan:
 
@@ -100,4 +100,6 @@ You only need to do these steps once. Now, whenever you want to push your applic
 git push azure master
 ```
 
-You'll see a stream of log messages as the application is deployed to Azure. When it's complete, browse to http://yourappname.azurewebsites.net to check it out!
+You'll see a stream of log messages as the application is deployed to Azure.
+
+When it's complete, browse to http://yourappname.azurewebsites.net to check out the app!

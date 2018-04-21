@@ -1,16 +1,24 @@
 # Conclusion
 
-Thanks for making it to the end of the Little ASP.NET Core Book! There's a lot more to ASP.NET Core can do that couldn't fit in this short book, including
+Thanks for making it to the end of the Little ASP.NET Core Book! If this book was helpful (or not), I'd love to hear your thoughts. Shoot me your comments via Twitter: https://twitter.com/nbarbettini
 
-* building RESTful APIs and microservices
-* using ASP.NET Core with single-page apps like Angular and React
+## How to learn more
+
+There's a lot more that ASP.NET Core can do that couldn't fit in this short book, including
+
+* Building RESTful APIs and microservices
+* Using ASP.NET Core with single-page apps like Angular and React
 * Razor Pages
-* bundling and minifying static assets
+* Bundling and minifying static assets
 * WebSockets
 
-I write about many of these topics on my blog: https://www.recaffeinate.co
+There are a number of ways you can learn more:
 
-The official ASP.NET Core documentation also covers these topics, and more: https://docs.asp.net
+* **ASP.NET Core documentation**. The official ASP.NET Core documentation contains a number of in-depth tutorials covering many of these topics. I'd highly recommend it! http://docs.asp.net
+
+* **ASP.NET Core in Action**. This book by Andrew Lock is a comprehensive, deep dive into ASP.NET Core.
+* **Courses on LinkedIn Learning and Pluralsight**. If you learn best from videos, there are fantastic courses available on LinkedIn Learning (including some by yours truly) and Pluralsight. If you don't have an account and need a coupon, send me a message on Twitter.
+* I also write about ASP.NET Core and more on my blog: https://www.recaffeinate.co
 
 Happy coding!
 
@@ -27,6 +35,7 @@ To Jennifer, who always supports my crazy ideas.
 To the following contributors who improved the Little ASP.NET Core Book:
 
 * 0xNF
+* Matt Welke
 
 To these amazing polyglot programmers who translated the Little ASP.NET Core Book:
 

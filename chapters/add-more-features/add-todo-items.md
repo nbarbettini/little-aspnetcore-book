@@ -24,7 +24,7 @@ To keep things separate and organized, you'll create the form as a **partial vie
 
 Create an `AddItemPartial.cshtml` view:
 
-**`Views/Todo/AddItemPartial.cshtml`**
+**Views/Todo/AddItemPartial.cshtml**
 
 ```html
 @model TodoItem
@@ -46,7 +46,7 @@ Adding an `asp-` tag helper to the `<form>` element also adds a hidden field to 
 
 That takes care of creating the partial view. Now, reference it from the main Todo view:
 
-**`Views/Todo/Index.cshtml`**
+**Views/Todo/Index.cshtml**
 
 ```html
 <div class="panel-footer add-item-form">
@@ -95,21 +95,7 @@ During model binding, any model properties that can't be matched up with fields 
 
 After binding the request data to the model, ASP.NET Core also performs **model validation**. Validation checks whether the data bound to the model from the incoming request makes sense or is valid. You can add attributes to the model to tell ASP.NET Core how it should be validated.
 
-Update the `TodoItem` model and add the `[Required]` attribute to mark the `Title` property as a required field:
-
-**`Models/TodoItem.cs`**
-```csharp
-[Required]
-public string Title { get; set; }
-```
-
-You'll also have to add this `using` statement to the top of the file:
-
-```csharp
-using System.ComponentModel.DataAnnotations;
-```
-
-With the `[Required]` attribute on the `Title` property, ASP.NET Core's model validator will consider the title invalid if it is missing or blank. Take a look at the code of the `AddItem` action: the first block checks whether the `ModelState` (the model validation result) is valid. It's customary to do this validation check right at the beginning of the action:
+The `[Required]` attribute on the `Title` property tells ASP.NET Core's model validator to consider the title invalid if it is missing or blank. Take a look at the code of the `AddItem` action: the first block checks whether the `ModelState` (the model validation result) is valid. It's customary to do this validation check right at the beginning of the action:
 
 ```csharp
 if (!ModelState.IsValid)

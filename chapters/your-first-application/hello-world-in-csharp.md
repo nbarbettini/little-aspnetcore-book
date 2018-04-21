@@ -21,7 +21,7 @@ cd CsharpHelloWorld
 
 `dotnet new console` creates a basic C# program that writes the text `Hello World!` to the screen. The program is comprised of two files: a project file (with a `.csproj` extension) and a C# code file (with a `.cs` extension). If you open the former in a text or code editor, you'll see this:
 
-**`CsharpHelloWorld.csproj`**
+**CsharpHelloWorld.csproj**
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -36,7 +36,7 @@ cd CsharpHelloWorld
 
 The project file is XML-based and defines some metadata about the project. Later, when you reference other packages, those will be listed here (similar to a `package.json` file for npm). You won't have to edit this file by hand very often.
 
-**`Program.cs`**
+**Program.cs**
 
 ```csharp
 using System;

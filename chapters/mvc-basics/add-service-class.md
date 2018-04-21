@@ -21,7 +21,7 @@ The C# language includes the concept of **interfaces**, where the definition of 
 
 By convention, interfaces are prefixed with "I". Create a new file in the Services directory:
 
-**`Services/ITodoItemService.cs`**
+**Services/ITodoItemService.cs**
 
 ```csharp
 using System;
@@ -56,7 +56,7 @@ The `Task` type is similar to a future or a promise, and it's used here because 
 
 Now that the interface is defined, you're ready to create the actual service class. I'll cover database code in depth in the *Use a database* chapter, so for now you'll just fake it and always return two hard-coded items:
 
-**`Services/FakeTodoItemService.cs`**
+**Services/FakeTodoItemService.cs**
 
 ```csharp
 using System;

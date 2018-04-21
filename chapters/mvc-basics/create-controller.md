@@ -4,7 +4,7 @@ There are already a few controllers in the project's Controllers directory, incl
 
 Create a new controller for the to-do list functionality, called `TodoController`, and add the following code:
 
-**`Controllers/TodoController.cs`**
+**Controllers/TodoController.cs**
 
 ``` csharp
 using System;

@@ -28,7 +28,7 @@ To use a package in your code, you usually need to add a `using` statement that 
 
 Since Humanizer will be used to rewrite dates rendered in the view, you can use it directly in the view itself. First, add a `@using` statement at the top of the view:
 
-**`Views/Todo/Index.cshtml`**
+**Views/Todo/Index.cshtml**
 
 ```html
 @model TodoViewModel

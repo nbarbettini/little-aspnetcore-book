@@ -4,7 +4,7 @@ Back in the *MVC basics* chapter, you created a `FakeTodoItemService` that conta
 
 Delete the `FakeTodoItemService.cs` file, and create a new file:
 
-**`Services/TodoItemService.cs`**
+**Services/TodoItemService.cs**
 
 ```csharp
 using System;

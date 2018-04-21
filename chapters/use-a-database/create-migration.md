@@ -22,7 +22,7 @@ The first migration file (with a name like `00_CreateIdentitySchema.cs`) was cre
 
 If you open your migration file, you'll see two methods called `Up` and `Down`:
 
-**`Data/Migrations/<date>_AddItems.cs`**
+**Data/Migrations/<date>_AddItems.cs**
 
 ```csharp
 protected override void Up(MigrationBuilder migrationBuilder)

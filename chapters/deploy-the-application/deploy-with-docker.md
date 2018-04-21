@@ -1,6 +1,6 @@
 ## Deploy with Docker
 
-Containerization technologies like Docker can make it much easier to deploy web applications. Instead of spending time configuring a server with the dependencies it needs to run your app, copying files, and restarting processes, you can simply create a Docker image that contains everything your app needs to run, and spin it up as a container on any Docker host.
+If you aren't using a platform like Azure, containerization technologies like Docker can make it easy to deploy web applications to your own servers. Instead of spending time configuring a server with the dependencies it needs to run your app, copying files, and restarting processes, you can simply create a Docker image that contains everything your app needs to run, and spin it up as a container on any Docker host.
 
 Docker can make scaling your app across multiple servers easier, too. Once you have an image, using it to create 1 container is the same process as creating 100 containers.
 
@@ -61,7 +61,7 @@ The last line of the Dockerfile starts up your application with the `dotnet run`
 
 The full Dockerfile looks like this:
 
-**`Dockerfile`**
+**Dockerfile**
 
 ```dockerfile
 FROM microsoft/dotnet:latest
@@ -106,7 +106,7 @@ mkdir nginx
 
 Create a new Dockerfile and add these lines:
 
-**`nginx/Dockerfile`**
+**nginx/Dockerfile**
 
 ```dockerfile
 FROM nginx
@@ -115,7 +115,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 Next, create an `nginx.conf` file:
 
-**`nginx/nginx.conf`**
+**nginx/nginx.conf**
 
 ```
 events { worker_connections 1024; }
@@ -143,7 +143,7 @@ This configuration file tells Nginx to proxy incoming requests to `http://kestre
 
 There's one more file to create. Up in the web application root directory, create `docker-compose.yml`:
 
-**`docker-compose.yml`**
+**docker-compose.yml**
 
 ```yaml
 nginx:
@@ -170,6 +170,6 @@ Try opening a browser and navigating to `http://localhost` (not 5000!). Nginx is
 
 ### Set up a Docker server
 
-Specific setup instructions are outside the scope of this Little book, but any modern Linux distro (like Ubuntu) can be set up as a Docker host. For example, you could create a virtual machine with Amazon EC2, and install the Docker service. You can search for "amazon ec2 set up docker" (for example) for instructions.
+Specific setup instructions are outside the scope of this book, but any modern flavor of Linux (like Ubuntu) can be set up as a Docker host. For example, you could create a virtual machine with Amazon EC2, and install the Docker service. You can search for "amazon ec2 set up docker" (for example) for instructions.
 
 I prefer DigitalOcean because they've made it really easy to get started. DigitalOcean has both a pre-built Docker virtual machine, and in-depth tutorials for getting Docker up and running (search for "digitalocean docker").

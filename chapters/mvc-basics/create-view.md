@@ -7,7 +7,7 @@ The view rendered by the `Index` action of the `TodoController` needs to take th
 
 Create a `Todo` directory inside the `Views` directory, and add this file:
 
-**`Views/Todo/Index.cshtml`**
+**Views/Todo/Index.cshtml**
 
 ```html
 @model TodoViewModel
@@ -59,7 +59,7 @@ The default ASP.NET Core template includes Bootstrap and jQuery in this layout f
 
 The default template also includes a stylesheet with some basic CSS rules. The stylesheet is stored in the `wwwroot/css` directory. Add a few new CSS style rules to the bottom of the `site.css` file:
 
-**`wwwroot/css/site.css`**
+**wwwroot/css/site.css**
 
 ```css
 div.todo-panel {
