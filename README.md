@@ -36,9 +36,9 @@ The book itself is updated frequently with bug fixes and new content. If you're 
 
 Thanks to some fantastic multilingual contributors, the Little ASP.NET Core Book has been translated into other languages:
 
-**Turkish**: https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
-
-**Chinese**: https://windsting.github.io/little-aspnetcore-book/book/)
+* [**ASP.NET Core El Kitabı**](https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/) (Turkish)
+ 	 
+* [**简明 ASP.NET Core 手册**](https://windsting.github.io/little-aspnetcore-book/book/) (Chinese)
 
 
 ## Who this book is for
