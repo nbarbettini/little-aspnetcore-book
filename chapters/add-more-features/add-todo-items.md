@@ -36,7 +36,7 @@ Create an `AddItemPartial.cshtml` view:
 </form>
 ```
 
-The `asp-action` attribute on the `<form>` element is called a **tag helper**. Before the view is rendered, ASP.NET Core replaces these tag helpers with real HTML attributes. In this case, the `asp-action` helper gets replaced with the real path to the `AddItem` route you'll create:
+The `asp-action` tag helper can generate a URL for the form, just like when you use it on an `<a>` element. In this case, the `asp-action` helper gets replaced with the real path to the `AddItem` route you'll create:
 
 ```html
 <form action="/Todo/AddItem" method="POST">

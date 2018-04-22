@@ -11,6 +11,7 @@
     * [Add a service class](chapters/mvc-basics/add-service-class.md)
     * [Use dependency injection](chapters/mvc-basics/use-dependency-injection.md)
     * [Finish the controller](chapters/mvc-basics/finish-controller.md)
+    * [Update the layout](chapters/mvc-basics/update-the-layout.md)
 * [Add external packages](chapters/add-external-packages/README.md)
 * [Use a database](chapters/use-a-database/README.md)
     * [Connect to a database](chapters/use-a-database/connect-to-a-database.md)

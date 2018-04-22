@@ -31,4 +31,4 @@ To start the application, press F5 (if you're using Visual Studio or Visual Stud
 
 If your web browser didn't open automatically, open it and navigate to http://localhost:5000/todo. You'll see the view you created, with the data pulled from your fake database (for now).
 
-Congratulations! You've built a working ASP.NET Core application. Next, you'll take it further with third-party packages and real database code.
+Although it's possible to go directly to `http://localhost:5000/todo`, it would be nicer to add an item called **My to-dos** to the navbar. To do this, you can edit the shared layout file.
