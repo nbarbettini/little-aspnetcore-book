@@ -340,8 +340,3 @@ When you log in with an administrator account, you'll now see a new item on the 
 
 ![Manage Users link](manage-users.png)
 
-## Wrap up
-
-ASP.NET Core Identity is a powerful security and identity system that helps you add authentication and authorization checks, and makes it easy to integrate with external identity providers. The `dotnet new` templates give you pre-built views and controllers that handle common scenarios like login and registration so you can get up and running quickly.
-
-There's much more that ASP.NET Core Identity can do. You can learn more in the documentation and examples available at https://docs.asp.net.
