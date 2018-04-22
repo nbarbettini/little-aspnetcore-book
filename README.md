@@ -1,4 +1,14 @@
-# Introduction
+# The Little ASP.NET Core Book
+
+*by Nate Barbettini*
+
+Copyright &copy; 2018. All rights reserved.
+
+ISBN: 978-1-387-75615-5
+
+Released under the Creative Commons Attribution 4.0 license. You are free to share, copy, and redistribute this book in any format, or remix and transform it for any purpose (even commercially). You must give appropriate credit and provide a link to the license. For more information, visit https://creativecommons.org/licenses/by/4.0/
+
+## Introduction
 Thanks for picking up The Little ASP.NET Core Book! I wrote this short book to help developers and people interested in web programming learn about ASP.NET Core, a new framework for building web applications and APIs.
 
 The Little ASP.NET Core Book is structured as a tutorial. You'll build an application from start to finish and learn:
