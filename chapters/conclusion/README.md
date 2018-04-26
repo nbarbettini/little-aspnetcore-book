@@ -77,10 +77,12 @@ To the following contributors who improved the Little ASP.NET Core Book:
 
 To these amazing polyglot programmers who translated the Little ASP.NET Core Book:
 
-* sahinyanlik (Turkish translation)
-* windsting (Chinese translation)
+* sahinyanlik (Turkish)
+* windsting, yuyi (Simplified Chinese)
 
 ## Changelog
+
+**1.0.4** (2018-01-15): Added explanation of service container lifecycles, clarified server ports and the -o flag, and removed semicolons after Razor directives. Corrected Chinese translation author credit. Fixed other small typos and issues noticed by readers.
 
 **1.0.3** (2017-11-13): Typo fixes and small improvements suggested by readers.
 

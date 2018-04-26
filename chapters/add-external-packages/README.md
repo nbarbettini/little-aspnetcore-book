@@ -86,8 +86,8 @@ Since Humanizer will be used to rewrite dates rendered in the view, you can use 
 **`Views/Todo/Index.cshtml`**
 
 ```html
-@model TodoViewModel;
-@using Humanizer;
+@model TodoViewModel
+@using Humanizer
 
 // ...
 ```
