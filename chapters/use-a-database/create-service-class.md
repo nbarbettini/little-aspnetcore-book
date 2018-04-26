@@ -51,7 +51,7 @@ var items = await _context.Items
 .Where(x => x.IsDone == false)
 ```
 
-`Where` 方法来自 C# 里的一个名为 `LINQ`(language integrated query) 的特性，它受到函数式编程的启发，简化了在程序代码里数据库查询的写法。在底层，Entity Framework Core 把这个方法翻译成一个类似的语句 `SELECT * FROM Items WHERE IsDone = 0`，或在 NoSQL数据库 里的一个等效查询。
+`Where` 方法来自 C# 里的一个名为 `LINQ`(**l**anguage **in**tegrated **q**uery) 的特性，它受到函数式编程的启发，简化了在程序代码里数据库查询的写法。在底层，Entity Framework Core 把这个方法翻译成一个类似的语句 `SELECT * FROM Items WHERE IsDone = 0`，或在 NoSQL数据库 里的一个等效查询。
 
 最后，`ToArrayAsync` 方法吩咐 Entity Framework Core 取出所有过滤后的数据，并作为一个数组返回。`ToArrayAsync` 是异步的(返回一个 `Task`)，所以必须执行一次 `await`（等待） 以获取其中的值。
 
@@ -73,6 +73,10 @@ public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
 ```csharp
 services.AddScoped<ITodoItemService, TodoItemService>();
 ```
+
+`AddScoped` 会以 **scoped** 的生命周期把你的服务添加到容器里。这意味着每次 web 请求中，一个 `TodoItemService` 类的新实例就会被创建出来。这对于那些跟数据库打交道的类来说，是必要的。
+
+> 添加一个服务类去跟 Entity Framework Core（以及你的数据库）打交道，如果用单件（或其它）生命周期会引发麻烦，原因在于 Entity Framework Core 底层以请求为单位管数据库连接。要避免这些问题，请在跟 Entity Framework Core 打交道的服务上，始终采用 scoped 生命周期。
 
 依赖于 `ITodoItemService` 的 `TodoController` 将幸福地对这个变化毫无察觉，但在底层，你将使用 Entity Framework Core 与真实的数据库进行交互！
 

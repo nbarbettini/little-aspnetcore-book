@@ -29,13 +29,13 @@ public class TodoController : Controller
 using AspNetCoreTodo.Services;
 ```
 
-这个类的第一行声明了一个私有变量，保存 `ITodoItemService` 的引用。这个变量可以让你在后面的 `Index` 方法里使用该服务。
+这个类的第一行声明了一个私有变量，保存 `ITodoItemService` 的引用。这个变量可以让你在后面的 `Index` 方法里使用该服务（具体方法，稍后便知）。
 
-`public TodoController(ITodoItemService todoItemService)` 这一行为类定义了一个**构造函数(constructor)**。构造函数只在类初始化的时候运行一次，还声明了：要正确地初始化 `TodoController` 类，需要传给它一个 `ITodoItemService`。
+`public TodoController(ITodoItemService todoItemService)` 这一行为类定义了一个**构造函数(constructor)**。构造函数是一个特殊的方法，它会在为（本例中是 `TodoController`）类创建一个新的实例的时候被调用。在构造函数中加入的 `ITodoItemService` 参数，表示你做出如下声明：要创建一个 `TodoController`，你必须提供一个能匹配 `ITodoItemService` 接口的对象。
 
-> 接口如此有用的原因就在于，因为它们有助于解耦（分离）你程序里的逻辑。既然这个控制器依赖于 `ITodoItemService` 接口，而不是任何 *特定的* 服务类，它就不知道也不必关心实际使用的是哪个具体的类。它可以是 `FakeTodoItemService`，或者是个读写数据库的类，或者别的什么类。只要它符合该接口的要求，控制器就能工作。这使你可以轻而易举地，独立测试程序的各部分。（我会在 *自动化测试* 一章讲解测试相关的内容。）
+> 接口如此有用的原因就在于，因为它们有助于解耦（分离）你程序里的逻辑。既然这个控制器依赖于 `ITodoItemService` 接口，而不是任何 *特定的* 服务类，它就不知道也不必关心实际使用的是哪个具体的类。它可以是 `FakeTodoItemService`，或者是其它读写数据库的类，或者别的什么类。只要它符合该接口的要求，控制器就能工作。这使你可以轻而易举地，独立测试程序的各部分。（我会在 *自动化测试* 一章讲解测试相关的内容。）
 
-现在，你终于可以在 action 方法里，通过 `ITodoItemService` 从服务层获取 待办事项 了：
+现在，你终于可以在 action 方法里，（通过你声明的那个私有变量）使用 `ITodoItemService` 从服务层获取 待办事项 了：
 
 ```csharp
 public IActionResult Index()
@@ -48,9 +48,9 @@ public IActionResult Index()
 
 还记得吗？ `GetIncompleteItemsAsync` 方法返回一个 `Task<IEnumerable<TodoItem>>`。“返回一个 `Task`”的意思是说，该方法不能立刻给出一个结果，但是你可以使用关键字 `await`，以确保你的代码暂停，直到结果就绪才继续执行。
 
-当你编写代码访问数据库或者外部 API 服务的时候，`Task` 模式是很常见的，因为在数据库（或者网络）响应之前，它不可能给出实际的结果。如果你在 JavaScript 或者其它语言里使用过 promise 或者 回调函数，`Task` 与之如出一辙：承诺你，稍后肯定会给出一个结果。
+当你编写代码访问数据库或者外部 API 服务的时候，`Task` 模式是很常见的，因为在数据库（或者网络）响应之前，它不可能给出实际的结果。如果你在 JavaScript 或者其它语言里使用过 promise 或者 回调函数，`Task` 与之如出一辙：承诺你，肯定会给出一个结果——在未来的某个时候。
 
-> 在 .NET 里使用 `Task`，远比 JavaScript 中使用回调（有时候会以“回调地狱(callback hell)”收场）容易得多，这归功于神奇的关键字 `await`。 `await` 把代码暂停在 异步(async) 操作上，而后，在底层数据库或者网络请求结束时，从暂停的地方恢复执行。就是说，你的程序并没有卡住或者阻塞住，因为它可以处理其它的请求。如果现在想不通也别担心，跟着做下去就行！
+> 如果你在老式 JavaScript 里应付过 “回调地狱”，那你现在走运了。在 .NET 里使用 `Task` 跟依附代码打交道要容易得多，这归功于神奇的关键字 `await`。 `await` 把代码暂停在 异步(async) 操作上，而后，在底层数据库或者网络请求结束时，从暂停的地方恢复执行。就是说，你的程序并没有卡住或者阻塞住，因为它可以处理其它的请求。如果现在想不通也别担心，跟着做下去就行！
 
 目前的重点就是修改 `Index` 方法的签名，以返回一个 `Task<IActionResult>`，代替之前的 `IActionResult`，并标记为 `async`：
 
@@ -80,13 +80,17 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-在`ConfigureServices`中的任意位置添一行代码，让 ASP.NET Core 使用 `FakeTodoItemService` 作为 `ITodoItemService` 接口的实现：
+`ConfigureServices` 方法负责的是把东西添加到 **服务容器** 里，或者 ASP.NET Core 的说法是服务的集合。 `services.AddMvc` 这行添加了一些服务，它们是 ASP.NET Core 系统内部依赖的（你可以试试，把这行代码注释掉）。你在应用里所需的任何其它服务，也都要在这个地方添加到服务容器里。
+
+把下面这行添加到`ConfigureServices`中的任意位置：
 
 ```csharp
-services.AddScoped<ITodoItemService, FakeTodoItemService>();
+services.AddSingleton<ITodoItemService, FakeTodoItemService>();
 ```
 
-`AddScoped` 把你的服务放进一个 可用服务集合（也被称为*服务容器(service container)*），生命周期为 **scoped**。就是说，每次需要`FakeTodoItemService`类的对象时，就创建一个新的出来。在(你接下来就要)跟数据库交互时，这很常见。你还可以把服务的生命周期声明为 **singleton**，意思是说，这个类只在程序启动的时候被创建一次。
+这一行告知 ASP.NET Core，在任何时候，只要 `ITodoItemService` 被一个构造函数（或其它什么地方）被请求，就用这个 `FakeTodoItemService`。
+
+`AddSingleton` 把你的服务作为 **singleton** 添加进服务容器。这意味着，只有一个`FakeTodoItemService`的实例被创建，并在每次被请求的时候都被复用。在后面，当你写另一个服务去跟数据库交互时，你会采用一个不同的方式（叫做 **scoped**）。我会在 *运用数据库* 一章里说明原因。
 
 好了，当一个请求进来，将会被发送到 `TodoController`，当控制器需要一个`ITodoItemService` 时，ASP.NET Core 会在 可用服务集合 里查找并自动给出 `FakeTodoItemService`。因为控制器依赖的服务是从服务容器里“注入(injected)”的，这个模式被称为 **依赖注入(dependency injection)**。
 
