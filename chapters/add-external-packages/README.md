@@ -31,8 +31,8 @@ dotnet add package Humanizer
 **`Views/Todo/Index.cshtml`**
 
 ```html
-@model TodoViewModel;
-@using Humanizer;
+@model TodoViewModel
+@using Humanizer
 
 // ...
 ```

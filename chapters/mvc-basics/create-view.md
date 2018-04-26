@@ -9,7 +9,7 @@ ASP.NET Core 里的视图使用 Razor 模板语言编写，这种模板语言混
 **`Views/Todo/Index.cshtml`**
 
 ```html
-@model TodoViewModel;
+@model TodoViewModel
 
 @{
     ViewData["Title"] = "Manage your todo list";
