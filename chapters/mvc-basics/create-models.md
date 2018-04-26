@@ -40,7 +40,7 @@ namespace AspNetCoreTodo.Models
 
 每个属性后面都跟着 `get; set;` ，这是个简写，表示该属性 可读/可写(read/write)（或者更确切地说，它有 getter 和 setter 方法各一个）。
 
-现在，暂且不必关心底层数据库采用的是哪种实现。它可以是 SQL Server，MySQL，MongoDB，Redis，或者什么其它稀奇古怪的玩意儿。这个模型定义了数据库里的行或者记录在 C# 里看起来是什么样的，所以你无须在代码层面担心数据库层面的东西。这种模型的风格被称为“朴实可爱的 C# 对象(plain ol' C# object)” 或者 POCO。
+现在，暂且不必关心底层数据库采用的是哪种实现。它可以是 SQL Server，MySQL，MongoDB，Redis，或者什么其它稀奇古怪的玩意儿。这个模型定义了数据库里的行或者记录在 C# 里看起来是什么样的，所以你无须在代码层面担心数据库层面的东西。这种模型简单的风格被称为“朴实可爱的 C# 对象(plain old C# object)” 或者 POCO。
 
 ### 视图模型
 
