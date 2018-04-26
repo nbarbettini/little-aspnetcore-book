@@ -23,13 +23,19 @@
 
 感谢那些多语言的读者，简明 ASP.NET Core 手册 已经被翻译成其它语言：
 
-* **The Little ASP.NET Core Book** (English -- original version)
+{% if output.name === "website" %}
 
-  https://www.recaffeinate.co/book/
+* [**The Little ASP.NET Core Book**](https://www.recaffeinate.co/book/) (English -- original version)
 
-* **ASP.NET Core El Kitabı** (Turkish)
+* [**ASP.NET Core El Kitabı**](https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/) (Turkish)
 
-  https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
+{% else %}
+
+**English** - https://www.recaffeinate.co/book/
+
+**Turkish** - https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
+
+{% endif %}
 
 ## 本书的目标读者
 
