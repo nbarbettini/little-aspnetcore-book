@@ -15,7 +15,7 @@ cd AspNetCoreTodo
 
 这个命令，使用 `mvc` 模板创建了一个新的项目，并添加了一些额外的验证和安全性相关的内容。（我会在 *安全性与身份* 一章讲解安全性的内容）
 
-在项目文件夹里，你会看到增加了好几个文件，而你现在直接运行这个项目就好：
+`-o AspNetCoreTodo` 选项控制 `dotnet new` 为所有输出文件创建一个名为 `AspNetCoreTodo` 的目录。在项目文件夹里，你会看到增加了好几个文件，而你现在直接运行这个项目就好：
 
 ```shell
 dotnet run
@@ -78,7 +78,7 @@ cd AspNetCoreTodo
 
 This creates a new project from the `mvc` template, and adds some additional authentication and security bits to the project. (I'll cover security in the *Security and identity* chapter.)
 
-You'll see quite a few files show up in the project directory. All you have to do right now is run the project:
+The `-o AspNetCoreTodo` flag tells `dotnet new` to create a new directory called `AspNetCoreTodo` for all the output files. You'll see quite a few files show up in this project directory. Once you `cd` into the new directory, all you have to do is run the project:
 
 ```
 dotnet run

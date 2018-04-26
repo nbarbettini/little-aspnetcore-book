@@ -17,7 +17,7 @@ namespace AspNetCoreTodo.Controllers
 {
     public class TodoController : Controller
     {
-        // Actions go here
+        // 在这里添加 Actions
     }
 }
 ```
@@ -39,11 +39,11 @@ public class TodoController : Controller
 {
     public IActionResult Index()
     {
-        // Get to-do items from database
+        // 从数据库获取 to-do 条目
 
-        // Put items into a model
+        // 把条目置于 model 中
 
-        // Pass the view to a model and render
+        // 使用 model 渲染视图
     }
 }
 ```
@@ -101,7 +101,7 @@ public class TodoController : Controller
 
         // Put items into a model
 
-        // Pass the view to a model and render
+        // Render view using the model
     }
 }
 ```

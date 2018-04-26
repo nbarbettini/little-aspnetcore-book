@@ -23,13 +23,19 @@
 
 感谢那些多语言的读者，简明 ASP.NET Core 手册 已经被翻译成其它语言：
 
-* **The Little ASP.NET Core Book** (English -- original version)
+{% if output.name === "website" %}
 
-  https://www.recaffeinate.co/book/
+* [**The Little ASP.NET Core Book**](https://www.recaffeinate.co/book/) (English -- original version)
 
-* **ASP.NET Core El Kitabı** (Turkish)
+* [**ASP.NET Core El Kitabı**](https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/) (Turkish)
 
-  https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
+{% else %}
+
+**English** - https://www.recaffeinate.co/book/
+
+**Turkish** - https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
+
+{% endif %}
 
 ## 本书的目标读者
 
@@ -107,14 +113,19 @@ The book itself is updated frequently with bug fixes and new content. If you're 
 
 Thanks to some fantastic multilingual folks, the Little ASP.NET Core Book has been translated into other languages:
 
-* **ASP.NET Core El Kitabı** (Turkish)
+{% if output.name === "website" %}
 
-  https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
+* [**ASP.NET Core El Kitabı**](https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/) (Turkish)
 
-* **简明 ASP.NET Core 手册** (Chinese)
+* [**简明 ASP.NET Core 手册**](https://windsting.github.io/little-aspnetcore-book/book/) (Chinese)
 
-  https://windsting.github.io/little-aspnetcore-book/book/
+{% else %}
 
+**Turkish** - https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
+
+**Chinese** - https://windsting.github.io/little-aspnetcore-book/book/
+
+{% endif %}
 
 ## Who this book is for
 If you're new to programming, this book will introduce you to the patterns and concepts used to build modern web applications. You'll learn how to build a web app (and how the big pieces fit together) by building something from scratch! While this little book won't be able to cover absolutely everything you need to know about programming, it'll give you a starting point so you can learn more advanced topics.
