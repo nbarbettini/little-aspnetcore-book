@@ -11,7 +11,7 @@ Individual Auth 项目模板包括了“开箱即用”式的“使用电子邮�
 
 你可以使用位于 https://developers.facebook.com/apps 的 Facebook 开发者控制台创建一个新的 Facebook 应用。点击 **Add a New App** 并按提示创建一个应用 ID。
 
-> 提示：如果你没有 Facebook 账号，可以换成 Google 或者 Twitter 登录功能。在供应商网站上的操作会有些差异，但在代码里基本一致。
+> 如果你没有 Facebook 账号，可以换成 Google 或者 Twitter 登录功能。在供应商网站上的操作会有些差异，但在代码里基本一致。
 
 下一步，设置 Facebook Login 然后点击左边栏的 Settings —— 在 Facebook Login 下面：
 
@@ -22,6 +22,8 @@ Individual Auth 项目模板包括了“开箱即用”式的“使用电子邮�
 ```
 http://localhost:5000/signin-facebook
 ```
+
+> 你程序运行的时候，监听的端口可能不一样。如果你使用 `dotnet start` 通常是 5000 端口，但如果你在 Windows 上，可能是个随机的端口比如 54574。无论如何，当程序运行的时候，你总是可以在浏览器的地址栏里看到程序监听的端口。
 
 点击 **Save Changes**，然后打开 Dashboard 页面。在这里你可以看到由 Facebook 创建的 应用ID 和 密码，这些稍后就会用到（请保持这个页面开启）。
 
