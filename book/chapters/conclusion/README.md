@@ -35,6 +35,8 @@ Jennifer，她总是支持我各种疯狂的点子。
 
 ## 变更记录
 
+**1.0.4** (2018-01-15): 为服务容器声明周期添加说明，阐释服务端口和 -o 选项，移除 Razor 指令后的分号。修正中文版译者信息。修正其它笔误和读者反馈的问题。
+
 **1.0.3** (2017-11-13): 笔误修正和一些读者建议的改进。
 
 **1.0.2** (2017-10-20): 更多的Bug修正和一些小改进。添加译版的链接。
@@ -77,10 +79,12 @@ To the following contributors who improved the Little ASP.NET Core Book:
 
 To these amazing polyglot programmers who translated the Little ASP.NET Core Book:
 
-* sahinyanlik (Turkish translation)
-* windsting (Chinese translation)
+* sahinyanlik (Turkish)
+* windsting, yuyi (Simplified Chinese)
 
 ## Changelog
+
+**1.0.4** (2018-01-15): Added explanation of service container lifecycles, clarified server ports and the -o flag, and removed semicolons after Razor directives. Corrected Chinese translation author credit. Fixed other small typos and issues noticed by readers.
 
 **1.0.3** (2017-11-13): Typo fixes and small improvements suggested by readers.
 
