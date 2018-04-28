@@ -31,7 +31,7 @@
 
 {% else %}
 
-**English(original version)** - https://www.recaffeinate.co/book/
+**English (original version)** - https://www.recaffeinate.co/book/
 
 **Turkish** - https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
 
