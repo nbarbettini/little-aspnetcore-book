@@ -19,7 +19,7 @@ ASP.NET Core applications are typically deployed to one of these environments:
 
 > If you don't care about the guts of hosting ASP.NET Core applications and just want the step-by-step instructions, feel free to skip to one of the next two sections.
 
-ASP.NET Core includes a fast, lightweight development web server called Kestrel. It's the server you've been using every time you ran `dotnet run` and browsed to `http://localhost:5000`. When you deploy your application to a production environment, it'll still use Kestrel behind the scenes. However, it's recommended that you put a reverse proxy in front of Kestrel, because Kestrel doesn't yet have load balancing and other features that more mature web servers have.
+ASP.NET Core includes a fast, lightweight web server called Kestrel. It's the server you've been using every time you ran `dotnet run` and browsed to `http://localhost:5000`. When you deploy your application to a production environment, it'll still use Kestrel behind the scenes. However, it's recommended that you put a reverse proxy in front of Kestrel, because Kestrel doesn't yet have load balancing and other features that more mature web servers have.
 
 On Linux (and in Docker containers), you can use Nginx or the Apache web server to receive incoming requests from the internet and route them to your application hosted with Kestrel. If you're on Windows, IIS does the same thing.
 
