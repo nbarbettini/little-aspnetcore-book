@@ -1,4 +1,4 @@
 _book/
 _ebook/
-*.pdf
+output/
 node_modules/

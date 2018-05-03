@@ -2,8 +2,10 @@
     "title": "The Little ASP.NET Core Book",
     "description": "A friendly introduction to building web applications with the ASP.NET Core framework.",
     "author": "Nate Barbettini",
+    "isbn": "978-1-387-75615-5",
     "pdf": {
-        "paperSize": "a5"
+        "paperSize": "a5",
+        "fontFamily": "Lato"
     },
     "plugins": ["expandable-chapters-small", "anchors", "forkmegithub"],
     "pluginsConfig": {

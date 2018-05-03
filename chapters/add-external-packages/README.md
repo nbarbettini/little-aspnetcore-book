@@ -1,5 +1,5 @@
 # Add external packages
-One of the big advantages of using a mature stack like .NET is that the ecosystem of third-party packages and plugins is huge. Just like other package systems (npm, Maven, RubyGems), you can download and install .NET packages that help with almost any task or problem you can imagine.
+One of the big advantages of using a mature ecosystem like .NET is that the number of third-party packages and plugins is huge. Just like other package systems, you can download and install .NET packages that help with almost any task or problem you can imagine.
 
 NuGet is both the package manager tool and the official package repository (at https://www.nuget.org). You can search for NuGet packages on the web, and install them from your local machine through the terminal (or the GUI, if you're using Visual Studio).
 
@@ -8,9 +8,11 @@ At the end of the last chapter, the to-do application displayed to-do items like
 
 ![Dates in ISO 8601 format](iso8601.png)
 
-The due date column is displaying dates in a format that's good for machines (called ISO 8601), but clunky for humans. Wouldn't it be nicer if it simply read "X days from now"? You could write code that converted a date into a human-friendly string, but fortunately, there's a faster way.
+The due date column is displaying dates in a format that's good for machines (called ISO 8601), but clunky for humans. Wouldn't it be nicer if it simply read "X days from now"?
 
-The Humanizer package on NuGet (https://www.nuget.org/packages/Humanizer) solves this problem by providing methods that can "humanize" or rewrite almost anything: dates, times, durations, numbers, and so on. It's a fantastic and useful open-source project that's published under the permissive MIT license.
+You could write code yourself that converted an ISO 8601 date into a human-friendly string, but fortunately, there's a faster way.
+
+The Humanizer package on NuGet solves this problem by providing methods that can "humanize" or rewrite almost anything: dates, times, durations, numbers, and so on. It's a fantastic and useful open-source project that's published under the permissive MIT license.
 
 To add it to your project, run this command in the terminal:
 
@@ -26,7 +28,7 @@ To use a package in your code, you usually need to add a `using` statement that 
 
 Since Humanizer will be used to rewrite dates rendered in the view, you can use it directly in the view itself. First, add a `@using` statement at the top of the view:
 
-**`Views/Todo/Index.cshtml`**
+**Views/Todo/Index.cshtml**
 
 ```html
 @model TodoViewModel
