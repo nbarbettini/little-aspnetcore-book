@@ -21,7 +21,7 @@ cd AspNetCoreTodo
 
 This creates a new project from the `mvc` template, and adds some additional authentication and security bits to the project. (I'll cover security in the *Security and identity* chapter.)
 
-> You might be wondering why you have a directory called `AspNetCoreTodo` inside another directory called `AspNetCoreTodo`. Later, you'll add more project directories side-by-side with the `AspNetCoreTodo` directory, all within a single "root" project directory.
+> You might be wondering why you have a directory called `AspNetCoreTodo` inside another directory called `AspNetCoreTodo`. The top-level or "root" directory can contain one or more project directories. The root directory is sometimes called a **solution directory**. Later, you'll add more project directories side-by-side with the `AspNetCoreTodo` project directory, all within a single root solution directory.
 
 You'll see quite a few files show up in the new project directory. Once you `cd` into the new directory, all you have to do is run the project:
 

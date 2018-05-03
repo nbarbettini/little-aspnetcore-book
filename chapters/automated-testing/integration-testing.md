@@ -10,12 +10,10 @@ To write integration tests that make HTTP requests, you could manually start you
 
 ### Create a test project
 
-If you're currently in your project directory, `cd` up one level to the root `AspNetCoreTodo` directory. Use these commands to scaffold a new test project:
+If you're currently in your project directory, `cd` up one level to the root `AspNetCoreTodo` directory. Use this command to scaffold a new test project:
 
 ```
-mkdir AspNetCoreTodo.IntegrationTests
-cd AspNetCoreTodo.IntegrationTests
-dotnet new xunit
+dotnet new xunit -o AspNetCoreTodo.IntegrationTests
 ```
 
 Your directory structure should now look like this:
@@ -34,7 +32,7 @@ AspNetCoreTodo/
         AspNetCoreTodo.IntegrationTests.csproj
 ```
 
-> If you prefer, you canh keep your unit tests and integration tests in the same project. For large projects, it's common to split them up so it's easy to run them separately.
+> If you prefer, you can keep your unit tests and integration tests in the same project. For large projects, it's common to split them up so it's easy to run them separately.
 
 Since the test project will use the classes defined in your main project, you'll need to add a reference to the main project:
 
@@ -138,8 +136,10 @@ namespace AspNetCoreTodo.IntegrationTests
             Assert.Equal(
                 HttpStatusCode.Redirect,
                 response.StatusCode);
+
             Assert.Equal(
-                "http://localhost:8888/Account/Login?ReturnUrl=%2Ftodo",
+                "http://localhost:8888/Account" +
+                "/Login?ReturnUrl=%2Ftodo",
                 response.Headers.Location.ToString());
         }
     }

@@ -1,6 +1,6 @@
 # Conclusion
 
-Thanks for making it to the end of the Little ASP.NET Core Book! If this book was helpful (or not), I'd love to hear your thoughts. Shoot me your comments via Twitter: https://twitter.com/nbarbettini
+Thanks for making it to the end of the Little ASP.NET Core Book! If this book was helpful (or not), I'd love to hear your thoughts. Send me your comments via Twitter: https://twitter.com/nbarbettini
 
 ## How to learn more
 
@@ -10,15 +10,17 @@ There's a lot more that ASP.NET Core can do that couldn't fit in this short book
 * Using ASP.NET Core with single-page apps like Angular and React
 * Razor Pages
 * Bundling and minifying static assets
-* WebSockets
+* WebSockets and SignalR
 
 There are a number of ways you can learn more:
 
-* **ASP.NET Core documentation**. The official ASP.NET Core documentation contains a number of in-depth tutorials covering many of these topics. I'd highly recommend it! http://docs.asp.net
+* **The ASP.NET Core documentation.** The official ASP.NET Core documentation at http://docs.asp.net contains a number of in-depth tutorials covering many of these topics. I'd highly recommend it!
 
-* **ASP.NET Core in Action**. This book by Andrew Lock is a comprehensive, deep dive into ASP.NET Core.
-* **Courses on LinkedIn Learning and Pluralsight**. If you learn best from videos, there are fantastic courses available on LinkedIn Learning (including some by yours truly) and Pluralsight. If you don't have an account and need a coupon, send me a message on Twitter.
-* I also write about ASP.NET Core and more on my blog: https://www.recaffeinate.co
+* **ASP.NET Core in Action.** This book by Andrew Lock is a comprehensive, deep dive into ASP.NET Core. You can get it from Amazon or a local bookstore.
+
+* **Courses on LinkedIn Learning and Pluralsight.** If you learn best from videos, there are fantastic courses available on Pluralsight and LinkedIn Learning (including some by yours truly). If you don't have an account and need a coupon, send me an email: nate@barbettini.com.
+
+* **Nate's blog.** I also write about ASP.NET Core and more on my blog at https://www.recaffeinate.co.
 
 Happy coding!
 
@@ -26,7 +28,7 @@ Happy coding!
 
 Hey, I'm Nate! I wrote the Little ASP.NET Core Book in a long, caffeine-fueled weekend because I love the .NET community and wanted to give back in my own little way. I hope it helped you learn something new!
 
-You can stay in touch with me on Twitter ([@nbarbettini](https://twitter.com/nbarbettini)) or on my blog (https://www.recaffeinate.co).
+You can stay in touch with me on Twitter ([@nbarbettini](https://twitter.com/nbarbettini)) or on my blog (https://www.recaffeinate.co). You can also reach me via email at nate@barbettini.com.
 
 ## Special thanks
 
@@ -44,7 +46,11 @@ To these amazing polyglot programmers who translated the Little ASP.NET Core Boo
 
 ## Changelog
 
-**1.1.0** (???): TODO
+The full, detailed changelog is always available here:
+
+https://github.com/nbarbettini/little-aspnetcore-book/releases
+
+**1.1.0** (2018-05-03): Significantly reworked the *Add more features* chapter to use MVC thorough the whole stack and remove the AJAX pattern. Removed Facebook login to simplify the security chapter and streamline testing and deployment. Updated the Docker instructions to reflect the latest best practices. Fixed typos and added suggestions from readers. The book also sports a new, improved cover design!
 
 **1.0.4** (2018-01-15): Added explanation of service container lifecycles, clarified server ports and the -o flag, and removed semicolons after Razor directives. Corrected Chinese translation author credit. Fixed other small typos and issues noticed by readers.
 

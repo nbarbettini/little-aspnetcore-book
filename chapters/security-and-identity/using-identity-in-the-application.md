@@ -131,7 +131,7 @@ public async Task<TodoItem[]> GetIncompleteItemsAsync(
 
 If you run the application and register or log in, you'll see an empty to-do list once again. Unfortunately, any items you try to add disappear into the ether, because you haven't updated the `AddItem` action to be user-aware yet.
 
-### Update the Add Item and Mark Done actions
+### Update the AddItem and MarkDone actions
 
 You'll need to use the `UserManager` to get the current user in the `AddItem` and `MarkDone` action methods, just like you did in `Index`.
 

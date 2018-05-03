@@ -46,7 +46,9 @@ COPY AspNetCoreTodo/. ./AspNetCoreTodo/
 RUN dotnet publish -o out /p:PublishWithAspNetCoreTargetManifest="false"
 ```
 
-The `dotnet publish` command compiles the project, and the `-o out` flag puts the compiled files in a directory called `out`. These compiled files will be used to run the application with the final few commands:
+The `dotnet publish` command compiles the project, and the `-o out` flag puts the compiled files in a directory called `out`.
+
+These compiled files will be used to run the application with the final few commands:
 
 ```dockerfile
 FROM microsoft/dotnet:2.0-runtime AS runtime
@@ -56,7 +58,7 @@ COPY --from=build /app/AspNetCoreTodo/out ./
 ENTRYPOINT ["dotnet", "AspNetCoreTodo.dll"]
 ```
 
-The `FROM` command is used again to select a smaller image that only has the dependencies needed to run the application. The `ENV` command is used to set environment variables in the container. The `ASPNETCORE_URLS` environment variable tells ASP.NET Core which network interface and port it should bind to (in this case, port 80).
+The `FROM` command is used again to select a smaller image that only has the dependencies needed to run the application. The `ENV` command is used to set environment variables in the container, and the `ASPNETCORE_URLS` environment variable tells ASP.NET Core which network interface and port it should bind to (in this case, port 80).
 
 The `ENTRYPOINT` command lets Docker know that the container should be started as an executable by running `dotnet AspNetCoreTodo.dll`. This tells `dotnet` to start up your application from the compiled file created by `dotnet publish` earlier. (When you do `dotnet run` during development, you're accomplishing the same thing in one step.)
 
@@ -96,9 +98,9 @@ Once the image is created, you can run `docker images` to to list all the images
 docker run --name aspnetcoretodo_sample --rm -it -p 8080:80 aspnetcoretodo
 ```
 
-The `-it` flag tells Docker to run the container in interactive mode (outputting to the terminal, as opposed to running in the background). When you want to stop the container, press `Control-C`.
+The `-it` flag tells Docker to run the container in interactive mode (outputting to the terminal, as opposed to running in the background). When you want to stop the container, press Control-C.
 
-Remember the `ASPNETCORE_URLS` variable that told ASP.NET Core to listen on port 80? The `-p 8080:80` option tells Docker to map port 8080 on **your** machine to the **container's** port 80. Open up your browser and navigate to http://localhost:8080 to see the application running in the container!
+Remember the `ASPNETCORE_URLS` variable that told ASP.NET Core to listen on port 80? The `-p 8080:80` option tells Docker to map port 8080 on *your* machine to the *container's* port 80. Open up your browser and navigate to http://localhost:8080 to see the application running in the container!
 
 ### Set up Nginx
 
@@ -145,11 +147,13 @@ http {
 
 This configuration file tells Nginx to proxy incoming requests to `http://kestrel:80`. (You'll see why `kestrel` works as a hostname in a moment.)
 
-> When you make deploy your application to a production environment, you should add the `server_name` directive and validate and restrict the host header to known good values. For more information, see https://github.com/aspnet/Announcements/issues/295.
+> When you make deploy your application to a production environment, you should add the `server_name` directive and validate and restrict the host header to known good values. For more information, see:
+
+> https://github.com/aspnet/Announcements/issues/295
 
 ### Set up Docker Compose
 
-There's one more file to create. Up in the web application root directory, create `docker-compose.yml`:
+There's one more file to create. Up in the root directory, create `docker-compose.yml`:
 
 **docker-compose.yml**
 
@@ -174,7 +178,7 @@ You can try spinning up the entire multi-container application by running:
 docker-compose up
 ```
 
-Try opening a browser and navigating to `http://localhost` (not 8080!). Nginx is listening on port 80 (the default HTTP port) and proxying requests to your ASP.NET Core application hosted by Kestrel.
+Try opening a browser and navigating to http://localhost (port 80, not 8080!). Nginx is listening on port 80 (the default HTTP port) and proxying requests to your ASP.NET Core application hosted by Kestrel.
 
 ### Set up a Docker server
 

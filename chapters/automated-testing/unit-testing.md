@@ -2,7 +2,7 @@
 
 Unit tests are small, short tests that check the behavior of a single method or class. When the code you're testing relies on other methods or classes, unit tests rely on **mocking** those other classes so that the test only focuses on one thing at a time.
 
-For example, the `TodoController` class has two dependencies: an `ITodoItemService` and the `UserManager`. The `TodoItemService`, in turn, depends on the `ApplicationDbContext`. (The idea that you can draw a line from `TodoController` > `TodoItemService` > `ApplicationDbContext` is called a *dependency graph*).
+For example, the `TodoController` class has two dependencies: an `ITodoItemService` and the `UserManager`. The `TodoItemService`, in turn, depends on the `ApplicationDbContext`. (The idea that you can draw a line from `TodoController` > `TodoItemService` > `ApplicationDbContext` is called a **dependency graph**).
 
 When the application runs normally, the ASP.NET Core service container and dependency injection system injects each of those objects into the dependency graph when the `TodoController` or the `TodoItemService` is created.
 
@@ -12,12 +12,10 @@ When you write a unit test, on the other hand, you have to handle the dependency
 
 It's a best practice to create a separate project for your tests, so they are kept separate from your application code. The new test project should live in a directory that's next to (not inside) your main project's directory.
 
-If you're currently in your project directory, `cd` up one level. (This root directory will also be called `AspNetCoreTodo`). Then use these commands to scaffold a new test project:
+If you're currently in your project directory, `cd` up one level. (This root directory will also be called `AspNetCoreTodo`). Then use this command to scaffold a new test project:
 
 ```
-mkdir AspNetCoreTodo.UnitTests
-cd AspNetCoreTodo.UnitTests
-dotnet new xunit
+dotnet new xunit -o AspNetCoreTodo.UnitTests
 ```
 
 xUnit.NET is a popular test framework for .NET code that can be used to write both unit and integration tests. Like everything else, it's a set of NuGet packages that can be installed in any project. The `dotnet new xunit` template already includes everything you need.
@@ -35,7 +33,7 @@ AspNetCoreTodo/
         AspNetCoreTodo.UnitTests.csproj
 ```
 
-Since the test project will use the classes defined in your main project, you'll need to add a reference to the main project:
+Since the test project will use the classes defined in your main project, you'll need to add a reference to the `AspNetCoreTodo` project:
 
 ```
 dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
@@ -182,7 +180,7 @@ Test Run Successful.
 Test execution time: 1.9074 Seconds
 ```
 
-You now have one test providing test coverage of the `TodoItemService`. As an extra-credit challenge, try writing unit tests that ensure:
+You now have one test providing test coverage of the `TodoItemService`. As an extra challenge, try writing unit tests that ensure:
 
 * The `MarkDoneAsync()` method returns false if it's passed an ID that doesn't exist
 * The `MarkDoneAsync()` method returns true when it makes a valid item as complete

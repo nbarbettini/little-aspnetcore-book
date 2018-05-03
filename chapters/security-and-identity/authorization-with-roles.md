@@ -132,7 +132,7 @@ Start up the application and try to access the `/ManageUsers` route while logged
 
 ![Access denied error](access-denied.png)
 
-That's because users aren't assigned the`Administrator role automatically.
+That's because users aren't assigned the Administrator role automatically.
 
 
 ### Create a test administrator account
@@ -221,9 +221,15 @@ private static async Task EnsureTestAdminAsync(
 
     if (testAdmin != null) return;
 
-    testAdmin = new ApplicationUser { UserName = "admin@todo.local", Email = "admin@todo.local" };
-    await userManager.CreateAsync(testAdmin, "NotSecure123!!");
-    await userManager.AddToRoleAsync(testAdmin, Constants.AdministratorRole);
+    testAdmin = new ApplicationUser
+    {
+        UserName = "admin@todo.local",
+        Email = "admin@todo.local"
+    };
+    await userManager.CreateAsync(
+        testAdmin, "NotSecure123!!");
+    await userManager.AddToRoleAsync(
+        testAdmin, Constants.AdministratorRole);
 }
 ```
 
@@ -245,7 +251,6 @@ public static void Main(string[] args)
 Then, add the new method to the class below `Main()`:
 
 ```csharp
-
 private static void InitializeDatabase(IWebHost host)
 {
     using (var scope = host.Services.CreateScope())
@@ -318,7 +323,7 @@ You can inject the `UserManager` directly into a view to do these types of autho
 }
 ```
 
-> It's common to name shared partial views starting with an `_` underscore, but it's not necessary.
+> It's conventional to name shared partial views starting with an `_` underscore, but it's not required.
 
 This partial view first uses the `SignInManager` to quickly determine whether the user is logged in. If they aren't, the rest of the view code can be skipped. If there **is** a logged-in user, the `UserManager` is used to look up their details and perform an authorization check with `IsInRoleAsync()`. If all checks succeed and the user is an adminstrator, a **Manage users** link is added to the navbar.
 

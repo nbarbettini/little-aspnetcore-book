@@ -23,4 +23,4 @@ ASP.NET Core includes a fast, lightweight web server called Kestrel. It's the se
 
 On Linux (and in Docker containers), you can use Nginx or the Apache web server to receive incoming requests from the internet and route them to your application hosted with Kestrel. If you're on Windows, IIS does the same thing.
 
-If you're using Azure to host your application, this is all taken care of for you automatically. I'll cover setting up Nginx as a reverse proxy in the Docker section.
+If you're using Azure to host your application, this is all done for you automatically. I'll cover setting up Nginx as a reverse proxy in the Docker section.
