@@ -63,7 +63,6 @@ Next, create a view model:
 
 ```csharp
 using System.Collections.Generic;
-using AspNetCoreTodo.Models;
 
 namespace AspNetCoreTodo.Models
 {
