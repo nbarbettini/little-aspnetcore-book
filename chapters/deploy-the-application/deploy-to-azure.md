@@ -128,9 +128,9 @@ Deploying your ASP.NET Core application to Azure only takes a few steps. You can
 
 ### Create a deployment configuration file
 
-Since there are multiple projects in your directory structure (the web application, and two test projects), Azure won't know which one to show to the world. To fix this, create a file called `.deployment` at the very top of your directory structure:
+Since there are multiple projects in your directory structure (the web application, and two test projects), Azure won't know which one to publish. To fix this, create a file called `.deployment` at the very top of your directory structure:
 
-**`.deployment`**
+**.deployment**
 
 ```ini
 [config]
@@ -171,7 +171,7 @@ Next, create an App Service plan in the group you just created:
 az appservice plan create -g AspNetCoreTodoGroup -n AspNetCoreTodoPlan --sku F1
 ```
 
-> Sidebar: `F1` is the free app plan. If you want to use a custom domain name with your app, use the D1 ($10/month) plan or higher.
+> F1 is the free app plan. If you want to use a custom domain name with your app, use the D1 ($10/month) plan or higher.
 
 Now create a Web App in the App Service plan:
 
@@ -180,18 +180,6 @@ az webapp create -g AspNetCoreTodoGroup -p AspNetCoreTodoPlan -n MyTodoApp
 ```
 
 The name of the app (`MyTodoApp` above) must be globally unique in Azure. Once the app is created, it will have a default URL in the format: http://mytodoapp.azurewebsites.net
-
-### Update the application settings
-
-> Sidebar: This is only necessary if you configured Facebook login in the *Security and identity* chapter.
-
-Your application won't start up properly if it's missing the `Facebook:AppId` and `Facebook:AppSecret` configuration values. You'll need to add these using the Azure web portal:
-
-1. Log in to your Azure account via https://portal.azure.com
-1. Open your Web App (called `MyTodoApp` above)
-1. Click on the **Application settings** tab
-1. Under the **App settings** section, add `Facebook:AppId` and `Facebook:AppSecret` with their respective values
-1. Click **Save** at the top
 
 ### Deploy your project files to Azure
 
@@ -229,4 +217,6 @@ You only need to do these steps once. Now, whenever you want to push your applic
 git push azure master
 ```
 
-You'll see a stream of log messages as the application is deployed to Azure. When it's complete, browse to http://yourappname.azurewebsites.net to check it out!
+You'll see a stream of log messages as the application is deployed to Azure.
+
+When it's complete, browse to http://yourappname.azurewebsites.net to check out the app!

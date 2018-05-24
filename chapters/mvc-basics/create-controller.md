@@ -58,11 +58,11 @@ public class TodoController : Controller
 
 ## Create a controller
 
-There are already a few controllers in the project's Controllers folder, including the `HomeController` that renders the default welcome screen you see when you visit `http://localhost:5000`. You can ignore these controllers for now.
+There are already a few controllers in the project's Controllers directory, including the `HomeController` that renders the default welcome screen you see when you visit `http://localhost:5000`. You can ignore these controllers for now.
 
 Create a new controller for the to-do list functionality, called `TodoController`, and add the following code:
 
-**`Controllers/TodoController.cs`**
+**Controllers/TodoController.cs**
 
 ``` csharp
 using System;
@@ -106,8 +106,8 @@ public class TodoController : Controller
 }
 ```
 
-Action methods can return views, JSON data, or HTTP status codes like `200 OK` or `404 Not Found`. The `IActionResult` return type gives you the flexibility to return any of these from the action.
+Action methods can return views, JSON data, or HTTP status codes like `200 OK` and `404 Not Found`. The `IActionResult` return type gives you the flexibility to return any of these from the action.
 
-It's a best practice to keep controllers as lightweight as possible. In this case, the controller should only be responsible for getting the to-do items from the database, putting those items into a model the view can understand, and sending the view back to the user's browser.
+It's a best practice to keep controllers as lightweight as possible. In this case, the controller will be responsible for getting the to-do items from the database, putting those items into a model the view can understand, and sending the view back to the user's browser.
 
 Before you can write the rest of the controller code, you need to create a model and a view.

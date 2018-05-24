@@ -39,7 +39,8 @@ Entity Framework Core uses the database context, together with the connection st
 
 ```csharp
 services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(
+        Configuration.GetConnectionString("DefaultConnection")));
 ```
 
 This code adds the `ApplicationDbContext` to the service container, and tells Entity Framework Core to use the SQLite database provider, with the connection string from configuration (`appsettings.json`).

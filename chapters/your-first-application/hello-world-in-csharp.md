@@ -76,12 +76,17 @@ Use the `dotnet` command to create a new project:
 
 ```
 dotnet new console -o CsharpHelloWorld
+```
+
+The `dotnet new` command creates a new .NET project in C# by default. The `console` parameter selects a template for a console application (a program that outputs text to the screen). The `-o CsharpHelloWorld` parameter tells `dotnet new` to create a new directory called `CsharpHelloWorld` for all the project files. Move into this new directory:
+
+```
 cd CsharpHelloWorld
 ```
 
-This creates a basic C# program that writes some text to the screen. The program is comprised of two files: a project file (with a `.csproj` extension) and a C# code file (with a `.cs` extension). If you open the former in a text or code editor, you'll see this:
+`dotnet new console` creates a basic C# program that writes the text `Hello World!` to the screen. The program is comprised of two files: a project file (with a `.csproj` extension) and a C# code file (with a `.cs` extension). If you open the former in a text or code editor, you'll see this:
 
-**`CsharpHelloWorld.csproj`**
+**CsharpHelloWorld.csproj**
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -94,9 +99,9 @@ This creates a basic C# program that writes some text to the screen. The program
 </Project>
 ```
 
-The project file is XML-based and defines some metadata about the project. Later, when you reference other packages, those will be listed here (similar to a `package.json` file for npm). You won't have to edit this file by hand often.
+The project file is XML-based and defines some metadata about the project. Later, when you reference other packages, those will be listed here (similar to a `package.json` file for npm). You won't have to edit this file by hand very often.
 
-**`Program.cs`**
+**Program.cs**
 
 ```csharp
 using System;
@@ -113,7 +118,7 @@ namespace CsharpHelloWorld
 }
 ```
 
-`static void Main` is the entry point method of a C# program, and by convention it's placed in a class (a type of code structure or module) called `Program`. The `using` statement at the top imports the built-in System classes from .NET and makes them available to the code in the class.
+`static void Main` is the entry point method of a C# program, and by convention it's placed in a class (a type of code structure or module) called `Program`. The `using` statement at the top imports the built-in `System` classes from .NET and makes them available to the code in your class.
 
 From inside the project directory, use `dotnet run` to run the program. You'll see the output written to the console after the code compiles:
 

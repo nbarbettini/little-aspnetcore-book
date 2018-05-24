@@ -130,20 +130,20 @@ The first line of the class declares a private variable to hold a reference to t
 
 The `public TodoController(ITodoItemService todoItemService)` line defines a **constructor** for the class. The constructor is a special method that is called when you want to create a new instance of a class (the `TodoController` class, in this case). By adding an `ITodoItemService` parameter to the constructor, you've declared that in order to create the `TodoController`, you'll need to provide an object that matches the `ITodoItemService` interface.
 
-> Interfaces are awesome because they help decouple (separate) the logic of your application. Since the controller depends on the `ITodoItemService` interface, and not on any *specific* service class, it doesn't know or care which class it's actually given. It could be the `FakeTodoItemService`, a different one that talks to a live database, or something else! As long as it matches the interface, the controller doesn't care. This makes it really easy to test parts of your application separately. (I'll cover testing more in the *Automated testing* chapter.)
+> Interfaces are awesome because they help decouple (separate) the logic of your application. Since the controller depends on the `ITodoItemService` interface, and not on any *specific* class, it doesn't know or care which class it's actually given. It could be the `FakeTodoItemService`, a different one that talks to a live database, or something else! As long as it matches the interface, the controller can use it. This makes it really easy to test parts of your application separately. I'll cover testing in detail in the *Automated testing* chapter.
 
 Now you can finally use the `ITodoItemService` (via the private variable you declared) in your action method to get to-do items from the service layer:
 
 ```csharp
 public IActionResult Index()
 {
-    var todoItems = await _todoItemService.GetIncompleteItemsAsync();
+    var items = await _todoItemService.GetIncompleteItemsAsync();
 
     // ...
 }
 ```
 
-Remember that the `GetIncompleteItemsAsync` method returned a `Task<IEnumerable<TodoItem>>`? Returning a `Task` means that the method won't necessarily have a result right away, but you can use the `await` keyword to make sure your code waits until the result is ready before continuing on.
+Remember that the `GetIncompleteItemsAsync` method returned a `Task<TodoItem[]>`? Returning a `Task` means that the method won't necessarily have a result right away, but you can use the `await` keyword to make sure your code waits until the result is ready before continuing on.
 
 The `Task` pattern is common when your code calls out to a database or an API service, because it won't be able to return a real result until the database (or network) responds. If you've used promises or callbacks in JavaScript or other languages, `Task` is the same idea: the promise that there will be a result - sometime in the future.
 
@@ -154,7 +154,7 @@ The only catch is that you need to update the `Index` method signature to return
 ```csharp
 public async Task<IActionResult> Index()
 {
-    var todoItems = await _todoItemService.GetIncompleteItemsAsync();
+    var items = await _todoItemService.GetIncompleteItemsAsync();
 
     // Put items into a model
 
@@ -189,4 +189,4 @@ This line tells ASP.NET Core to use the `FakeTodoItemService` whenever the `ITod
 
 `AddSingleton` adds your service to the service container as a **singleton**. This means that only one copy of the `FakeTodoItemService` is created, and it's reused whenever the service is requested. Later, when you write a different service class that talks to a database, you'll use a different approach (called **scoped**) instead. I'll explain why in the *Use a database* chapter.
 
-That's it! When a request comes in and is routed to the `TodoController`, ASP.NET Core will look at the available services and automatically supply the `FakeTodoItemService` when the controller asks for an `ITodoItemService`. Because the services the controller depends on are "injected" from the service container, this pattern is called **dependency injection**.
+That's it! When a request comes in and is routed to the `TodoController`, ASP.NET Core will look at the available services and automatically supply the `FakeTodoItemService` when the controller asks for an `ITodoItemService`. Because the services are "injected" from the service container, this pattern is called **dependency injection**.

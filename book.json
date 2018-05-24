@@ -3,8 +3,10 @@
     "description": "一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。",
     "author": "Nate Barbettini",
     "language": "zh-hans",
+    "isbn": "978-1-387-75615-5",
     "pdf": {
         "fontSize": 13,
+        "paperSize": "a5",
         "fontFamily": "Microsoft YaHei",
         "margin": {
             "comment_from_windsting": "these margin settings not working.",
@@ -13,7 +15,6 @@
             "left": 12,
             "right": 12
         },
-        "paperSize": "b5"
     },
     "plugins": ["expandable-chapters-small", "disqus", "splitter", "anchors", "copy-code-button", "forkmegithub"],
     "pluginsConfig": {
