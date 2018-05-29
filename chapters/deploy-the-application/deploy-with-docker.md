@@ -1,79 +1,85 @@
 ## 使用 Docker 进行部署
 
-像 Docker 这样的容器化技术极大地简化了 web 程序的部署工作。不再需要浪费时间在一个服务器上配置你程序所需的依赖、复制文件、重启进程，你只需要创建一个 Docker 镜像，里面包含你程序运行所需的一切，然后在任何 Docker 宿主机上作为容器启动起来就行了。
+如果你不使用 Azure 这样的平台，像 Docker 这样的容器化技术能极大地简化把 web 程序部署到你自己服务器上的工作。不再需要浪费时间在一个服务器上配置你程序所需的依赖、复制文件、重启进程，你只需要创建一个 Docker 镜像，里面包含你程序运行所需的一切，然后在任何 Docker 宿主机上作为容器启动起来就行了。
 
 Docker 也便于把你的应用扩展为多个服务器。一旦你创建了一个镜像，用它来创建 1 个容器和 100 个容器所需要的工作是一样的。
 
-开始之前，需要在你的开发机上安装 Docker CLI。搜索 "get docker for (mac/windows/linux)" 并执行 Docker 官网的提示。要检验是否安装成功，可以执行：
+开始之前，需要在你的开发机上安装 Docker CLI。搜索 "get docker for (mac/windows/linux)" 并执行 Docker 官网的提示内容。要检验是否安装成功，可以执行：
 
 ```
-docker --version
+docker version
 ```
-
-> 如果你在 *安全与身份* 章节配置过 Facebook 登录，你将需要使用 Docker secrets 来安全地把 Facebook 应用信息放置进容器里。Docker secrets 的使用方法超出了本书的范畴。如果你愿意，可以在 `ConfigureServices` 方法里注释掉 `AddFacebook` 那一行，以禁用 Facebook 登录功能。
 
 ### 添加 Dockerfile
 
-首先需要的就是一个 Dockerfile，它就像个清单，告诉 Docker 你程序需要些什么。
+首先需要的就是一个 Dockerfile，它就像个清单，告诉 Docker 你程序的构建和运行需要些什么。
 
-在 Web 程序根目录里，`Program.cs` 旁边创建一个名为 `Dockerfile` （没有扩展名）的文件。用你常用的编辑器打开它，输入下面这行：
+在程序根目录，也就是最外层的 `AspNetCoreTodo` 文件夹里，创建一个名为 `Dockerfile`（没有扩展名）的文件。用你常用的编辑器打开它，输入下面这行：
 
 ```dockerfile
-FROM microsoft/dotnet:latest
+FROM microsoft/dotnet:2.0-sdk AS build
 ```
 
-这告知 Docker 开始创建你的镜像，以一个现存的微软发布的镜像为基础。这将确保容器包含运行 ASP.NET Core 应用所需的一切。
+这指示 Docker 以 `microsoft/dotnet:2.0-sdk` 为基础创建你的镜像。这个镜像是微软发布的，其中包含了执行 `dotnet build` 编译程序所需的工具和依赖。以这个预编译镜像为基础，Docker 可以优化镜像生成过程并使它容量紧凑。
+
+接下来，添加这一行：
 
 ```dockerfile
-COPY . /app
+COPY AspNetCoreTodo/*.csproj ./app/AspNetCoreTodo/
 ```
 
-`COPY` 指令复制你本地目录（项目源码）到 Docker 镜像里的 `/app` 目录。
+这条 `COPY` 指令复制 `.csproj` 项目文件到镜像里的路径 `/app/AspNetCoreTodo/` 下。注意实际的代码（`.cs` 文件）并未复制到镜像里。你稍后即可弄清个中缘由。
 
 ```dockerfile
+WORKDIR /app/AspNetCoreTodo
+RUN dotnet restore
+```
+
+`WORKDIR` 是 Docker 里的 `cd`。Dockerfile 中之后的命令都会在这个 `/app/AspNetCoreTodo` 文件夹内执行，该文件夹是上一步的 `COPY` 命令创建的。
+
+运行 `dotnet restore` 命令重建在 `.csproj` 中定义的那些程序所需的 NuGet 包。在添加其它代码 **之前** 于镜像中重建这些包，Docker 将有能力缓存这些重建的包。然后，当你修改代码（而没修改项目文件中定义的包）时，重建这个 Docker 镜像将会非常迅速。
+
+现在，就到了复制其余代码并编译程序的时候了：
+
+```dockerfile
+COPY AspNetCoreTodo/. ./AspNetCoreTodo/
+RUN dotnet publish -o out /p:PublishWithAspNetCoreTargetManifest="false"
+```
+
+`dotnet publish` 命令编译项目，而 `-o out` 标识会将结果输出到一个名为 `out` 的目录里。
+
+这些编译好的文件，将会通过这最终的几条命令，运行起这个程序：
+
+```dockerfile
+FROM microsoft/dotnet:2.0-runtime AS runtime
+ENV ASPNETCORE_URLS http://+:80
 WORKDIR /app
+COPY --from=build /app/AspNetCoreTodo/out ./
+ENTRYPOINT ["dotnet", "AspNetCoreTodo.dll"]
 ```
 
-`WORKDIR` 是 Docker 里的 `cd`。Dockerfile 中之后的命令都会在这个 `/app` 文件夹内执行。
+`FROM` 命令再次被用到，以选择一个较小的镜像，其中仅含有运行程序所需的依赖。`ENV` 命令用于容器中的设置环境变量，环境变量 `ASPNETCORE_URLS` 指示 ASP.NET Core 应该把服务绑定到哪个网卡和端口上（本例中时 80 端口）。
 
-```dockerfile
-RUN ["dotnet", "restore"]
-RUN ["dotnet", "build"]
-```
-
-这些命令会执行 `dotnet restore`（下载程序所需的 NuGet 包）和 `dotnet build`（编译程序）。
-
-```dockerfile
-EXPOSE 5000/tcp
-```
-
-默认情况下，Docker 容器不会暴露任何网络端口到外部。你需要明确地让 Docker 知道程序会在端口 5000 上进行通讯（Kestrel 默认端口）。
-
-```dockerfile
-ENV ASPNETCORE_URLS http://*:5000
-```
-
-`ENV` 指令在容器里设置环境变量。`ASPNETCORE_URLS` 这个变量告诉 ASP.NET Core 应该绑定到哪个网卡的哪个端口上。
-
-```dockerfile
-ENTRYPOINT ["dotnet", "run"]
-```
-
-Dockerfile 的最后一行用 `dotnet run` 命令启动你的程序。Kestrel 会开始在 5000 端口上进行监听，就像你在本地电脑上运行 `dotnet run` 那样。
+`ENTRYPOINT` 命令给 Docker 指出了在被运行的时候去执行 `dotnet AspNetCoreTodo.dll`。这条命令告诉 `dotnet`，使用先前由 `dotnet publish` 编译出来的文件启动你的程序。（当你在开发时运行 `dotnet run`，它一步就完成了这些事情。）
 
 完整的 Dockerfile 看起来是这样的：
 
-**`Dockerfile`**
+**Dockerfile**
 
 ```dockerfile
-FROM microsoft/dotnet:latest
-COPY . /app
+FROM microsoft/dotnet:2.0-sdk AS build
+COPY AspNetCoreTodo/*.csproj ./app/AspNetCoreTodo/
+WORKDIR /app/AspNetCoreTodo
+RUN dotnet restore
+
+COPY AspNetCoreTodo/. ./
+RUN dotnet publish -o out /p:PublishWithAspNetCoreTargetManifest="false"
+
+FROM microsoft/dotnet:2.0-runtime AS runtime
+ENV ASPNETCORE_URLS http://+:80
 WORKDIR /app
-RUN ["dotnet", "restore"]
-RUN ["dotnet", "build"]
-EXPOSE 5000/tcp
-ENV ASPNETCORE_URLS http://*:5000
-ENTRYPOINT ["dotnet", "run"]
+COPY --from=build /app/AspNetCoreTodo/out ./
+ENTRYPOINT ["dotnet", "AspNetCoreTodo.dll"]
 ```
 
 ### 创建一个镜像
@@ -89,10 +95,12 @@ docker build -t aspnetcoretodo .
 一旦镜像创建完成，你可以运行 `docker images` 命令列出你本地电脑上的全部镜像。要通过容器尝试一下，请执行：
 
 ```
-docker run -it -p 5000:5000 aspnetcoretodo
+docker run --name aspnetcoretodo_sample --rm -it -p 8080:80 aspnetcoretodo
 ```
 
-`-it` 标识告诉 Docker 以交互模式运行这个容器。当你想要停止这个容器的时候，按 `Control-C`。
+`-it` 标识告诉 Docker 以交互模式运行这个容器（输出到终端，而不是在后台运行）。当你想要停止这个容器的时候，按 `Control-C`。
+
+还记得环境变量 `ASPNETCORE_URLS` 指示 ASP.NET Core 去监听 80 端口吗？这里的 `-p 8080:80` 选项指示 Docker 把 *你的* 电脑的 8080 端口映射到 *容器的* 80端口。打开你的浏览器，浏览地址 http://localhost:8080 去查看运行在容器中的程序。
 
 ### 设置 Nginx
 
@@ -108,7 +116,7 @@ mkdir nginx
 
 创建一个新的 Dockerfile 并添加这些行：
 
-**`nginx/Dockerfile`**
+**nginx/Dockerfile**
 
 ```dockerfile
 FROM nginx
@@ -117,33 +125,34 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 接下来，创建一个 `nginx.conf` 文件：
 
-**`nginx/nginx.conf`**
+**nginx/nginx.conf**
 
 ```
 events { worker_connections 1024; }
 
 http {
-
-        server {
-              listen 80;
-
-              location / {
-                proxy_pass http://kestrel:5000;
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection 'keep-alive';
-                proxy_set_header Host $host;
-                proxy_cache_bypass $http_upgrade;
-              }
+    server {
+        listen 80;
+        location / {
+          proxy_pass http://kestrel:80;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'keep-alive';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
         }
+    }
 }
 ```
 
-这个配置文件告诉 Nginx 把接到的请求转发到 `http://kestrel:5000`。（你马上就会知道为什么要使用 `kestrel:5000` ）
+这个配置文件告诉 Nginx 把接到的请求转发到 `http://kestrel:80`。（你马上就会知道为什么要使用 `kestrel` 作为主机名。）
+
+> 当你把程序部署到生产环境，你应该添加 `server_name` 指令，并验证及限定 host 头字段为一个已知的有效值（known good values）。更多信息请参见：  
+> https://github.com/aspnet/Announcements/issues/295
 
 ### 设置 Docker Compose
 
-还需要再创建一个文件，回到 Web 程序的根目录，创建 `docker-compose.yml`：
+还需要创建一个文件，回到 Web 程序的根目录，创建 `docker-compose.yml`：
 
 **`docker-compose.yml`**
 
@@ -157,7 +166,7 @@ nginx:
 kestrel:
     build: .
     ports:
-        - "5000"
+        - "80"
 ```
 
 Docker Compose 是个帮助你创建并运行多容器程序的工具。这个配置文件定义了两个容器： 用 `./nginx/Dockerfile` 清单创建 `nginx`，用 `./Dockerfile` 创建 `kestrel`。这两个容器显式地链接在一起，所以它们可以互相通信。
@@ -168,13 +177,13 @@ Docker Compose 是个帮助你创建并运行多容器程序的工具。这个�
 docker-compose up
 ```
 
-打开一个浏览器并导航至 `http://localhost`（不是 5000！）。Nginx 在 80 （HTTP 的默认）端口上进行监听，并把请求转发到由  Kestrel 托管的 ASP.NET Core 程序。
+打开一个浏览器并导航至 `http://localhost`（不是 8080！）。Nginx 在 80 （HTTP 的默认）端口上进行监听，并把请求转发到由  Kestrel 托管的 ASP.NET Core 程序。
 
 ### 搭建 Docker 服务器
 
-详尽的设置指令超出了这本**小**书的范畴，但是任何新式的 Linux 发行版（例如 Ubuntu）都可以搭建成一个 Docker 宿主。例如，你可以用亚马逊 EC2 创建一个虚拟机，在上面安装 Docker 服务，为此你可以搜索 “amazon ec2 set up docker” 以获取说明。
+详尽的设置指令超出了这本书的范畴，但是任何较新的 Linux 发行版（例如 Ubuntu）都可以搭建成一个 Docker 宿主。例如，你可以用亚马逊 EC2 创建一个虚拟机，在上面安装 Docker 服务，为此你可以搜索 “amazon ec2 set up docker” 以获取说明。
 
-我更偏好使用 DigitalOcean，因为他们把入门的门槛降得非常低。DigitalOcean 既有现成的 Docker 虚拟机，也有关于搭建和运行 Docker 的深度教程（搜索“digitalocean docker”）。
+我更喜欢用 DigitalOcean，因为他们把入门的门槛降得非常低。DigitalOcean 既有现成的 Docker 虚拟机，也有关于搭建和运行 Docker 的深度教程（请搜索“digitalocean docker”）。
 
 ---
 
