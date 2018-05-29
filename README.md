@@ -1,42 +1,47 @@
-# The Little ASP.NET Core Book
-# 前言
+# 简明 ASP.NET Core 手册
 
-感谢你捧起这本 简明 ASP.NET Core 手册！我写这本小书的目的，是帮助开发者和爱好者了解 ASP.NET Core 2.0，一个崭新的，用于创建 Web应用 和 API 的框架。
+*Nate Barbettini 著*
 
-这本 简明 ASP.NET Core 手册 内容组织成了一篇教程。你将从零开始，完整地构建一个 待办事项（to-do） 应用，同时了解以下内容：
+*windsting 、 yuy 译*
+
+Copyright &copy; 2018. All rights reserved.
+
+以 创作共用署名4.0国际许可证 发布。您可以自由地：共享 — 在任何媒介以任何形式复制、发行本作品，演绎 — 修改、转换或以本作品为基础进行创作，在任何用途下，甚至商业目的。您必须给出适当的署名，提供指向本许可协议的链接。
+
+详情请访问：https://creativecommons.org/licenses/by/4.0/deed.zh
+
+## 前言
+
+感谢你捧起这本 简明 ASP.NET Core 手册！我写这本小书的目的，是帮助 web 编程开发者和爱好者了解 ASP.NET Core 2.0，一个崭新的，用于创建 Web应用 和 API 的框架。
+
+这本 简明 ASP.NET Core 手册 内容组织成了一篇教程。你将从头开始，完整地构建一个应用程序，同时了解以下内容：
 
 * MVC (Model-View-Controller) 模式的基本内容
-* 前端代码（HTML, CSS, JavaScript）怎样与后端代码交互
+* 前端代码（HTML、CSS、JavaScript）怎样与后端代码交互
 * 什么是依赖注入以及它的实用之处
 * 如何进行数据库的读写操作
 * 如何添加 登录、注册功能，以及如何提升安全性
-* 如何部署该应用到网络上
+* 如何部署该应用程序到网络上
 
 别担心，你可以在 对 ASP.NET Core （以及上面列表的内容）一无所知的状态下开始学习。
 
 ## 开始之前
 
-你将要构建的这个应用，其完整源码位于 GitHub(https://www.github.com/nbarbettini/little-aspnetcore-todo) 。如果需要与你自己的代码做对比，可任意下载。
+你将要构建的这个应用，其完整源码位于 GitHub：
 
-这本书本身也会由于修订和内容的增加而频繁更新。如果你阅读的是 PDF、电子书，或者打印版，请查阅官网([littleasp.net/book](http://www.littleasp.net/book))的版本更新。有关版本信息和更新内容，请查阅本书的最后一页。
+https://www.github.com/nbarbettini/little-aspnetcore-todo
+
+如果需要与你自己的代码做对比，可任意下载。
+
+这本书本身也会由于修订和内容的增加而频繁更新。如果你阅读的是 PDF、电子书，或者打印版，请查阅官网([littleasp.net/book](http://www.littleasp.net/book)，中文版为 [windsting.github.io/little-aspnetcore-book/book/](https://windsting.github.io/little-aspnetcore-book/book/))的版本更新。有关版本信息和更新内容，请查阅本书的最后一页。
 
 ### 选择你的语言阅读
 
-感谢那些多语言的读者，简明 ASP.NET Core 手册 已经被翻译成其它语言：
-
-{% if output.name === "website" %}
+感谢那些多语言的投稿者，简明 ASP.NET Core 手册 已经被翻译成其它语言：
 
 * [**The Little ASP.NET Core Book**](https://www.recaffeinate.co/book/) (English -- original version)
 
 * [**ASP.NET Core El Kitabı**](https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/) (Turkish)
-
-{% else %}
-
-**English(original version)** - https://www.recaffeinate.co/book/
-
-**Turkish** - https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/
-
-{% endif %}
 
 ## 本书的目标读者
 
@@ -46,7 +51,7 @@
 
 如果你是一个 ASP.NET MVC 开发者，你将如鱼得水。 ASP.NET Core 增添了一些新工具并复用（及简化）了你用过的那些东西。我会在后面指出其中的部分差异。
 
-不论你此前在 web 编程方面经验如何，本书都会倾囊相授，足以使你用 ASP.NET Core 创建一个简单但实用的 web 应用。你将学习如何用前后端代码实现设计目标，如何与数据库交互，如何测试并部署应用到真实环境。
+不论你此前在 web 编程方面经验如何，本书都会倾囊相授，足以使你用 ASP.NET Core 创建一个简单但实用的 web 应用。你将学习如何用前后端代码实现设计目标，如何与数据库交互，如何部署应用到真实环境。
 
 ## 什么是 ASP.NET Core？
 
@@ -62,15 +67,15 @@ ASP.NET Core 运行在微软的 .NET 运行时库上，类似于 Java 的 虚拟
 
 * **生态** ASP.NET Core 可能初出茅庐，但 .NET 却已久经考验。在 NuGet（.NET 的包管理系统，类似 npm、Ruby gems，或者 Maven）上有成千上万的软件包。有现成的包可用来完成 JSON 反序列化、数据库连接、PDF生成，或者几乎你能想到的任何需求。
 
-* **安全性** 微软的开团队很注重安全性，ASP.NET Core 从创建基础就是安全的。它已经自动处理了 净化输入数据 和 跨域伪造请求(XSRF)，你就不用操心这些了。你同时还享有 .NET 编译器的静态类型检测的福利，它像个时刻警惕着，还有些强迫症的审校者。这样，在使用一个变量或者某些数据时，那些无意识的错误就插翅难逃。
+* **安全性** 微软的开团队很注重安全性，ASP.NET Core 从创建基础就是安全的。它已经自动处理了 净化输入数据 和 跨域伪造请求(CSRF)，你就不用操心这些了。你同时还享有 .NET 编译器的静态类型检测的优势，它像个时刻警惕着，还有些强迫症的审校者。这样，在使用一个变量或者某些数据时，那些无意识的错误就插翅难逃。
 
 ## .NET Core 和 .NET 标准
 
-贯穿本书，你将学习有关 ASP.NET Core （web 框架）的知识。我会偶尔提及 .NET 运行时（用于运行 .NET 代码的支持库）。
+贯穿本书，你将学习有关 ASP.NET Core （web 框架）的知识。我会偶尔提及 .NET 运行时，用于运行 .NET 代码的支持库。如果你看着这段已经像天书那么晦涩，直接跳到下一章吧。
 
 你可能还会听说 .NET Core 和 .NET标准，这些命名有些混乱，所以在此做一简短的释疑：
 
-**.NET 标准** 是一个平台无关的接口，它定义了 .NET 中具有哪些特性和 API。 .NET 标准并不等同于任何实际的代码或者功能，仅仅是 API 的定义。.NET 标准现存多个不同的“版本”或者说级别，反映出提供 API 的数量（或者说 API 所覆盖的广度）。比如 .NET标准2.0 的 API 数量比 .NET标准1.5 多，后者的 API 又比 .NET标准1.0 多。
+**.NET 标准** 是一个平台无关的接口，它定义了特性和 API。值得指出的是，.NET 标准并不等同于任何实际的代码或者功能，仅仅是 API 的定义。.NET 标准现存多个不同的“版本”或者说级别，反映出提供 API 的数量（或者说 API 所覆盖的广度）。比如 .NET标准2.0 的 API 数量比 .NET标准1.5 多，后者的 API 又比 .NET标准1.0 多。
 
 **.NET Core** 是可安装在 Windows、Mac或者Linux上的 .NET 运行时库。它在各个操作系统上，使用对应的平台相关代码实现了定义于 .NET 标准中的 API。你将要把它安装到机器上，用来构建和运行 ASP.NET Core 应用程序。
 
@@ -90,6 +95,7 @@ ASP.NET Core 是对 ASP.NET 彻底的重写，重点关注于让该框架应用�
 
 ---
 
+# The Little ASP.NET Core Book
 
 *by Nate Barbettini*
 
