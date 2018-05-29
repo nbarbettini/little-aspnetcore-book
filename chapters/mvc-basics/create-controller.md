@@ -4,7 +4,7 @@
 
 给待办清单功能创建一个新的控制器，取名叫 `TodoController` ，并添加如下代码：
 
-**`Controllers/TodoController.cs`**
+**Controllers/TodoController.cs**
 
 ``` csharp
 using System;
@@ -48,9 +48,9 @@ public class TodoController : Controller
 }
 ```
 
-一个 action 方法可以返回视图、JSON数据，或者 `200 OK`、`404 Not Found` 之类的状态码。返回类型 `IActionResult` 给了你足够的灵活性，以返回上面提到的任意一个。
+一个 action 方法可以返回视图、JSON数据，或者 `200 OK`和`404 Not Found` 之类的状态码。返回类型 `IActionResult` 给了你足够的灵活性，以返回上面提到的任意一个。
 
-使控制器尽可能保持轻量化，是一个良好的习惯。在现在的情形里，这个控制器应该仅仅完成这些事情：从数据库取出待办事项的记录，把这些事项包装在一个可用于视图的模型中，并把这个视图发送到用户的浏览器。
+使控制器尽可能保持轻量化，是一个良好的习惯。在当前的情形里，这个控制器应该仅仅完成这些事情：从数据库取出待办事项的记录，把这些事项包装在一个可用于视图的模型中，并把这个视图发送到用户的浏览器。
 
 继续编码这个控制器之前，你需要创建 模型 和 视图。
 
