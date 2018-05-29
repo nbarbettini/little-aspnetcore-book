@@ -1,12 +1,12 @@
 ## 创建视图
 
-ASP.NET Core 里的视图使用 Razor 模板语言编写，这种模板语言混杂了 HTML 和 C# 的代码。（如果你在 JavaScript 下用 Jade、Pug或者 Handlebars moustaches，在 Ruby on Rails 下用 ERB，在 Java 下用 Thymeleaf 写过页面，那你就已经了解其基本概念了.）
+ASP.NET Core 里的视图使用 Razor 模板语言编写，这种模板语言混合了 HTML 和 C# 的代码。（如果你在 JavaScript 下用 Jade、Pug 或者 Handlebars moustaches，在 Ruby on Rails 下用 ERB，在 Java 下用 Thymeleaf 写过页面，那你就已经了解其基本概念了.）
 
 绝大多数视图代码就是 HTML，偶尔掺杂一点 C# 语句，用以从视图模型里抽取数据并转换为文本或者 HTML。这些 C# 语句以符号 `@` 作为前缀。
 
 由 `TodoController` 中的 action `Index` 生成的视图，需要从视图模型（一个待办事项的数组）获取数据，并用一个适当的表格展示给用户。按规定，视图要置于 `Views` 目录里，在一个与所属控制器同名的子目录下。视图文件的文件名就是 action 的名字加上一个 `.cshtml` 扩展名。
 
-**`Views/Todo/Index.cshtml`**
+**Views/Todo/Index.cshtml**
 
 ```html
 @model TodoViewModel
@@ -31,7 +31,7 @@ ASP.NET Core 里的视图使用 Razor 模板语言编写，这种模板语言混
       {
           <tr>
               <td>
-                <input type="checkbox" name="@item.Id" value="true" class="done-checkbox">
+                <input type="checkbox" class="done-checkbox">
               </td>
               <td>@item.Title</td>
               <td>@item.DueAt</td>
@@ -40,12 +40,7 @@ ASP.NET Core 里的视图使用 Razor 模板语言编写，这种模板语言混
   </table>
 
   <div class="panel-footer add-item-form">
-    <form>
-        <div id="add-item-error" class="text-danger"></div>
-        <label for="add-item-title">Add a new item:</label>
-        <input id="add-item-title">
-        <button type="button" id="add-item-button">Add</button>
-    </form>
+    <!-- TODO: Add item form -->
   </div>
 </div>
 ```
@@ -64,7 +59,7 @@ ASP.NET Core 里的视图使用 Razor 模板语言编写，这种模板语言混
 
 现在，请在 `site.css` 文件的底部添加以下这些 CSS 样式规则：
 
-**`wwwroot/css/site.css`**
+**wwwroot/css/site.css**
 
 ```css
 div.todo-panel {
