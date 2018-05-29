@@ -1,6 +1,6 @@
 ## 部署到 Azure
 
-把你的 ASP.NET Core 程序部署到 Azure 只需要简单几步。你可以通过 Azure 的网上门户实施，也可以在 Azure CLI 命令行工具里实施。我会介绍后者。
+把你的 ASP.NET Core 程序部署到 Azure 只需要简单几步。你可以通过 Azure 的网上门户实施，也可以在 Azure CLI 命令行工具里实施。我会讲解后者。
 
 ### 准备材料
 
@@ -13,7 +13,7 @@
 
 因为你的目录结构里存在多个项目（Web项目和两个测试项目），Azure 并不知道该把哪个发布出去。为解决这个问题，在你的目录结构顶层创建一个名为 `.deployment` 的文件：
 
-**`.deployment`**
+**.deployment**
 
 ```ini
 [config]
@@ -63,18 +63,6 @@ az webapp create -g AspNetCoreTodoGroup -p AspNetCoreTodoPlan -n MyTodoApp
 
 这个应用的名称（上面的 `MyTodoApp`）在 Azure 上必须是全局唯一的。一旦这个应用创建好了，会具有一个以下格式的默认 URL：http://mytodoapp.azurewebsites.net
 
-### 更改程序设置
-
-> 提示：只有当你在 *安全与身份* 章节配置过 Facebook 登录，才需要这么做。
-
-如果配置里 `Facebook:AppId` 和 `Facebook:AppSecret` 的值缺失，你的程序就无法正常启动。你需要使用 Azure 应用门户添加以下内容：
-
-1. 在 https://portal.azure.com 用你的 Azure 账户登录
-1. 打开你的 Web 应用（上面那个叫 `MyTodoApp` 的）
-1. 点击 **Application settings** 页签
-1. 在 **App settings** 部分，添加 `Facebook:AppId` 和 `Facebook:AppSecret` 以及它们对应的值
-1. 在顶部点击 **Save**
-
 ### 把项目文件部署到 Azure
 
 你可以用 Git 把程序文件推送到 Azure 网络应用。如果你本地目录尚未作为一个 Git 仓库管理，执行下列命令进行设置：
@@ -111,7 +99,9 @@ git remote add azure <粘贴>
 git push azure master
 ```
 
-程序部署到 Azure 的时候，你会看到一系列的日志信息。输出结束之后，浏览 http://yourappname.azurewebsites.net 以检验结果。
+程序部署到 Azure 的时候，你会看到一系列的日志信息。
+
+输出结束之后，浏览 http://yourappname.azurewebsites.net 以检验结果。
 
 ---
 
