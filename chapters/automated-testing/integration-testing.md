@@ -1,23 +1,19 @@
 ## 集成测试
 
-与单元测试相比，集成测试检验整个程序栈（路由、控制器、服务、数据库）。集成测试并不会隔离出一个类或组件，而是确保你程序的所有组件协作良好。
+与单元测试相比，集成测试在范围上大得多。它检验整个程序栈。集成测试并不会把一个类或组件隔离出来，而是确保你程序的所有组件协作良好，这些组件包括：路由、控制器、服务、数据库访问等等。
 
-集成测试较慢，并且比单元测试涵盖的范围大，所以，一般来说，一个项目会有大量的单元测试内容，而集成测试的内容则屈指可数。
+与单元测试相比，集成测试较慢，并且涵盖的范围较大，所以，一般来说，一个项目会有大量的单元测试内容，而集成测试的内容则屈指可数。
 
 为了测试整个程序栈（包括控制器路由），集成测试往往像网络浏览器那样向程序发起 HTTP 请求。
 
-为了编写那种发起 HTTP 请求的集成测试，你可以手动开启程序，并运行测试，向 `http://localhost:5000` 发起请求（并祈祷程序还在运行）。ASP.NET Core 提供了一个更好的方式来托管程序进行测试，就是：使用 `TestServer` 类。`TestServer` 能够在测试期间托管你的程序，并在测试结束之后自动关闭它。
+为了编写那种发起 HTTP 请求的集成测试，你可以同时手动开启程序，并运行测试项目，向 `http://localhost:5000` 发起请求。ASP.NET Core 提供了一个更好的方式来托管程序进行测试，就是：使用 `TestServer` 类。`TestServer` 能够在测试期间托管你的程序，并在测试结束之后自动关闭它。
 
 ### 创建一个测试项目
-
-单元测试和集成测试可以放置在同一个项目里（没什么害处），但为了完整起见，我要教你为集成测试创建一个独立的项目。
 
 如果你此刻位于项目目录，`cd` 到上一层的 `AspNetCoreTodo` 目录，使用以下命令搭建一个新项目:
 
 ```
-mkdir AspNetCoreTodo.IntegrationTests
-cd AspNetCoreTodo.IntegrationTests
-dotnet new xunit
+dotnet new xunit -o AspNetCoreTodo.IntegrationTests
 ```
 
 你现在的目录结构看起来应该是这样：
@@ -36,13 +32,15 @@ AspNetCoreTodo/
         AspNetCoreTodo.IntegrationTests.csproj
 ```
 
-既然这个测试项目也要用到主项目中的类，你需要添加一个引用指向主项目：
+> 如果你愿意，可以把单元测试和集成测试放置在同一个项目里。对大型项目而言，通常会把它们分开，以便于它们各自独立运行。
+
+既然这个测试项目要用到主项目中的类，你需要添加一个引用指向主项目：
 
 ```
 dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 ```
 
-还需要添加 NuGet 包 `Microsoft.AspNetCore.TestHost` ：
+还需要添加 NuGet 包 `Microsoft.AspNetCore.TestHost`：
 
 ```
 dotnet add package Microsoft.AspNetCore.TestHost
@@ -54,7 +52,7 @@ dotnet add package Microsoft.AspNetCore.TestHost
 
 在每次集成测试执行之前，需要进行一些配置。为免配置相关的代码把测试代码弄的乱七八糟，你可以把配置相关的内容提取到一个独立的类里。创建一个名为 `TestFixture` 的类：
 
-**`AspNetCoreTodo.IntegrationTests/TestFixture.cs`**
+**AspNetCoreTodo.IntegrationTests/TestFixture.cs**
 
 ```csharp
 using System;
@@ -71,31 +69,26 @@ namespace AspNetCoreTodo.IntegrationTests
     {
         private readonly TestServer _server;
 
+        public HttpClient Client { get; }
+
         public TestFixture()
         {
             var builder = new WebHostBuilder()
                 .UseStartup<AspNetCoreTodo.Startup>()
-                .ConfigureAppConfiguration((context, configBuilder) =>
+                .ConfigureAppConfiguration((context, config) =>
                 {
-                    configBuilder.SetBasePath(Path.Combine(
-                        Directory.GetCurrentDirectory(), "..\\..\\..\\..\\AspNetCoreTodo"));
+                    config.SetBasePath(Path.Combine(
+                        Directory.GetCurrentDirectory(),
+                        "..\\..\\..\\..\\AspNetCoreTodo"));
 
-                    configBuilder.AddJsonFile("appsettings.json");
-
-                    // 为 Facebook 中间件添加假的配置信息（以避免启动时报错）
-                    configBuilder.AddInMemoryCollection(new Dictionary<string, string>()
-                    {
-                        ["Facebook:AppId"] = "fake-app-id",
-                        ["Facebook:AppSecret"] = "fake-app-secret"
-                    });
+                    config.AddJsonFile("appsettings.json");
                 });
+
             _server = new TestServer(builder);
 
             Client = _server.CreateClient();
-            Client.BaseAddress = new Uri("http://localhost:5000");
+            Client.BaseAddress = new Uri("http://localhost:8888");
         }
-
-        public HttpClient Client { get; }
 
         public void Dispose()
         {
@@ -108,11 +101,9 @@ namespace AspNetCoreTodo.IntegrationTests
 
 这个类配置好了一个 `TestServer`，并使测试代码干净利索。
 
-> 如果你在 *安全和身份* 那章配置了 Facebook 登录，就有必要（在上面的 `ConfigureAppConfiguration` 代码块里）为 Facebook应用ID 和 密码 添加一些伪值。这是因为测试服务器无法获取 Secrets Manager 中的信息。在这个框架类里添加伪值可以避免测试服务器启动时报错。
+现在你（真的）可以开始编写集成测试了。创建一个名为 `TodoRouteShould` 的类：
 
-现在你（真的）可以开始编写集成测试了。创建一个名为  `TodoRouteShould` 的类：
-
-**`AspNetCoreTodo.IntegrationTests/TodoRouteShould.cs`**
+**AspNetCoreTodo.IntegrationTests/TodoRouteShould.cs**
 
 ```csharp
 using System.Net;
@@ -134,16 +125,22 @@ namespace AspNetCoreTodo.IntegrationTests
         [Fact]
         public async Task ChallengeAnonymousUser()
         {
-            // 布置
-            var request = new HttpRequestMessage(HttpMethod.Get, "/todo");
+            // Arrange
+            var request = new HttpRequestMessage(
+                HttpMethod.Get, "/todo");
 
-            // 执行: 向 /todo 发起请求
+            // Act: request the /todo route
             var response = await _client.SendAsync(request);
 
-            // 断言: 未登录用户应该被重定向到登录页面
-            Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
-            Assert.Equal("http://localhost:5000/Account/Login?ReturnUrl=%2Ftodo",
-                        response.Headers.Location.ToString());
+            // Assert: the user is sent to the login page
+            Assert.Equal(
+                HttpStatusCode.Redirect,
+                response.StatusCode);
+
+            Assert.Equal(
+                "http://localhost:8888/Account" +
+                "/Login?ReturnUrl=%2Ftodo",
+                response.Headers.Location.ToString());
         }
     }
 }
@@ -151,16 +148,16 @@ namespace AspNetCoreTodo.IntegrationTests
 
 这个测试发起一个匿名(未登录)的请求到路径 `/todo`，并验证浏览器被重定向到了登录页面。
 
-这是个很适合集成测试的使用场景，因为它涵盖了程序的多个组件：路由系统、控制器、控制器被标记了 `[Authorize]` 等等。这是个良好的测试，因为它确保你不会意外地弄丢了 `[Authorize]` 属性，从而导致待办事项视图对所有人可见。
+这是个很适合集成测试的使用场景，因为它涵盖了程序的多个组件：路由系统、控制器、控制器被标记了 `[Authorize]` 等等。这是个良好的测试点，因为它确保你不会意外地弄丢了 `[Authorize]` 属性，从而导致待办事项视图对所有人可见。
 
 在终端窗口运行 `dotnet test`，如果一切工作顺利，你会看到这样的成功信息：
 
 ```
 Starting test execution, please wait...
-[xUnit.net 00:00:00.7237031]   Discovering: AspNetCoreTodo.IntegrationTests
-[xUnit.net 00:00:00.8118035]   Discovered:  AspNetCoreTodo.IntegrationTests
-[xUnit.net 00:00:00.8779059]   Starting:    AspNetCoreTodo.IntegrationTests
-[xUnit.net 00:00:01.5828576]   Finished:    AspNetCoreTodo.IntegrationTests
+ Discovering: AspNetCoreTodo.IntegrationTests
+ Discovered:  AspNetCoreTodo.IntegrationTests
+ Starting:    AspNetCoreTodo.IntegrationTests
+ Finished:    AspNetCoreTodo.IntegrationTests
 
 Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
 Test Run Successful.
@@ -169,7 +166,7 @@ Test execution time: 2.0588 Seconds
 
 ## 本章总结
 
-测试是个宽泛的话题，还有很多东西需要学习。本章节没有涉及 UI 测试，也没有对前端(JavaScript) 代码进行测试——它本身可能就需要一整本书去讲述。不过，你应该已经掌握了一些基本的技能和知识，可用于实践并学习更多相关测试程序的编写。
+测试是个宽泛的话题，还有很多东西需要学习。本章节没有涉及 UI 测试，也没有对前端(JavaScript)代码进行测试——它本身可能就需要一整本书去讲述。不过，你应该已经掌握了一些基本的技能和知识，可用于实践并学习更多相关测试程序的编写。
 
 像以往一样，ASP.NET Core 文档（https://docs.asp.net）和 StackOverflow 都是用于了解更多知识以及遇到问题时查找答案的好资源。
 
