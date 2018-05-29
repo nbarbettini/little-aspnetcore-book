@@ -2,16 +2,16 @@
 
 最后一步，让我们来完成控制器的编码。控制器现在已经从 服务层 获取到一个 待办事项 的列表，它应该把这些条目放进一个 `TodoViewModel`，并把该 模型 与你先前创建的 视图 绑定：
 
-**`Controllers/TodoController.cs`**
+**Controllers/TodoController.cs**
 
 ```csharp
 public async Task<IActionResult> Index()
 {
-    var todoItems = await _todoItemService.GetIncompleteItemsAsync();
+    var items = await _todoItemService.GetIncompleteItemsAsync();
 
     var model = new TodoViewModel()
     {
-        Items = todoItems
+        Items = items
     };
 
     return View(model);
@@ -33,7 +33,7 @@ using AspNetCoreTodo.Models;
 
 如果你的网络浏览器没自动弹出来，打开它，浏览 http://localhost:5000/todo 。你会看到自己创建的视图，展示着（暂时）从伪数据库层提取的数据。
 
-祝贺你！你刚刚构建了一个可运作的 ASP.NET Core 程序。下一步，使用第三方的程序包和真正的数据库代码，你将走得更远。
+尽管可以径直浏览 `http://localhost:5000/todo`，但如果导航栏上有一个 **我的待办事项** 条目就更好了。要达成这个目的，你可以去编辑共享的布局文件。
 
 ---
 
