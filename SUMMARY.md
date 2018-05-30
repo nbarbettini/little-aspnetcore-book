@@ -25,7 +25,7 @@
     * [提示认证](chapters/security-and-identity/require-authentication.md)
     * [在程序中使用身份](chapters/security-and-identity/using-identity-in-the-application.md)
     * [按角色进行授权](chapters/security-and-identity/authorization-with-roles.md)
-    * [More resources](chapters/security-and-identity/more-resources.md)
+    * [附加资源](chapters/security-and-identity/more-resources.md)
 * [自动化测试](chapters/automated-testing/README.md)
     * [单元测试](chapters/automated-testing/unit-testing.md)
     * [集成测试](chapters/automated-testing/integration-testing.md)
