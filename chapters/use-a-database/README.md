@@ -4,9 +4,9 @@
 
 .NET 上有多个 ORM，其中有一个由微软开发，并默认包含在 ASP.NET Core 中，这就是 Entity Framework Core。Entity Framework Core 支持多个不同类型的数据库，并允许你使用 C# 代码创建数据库查询语句，查询结果映射回 C# 模型（POCO）。
 
-> 还记得创建服务接口以解耦控制器和服务的实现类吗？Entity Framework Core 就像一个数据库上的大型接口，你可以根据底层以来的数据库技术更换不同的 provider。
+> 还记得创建服务接口以解耦控制器和服务的实现类吗？Entity Framework Core 就像一个数据库上的大型接口。你的 C# 代码可以于具体的数据库实现无关，你可以根据底层以来的数据库技术更换不同的 provider。
 
-Entity Framework Core 可以连接到 SQL Server 和 MySQL 这种 SQl 数据库，也可以与 Mongo 这种 NoSQL（文档） 数据库协作。在本项目里，你将使用一个 SQLite 数据库，但你愿意的话，可以用一个不同的数据库。
+Entity Framework Core 可以连接到 SQL Server、PostgreSQL 和 MySQL 这种关系型数据库，也可以与 Mongo 这种 NoSQL（文档） 数据库协作。在本项目的开发过程中，你将使用一个 SQLite 数据库，以简化安装和配置的工作。
 
 ---
 
