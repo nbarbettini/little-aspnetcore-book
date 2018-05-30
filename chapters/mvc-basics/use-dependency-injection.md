@@ -31,22 +31,22 @@ using AspNetCoreTodo.Services;
 
 这个类的第一行声明了一个私有变量，保存 `ITodoItemService` 的引用。这个变量可以让你在后面的 `Index` 方法里使用该服务（具体方法，稍后便知）。
 
-`public TodoController(ITodoItemService todoItemService)` 这一行为类定义了一个**构造函数(constructor)**。构造函数是一个特殊的方法，它会在为（本例中是 `TodoController`）类创建一个新的实例的时候被调用。在构造函数中加入的 `ITodoItemService` 参数，表示你做出如下声明：要创建一个 `TodoController`，你必须提供一个能匹配 `ITodoItemService` 接口的对象。
+`public TodoController(ITodoItemService todoItemService)` 这一行给类定义了一个 **构造函数(constructor)**。构造函数是一个特殊的方法，它会在为（本例中是 `TodoController`）类创建一个新的实例的时候被调用。在构造函数中加入的 `ITodoItemService` 参数，表示你做出如下声明：要创建一个 `TodoController`，你必须提供一个能匹配 `ITodoItemService` 接口的对象。
 
-> 接口如此有用的原因就在于，因为它们有助于解耦（分离）你程序里的逻辑。既然这个控制器依赖于 `ITodoItemService` 接口，而不是任何 *特定的* 服务类，它就不知道也不必关心实际使用的是哪个具体的类。它可以是 `FakeTodoItemService`，或者是其它读写数据库的类，或者别的什么类。只要它符合该接口的要求，控制器就能工作。这使你可以轻而易举地，独立测试程序的各部分。（我会在 *自动化测试* 一章讲解测试相关的内容。）
+> 接口如此有用的原因就在于，因为它们有助于解耦（分离）你程序里的逻辑。既然这个控制器依赖于 `ITodoItemService` 接口，而不是任何 *特定的* 类，它就不知道也不必关心实际使用的是哪个具体的类。它可以是 `FakeTodoItemService`，或者是其它读写数据库的类，或者别的什么类。只要它符合该接口的要求，控制器就能工作。这使你可以轻而易举地，独立测试程序的各部分。（我会在 *自动化测试* 一章讲解测试相关的内容。）
 
 现在，你终于可以在 action 方法里，（通过你声明的那个私有变量）使用 `ITodoItemService` 从服务层获取 待办事项 了：
 
 ```csharp
 public IActionResult Index()
 {
-    var todoItems = await _todoItemService.GetIncompleteItemsAsync();
+    var items = await _todoItemService.GetIncompleteItemsAsync();
 
     // ...
 }
 ```
 
-还记得吗？ `GetIncompleteItemsAsync` 方法返回一个 `Task<IEnumerable<TodoItem>>`。“返回一个 `Task`”的意思是说，该方法不能立刻给出一个结果，但是你可以使用关键字 `await`，以确保你的代码暂停，直到结果就绪才继续执行。
+还记得吗？ `GetIncompleteItemsAsync` 方法返回一个 `Task<TodoItem[]>`。“返回一个 `Task`”的意思是说，该方法不能立刻给出一个结果，但是你可以使用关键字 `await`，以确保你的代码暂停，直到结果就绪才继续执行。
 
 当你编写代码访问数据库或者外部 API 服务的时候，`Task` 模式是很常见的，因为在数据库（或者网络）响应之前，它不可能给出实际的结果。如果你在 JavaScript 或者其它语言里使用过 promise 或者 回调函数，`Task` 与之如出一辙：承诺你，肯定会给出一个结果——在未来的某个时候。
 
@@ -57,7 +57,7 @@ public IActionResult Index()
 ```csharp
 public async Task<IActionResult> Index()
 {
-    var todoItems = await _todoItemService.GetIncompleteItemsAsync();
+    var items = await _todoItemService.GetIncompleteItemsAsync();
 
     // Put items into a model
 
@@ -92,7 +92,7 @@ services.AddSingleton<ITodoItemService, FakeTodoItemService>();
 
 `AddSingleton` 把你的服务作为 **singleton** 添加进服务容器。这意味着，只有一个`FakeTodoItemService`的实例被创建，并在每次被请求的时候都被复用。在后面，当你写另一个服务去跟数据库交互时，你会采用一个不同的方式（叫做 **scoped**）。我会在 *运用数据库* 一章里说明原因。
 
-好了，当一个请求进来，将会被发送到 `TodoController`，当控制器需要一个`ITodoItemService` 时，ASP.NET Core 会在 可用服务集合 里查找并自动给出 `FakeTodoItemService`。因为控制器依赖的服务是从服务容器里“注入(injected)”的，这个模式被称为 **依赖注入(dependency injection)**。
+好了，当一个请求进来，将会被发送到 `TodoController`，当控制器需要一个`ITodoItemService` 时，ASP.NET Core 会在 可用服务集合 里查找并自动给出 `FakeTodoItemService`。因为服务是从服务容器里“注入(injected)”的，这个模式被称为 **依赖注入(dependency injection)**。
 
 ---
 
