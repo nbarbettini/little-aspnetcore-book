@@ -11,7 +11,7 @@
     * [添加一个服务类](chapters/mvc-basics/add-service-class.md)
     * [运用依赖注入](chapters/mvc-basics/use-dependency-injection.md)
     * [完成控制器](chapters/mvc-basics/finish-controller.md)
-    * [Update the layout](chapters/mvc-basics/update-the-layout.md)
+    * [修改布局](chapters/mvc-basics/update-the-layout.md)
 * [添加外来软件包](chapters/add-external-packages/README.md)
 * [运用数据库](chapters/use-a-database/README.md)
     * [连接数据库](chapters/use-a-database/connect-to-a-database.md)
