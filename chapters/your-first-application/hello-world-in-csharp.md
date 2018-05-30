@@ -12,12 +12,17 @@ cd Documents
 
 ```shell
 dotnet new console -o CsharpHelloWorld
+```
+
+`dotnet new` 指令默认会用 C# 创建一个 .NET 项目。参数 `console` 选择了一个命令行应用(一种向屏幕输出文本的程序)的模板。`-o CsharpHelloWorld` 参数指示 `dotnet new` 为项目的所有文件创建一个名为 `CsharpHelloWorld` 的目录。进入到这个新目录里：
+
+```shell
 cd CsharpHelloWorld
 ```
 
-以上命令创建了一个基本的 C# 程序，它输出一些文本到屏幕上。这个程序由两个文件构成：一个项目文件（使用 `.csproj` 扩展名）和一个 C# 源文件（带有 `.cs` 扩展名），打开前面那个文件的话，可以看到以下内容：
+`dotnet new console` 命令创建了一个基本的 C# 程序，它输出文本 `Hello World!` 到屏幕上。这个程序由两个文件构成：一个项目文件（使用 `.csproj` 扩展名）和一个 C# 源文件（带有 `.cs` 扩展名），打开前面那个文件的话，可以看到以下内容：
 
-**`CsharpHelloWorld.csproj`**
+**CsharpHelloWorld.csproj**
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -32,7 +37,7 @@ cd CsharpHelloWorld
 
 项目文件基于 XML，其中定义了一些关于项目的元数据。到后面，你引用其它包的时候，那些包将被记录在这里（类似于 npm 的 `package.json`），你不需要经常手动编辑这个文件。
 
-**`Program.cs`**
+**Program.cs**
 
 ```csharp
 using System;
@@ -49,7 +54,7 @@ namespace CsharpHelloWorld
 }
 ```
 
-`static void Main` 是一个 C# 程序的入口点方法，按照惯例，会被置于一个叫 `Program` 的类（一种代码结构或模块）里。最上面的 `using` 语句引入了 .NET 内置于 System 的那些类，并使它们可以被用于这个类里。
+`static void Main` 是 C# 程序的入口点方法，按照惯例，会被置于一个叫 `Program` 的类（一种代码结构或模块）里。最上面的 `using` 语句引入了 .NET 内置于 `System` 的那些类，并使它们可以被用于这个类里。
 
 在项目的目录里，用 `dotnet run` 指令运行这个程序，在代码编译完成之后，你将看到输出在控制台里面的内容：
 
