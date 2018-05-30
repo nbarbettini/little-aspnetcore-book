@@ -4,7 +4,7 @@
 
 删除文件 `FakeTodoItemService.cs`，并创建一个新文件:
 
-**`Services/TodoItemService.cs`**
+**Services/TodoItemService.cs**
 
 ```csharp
 using System;
@@ -26,18 +26,17 @@ namespace AspNetCoreTodo.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
+        public async Task<TodoItem[]> GetIncompleteItemsAsync()
         {
-            var items = await _context.Items
+            return await _context.Items
                 .Where(x => x.IsDone == false)
                 .ToArrayAsync();
-            return items;
         }
     }
 }
 ```
 
-你应该注意到相同的依赖注入模式，如你在 MVC基础 章节所见到的那样，只是这次被注入的服务是 `ApplicationDbContext`。`ApplicationDbContext` 已经在`ConfigureServices` 方法里被添加到服务容器里，所以在这里可以直接使用。
+你应该注意到相同的依赖注入模式，如你在 *MVC基础* 章节所见到的那样，只是这次被注入的服务是 `ApplicationDbContext`。`ApplicationDbContext` 已经在`ConfigureServices` 方法里被添加到服务容器里，所以在这里可以直接使用。
 
 让我们仔细探究 `GetIncompleteItemsAsync` 方法的代码。首先，它用数据库上下文中的 `Items` 的属性获取 `DbSet` 中所有的 待办事项:
 
@@ -58,7 +57,7 @@ var items = await _context.Items
 如果想使这个方法变简短一点，你可以删除中间变量 `items`，直接返回查询结果（跟原来功能一样）：
 
 ```csharp
-public async Task<IEnumerable<TodoItem>> GetIncompleteItemsAsync()
+public async Task<TodoItem[]> GetIncompleteItemsAsync()
 {
     return await _context.Items
         .Where(x => x.IsDone == false)
@@ -78,11 +77,11 @@ services.AddScoped<ITodoItemService, TodoItemService>();
 
 > 添加一个服务类去跟 Entity Framework Core（以及你的数据库）打交道，如果用单件（或其它）生命周期会引发麻烦，原因在于 Entity Framework Core 底层以请求为单位管数据库连接。要避免这些问题，请在跟 Entity Framework Core 打交道的服务上，始终采用 scoped 生命周期。
 
-依赖于 `ITodoItemService` 的 `TodoController` 将幸福地对这个变化毫无察觉，但在底层，你将使用 Entity Framework Core 与真实的数据库进行交互！
+依赖于被注入的 `ITodoItemService` 的 `TodoController` 将幸福地对这个变化毫无察觉，但在底层，你将使用 Entity Framework Core 与真实的数据库进行交互！
 
 ### 试试看
 
-启动程序并导航至 `http://localhost:5000/todo`。硬编码的那些条目不见了，你的程序对数据库发起了真正的查询。只是刚好还没有任何 待办事项 被保存。
+启动程序并导航至 `http://localhost:5000/todo`。硬编码的那些条目不见了，你的程序对数据库发起了真正的查询。数据库里刚好还没有任何已存的 待办事项条目，所以页面目前还是空白的。
 
 下一章，你将在程序中添加更多的功能，从“创建新 待办事项 的能力”开始。
 
