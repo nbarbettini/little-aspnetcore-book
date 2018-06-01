@@ -5,15 +5,8 @@
     "language": "zh-hans",
     "pdf": {
         "fontSize": 13,
-        "fontFamily": "Microsoft YaHei",
-        "margin": {
-            "comment_from_windsting": "these margin settings not working.",
-            "top": 12,
-            "bottom": 12,
-            "left": 12,
-            "right": 12
-        },
-        "paperSize": "b5"
+        "paperSize": "a5",
+        "fontFamily": "Microsoft YaHei"
     },
     "plugins": ["expandable-chapters-small", "disqus", "splitter", "anchors", "copy-code-button", "forkmegithub"],
     "pluginsConfig": {

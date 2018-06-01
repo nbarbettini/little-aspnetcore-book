@@ -2,16 +2,16 @@
 
 最后一步，让我们来完成控制器的编码。控制器现在已经从 服务层 获取到一个 待办事项 的列表，它应该把这些条目放进一个 `TodoViewModel`，并把该 模型 与你先前创建的 视图 绑定：
 
-**`Controllers/TodoController.cs`**
+**Controllers/TodoController.cs**
 
 ```csharp
 public async Task<IActionResult> Index()
 {
-    var todoItems = await _todoItemService.GetIncompleteItemsAsync();
+    var items = await _todoItemService.GetIncompleteItemsAsync();
 
     var model = new TodoViewModel()
     {
-        Items = todoItems
+        Items = items
     };
 
     return View(model);
@@ -33,23 +33,23 @@ using AspNetCoreTodo.Models;
 
 如果你的网络浏览器没自动弹出来，打开它，浏览 http://localhost:5000/todo 。你会看到自己创建的视图，展示着（暂时）从伪数据库层提取的数据。
 
-祝贺你！你刚刚构建了一个可运作的 ASP.NET Core 程序。下一步，使用第三方的程序包和真正的数据库代码，你将走得更远。
+尽管可以径直浏览 `http://localhost:5000/todo`，但如果导航栏上有一个 **我的待办事项** 条目就更好了。要达成这个目的，你可以去编辑共享的布局文件。
 
 ---
 
 ## Finish the controller
 The last step is to finish the controller code. The controller now has a list of to-do items from the service layer, and it needs to put those items into a `TodoViewModel` and bind that model to the view you created earlier:
 
-**`Controllers/TodoController.cs`**
+**Controllers/TodoController.cs**
 
 ```csharp
 public async Task<IActionResult> Index()
 {
-    var todoItems = await _todoItemService.GetIncompleteItemsAsync();
+    var items = await _todoItemService.GetIncompleteItemsAsync();
 
     var model = new TodoViewModel()
     {
-        Items = todoItems
+        Items = items
     };
 
     return View(model);
@@ -66,8 +66,8 @@ using AspNetCoreTodo.Models;
 If you're using Visual Studio or Visual Studio Code, the editor will suggest these `using` statements when you put your cursor on a red squiggly line.
 
 ## Test it out
-To start the application, press F5 (if you're using Visual Studio or Visual Studio Code), or just run `dotnet run` in the terminal. If the code compiles without errors, the server will spin up on port 5000 by default.
+To start the application, press F5 (if you're using Visual Studio or Visual Studio Code), or just type `dotnet run` in the terminal. If the code compiles without errors, the server will start up on port 5000 by default.
 
-If your web browser didn't open automatically, open it and navigate to http://localhost:5000/todo. You'll see the view you created, with the data pulled from your fake database layer (for now).
+If your web browser didn't open automatically, open it and navigate to http://localhost:5000/todo. You'll see the view you created, with the data pulled from your fake database (for now).
 
-Congratulations! You've built a working ASP.NET Core application. Next, you'll take it further with third-party packages and real database code.
+Although it's possible to go directly to `http://localhost:5000/todo`, it would be nicer to add an item called **My to-dos** to the navbar. To do this, you can edit the shared layout file.

@@ -1,6 +1,6 @@
 # 添加外来软件包
 
-选择诸如 .NET 这种成熟的技术栈，其最大的优势之一，就是第三方软件包和插件的生态系统非常庞大。正如其它的软件包系统(npm、Maven、RugGems)一样，你可以下载并安装 .NET 软件包，以获取协助，来完成几乎任何能想到的任务和难题。
+选择诸如 .NET 这种成熟的生态系统，其最大的优势之一，就是第三方软件包和插件的量非常庞大。正如其它的软件包系统一样，你可以下载并安装 .NET 软件包，以获取协助，来完成几乎任何能想到的任务和难题。
 
 NuGet 即是包管理工具，也是官方的软件包仓库（位于 https://www.nuget.org）。你可以在网页上检索 NuGet 软件包，并在自己的机器上使用终端（或者 Visual Studio 里的图形界面）安装它们。
 
@@ -10,7 +10,9 @@ NuGet 即是包管理工具，也是官方的软件包仓库（位于 https://ww
 
 ![Dates in ISO 8601 format](iso8601.png)
 
-“截止日期”一栏所展示的日期，这种格式（叫做 ISO 8601）对机器来说很方便，但是人类看着就不爽了。如果看到的是“还剩 X 天”这样，不是更好吗？你完全可以自己写一段代码，把一个日期转换成更人性化的字符串，不过幸运的是，还有个更便捷的方法。
+“截止日期”一栏所展示的日期，这种格式（叫做 ISO 8601）对机器来说很方便，但是人类看着就不爽了。如果看到的是“还剩 X 天”这样，不是更好吗？
+
+你完全可以自己写一段代码，把一个日期转换成更人性化的字符串，不过幸运的是，还有个更便捷的方法。
 
 NuGet 上的软件包 Humanizer (https://www.nuget.org/packages/Humanizer) 解决了这种问题，它提供的方法可以“人性化(humanize)” 或者说 改写 几乎任何东西：日期、时间、时长、数字等等。它是个很好很有用的开源项目，根据 MIT 许可证发布。
 
@@ -56,7 +58,7 @@ NuGet 上有着大量的软件包，从 XML解析 到 机器学习 到 Twitter�
 ---
 
 # Add external packages
-One of the big advantages of using a mature stack like .NET is that the ecosystem of third-party packages and plugins is huge. Just like other package systems (npm, Maven, RubyGems), you can download and install .NET packages that help with almost any task or problem you can imagine.
+One of the big advantages of using a mature ecosystem like .NET is that the number of third-party packages and plugins is huge. Just like other package systems, you can download and install .NET packages that help with almost any task or problem you can imagine.
 
 NuGet is both the package manager tool and the official package repository (at https://www.nuget.org). You can search for NuGet packages on the web, and install them from your local machine through the terminal (or the GUI, if you're using Visual Studio).
 
@@ -65,9 +67,11 @@ At the end of the last chapter, the to-do application displayed to-do items like
 
 ![Dates in ISO 8601 format](iso8601.png)
 
-The due date column is displaying dates in a format that's good for machines (called ISO 8601), but clunky for humans. Wouldn't it be nicer if it simply read "X days from now"? You could write code that converted a date into a human-friendly string, but fortunately, there's a faster way.
+The due date column is displaying dates in a format that's good for machines (called ISO 8601), but clunky for humans. Wouldn't it be nicer if it simply read "X days from now"?
 
-The Humanizer package on NuGet (https://www.nuget.org/packages/Humanizer) solves this problem by providing methods that can "humanize" or rewrite almost anything: dates, times, durations, numbers, and so on. It's a fantastic and useful open-source project that's published under the permissive MIT license.
+You could write code yourself that converted an ISO 8601 date into a human-friendly string, but fortunately, there's a faster way.
+
+The Humanizer package on NuGet solves this problem by providing methods that can "humanize" or rewrite almost anything: dates, times, durations, numbers, and so on. It's a fantastic and useful open-source project that's published under the permissive MIT license.
 
 To add it to your project, run this command in the terminal:
 
@@ -83,7 +87,7 @@ To use a package in your code, you usually need to add a `using` statement that 
 
 Since Humanizer will be used to rewrite dates rendered in the view, you can use it directly in the view itself. First, add a `@using` statement at the top of the view:
 
-**`Views/Todo/Index.cshtml`**
+**Views/Todo/Index.cshtml**
 
 ```html
 @model TodoViewModel
