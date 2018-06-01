@@ -80,7 +80,7 @@
     <link rel="next" href="using-identity-in-the-application.html" />
     
     
-    <link rel="prev" href="add-facebook-login.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -272,6 +272,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.7" data-path="../mvc-basics/update-the-layout.html">
+            
+                <a href="../mvc-basics/update-the-layout.html">
+            
+                    
+                    修改布局
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -420,20 +433,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="add-facebook-login.html">
-            
-                <a href="add-facebook-login.html">
-            
-                    
-                    添加 Facebook 登录功能
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.7.2" data-path="require-authentication.html">
+        <li class="chapter active" data-level="1.7.1" data-path="require-authentication.html">
             
                 <a href="require-authentication.html">
             
@@ -446,7 +446,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="using-identity-in-the-application.html">
+        <li class="chapter " data-level="1.7.2" data-path="using-identity-in-the-application.html">
             
                 <a href="using-identity-in-the-application.html">
             
@@ -459,12 +459,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.4" data-path="authorization-with-roles.html">
+        <li class="chapter " data-level="1.7.3" data-path="authorization-with-roles.html">
             
                 <a href="authorization-with-roles.html">
             
                     
                     按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="more-resources.html">
+            
+                <a href="more-resources.html">
+            
+                    
+                    附加资源
             
                 </a>
             
@@ -626,25 +639,23 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="&#x63D0;&#x793A;&#x8BA4;&#x8BC1;"><a name="&#x63D0;&#x793A;&#x8BA4;&#x8BC1;" class="plugin-anchor" href="#&#x63D0;&#x793A;&#x8BA4;&#x8BC1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63D0;&#x793A;&#x8BA4;&#x8BC1;</h2>
-<p>&#x5728;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x4F60;&#x7A0B;&#x5E8F;&#x4E2D;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;&#x4F60;&#x901A;&#x5E38;&#x90FD;&#x4F1A;&#x8981;&#x6C42;&#x4ED6;&#x4EEC;&#x767B;&#x5F55;&#x3002;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x628A;&#x4E3B;&#x9875;&#x5411;&#x6240;&#x6709;&#x4EBA;&#x5C55;&#x793A;&#x662F;&#x5408;&#x7406;&#x7684;&#xFF08;&#x4E0D;&#x7BA1;&#x4F60;&#x6709;&#x6CA1;&#x6709;&#x767B;&#x5F55;&#xFF09;&#xFF0C;&#x4F46;&#x53EA;&#x5728;&#x767B;&#x5F55;&#x4E4B;&#x540E;&#x624D;&#x5411;&#x4F60;&#x5C55;&#x793A;&#x5F85;&#x529E;&#x4E8B;&#x9879;&#x5217;&#x8868;&#x3002;</p>
-<p>&#x5728; ASP.NET Core &#x91CC;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>[Authorize]</code> &#x5C5E;&#x6027;&#xFF0C;&#x8981;&#x6C42;&#x7528;&#x6237;&#x5728;&#x8BBF;&#x95EE;&#x6307;&#x5B9A;&#x7684; action &#x6216;&#x6574;&#x4E2A;&#x63A7;&#x5236;&#x5668;&#x65F6;&#xFF0C;&#x8981;&#x4E8B;&#x5148;&#x767B;&#x5F55;&#x8FC7;&#x3002;&#x8981;&#x4E3A; <code>TodoController</code> &#x91CC;&#x7684;&#x6240;&#x6709; action &#x6DFB;&#x52A0;&#x8BA4;&#x8BC1;&#x63D0;&#x793A;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x63A7;&#x5236;&#x5668;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#x4E0A;&#x9762;&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;</p>
+<p>&#x5728;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x4F60;&#x7A0B;&#x5E8F;&#x4E2D;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;&#x4F60;&#x901A;&#x5E38;&#x90FD;&#x4F1A;&#x8981;&#x6C42;&#x4ED6;&#x4EEC;&#x767B;&#x5F55;&#x3002;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x628A;&#x4E3B;&#x9875;&#x5411;&#x6240;&#x6709;&#x4EBA;&#x5C55;&#x793A;&#x662F;&#x5408;&#x7406;&#x7684;&#xFF08;&#x4E0D;&#x7BA1;&#x4F60;&#x6709;&#x6CA1;&#x6709;&#x767B;&#x5F55;&#xFF09;&#xFF0C;&#x4F46;&#x53EA;&#x5728;&#x767B;&#x5F55;&#x4E4B;&#x540E;&#x624D;&#x5411;&#x4F60;&#x5C55;&#x793A;&#x5F85;&#x529E;&#x4E8B;&#x9879;&#x5217;&#x8868;&#xFFFD;
+&#xFFFD;ASP.NET Core &#x91CC;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#xFFFD;<code>[Authorize]</code> &#x5C5E;&#x6027;&#xFF0C;&#x8981;&#x6C42;&#x7528;&#x6237;&#x5728;&#x8BBF;&#x95EE;&#x6307;&#x5B9A;&#x7684; action &#x6216;&#x6574;&#x4E2A;&#x63A7;&#x5236;&#x5668;&#x65F6;&#xFF0C;&#x8981;&#x4E8B;&#x5148;&#x767B;&#x5F55;&#x8FC7;&#x3002;&#x8981;&#xFFFD;<code>TodoController</code> &#x91CC;&#x7684;&#x6240;&#xFFFD;action &#x6DFB;&#x52A0;&#x8BA4;&#x8BC1;&#x63D0;&#x793A;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x63A7;&#x5236;&#x5668;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#x4E0A;&#x9762;&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;</p>
 <pre><code class="lang-csharp">[Authorize]
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoController</span> : <span class="hljs-title">Controller</span>
 {
     <span class="hljs-comment">// ...</span>
 }
 </code></pre>
-<p>&#x5728;&#x6587;&#x4EF6;&#x9876;&#x90E8;&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A; <code>using</code> &#x8BED;&#x53E5;&#xFF1A;</p>
+<p>&#x5728;&#x6587;&#x4EF6;&#x9876;&#x90E8;&#x6DFB;&#x52A0;&#x8FD9;&#xFFFD;<code>using</code> &#x8BED;&#x53E5;&#xFFFD;</p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">using</span> Microsoft.AspNetCore.Authorization;
 </code></pre>
-<p>&#x8BD5;&#x7740;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x5E76;&#x5728;&#x672A;&#x767B;&#x5F55;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x8BBF;&#x95EE; <code>/todo</code>&#x3002;&#x4F60;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x767B;&#x5F55;&#x9875;&#x9762;&#x3002;</p>
-<blockquote>
-<p>&#x5C3D;&#x7BA1;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x5B57;&#x662F;&#x6388;&#x6743;(Authorize)&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x68C0;&#x67E5;&#x7684;&#x5176;&#x5B9E;&#x662F;&#x8BA4;&#x8BC1;(authorization)&#xFF0C;&#x800C;&#x975E;&#x68C0;&#x67E5;&#x6388;&#x6743;&#xFF0C;&#x5F88;&#x62B1;&#x6B49;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x6DF7;&#x6DC6;&#x3002;</p>
-</blockquote>
-<hr>
+<p>&#x8BD5;&#x7740;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x5E76;&#x5728;&#x672A;&#x767B;&#x5F55;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x8BBF;&#xFFFD;<code>/todo</code>&#x3002;&#x4F60;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x767B;&#x5F55;&#x9875;&#x9762;&#xFFFD;</p>
+<h2 id="&#x5C3D;&#x7BA1;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x5B57;&#x662F;&#x6388;&#xFFFD;authorize&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x68C0;&#x67E5;&#x7684;&#x5176;&#x5B9E;&#x662F;&#x8BA4;&#xFFFD;authorization&#xFF0C;&#x800C;&#x975E;&#x68C0;&#x67E5;&#x6388;&#x6743;&#xFF0C;&#x5F88;&#x62B1;&#x6B49;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x6DF7;&#x6DC6;&#xFFFD;"><a name="&#x5C3D;&#x7BA1;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x5B57;&#x662F;&#x6388;&#xFFFD;authorize&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x68C0;&#x67E5;&#x7684;&#x5176;&#x5B9E;&#x662F;&#x8BA4;&#xFFFD;authorization&#xFF0C;&#x800C;&#x975E;&#x68C0;&#x67E5;&#x6388;&#x6743;&#xFF0C;&#x5F88;&#x62B1;&#x6B49;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x6DF7;&#x6DC6;&#xFFFD;" class="plugin-anchor" href="#&#x5C3D;&#x7BA1;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x5B57;&#x662F;&#x6388;&#xFFFD;authorize&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x68C0;&#x67E5;&#x7684;&#x5176;&#x5B9E;&#x662F;&#x8BA4;&#xFFFD;authorization&#xFF0C;&#x800C;&#x975E;&#x68C0;&#x67E5;&#x6388;&#x6743;&#xFF0C;&#x5F88;&#x62B1;&#x6B49;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x6DF7;&#x6DC6;&#xFFFD;"><i class="fa fa-link" aria-hidden="true"></i></a>&gt; &#x5C3D;&#x7BA1;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x5B57;&#x662F;&#x6388;&#xFFFD;Authorize)&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x68C0;&#x67E5;&#x7684;&#x5176;&#x5B9E;&#x662F;&#x8BA4;&#xFFFD;authorization)&#xFF0C;&#x800C;&#x975E;&#x68C0;&#x67E5;&#x6388;&#x6743;&#xFF0C;&#x5F88;&#x62B1;&#x6B49;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x6DF7;&#x6DC6;&#xFFFD;</h2>
 <h2 id="require-authentication"><a name="require-authentication" class="plugin-anchor" href="#require-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>Require authentication</h2>
 <p>Often you&apos;ll want to require the user to log in before they can access certain parts of your application. For example, it makes sense to show the home page to everyone (whether you&apos;re logged in or not), but only show your to-do list after you&apos;ve logged in.</p>
 <p>You can use the <code>[Authorize]</code> attribute in ASP.NET Core to require a logged-in user for a particular action, or an entire controller. To require authentication for all actions of the <code>TodoController</code>, add the attribute above the first line of the controller:</p>
+<p><strong>Controllers/TodoController.cs</strong></p>
 <pre><code class="lang-csharp">[Authorize]
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoController</span> : <span class="hljs-title">Controller</span>
 {
@@ -656,7 +667,7 @@
 </code></pre>
 <p>Try running the application and accessing <code>/todo</code> without being logged in. You&apos;ll be redirected to the login page automatically.</p>
 <blockquote>
-<p>Despite the name of the attribute, we are really doing an authentication check here, not an authorization check. Sorry to be confusing.</p>
+<p>The <code>[Authorize]</code> attribute is actually doing an authentication check here, not an authorization check (despite the name of the attribute). Later, you&apos;ll use the attribute to check <strong>both</strong> authentication and authorization.</p>
 </blockquote>
 
                                 
@@ -685,7 +696,7 @@
 
             
                 
-                <a href="add-facebook-login.html" class="navigation navigation-prev " aria-label="Previous page: 添加 Facebook 登录功能">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 安全和身份">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -701,7 +712,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"提示认证","level":"1.7.2","depth":2,"next":{"title":"在程序中使用身份","level":"1.7.3","depth":2,"path":"chapters/security-and-identity/using-identity-in-the-application.md","ref":"chapters/security-and-identity/using-identity-in-the-application.md","articles":[]},"previous":{"title":"添加 Facebook 登录功能","level":"1.7.1","depth":2,"path":"chapters/security-and-identity/add-facebook-login.md","ref":"chapters/security-and-identity/add-facebook-login.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"b5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":12,"left":12,"top":12,"bottom":12,"comment_from_windsting":"these margin settings not working."}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/security-and-identity/require-authentication.md","mtime":"2018-04-26T03:11:43.263Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-28T07:47:03.635Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"提示认证","level":"1.7.1","depth":2,"next":{"title":"在程序中使用身份","level":"1.7.2","depth":2,"path":"chapters/security-and-identity/using-identity-in-the-application.md","ref":"chapters/security-and-identity/using-identity-in-the-application.md","articles":[]},"previous":{"title":"安全和身份","level":"1.7","depth":1,"path":"chapters/security-and-identity/README.md","ref":"chapters/security-and-identity/README.md","articles":[{"title":"提示认证","level":"1.7.1","depth":2,"path":"chapters/security-and-identity/require-authentication.md","ref":"chapters/security-and-identity/require-authentication.md","articles":[]},{"title":"在程序中使用身份","level":"1.7.2","depth":2,"path":"chapters/security-and-identity/using-identity-in-the-application.md","ref":"chapters/security-and-identity/using-identity-in-the-application.md","articles":[]},{"title":"按角色进行授权","level":"1.7.3","depth":2,"path":"chapters/security-and-identity/authorization-with-roles.md","ref":"chapters/security-and-identity/authorization-with-roles.md","articles":[]},{"title":"附加资源","level":"1.7.4","depth":2,"path":"chapters/security-and-identity/more-resources.md","ref":"chapters/security-and-identity/more-resources.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/security-and-identity/require-authentication.md","mtime":"2018-06-01T09:39:28.241Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-01T09:46:04.882Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -22,7 +22,7 @@ dotnet ef migrations add AddItems
 
 如果你打开一个变更文件，可以看到两个方法，名字分别是 `Up` 和 `Down`:
 
-**`Data/Migrations/<date>_AddItems.cs`**
+**Data/Migrations/<date>_AddItems.cs**
 
 ```csharp
 protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,10 +33,10 @@ protected override void Up(MigrationBuilder migrationBuilder)
         name: "Items",
         columns: table => new
         {
-            Id = table.Column<Guid>(type: "BLOB", nullable: false),
-            DueAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
-            IsDone = table.Column<bool>(type: "INTEGER", nullable: false),
-            Title = table.Column<string>(type: "TEXT", nullable: true)
+            Id = table.Column<Guid>(nullable: false),
+            DueAt = table.Column<DateTimeOffset>(nullable: true),
+            IsDone = table.Column<bool>(nullable: false),
+            Title = table.Column<string>(nullable: true)
         },
         constraints: table =>
         {
@@ -57,7 +57,7 @@ protected override void Down(MigrationBuilder migrationBuilder)
 }
 ```
 
-将变更应用到数据库时将 `Up` 方法会被执行。因为你在数据库上下文里添加了一个 `DbSet<TodoItem>` ，应用变更时 Entity Framework Core 会创建一个 `Items` 表（其列与 `TodoItem` 相匹配)。
+将变更应用到数据库时 `Up` 方法将会被执行。因为你在数据库上下文里添加了一个 `DbSet<TodoItem>` ，应用变更时 Entity Framework Core 会创建一个 `Items` 表（其列与 `TodoItem` 相匹配)。
 
  `Down` 方法刚好相反：当你需要撤销(回滚)变更时，`Items` 表将会被丢弃。
 
@@ -65,8 +65,8 @@ protected override void Down(MigrationBuilder migrationBuilder)
 
 如果你按原样执行变更，会遭遇 SQLite 数据库的局限性带来的问题，要修复它，可以这样绕开：
 
-* 在 `Up` 方法里注释掉 `migrationBuilder.AddForeignKey` 那些行。
-* 在 `Down` 方法里注释掉 `migrationBuilder.DropForeignKey` 那些行。
+* 在 `Up` 方法里注释掉或删除 `migrationBuilder.AddForeignKey` 那些行。
+* 在 `Down` 方法里注释掉或删除 `migrationBuilder.DropForeignKey` 那些行。
 
 如果你使用完善的数据库，如 SQL Server 或者 MySQL，就不需要这样（有点旁门左道的）绕弯了。
 
@@ -111,7 +111,7 @@ The first migration file (with a name like `00_CreateIdentitySchema.cs`) was cre
 
 If you open your migration file, you'll see two methods called `Up` and `Down`:
 
-**`Data/Migrations/<date>_AddItems.cs`**
+**Data/Migrations/<date>_AddItems.cs**
 
 ```csharp
 protected override void Up(MigrationBuilder migrationBuilder)
@@ -122,10 +122,10 @@ protected override void Up(MigrationBuilder migrationBuilder)
         name: "Items",
         columns: table => new
         {
-            Id = table.Column<Guid>(type: "BLOB", nullable: false),
-            DueAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
-            IsDone = table.Column<bool>(type: "INTEGER", nullable: false),
-            Title = table.Column<string>(type: "TEXT", nullable: true)
+            Id = table.Column<Guid>(nullable: false),
+            DueAt = table.Column<DateTimeOffset>(nullable: true),
+            IsDone = table.Column<bool>(nullable: false),
+            Title = table.Column<string>(nullable: true)
         },
         constraints: table =>
         {
@@ -154,8 +154,8 @@ The `Down` method does the opposite: if you need to undo (roll back) the migrati
 
 There are some limitations of SQLite that get in the way if you try to run the migration as-is. Until this problem is fixed, use this workaround:
 
-* Comment out the `migrationBuilder.AddForeignKey` lines in the `Up` method.
-* Comment out any `migrationBuilder.DropForeignKey` lines in the `Down` method.
+* Comment out or remove the `migrationBuilder.AddForeignKey` lines in the `Up` method.
+* Comment out or remove any `migrationBuilder.DropForeignKey` lines in the `Down` method.
 
 If you use a full-fledged SQL database, like SQL Server or MySQL, this won't be an issue and you won't need to do this (admittedly hackish) workaround.
 

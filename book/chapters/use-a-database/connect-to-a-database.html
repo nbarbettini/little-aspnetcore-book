@@ -272,6 +272,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.7" data-path="../mvc-basics/update-the-layout.html">
+            
+                <a href="../mvc-basics/update-the-layout.html">
+            
+                    
+                    修改布局
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -420,20 +433,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/add-facebook-login.html">
-            
-                <a href="../security-and-identity/add-facebook-login.html">
-            
-                    
-                    添加 Facebook 登录功能
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/require-authentication.html">
+        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/require-authentication.html">
             
                 <a href="../security-and-identity/require-authentication.html">
             
@@ -446,7 +446,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/using-identity-in-the-application.html">
+        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/using-identity-in-the-application.html">
             
                 <a href="../security-and-identity/using-identity-in-the-application.html">
             
@@ -459,12 +459,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/authorization-with-roles.html">
+        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/authorization-with-roles.html">
             
                 <a href="../security-and-identity/authorization-with-roles.html">
             
                     
                     按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/more-resources.html">
+            
+                <a href="../security-and-identity/more-resources.html">
+            
+                    
+                    附加资源
             
                 </a>
             
@@ -638,8 +651,9 @@
 </li>
 </ul>
 <p>Entity Framework Core &#x501F;&#x52A9; &#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#x3001;&#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32; &#x4E0E;&#x6570;&#x636E;&#x5E93;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x3002;&#x4F60;&#x9700;&#x8981;&#x5728; <code>Startup</code> &#x7C7B;&#x91CC;&#x7684; <code>ConfigureServices</code> &#x65B9;&#x6CD5;&#x4E2D;&#x4E3A; Entity Framework Core &#x6307;&#x5B9A;&#x6240;&#x7528;&#x7684; &#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#x3001;&#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x6570;&#x636E;&#x5E93;&#x7C7B;&#x578B;&#x3002;&#x611F;&#x8C22;&#x9879;&#x76EE;&#x6A21;&#x677F;&#xFF1A;</p>
-<pre><code class="lang-csharp">service.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
-    options.UseSqlite(Configuration.GetConnectionString(<span class="hljs-string">&quot;DefaultConnection&quot;</span>)));
+<pre><code class="lang-csharp">services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseSqlite(
+        Configuration.GetConnectionString(<span class="hljs-string">&quot;DefaultConnection&quot;</span>)));
 </code></pre>
 <p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x628A; <code>ApplicationDbContext</code> &#x6DFB;&#x52A0;&#x5230;&#x670D;&#x52A1;&#x5BB9;&#x5668;&#x91CC;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x914D;&#x7F6E;(<code>appsettings.json</code>)&#x4E2D;&#x7684; &#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32; &#x6307;&#x5B9A; Entity Framework Core &#x4F7F;&#x7528; SQLite &#x6570;&#x636E;&#x5E93;&#x3002;</p>
 <p>&#x5982;&#x4F60;&#x6240;&#x89C1;&#xFF0C;<code>dotnet new</code> &#x4E3A;&#x4F60;&#x5B8C;&#x6210;&#x4E86;&#x5F88;&#x591A;&#x5DE5;&#x4F5C;! &#x6570;&#x636E;&#x5E93;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x597D;&#x5F85;&#x7528;&#x4E86;&#x3002;&#x4F46;&#x662F;&#x8FD8;&#x6CA1;&#x6709;&#x8868;&#x7528;&#x4E8E;&#x4FDD;&#x5B58; &#x5F85;&#x529E;&#x4E8B;&#x9879;&#x6761;&#x76EE;&#x3002;&#x4E3A;&#x4E86;&#x80FD;&#x5B58;&#x50A8; <code>TodoItem</code> &#x5B9E;&#x4F53;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5E76;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x8FDB;&#x884C;&#x53D8;&#x66F4;&#x3002;</p>
@@ -658,7 +672,8 @@
 </ul>
 <p>Entity Framework Core uses the database context, together with the connection string, to establish a connection to the database. You need to tell Entity Framework Core which context, connection string, and database provider to use in the <code>ConfigureServices</code> method of the <code>Startup</code> class. Here&apos;s what&apos;s defined for you, thanks to the template:</p>
 <pre><code class="lang-csharp">services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
-    options.UseSqlite(Configuration.GetConnectionString(<span class="hljs-string">&quot;DefaultConnection&quot;</span>)));
+    options.UseSqlite(
+        Configuration.GetConnectionString(<span class="hljs-string">&quot;DefaultConnection&quot;</span>)));
 </code></pre>
 <p>This code adds the <code>ApplicationDbContext</code> to the service container, and tells Entity Framework Core to use the SQLite database provider, with the connection string from configuration (<code>appsettings.json</code>).</p>
 <p>As you can see, <code>dotnet new</code> creates a lot of stuff for you! The database is set up and ready to be used. However, it doesn&apos;t have any tables for storing to-do items. In order to store your <code>TodoItem</code> entities, you&apos;ll need to update the context and migrate the database.</p>
@@ -705,7 +720,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"连接数据库","level":"1.5.1","depth":2,"next":{"title":"修改数据库上下文","level":"1.5.2","depth":2,"path":"chapters/use-a-database/update-context.md","ref":"chapters/use-a-database/update-context.md","articles":[]},"previous":{"title":"运用数据库","level":"1.5","depth":1,"path":"chapters/use-a-database/README.md","ref":"chapters/use-a-database/README.md","articles":[{"title":"连接数据库","level":"1.5.1","depth":2,"path":"chapters/use-a-database/connect-to-a-database.md","ref":"chapters/use-a-database/connect-to-a-database.md","articles":[]},{"title":"修改数据库上下文","level":"1.5.2","depth":2,"path":"chapters/use-a-database/update-context.md","ref":"chapters/use-a-database/update-context.md","articles":[]},{"title":"创建变更","level":"1.5.3","depth":2,"path":"chapters/use-a-database/create-migration.md","ref":"chapters/use-a-database/create-migration.md","articles":[]},{"title":"创建服务类","level":"1.5.4","depth":2,"path":"chapters/use-a-database/create-service-class.md","ref":"chapters/use-a-database/create-service-class.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"b5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":12,"left":12,"top":12,"bottom":12,"comment_from_windsting":"these margin settings not working."}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/use-a-database/connect-to-a-database.md","mtime":"2018-04-26T03:11:43.318Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-28T07:47:03.635Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"连接数据库","level":"1.5.1","depth":2,"next":{"title":"修改数据库上下文","level":"1.5.2","depth":2,"path":"chapters/use-a-database/update-context.md","ref":"chapters/use-a-database/update-context.md","articles":[]},"previous":{"title":"运用数据库","level":"1.5","depth":1,"path":"chapters/use-a-database/README.md","ref":"chapters/use-a-database/README.md","articles":[{"title":"连接数据库","level":"1.5.1","depth":2,"path":"chapters/use-a-database/connect-to-a-database.md","ref":"chapters/use-a-database/connect-to-a-database.md","articles":[]},{"title":"修改数据库上下文","level":"1.5.2","depth":2,"path":"chapters/use-a-database/update-context.md","ref":"chapters/use-a-database/update-context.md","articles":[]},{"title":"创建变更","level":"1.5.3","depth":2,"path":"chapters/use-a-database/create-migration.md","ref":"chapters/use-a-database/create-migration.md","articles":[]},{"title":"创建服务类","level":"1.5.4","depth":2,"path":"chapters/use-a-database/create-service-class.md","ref":"chapters/use-a-database/create-service-class.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/use-a-database/connect-to-a-database.md","mtime":"2018-06-01T09:39:28.281Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-01T09:46:04.882Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

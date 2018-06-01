@@ -13,8 +13,9 @@
 Entity Framework Core 借助 数据库上下文、连接字符串 与数据库建立连接。你需要在 `Startup` 类里的 `ConfigureServices` 方法中为 Entity Framework Core 指定所用的 数据库上下文、连接字符串和数据库类型。感谢项目模板：
 
 ```csharp
-service.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(
+        Configuration.GetConnectionString("DefaultConnection")));
 ```
 
 这段代码把 `ApplicationDbContext` 添加到服务容器里，并通过配置(`appsettings.json`)中的 连接字符串 指定 Entity Framework Core 使用 SQLite 数据库。
@@ -39,7 +40,8 @@ Entity Framework Core uses the database context, together with the connection st
 
 ```csharp
 services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(
+        Configuration.GetConnectionString("DefaultConnection")));
 ```
 
 This code adds the `ApplicationDbContext` to the service container, and tells Entity Framework Core to use the SQLite database provider, with the connection string from configuration (`appsettings.json`).

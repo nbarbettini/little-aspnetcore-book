@@ -12,12 +12,17 @@ cd Documents
 
 ```shell
 dotnet new console -o CsharpHelloWorld
+```
+
+`dotnet new` 指令默认会用 C# 创建一个 .NET 项目。参数 `console` 选择了一个命令行应用(一种向屏幕输出文本的程序)的模板。`-o CsharpHelloWorld` 参数指示 `dotnet new` 为项目的所有文件创建一个名为 `CsharpHelloWorld` 的目录。进入到这个新目录里：
+
+```shell
 cd CsharpHelloWorld
 ```
 
-以上命令创建了一个基本的 C# 程序，它输出一些文本到屏幕上。这个程序由两个文件构成：一个项目文件（使用 `.csproj` 扩展名）和一个 C# 源文件（带有 `.cs` 扩展名），打开前面那个文件的话，可以看到以下内容：
+`dotnet new console` 命令创建了一个基本的 C# 程序，它输出文本 `Hello World!` 到屏幕上。这个程序由两个文件构成：一个项目文件（使用 `.csproj` 扩展名）和一个 C# 源文件（带有 `.cs` 扩展名），打开前面那个文件的话，可以看到以下内容：
 
-**`CsharpHelloWorld.csproj`**
+**CsharpHelloWorld.csproj**
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -32,7 +37,7 @@ cd CsharpHelloWorld
 
 项目文件基于 XML，其中定义了一些关于项目的元数据。到后面，你引用其它包的时候，那些包将被记录在这里（类似于 npm 的 `package.json`），你不需要经常手动编辑这个文件。
 
-**`Program.cs`**
+**Program.cs**
 
 ```csharp
 using System;
@@ -49,7 +54,7 @@ namespace CsharpHelloWorld
 }
 ```
 
-`static void Main` 是一个 C# 程序的入口点方法，按照惯例，会被置于一个叫 `Program` 的类（一种代码结构或模块）里。最上面的 `using` 语句引入了 .NET 内置于 System 的那些类，并使它们可以被用于这个类里。
+`static void Main` 是 C# 程序的入口点方法，按照惯例，会被置于一个叫 `Program` 的类（一种代码结构或模块）里。最上面的 `using` 语句引入了 .NET 内置于 `System` 的那些类，并使它们可以被用于这个类里。
 
 在项目的目录里，用 `dotnet run` 指令运行这个程序，在代码编译完成之后，你将看到输出在控制台里面的内容：
 
@@ -76,12 +81,17 @@ Use the `dotnet` command to create a new project:
 
 ```
 dotnet new console -o CsharpHelloWorld
+```
+
+The `dotnet new` command creates a new .NET project in C# by default. The `console` parameter selects a template for a console application (a program that outputs text to the screen). The `-o CsharpHelloWorld` parameter tells `dotnet new` to create a new directory called `CsharpHelloWorld` for all the project files. Move into this new directory:
+
+```
 cd CsharpHelloWorld
 ```
 
-This creates a basic C# program that writes some text to the screen. The program is comprised of two files: a project file (with a `.csproj` extension) and a C# code file (with a `.cs` extension). If you open the former in a text or code editor, you'll see this:
+`dotnet new console` creates a basic C# program that writes the text `Hello World!` to the screen. The program is comprised of two files: a project file (with a `.csproj` extension) and a C# code file (with a `.cs` extension). If you open the former in a text or code editor, you'll see this:
 
-**`CsharpHelloWorld.csproj`**
+**CsharpHelloWorld.csproj**
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -94,9 +104,9 @@ This creates a basic C# program that writes some text to the screen. The program
 </Project>
 ```
 
-The project file is XML-based and defines some metadata about the project. Later, when you reference other packages, those will be listed here (similar to a `package.json` file for npm). You won't have to edit this file by hand often.
+The project file is XML-based and defines some metadata about the project. Later, when you reference other packages, those will be listed here (similar to a `package.json` file for npm). You won't have to edit this file by hand very often.
 
-**`Program.cs`**
+**Program.cs**
 
 ```csharp
 using System;
@@ -113,7 +123,7 @@ namespace CsharpHelloWorld
 }
 ```
 
-`static void Main` is the entry point method of a C# program, and by convention it's placed in a class (a type of code structure or module) called `Program`. The `using` statement at the top imports the built-in System classes from .NET and makes them available to the code in the class.
+`static void Main` is the entry point method of a C# program, and by convention it's placed in a class (a type of code structure or module) called `Program`. The `using` statement at the top imports the built-in `System` classes from .NET and makes them available to the code in your class.
 
 From inside the project directory, use `dotnet run` to run the program. You'll see the output written to the console after the code compiles:
 

@@ -77,7 +77,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="add-facebook-login.html" />
+    <link rel="next" href="require-authentication.html" />
     
     
     <link rel="prev" href="../add-more-features/complete-with-checkbox.html" />
@@ -272,6 +272,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.7" data-path="../mvc-basics/update-the-layout.html">
+            
+                <a href="../mvc-basics/update-the-layout.html">
+            
+                    
+                    修改布局
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -420,20 +433,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="add-facebook-login.html">
-            
-                <a href="add-facebook-login.html">
-            
-                    
-                    添加 Facebook 登录功能
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="require-authentication.html">
+        <li class="chapter " data-level="1.7.1" data-path="require-authentication.html">
             
                 <a href="require-authentication.html">
             
@@ -446,7 +446,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="using-identity-in-the-application.html">
+        <li class="chapter " data-level="1.7.2" data-path="using-identity-in-the-application.html">
             
                 <a href="using-identity-in-the-application.html">
             
@@ -459,12 +459,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.4" data-path="authorization-with-roles.html">
+        <li class="chapter " data-level="1.7.3" data-path="authorization-with-roles.html">
             
                 <a href="authorization-with-roles.html">
             
                     
                     按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="more-resources.html">
+            
+                <a href="more-resources.html">
+            
+                    
+                    附加资源
             
                 </a>
             
@@ -626,10 +639,10 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x5B89;&#x5168;&#x548C;&#x8EAB;&#x4EFD;"><a name="&#x5B89;&#x5168;&#x548C;&#x8EAB;&#x4EFD;" class="plugin-anchor" href="#&#x5B89;&#x5168;&#x548C;&#x8EAB;&#x4EFD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x5168;&#x548C;&#x8EAB;&#x4EFD;</h1>
-<p>&#x5B89;&#x5168;&#x6027;&#x662F;&#x4EFB;&#x4F55;&#x73B0;&#x4EE3; Web &#x5E94;&#x7528;&#x6216; API &#x90FD;&#x8981;&#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x7684;&#x3002;&#x786E;&#x4FDD;&#x7528;&#x6237;&#x6216;&#x987E;&#x5BA2;&#x7684;&#x6570;&#x636E;&#x5B89;&#x5168;&#x5E76;&#x514D;&#x906D;&#x9ED1;&#x5BA2;&#x67D3;&#x6307;&#xFF0C;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x3002;&#x8FD9;&#x5305;&#x62EC;</p>
+<p>&#x5B89;&#x5168;&#x6027;&#x662F;&#x4EFB;&#x4F55;&#x73B0;&#x4EE3; Web &#x5E94;&#x7528;&#x6216; API &#x90FD;&#x8981;&#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x7684;&#x3002;&#x786E;&#x4FDD;&#x7528;&#x6237;&#x6216;&#x987E;&#x5BA2;&#x7684;&#x6570;&#x636E;&#x5B89;&#x5168;&#x5E76;&#x514D;&#x906D;&#x9ED1;&#x5BA2;&#x67D3;&#x6307;&#xFF0C;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x3002;&#x8FD9;&#x4E2A;&#x8BDD;&#x9898;&#x6240;&#x6D89;&#x751A;&#x5E7F;&#xFF0C;&#x5305;&#x62EC;&#x4E86;&#xFF1A;</p>
 <ul>
 <li>&#x8FC7;&#x6EE4;&#x8F93;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x907F;&#x514D; SQL&#x6CE8;&#x5165;</li>
-<li>&#x9632;&#x6B62;&#x5229;&#x7528;&#x8868;&#x5355;(form)&#x8FDB;&#x884C;&#x7684;&#x8DE8;&#x57DF;(XSRF)&#x653B;&#x51FB;</li>
+<li>&#x9632;&#x6B62;&#x5229;&#x7528;&#x8868;&#x5355;(form)&#x8FDB;&#x884C;&#x7684;&#x8DE8;&#x57DF;(CSRF)&#x653B;&#x51FB;</li>
 <li>&#x4F7F;&#x7528; HTTPS(TLS)&#xFF0C;&#x907F;&#x514D;&#x5728; Internet &#x4E0A;&#x4F20;&#x8F93;&#x7684;&#x6570;&#x636E;&#x88AB;&#x7A83;&#x53D6;</li>
 <li>&#x786E;&#x4FDD;&#x7528;&#x6237; &#x8F93;&#x5165;&#x5BC6;&#x7801; &#x6216;&#x8005; &#x901A;&#x8FC7;&#x793E;&#x4EA4;&#x5A92;&#x4F53;&#x6388;&#x6743; &#x767B;&#x5F55;&#x65F6;&#x7684;&#x5B89;&#x5168;&#x6027;</li>
 <li>&#x8BBE;&#x8BA1; &#x5BC6;&#x7801;&#x91CD;&#x7F6E; &#x6216; &#x591A;&#x91CD;&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;&#x6D41;&#x7A0B; &#x65F6;&#xFF0C;&#x8003;&#x8651;&#x5230;&#x5B89;&#x5168;&#x6027;&#x7684;&#x56E0;&#x7D20;</li>
@@ -638,30 +651,30 @@
 <blockquote>
 <p>&#x9A8C;&#x8BC1; &#x548C; &#x6388;&#x6743; &#x4E8C;&#x8005;&#x5E38;&#x88AB;&#x6DF7;&#x6DC6;&#x3002;<strong>&#x9A8C;&#x8BC1;</strong> &#x5173;&#x5FC3;&#x7684;&#x662F;&#x7528;&#x6237;&#x767B;&#x5F55;&#x4E0E;&#x5426;&#xFF0C;&#x800C; <strong>&#x6388;&#x6743;</strong> &#x5173;&#x5FC3;&#x201C;&#x7528;&#x6237;&#x5728;&#x767B;&#x5F55; <em>&#x540E;</em> &#x80FD;&#x5426;&#x505A;&#x67D0;&#x4E9B;&#x4E8B;&#x201D;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A; &#x9A8C;&#x8BC1; &#x662F;&#x5728;&#x95EE;&#xFF1A;&#x201C;&#x6211;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x662F;&#x8C01;&#x5417;&#xFF1F;&#x201D;&#xFF0C;&#x800C; &#x6388;&#x6743; &#x95EE;&#x7684;&#x662F;&#xFF1A;&#x201C;&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x6709;&#x6743;&#x9650;&#x505A;&#x67D0;&#x4EF6;&#x4E8B;&#x5417;&#xFF1F;&#x201D;</p>
 </blockquote>
-<p>&#x4F60;&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E94;&#x7528;&#x4E86; MVC + Individual&#x9A8C;&#x8BC1; &#x9879;&#x76EE;&#x6A21;&#x677F;&#xFF0C;&#x8BE5;&#x6A21;&#x677F;&#x4E2D;&#x5E26;&#x6709;&#x51E0;&#x4E2A;&#x7C7B;&#xFF0C;&#x6784;&#x5EFA;&#x5728; ASP.NET Core Identity&#xFF08;&#x4E00;&#x4E2A;&#x9A8C;&#x8BC1;&#x548C;&#x8EAB;&#x4EFD;&#x7CFB;&#x7EDF;&#xFF0C;&#x5C5E;&#x4E8E; ASP.NET Core &#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF09;&#x4E4B;&#x4E0A;&#x3002;</p>
+<p>&#x4F60;&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E94;&#x7528;&#x4E86; MVC + Individual&#x9A8C;&#x8BC1; &#x9879;&#x76EE;&#x6A21;&#x677F;&#xFF0C;&#x8BE5;&#x6A21;&#x677F;&#x4E2D;&#x5E26;&#x6709;&#x51E0;&#x4E2A;&#x7C7B;&#xFF0C;&#x6784;&#x5EFA;&#x5728; ASP.NET Core Identity&#xFF08;&#x4E00;&#x4E2A;&#x9A8C;&#x8BC1;&#x548C;&#x8EAB;&#x4EFD;&#x7CFB;&#x7EDF;&#xFF0C;&#x5C5E;&#x4E8E; ASP.NET Core &#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF09;&#x4E4B;&#x4E0A;&#x3002;&#x5B89;&#x88C5;&#x540E;&#xFF0C;&#x9ED8;&#x8BA4;&#x6DFB;&#x52A0;&#x4E86;&#x901A;&#x8FC7; email &#x548C;&#x5BC6;&#x7801;&#x8FDB;&#x884C;&#x767B;&#x5F55;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
 <h2 id="aspnet-core-identity-&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"><a name="aspnet-core-identity-&#x662F;&#x4EC0;&#x4E48;&#xFF1F;" class="plugin-anchor" href="#aspnet-core-identity-&#x662F;&#x4EC0;&#x4E48;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>ASP.NET Core Identity &#x662F;&#x4EC0;&#x4E48;&#xFF1F;</h2>
 <p>ASP.NET Core Identity &#x662F; ASP.NET Core &#x5E26;&#x6765;&#x7684;&#x8EAB;&#x4EFD;&#x7CFB;&#x7EDF;&#xFF0C;&#x5C31;&#x50CF; ASP.NET Core &#x751F;&#x6001;&#x5708;&#x4E2D;&#x7684;&#x5176;&#x5B83;&#x90E8;&#x5206;&#xFF0C;&#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x7EC4; NuGet &#x5305;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x5B89;&#x88C5;&#x5728;&#x4EFB;&#x4F55;&#x9879;&#x76EE;&#x4E2D;&#xFF08;&#x5E76;&#x4E14;&#x5305;&#x62EC;&#x5728;&#x9ED8;&#x8BA4;&#x7684;&#x6A21;&#x677F;&#x4E2D;&#x4E86;&#xFF09;&#x3002;</p>
 <p>ASP.NET Core Identity &#x5904;&#x7406;&#x7528;&#x6237;&#x8D26;&#x53F7;&#x7684;&#x5B58;&#x50A8;&#x3001;&#x6563;&#x5217;&#x5E76;&#x4FDD;&#x5B58;&#x5BC6;&#x7801;&#x3001;&#x8FD8;&#x8D1F;&#x8D23;&#x7BA1;&#x7406;&#x7528;&#x6237;&#x7684;&#x89D2;&#x8272;&#x3002;&#x5B83;&#x652F;&#x6301; &#x90AE;&#x7BB1;&#x5730;&#x5740;/&#x5BC6;&#x7801; &#x767B;&#x5F55;&#x3001;&#x591A;&#x91CD;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x3001;&#x96C6;&#x6210;&#x4EE5; Google &#x548C; Facebook &#x4E4B;&#x7C7B;&#x7684;&#x8EAB;&#x4EFD;&#x63D0;&#x4F9B;&#x8005;&#x7684; &#x793E;&#x4EA4;&#x8D26;&#x53F7;&#x767B;&#x5F55;&#x3001;&#x4EE5;&#x53CA;&#x501F;&#x52A9; OAuth 2.0 &#x548C; OpenID Connect &#x7B49;&#x534F;&#x8BAE;&#x8FDE;&#x63A5;&#x5230;&#x5176;&#x5B83;&#x7684;&#x670D;&#x52A1;&#x3002;</p>
 <p> MVC + Individual&#x9A8C;&#x8BC1; &#x9879;&#x76EE;&#x6A21;&#x677F;&#x4E2D;&#x7684; Register &#x548C; Login &#x89C6;&#x56FE; &#x5DF2;&#x7ECF;&#x4ECE; ASP.NET Core Identity &#x4E2D;&#x53D7;&#x76CA;&#xFF0C;&#x800C;&#x4E14;&#x5DF2;&#x7ECF;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x4E86;&#xFF0C;&#x8BF7;&#x8BD5;&#x7740;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x8D26;&#x53F7;&#x5E76;&#x7528;&#x5B83;&#x767B;&#x5F55;&#x3002;</p>
 <hr>
 <h1 id="security-and-identity"><a name="security-and-identity" class="plugin-anchor" href="#security-and-identity"><i class="fa fa-link" aria-hidden="true"></i></a>Security and identity</h1>
-<p>Security is a major concern of any modern web application or API. It&apos;s important to keep your user or customer data safe and out of the hands of attackers. This encompasses things like</p>
+<p>Security is a major concern of any modern web application or API. It&apos;s important to keep your user or customer data safe and out of the hands of attackers. This is a very broad topic, involving things like:</p>
 <ul>
 <li>Sanitizing data input to prevent SQL injection attacks</li>
-<li>Preventing cross-domain (XSRF) attacks in forms</li>
-<li>Using HTTPS (TLS) so data can&apos;t be intercepted as it travels over the Internet</li>
-<li>Giving users a way to securely sign in with a password or social login credentials</li>
-<li>Designing password reset or multi-factor authentication flows with security in mind</li>
+<li>Preventing cross-domain (CSRF) attacks in forms</li>
+<li>Using HTTPS (connection encryption) so data can&apos;t be intercepted as it travels over the Internet</li>
+<li>Giving users a way to securely sign in with a password or other credentials</li>
+<li>Designing password reset, account recovery, and multi-factor authentication flows</li>
 </ul>
-<p>ASP.NET Core can help make all of this easier to implement. The first two (protection against SQL injection and cross-domain attacks) are already built-in, and you can add a few lines of code to enable HTTPS support. This chapter will mainly focus on the <strong>identity</strong> aspects of security: handling user accounts (registration, login), authenticating (logging in) your users securely, and making authorization decisions once they are authenticated.</p>
+<p>ASP.NET Core can help make all of this easier to implement. The first two (protection against SQL injection and cross-domain attacks) are already built-in, and you can add a few lines of code to enable HTTPS support. This chapter will mainly focus on the <strong>identity</strong> aspects of security: handling user accounts, authenticating (logging in) your users securely, and making authorization decisions once they are authenticated.</p>
 <blockquote>
-<p>Authentication and authorization are distinct ideas that are often confused. <strong>Authentication</strong> deals with whether a user is logged in, while <strong>authorization</strong> deals with what they are allowed to do <em>after</em> they log in. You can think of authentication as asking the question, &quot;Do I know who this user is?&quot; While authorization asks, &quot;Does this user have permission to do X?&quot;</p>
+<p>Authentication and authorization are distinct ideas that are often confused. <strong>Authentication</strong> deals with whether a user is logged in, while <strong>authorization</strong> deals with what they are allowed to do <em>after</em> they log in. You can think of authentication as asking the question, &quot;Do I know who this user is?&quot; While authorization asks, &quot;Does this user have permission to do <em>X</em>?&quot;</p>
 </blockquote>
-<p>The MVC + Individual Authentication template you used to scaffold the project includes a number of classes built on top of ASP.NET Core Identity, an authentication and identity system that&apos;s part of ASP.NET Core.</p>
+<p>The MVC + Individual Authentication template you used to scaffold the project includes a number of classes built on top of ASP.NET Core Identity, an authentication and identity system that&apos;s part of ASP.NET Core. Out of the box, this adds the ability to log in with an email and password.</p>
 <h2 id="what-is-aspnet-core-identity"><a name="what-is-aspnet-core-identity" class="plugin-anchor" href="#what-is-aspnet-core-identity"><i class="fa fa-link" aria-hidden="true"></i></a>What is ASP.NET Core Identity?</h2>
 <p>ASP.NET Core Identity is the identity system that ships with ASP.NET Core. Like everything else in the ASP.NET Core ecosystem, it&apos;s a set of NuGet packages that can be installed in any project (and are already included if you use the default template).</p>
 <p>ASP.NET Core Identity takes care of storing user accounts, hashing and storing passwords, and managing roles for users. It supports email/password login, multi-factor authentication, social login with providers like Google and Facebook, as well as connecting to other services using protocols like OAuth 2.0 and OpenID Connect.</p>
-<p>The Register and Login views that ship with the MVC + Individual Auth template already take advantage of ASP.NET Core Identity, and they already work! Try registering for an account and logging in.</p>
+<p>The Register and Login views that ship with the MVC + Individual Authentication template already take advantage of ASP.NET Core Identity, and they already work! Try registering for an account and logging in.</p>
 
                                 
                                 </section>
@@ -694,7 +707,7 @@
                 </a>
                 
                 
-                <a href="add-facebook-login.html" class="navigation navigation-next " aria-label="Next page: 添加 Facebook 登录功能">
+                <a href="require-authentication.html" class="navigation navigation-next " aria-label="Next page: 提示认证">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -705,7 +718,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"安全和身份","level":"1.7","depth":1,"next":{"title":"添加 Facebook 登录功能","level":"1.7.1","depth":2,"path":"chapters/security-and-identity/add-facebook-login.md","ref":"chapters/security-and-identity/add-facebook-login.md","articles":[]},"previous":{"title":"使用复选框标记条目完成","level":"1.6.2","depth":2,"path":"chapters/add-more-features/complete-with-checkbox.md","ref":"chapters/add-more-features/complete-with-checkbox.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"b5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":12,"left":12,"top":12,"bottom":12,"comment_from_windsting":"these margin settings not working."}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/security-and-identity/README.md","mtime":"2018-04-26T03:11:43.202Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-28T07:47:03.635Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"安全和身份","level":"1.7","depth":1,"next":{"title":"提示认证","level":"1.7.1","depth":2,"path":"chapters/security-and-identity/require-authentication.md","ref":"chapters/security-and-identity/require-authentication.md","articles":[]},"previous":{"title":"使用复选框标记条目完成","level":"1.6.2","depth":2,"path":"chapters/add-more-features/complete-with-checkbox.md","ref":"chapters/add-more-features/complete-with-checkbox.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/security-and-identity/README.md","mtime":"2018-06-01T09:39:28.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-01T09:46:04.882Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -272,6 +272,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.7" data-path="../mvc-basics/update-the-layout.html">
+            
+                <a href="../mvc-basics/update-the-layout.html">
+            
+                    
+                    修改布局
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -420,20 +433,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/add-facebook-login.html">
-            
-                <a href="../security-and-identity/add-facebook-login.html">
-            
-                    
-                    添加 Facebook 登录功能
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/require-authentication.html">
+        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/require-authentication.html">
             
                 <a href="../security-and-identity/require-authentication.html">
             
@@ -446,7 +446,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/using-identity-in-the-application.html">
+        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/using-identity-in-the-application.html">
             
                 <a href="../security-and-identity/using-identity-in-the-application.html">
             
@@ -459,12 +459,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/authorization-with-roles.html">
+        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/authorization-with-roles.html">
             
                 <a href="../security-and-identity/authorization-with-roles.html">
             
                     
                     按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/more-resources.html">
+            
+                <a href="../security-and-identity/more-resources.html">
+            
+                    
+                    附加资源
             
                 </a>
             
@@ -626,17 +639,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;"><a name="&#x5355;&#x5143;&#x6D4B;&#x8BD5;" class="plugin-anchor" href="#&#x5355;&#x5143;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h2>
-<p>&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x662F;&#x5C0F;&#x578B;&#x3001;&#x8FC5;&#x901F;&#xFF0C;&#x9488;&#x5BF9;&#x5355;&#x4E2A;&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x903B;&#x8F91;&#x5757;&#x7684;&#x6D4B;&#x8BD5;&#x3002;&#x5B83;&#x5E76;&#x4E0D;&#x6D4B;&#x8BD5;&#x4E00;&#x7EC4;&#x7C7B;&#x6216;&#x8005;&#xFF08;&#x50CF;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x90A3;&#x6837;&#xFF09;&#x6D4B;&#x8BD5;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#xFF0C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x4F9D;&#x8D56;&#x4E8E; <strong>&#x865A;&#x6784;(mocking)</strong> &#x6216;&#x8005;&#x66FF;&#x6362;&#x5F53;&#x524D;&#x88AB;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
-<p>&#x4F8B;&#x5982;&#xFF0C;<code>TodoController</code> &#x6709;&#x4E24;&#x4E2A;&#x4F9D;&#x8D56;&#xFF1A; <code>ITodoItemService</code> &#x548C; <code>UserManager</code>&#x3002;<code>TodoItemService</code> &#x63A5;&#x4E0B;&#x6765;&#x53C8;&#x4F9D;&#x8D56;&#x4E8E; <code>ApplicationDbContext</code>&#x3002;&#xFF08;&#x4F60;&#x53EF;&#x4EE5;&#x753B;&#x4E00;&#x6761;&#x7EBF;&#x8868;&#x793A; <code>TodoController</code> -&gt; <code>TodoItemService</code> -&gt; <code>ApplicationDbContext</code>&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x88AB;&#x79F0;&#x4E3A; <strong>&#x4F9D;&#x8D56;&#x56FE;</strong>&#xFF09;&#x3002;</p>
-<p>&#x5F53;&#x7A0B;&#x5E8F;&#x8FD0;&#x8F6C;&#x6B63;&#x5E38;&#x7684;&#x65F6;&#x5019;&#xFF0C; ASP.NET Core &#x7684;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7CFB;&#x7EDF;&#x5728; <code>TodoController</code> &#x6216;&#x8005; <code>TodoItemService</code> &#x88AB;&#x521B;&#x5EFA;&#x65F6;&#x628A;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x9010;&#x4E00;&#x5730;&#x6CE8;&#x5165;&#x5230;&#x4F9D;&#x8D56;&#x56FE;&#x91CC;&#x3002;</p>
-<p>&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x5F53;&#x4F60;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x624B;&#x52A8;&#x6CE8;&#x5165;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x7684;&#x865A;&#x6784;&#x7684;&#x6216;&#x8005;&#x6D4B;&#x8BD5;&#x7248;&#x672C;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x6B63;&#x5728;&#x6D4B;&#x8BD5;&#x7684;&#x7C7B;&#x6216;&#x8005;&#x65B9;&#x6CD5;&#x7684;&#x903B;&#x8F91;&#x9694;&#x79BB;&#x51FA;&#x6765;&#x3002;&#xFF08;&#x5982;&#x679C;&#x4F60;&#x5728;&#x6D4B;&#x8BD5;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#xFF0C;&#x663E;&#x7136;&#x4E0D;&#x5E94;&#x8BE5;&#x4E00;&#x5931;&#x624B;&#x5199;&#x5230;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x53BB;&#x3002;&#xFF09;</p>
+<p>&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x662F;&#x77ED;&#x5C0F;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x68C0;&#x67E5;&#x5355;&#x4E2A;&#x65B9;&#x6CD5;&#x6216;&#x7C7B;&#x7684;&#x884C;&#x4E3A;&#x3002;&#x5F53;&#x4F60;&#x6D4B;&#x8BD5;&#x7684;&#x4EE3;&#x7801;&#x4F9D;&#x8D56;&#x5176;&#x5B83;&#x65B9;&#x6CD5;&#x6216;&#x7C7B;&#x65F6;&#xFF0C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x4F9D;&#x8D56;&#x4E8E; <strong>&#x865A;&#x6784;(mocking)</strong> &#x51FA;&#x6765;&#x7684;&#x5176;&#x5B83;&#x7C7B;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x4E00;&#x4E2A;&#x65F6;&#x65F6;&#x523B;&#x4E13;&#x6CE8;&#x5728;&#x4E00;&#x4E2A;&#x70B9;&#x4E0A;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;<code>TodoController</code> &#x6709;&#x4E24;&#x4E2A;&#x4F9D;&#x8D56;&#xFF1A; <code>ITodoItemService</code> &#x548C; <code>UserManager</code>&#x3002;<code>TodoItemService</code> &#x63A5;&#x4E0B;&#x6765;&#x53C8;&#x4F9D;&#x8D56;&#x4E8E; <code>ApplicationDbContext</code>&#x3002;&#xFF08;&#x4F60;&#x53EF;&#x4EE5;&#x753B;&#x4E00;&#x6761;&#x7EBF;&#x8868;&#x793A; <code>TodoController</code> &gt; <code>TodoItemService</code> &gt; <code>ApplicationDbContext</code>&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x88AB;&#x79F0;&#x4E3A; <strong>&#x4F9D;&#x8D56;&#x56FE;</strong>&#xFF09;&#x3002;</p>
+<p>&#x5F53;&#x7A0B;&#x5E8F;&#x8FD0;&#x8F6C;&#x6B63;&#x5E38;&#x7684;&#x65F6;&#x5019;&#xFF0C; ASP.NET Core &#x7684;&#x670D;&#x52A1;&#x5BB9;&#x5668;&#x548C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x7CFB;&#x7EDF;&#x5728; <code>TodoController</code> &#x6216;&#x8005; <code>TodoItemService</code> &#x88AB;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x628A;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x9010;&#x4E00;&#x5730;&#x6CE8;&#x5165;&#x5230;&#x4F9D;&#x8D56;&#x56FE;&#x91CC;&#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x5F53;&#x4F60;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4F9D;&#x8D56;&#x56FE;&#x3002;&#x5178;&#x5211;&#x7684;&#x505A;&#x6CD5;&#x662F;&#xFF0C;&#x63D0;&#x4F9B;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x7684; &#x865A;&#x6784; &#x6216;&#x8005; &#x6D4B;&#x8BD5;&#x4E13;&#x7528; &#x7248;&#x672C;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x6B63;&#x5728;&#x6D4B;&#x8BD5;&#x7684;&#x7C7B;&#x6216;&#x8005;&#x65B9;&#x6CD5;&#x7684;&#x903B;&#x8F91;&#x9694;&#x79BB;&#x51FA;&#x6765;&#x3002;&#xFF08;&#x8FD9;&#x5F88;&#x91CD;&#x8981;&#xFF01;&#x5982;&#x679C;&#x4F60;&#x5728;&#x6D4B;&#x8BD5;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#xFF0C;&#x663E;&#x7136;&#x4E0D;&#x5E94;&#x8BE5;&#x4E00;&#x5931;&#x624B; <strong>&#x987A;&#x5E26;</strong> &#x5199;&#x5230;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x53BB;&#x3002;&#xFF09;</p>
 <h3 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;"><a name="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;" class="plugin-anchor" href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;</h3>
-<p>&#x4E3A;&#x6D4B;&#x8BD5;&#x521B;&#x5EFA;&#x72EC;&#x7ACB;&#x7684;&#x9879;&#x76EE;&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x4EE5;&#x4FDD;&#x6301;&#x9879;&#x76EE;&#x6574;&#x6D01;&#x5E76;&#x6709;&#x6761;&#x7406;&#x3002;&#x65B0;&#x7684;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;&#x5E94;&#x8BE5;&#x88AB;&#x7F6E;&#x4E8E;&#x4F60;&#x4E3B;&#x9879;&#x76EE;&#x7684;&#x540C;&#x7EA7;&#x76EE;&#x5F55;&#xFF08;&#x800C;&#x975E;&#x5728;&#x4E3B;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x5185;&#xFF09;&#x3002;</p>
+<p>&#x4E3A;&#x6D4B;&#x8BD5;&#x521B;&#x5EFA;&#x72EC;&#x7ACB;&#x7684;&#x9879;&#x76EE;&#x662F;&#x4E00;&#x4E2A;&#x826F;&#x597D;&#x7684;&#x5B9E;&#x8DF5;&#xFF0C;&#x4EE5;&#x4FBF;&#x628A;&#x5B83;&#x4EEC;&#x548C;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#x5F00;&#x3002;&#x65B0;&#x7684;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;&#x5E94;&#x8BE5;&#x88AB;&#x7F6E;&#x4E8E;&#x4F60;&#x4E3B;&#x9879;&#x76EE;&#x7684;&#x540C;&#x7EA7;&#x76EE;&#x5F55;&#xFF08;&#x800C;&#x975E;&#x5728;&#x4E3B;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x5185;&#xFF09;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x4F60;&#x5F53;&#x524D;&#x5728;&#x4F60;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x91CC;&#xFF0C;&#x5411;&#x4E0A; <code>cd</code> &#x4E00;&#x5C42;&#x3002;&#xFF08;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E5F;&#x53EB;&#x505A; <code>AspNetCoreTodo</code>&#xFF09;&#x3002;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x642D;&#x5EFA;&#x51FA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;&#xFF1A;</p>
-<pre><code>mkdir AspNetCoreTodo.UnitTests
-cd AspNetCoreTodo.UnitTests
-dotnet new xunit
-</code></pre><p>xUnit.NET &#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x7528;&#x7684;&#x9488;&#x5BF9; .NET &#x4EE3;&#x7801;&#x7684;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x7F16;&#x5199;&#x5355;&#x5143;&#x548C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x3002;&#x50CF;&#x5176;&#x5B83;&#x7EC4;&#x4EF6;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x7EC4;&#x53EF;&#x88AB;&#x5B89;&#x88C5;&#x5728;&#x4EFB;&#x610F;&#x9879;&#x76EE;&#x4E2D;&#x7684; NuGet &#x5305;&#x3002;<code>dotnet new xunit</code> &#x5DF2;&#x7ECF;&#x5305;&#x62EC;&#x4E86;&#x4F60;&#x6240;&#x9700;&#x7684;&#x4E00;&#x5207;&#x3002;</p>
+<pre><code>dotnet new xunit -o AspNetCoreTodo.UnitTests
+</code></pre><p>xUnit.NET &#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x7528;&#x7684;&#x9488;&#x5BF9; .NET &#x4EE3;&#x7801;&#x7684;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x7F16;&#x5199;&#x5355;&#x5143;&#x548C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x3002;&#x50CF;&#x5176;&#x5B83;&#x7EC4;&#x4EF6;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x7EC4;NuGet &#x5305;&#xFF0C;&#x53EF;&#x88AB;&#x5B89;&#x88C5;&#x5728;&#x4EFB;&#x610F;&#x9879;&#x76EE;&#x4E2D; &#x3002;<code>dotnet new xunit</code> &#x5DF2;&#x7ECF;&#x5305;&#x62EC;&#x4E86;&#x4F60;&#x6240;&#x9700;&#x7684;&#x4E00;&#x5207;&#x3002;</p>
 <p>&#x4F60;&#x7684;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x770B;&#x8D77;&#x6765;&#x5E94;&#x8BE5;&#x662F;&#x8FD9;&#x6837;&#xFF1A;</p>
 <pre><code>AspNetCoreTodo/
     AspNetCoreTodo/
@@ -649,38 +660,38 @@ dotnet new xunit
 </code></pre><p>&#x65E2;&#x7136;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;&#x8981;&#x4F7F;&#x7528;&#x4F60;&#x4E3B;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x7C7B;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x6307;&#x5411;&#x4E3B;&#x9879;&#x76EE;&#xFF1A;</p>
 <pre><code>dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 </code></pre><p>&#x5220;&#x9664;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7684;&#x6587;&#x4EF6; <code>UnitTest1.cs</code>&#x3002;&#x4F60;&#x5DF2;&#x7ECF;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7684;&#x7F16;&#x5199;&#x51C6;&#x5907;&#x5C31;&#x7EEA;&#x4E86;&#x3002;</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x7528;&#x7684;&#x662F; Visual Studio Code&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5173;&#x95ED;&#x5E76;&#x91CD;&#x65B0;&#x6253;&#x5F00; Visual Studio  Code &#x7A97;&#x53E3;&#xFF0C;&#x4EE5;&#x4FBF;&#x4EE3;&#x7801;&#x5B8C;&#x6210;&#x529F;&#x80FD;&#x5728;&#x65B0;&#x9879;&#x76EE;&#x91CC;&#x751F;&#x6548;&#x3002;</p>
+</blockquote>
 <h3 id="&#x5199;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x6D4B;&#x8BD5;"><a name="&#x5199;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x6D4B;&#x8BD5;" class="plugin-anchor" href="#&#x5199;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5199;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x6D4B;&#x8BD5;</h3>
-<p>&#x770B;&#x4E00;&#x4E0B; <code>TodoItemService</code> &#x91CC;&#x9762;&#x7684; <code>AddItemAsync</code> &#x65B9;&#x6CD5;&#xFF1A;</p>
-<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">AddItemAsync</span>(<span class="hljs-params">NewTodoItem newItem, ApplicationUser user</span>)
+<p>&#x770B;&#x4E00;&#x4E0B; <code>TodoItemService</code> &#x91CC;&#x9762;&#x7684; <code>AddItemAsync()</code> &#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">AddItemAsync</span>(<span class="hljs-params">
+    TodoItem newItem, ApplicationUser user</span>)
 </span>{
-    <span class="hljs-keyword">var</span> entity = <span class="hljs-keyword">new</span> TodoItem
-    {
-        Id = Guid.NewGuid(),
-        OwnerId = user.Id,
-        IsDone = <span class="hljs-keyword">false</span>,
-        Title = newItem.Title,
-        DueAt = DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>)
-    };
+    newItem.Id = Guid.NewGuid();
+    newItem.IsDone = <span class="hljs-keyword">false</span>;
+    newItem.DueAt = DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>);
+    newItem.UserId = user.Id;
 
-    _context.Items.Add(entity);
+    _context.Items.Add(newItem);
 
     <span class="hljs-keyword">var</span> saveResult = <span class="hljs-keyword">await</span> _context.SaveChangesAsync();
     <span class="hljs-keyword">return</span> saveResult == <span class="hljs-number">1</span>;
 }
 </code></pre>
-<p>&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x628A;&#x65B0;&#x6761;&#x76EE;&#x771F;&#x6B63;&#x5B58;&#x5165;&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x524D;&#xFF0C;&#x505A;&#x4E86;&#x591A;&#x4E2A;&#x5224;&#x65AD;&#x4E0E;&#x5047;&#x8BBE;&#xFF1A;</p>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x628A;&#x65B0;&#x6761;&#x76EE;&#x771F;&#x6B63;&#x5B58;&#x5165;&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x524D;&#xFF0C;&#x505A;&#x4E86;&#x591A;&#x4E2A;&#x5224;&#x65AD;&#x4E0E;&#x5047;&#x8BBE;&#xFF08;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x5728;&#x65B0;&#x6761;&#x76EE;&#x4E0A;&#x6267;&#x884C;&#x4E86;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF09;&#xFF1A;</p>
 <ul>
-<li><code>OwnerId</code> &#x5C5E;&#x6027;&#x5E94;&#x8BE5;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x7528;&#x6237;&#x7684; ID</li>
+<li><code>UserId</code> &#x5C5E;&#x6027;&#x5E94;&#x8BE5;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x7528;&#x6237;&#x7684; ID</li>
 <li>&#x65B0;&#x6761;&#x76EE;&#x5E94;&#x8BE5;&#x603B;&#x662F;&#x672A;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#xFF08;<code>IsDone = false</code>&#xFF09;</li>
 <li>&#x65B0;&#x6761;&#x76EE;&#x7684;&#x6807;&#x9898;&#x5E94;&#x8BE5;&#x590D;&#x5236;&#x81EA; <code>newItem.Title</code></li>
 <li>&#x65B0;&#x6761;&#x76EE;&#x5E94;&#x8BE5;&#x603B;&#x662F;&#x4ECE;&#x73B0;&#x5728;&#x5F00;&#x59CB;3&#x5929;&#x540E;&#x8FC7;&#x671F;</li>
 </ul>
+<p>&#x8BBE;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x4EC0;&#x4E48;&#x4EBA;&#x91CD;&#x6784;&#x4E86;&#x8FD9;&#x4E2A; <code>AddItemAsync()</code> &#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x9057;&#x6F0F;&#x4E86;&#x67D0;&#x4E9B;&#x4EE5;&#x4E0A;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x3002;&#x4F60;&#x7A0B;&#x5E8F;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x4F1A;&#x5728;&#x4F60;&#x610F;&#x8BC6;&#x4E0D;&#x5230;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x53D8;&#x6389;&#xFF01;&#x4F60;&#x6709;&#x529E;&#x6CD5;&#x907F;&#x514D;&#x8FD9;&#x4E2A;&#x60C5;&#x51B5;&#xFF0C;&#x65B9;&#x6CD5;&#x662F;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#xFF0C;&#x7528;&#x4EE5;&#x590D;&#x6838;&#x8FD9;&#x4E9B;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5E76;&#x672A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF08;&#x5C31;&#x7B97;&#x662F;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x5DF2;&#x7ECF;&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#xFF09;&#x3002;</p>
 <blockquote>
-<p>&#x4F60;&#x4EE3;&#x7801;&#x505A;&#x51FA;&#x7684;&#x8FD9;&#x4E9B;&#x5224;&#x65AD;&#x88AB;&#x79F0;&#x4E3A; <em>&#x4E1A;&#x52A1;&#x903B;&#x8F91;(business logic)</em>&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x8DDF;&#x4F60;&#x7A0B;&#x5E8F;&#x7684;&#x76EE;&#x6807;&#x6216;&#x8005;&#x53EB;&#x201C;&#x4E1A;&#x52A1;&#x201D;&#x76F8;&#x5173;&#x7684;&#x903B;&#x8F91;&#x3002;&#x5176;&#x5B83;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x4F8B;&#x5B50;&#x5305;&#x62EC;&#x201C;&#x57FA;&#x4E8E;&#x4EA7;&#x54C1;&#x4EF7;&#x683C;&#x548C;&#x7A0E;&#x7387;&#x8BA1;&#x7B97;&#x51FA;&#x603B;&#x4EF7;&#x201D;&#x548C;&#x201C;&#x5728;&#x6E38;&#x620F;&#x91CC;&#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x73A9;&#x5BB6;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x6709;&#x8DB3;&#x591F;&#x5347;&#x7EA7;&#x7684;&#x7ECF;&#x9A8C;&#x70B9;&#x201D;&#x3002;</p>
+<p>&#x8FD9;&#x79CD;&#x60C5;&#x5F62;&#x2014;&#x2014;&#x4F60;&#x610F;&#x8BC6;&#x4E0D;&#x5230;&#x81EA;&#x5DF1;&#x6539;&#x53D8;&#x4E86;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x867D;&#x7136;&#x73B0;&#x5728;&#x770B;&#x8D77;&#x6765;&#x597D;&#x50CF;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x66F4;&#x5927;&#x66F4;&#x590D;&#x6742;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x8FD9;&#x4F1A;&#x56E0;&#x4E3A;&#x5404;&#x79CD;&#x51B3;&#x7B56;&#x548C;&#x5047;&#x8BBE;&#x800C;&#x53D8;&#x5F97;&#x96BE;&#x4EE5;&#x8FFD;&#x8E2A;&#x3002;&#x5728;&#x8D8A;&#x5927;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x786E;&#x4FDD;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7A33;&#x5B9A;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x68C0;&#x67E5;&#x5C31;&#x8D8A;&#x91CD;&#x8981;&#x3002;</p>
 </blockquote>
-<p>&#x8FD9;&#x4E9B;&#x5224;&#x65AD;&#x5F88;&#x5408;&#x7406;&#xFF0C;&#x5E76;&#x4E14;&#x540C;&#x6837;&#x5408;&#x7406;&#x7684;&#x662F;&#xFF1A;&#x5199;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4EE5;&#x786E;&#x4FDD;&#x8FD9;&#x4E9B;&#x903B;&#x8F91;&#x4E0D;&#x4F1A;&#x8131;&#x8F68;&#x3002;&#xFF08;&#x8BBE;&#x60F3;&#x4F60;&#x6216;&#x8005;&#x522B;&#x7684;&#x4EC0;&#x4E48;&#x4EBA;&#x91CD;&#x6784;&#x4E86; <code>AddItemAsync</code> &#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x5374;&#x6F0F;&#x6389;&#x4E86;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x5224;&#x65AD;&#x3002;&#x5F53;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#xFF0C;&#x4F46;&#x5728;&#x7A0B;&#x5E8F;&#x65E5;&#x76CA;&#x590D;&#x6742;&#x8D77;&#x6765;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x81EA;&#x52A8;&#x5316;&#x8FD9;&#x4E9B;&#x6D4B;&#x8BD5;&#x5C31;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x4E86;&#x3002;&#xFF09;</p>
-<p>&#x5199;&#x4E00;&#x4E2A;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x6765;&#x68C0;&#x9A8C; <code>TodoItemService</code> &#x91CC;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x5728;&#x4F60;&#x7684;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;&#x91CC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7C7B;&#xFF1A;</p>
-<p><strong><code>AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs</code></strong></p>
+<p>&#x8981;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x6765;&#x68C0;&#x9A8C; <code>TodoItemService</code> &#x4E2D;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x5728;&#x4F60;&#x7684;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7C7B;&#xFF1A;</p>
+<p><strong>AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs</strong></p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
 <span class="hljs-keyword">using</span> System.Threading.Tasks;
 <span class="hljs-keyword">using</span> AspNetCoreTodo.Data;
@@ -694,115 +705,91 @@ dotnet new xunit
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoItemServiceShould</span>
     {
         [Fact]
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">AddNewItem</span>(<span class="hljs-params"></span>)
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">AddNewItemAsIncompleteWithDueDate</span>(<span class="hljs-params"></span>)
         </span>{
             <span class="hljs-comment">// ...</span>
         }
     }
 }
 </code></pre>
-<p><code>[Fact]</code> &#x5C5E;&#x6027;&#x662F; xUnit.NET &#x5305;&#x91CC;&#x5E26;&#x6765;&#x7684;&#xFF0C;&#x5B83;&#x628A;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6807;&#x8BB0;&#x4E3A;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x3002;</p>
 <blockquote>
 <p>&#x6709;&#x5F88;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x547D;&#x540D;&#x548C;&#x7EC4;&#x7EC7;&#x6D4B;&#x8BD5;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x6709;&#x7740;&#x5404;&#x81EA;&#x7684;&#x4F18;&#x7F3A;&#x70B9;&#x3002;&#x6211;&#x559C;&#x6B22;&#x7ED9;&#x6D4B;&#x8BD5;&#x7C7B;&#x52A0;&#x4E0A; <code>Should</code> &#x524D;&#x7F00;&#xFF0C;&#x4F7F;&#x65B9;&#x6CD5;&#x540D;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x53EF;&#x8BFB;&#x6027;&#x826F;&#x597D;&#x7684;&#x53E5;&#x5B50;&#xFF0C;&#x4E0D;&#x8FC7;&#x4F60;&#x53EF;&#x4EE5;&#x6309;&#x81EA;&#x5DF1;&#x7684;&#x610F;&#x613F;&#x9009;&#x62E9;&#x547D;&#x540D;&#x98CE;&#x683C;&#x3002;</p>
 </blockquote>
-<p><code>TodoItemService</code> &#x9700;&#x8981;&#x4E00;&#x4E2A; <code>ApplicationDbContext</code>&#xFF0C;&#x540E;&#x8005;&#x901A;&#x5E38;&#x8FDE;&#x63A5;&#x5230;&#x4F60;&#x7684;&#x5F00;&#x53D1;&#x6216;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x91CC;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;&#x4F60;&#x4E0D;&#x8BE5;&#x628A;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x5E93;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x91CC;&#x4F7F;&#x7528; Entity Framework Core &#x7684;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x7684; provider&#x3002;&#x56E0;&#x4E3A;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x90FD;&#x5B58;&#x5728;&#x4E8E;&#x5185;&#x5B58;&#x91CC;&#xFF0C;&#x6BCF;&#x6B21;&#x6D4B;&#x91CD;&#x65B0;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x5C31;&#x4F1A;&#x88AB;&#x6E05;&#x7A7A;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x662F;&#x4E2A;&#x5408;&#x4E4E;&#x89C4;&#x683C;&#x7684; Entity Framework Core &#x7684; provider&#xFF0C;<code>TodoItemService</code> &#x4E0D;&#x4F1A;&#x5BDF;&#x89C9;&#x6709;&#x4EC0;&#x4E48;&#x5F02;&#x6837;&#x3002;</p>
-<p>&#x7528;&#x4E00;&#x4E2A; <code>DbContextOptionsBuilder</code> &#x6765;&#x914D;&#x7F6E;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x7684; provider&#xFF0C;&#x7136;&#x540E;&#x5BF9; <code>AddItem</code> &#x53D1;&#x8D77;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#xFF1A;</p>
+<p><code>[Fact]</code> &#x5C5E;&#x6027;&#x662F; xUnit.NET &#x5305;&#x91CC;&#x5E26;&#x6765;&#x7684;&#xFF0C;&#x5B83;&#x628A;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6807;&#x8BB0;&#x4E3A;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x3002;</p>
+<p><code>TodoItemService</code> &#x9700;&#x8981;&#x4E00;&#x4E2A; <code>ApplicationDbContext</code>&#xFF0C;&#x540E;&#x8005;&#x901A;&#x5E38;&#x8FDE;&#x63A5;&#x5230;&#x4F60;&#x7684;&#x5F00;&#x53D1;&#x6216;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x91CC;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;&#x4F60;&#x4E0D;&#x8BE5;&#x628A;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x5E93;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x91CC;&#x4F7F;&#x7528; Entity Framework Core &#x7684;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93; provider&#x3002;&#x56E0;&#x4E3A;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x90FD;&#x5B58;&#x5728;&#x4E8E;&#x5185;&#x5B58;&#x91CC;&#xFF0C;&#x6BCF;&#x6B21;&#x6D4B;&#x8BD5;&#x91CD;&#x65B0;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x5C31;&#x4F1A;&#x88AB;&#x6E05;&#x7A7A;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x662F;&#x4E2A;&#x5408;&#x4E4E;&#x89C4;&#x683C;&#x7684; Entity Framework Core &#x7684; provider&#xFF0C;<code>TodoItemService</code> &#x4E0D;&#x4F1A;&#x5BDF;&#x89C9;&#x6709;&#x4EC0;&#x4E48;&#x5F02;&#x6837;&#x3002;</p>
+<p>&#x7528;&#x4E00;&#x4E2A; <code>DbContextOptionsBuilder</code> &#x6765;&#x914D;&#x7F6E;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x7684; provider&#xFF0C;&#x7136;&#x540E;&#x5BF9; <code>AddItemAsync()</code> &#x53D1;&#x8D77;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#xFF1A;</p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">var</span> options = <span class="hljs-keyword">new</span> DbContextOptionsBuilder&lt;ApplicationDbContext&gt;()
     .UseInMemoryDatabase(databaseName: <span class="hljs-string">&quot;Test_AddNewItem&quot;</span>).Options;
 
-<span class="hljs-comment">// Set up a context (connection to the DB) for writing</span>
-<span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> inMemoryContext = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
+<span class="hljs-comment">// Set up a context (connection to the &quot;DB&quot;) for writing</span>
+<span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> context = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
 {
-    <span class="hljs-keyword">var</span> service = <span class="hljs-keyword">new</span> TodoItemService(inMemoryContext);
+    <span class="hljs-keyword">var</span> service = <span class="hljs-keyword">new</span> TodoItemService(context);
 
     <span class="hljs-keyword">var</span> fakeUser = <span class="hljs-keyword">new</span> ApplicationUser
     {
         Id = <span class="hljs-string">&quot;fake-000&quot;</span>,
-        UserName = <span class="hljs-string">&quot;fake@fake&quot;</span>
+        UserName = <span class="hljs-string">&quot;fake@example.com&quot;</span>
     };
 
-    <span class="hljs-keyword">await</span> service.AddItemAsync(<span class="hljs-keyword">new</span> NewTodoItem { Title = <span class="hljs-string">&quot;Testing?&quot;</span> }, fakeUser);
+    <span class="hljs-keyword">await</span> service.AddItemAsync(<span class="hljs-keyword">new</span> TodoItem
+    {
+        Title = <span class="hljs-string">&quot;Testing?&quot;</span>
+    }, fakeUser);
 }
 </code></pre>
-<p>&#x6700;&#x540E;&#x4E00;&#x884C;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x540D;&#x4E3A; <code>Testing?</code> &#x7684;&#x5F85;&#x529E;&#x4E8B;&#x9879;&#xFF0C;&#x5E76;&#x901A;&#x77E5;&#x670D;&#x52A1;&#x5C06;&#x5176;&#x5B58;&#x50A8;&#x5230;&#xFF08;&#x5185;&#x5B58;&#xFF09;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x3002;&#x4E3A;&#x9A8C;&#x8BC1;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x6267;&#x884C;&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF0C;&#x53D6;&#x51FA;&#x8FD9;&#x4E2A;&#x6761;&#x76EE;&#xFF1A;</p>
-<pre><code class="lang-csharp"><span class="hljs-comment">// Use a separate context to read the data back from the DB</span>
-<span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> inMemoryContext = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
+<p>&#x6700;&#x540E;&#x4E00;&#x884C;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x540D;&#x4E3A; <code>Testing?</code> &#x7684;&#x5F85;&#x529E;&#x4E8B;&#x9879;&#xFF0C;&#x5E76;&#x901A;&#x77E5;&#x670D;&#x52A1;&#x5C06;&#x5176;&#x5B58;&#x50A8;&#x5230;&#xFF08;&#x5185;&#x5B58;&#xFF09;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x3002;</p>
+<p>&#x4E3A;&#x9A8C;&#x8BC1;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x6267;&#x884C;&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF0C;&#x8BF7;&#x5728;&#x539F;&#x6709;&#x7684; <code>using</code> &#x4EE3;&#x7801;&#x5757;&#x4E0B;&#x7F16;&#x5199;&#x65B0;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-comment">// Use a separate context to read data back from the &quot;DB&quot;</span>
+<span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> context = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
 {
-    Assert.Equal(<span class="hljs-number">1</span>, <span class="hljs-keyword">await</span> inMemoryContext.Items.CountAsync());
+    <span class="hljs-keyword">var</span> itemsInDatabase = <span class="hljs-keyword">await</span> context
+        .Items.CountAsync();
+    Assert.Equal(<span class="hljs-number">1</span>, itemsInDatabase);
 
-    <span class="hljs-keyword">var</span> item = <span class="hljs-keyword">await</span> inMemoryContext.Items.FirstAsync();
+    <span class="hljs-keyword">var</span> item = <span class="hljs-keyword">await</span> context.Items.FirstAsync();
     Assert.Equal(<span class="hljs-string">&quot;Testing?&quot;</span>, item.Title);
     Assert.Equal(<span class="hljs-keyword">false</span>, item.IsDone);
-    Assert.True(DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>) - item.DueAt &lt; TimeSpan.FromSeconds(<span class="hljs-number">1</span>));
+
+    <span class="hljs-comment">// Item should be due 3 days from now (give or take a second)</span>
+    <span class="hljs-keyword">var</span> difference = DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>) - item.DueAt;
+    Assert.True(difference &lt; TimeSpan.FromSeconds(<span class="hljs-number">1</span>));
 }
 </code></pre>
 <p>&#x7B2C;&#x4E00;&#x4E2A;&#x9A8C;&#x8BC1;&#x6B65;&#x9AA4;&#x662F;&#x4E2A;&#x660E;&#x667A;&#x7684;&#x68C0;&#x67E5;&#xFF1A;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x4FDD;&#x5B58;&#x7684;&#x6761;&#x76EE;&#x7EDD;&#x4E0D;&#x4F1A;&#x8D85;&#x8FC7;&#x4E00;&#x6761;&#x3002;&#x5047;&#x8BBE;&#x8FD9;&#x4E2A;&#x68C0;&#x67E5;&#x901A;&#x8FC7;&#x4E86;&#xFF0C;&#x6D4B;&#x8BD5;&#x4F1A;&#x4F7F;&#x7528; <code>FirstAsync</code> &#x65B9;&#x6CD5;&#x53D6;&#x51FA;&#x5B58;&#x50A8;&#x7684;&#x6761;&#x76EE;&#xFF0C;&#x7136;&#x540E;&#x65AD;&#x8A00;&#x5176;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x88AB;&#x8BBE;&#x7F6E;&#x4E86;&#x9884;&#x671F;&#x7684;&#x503C;&#x3002;</p>
-<p>&#x65AD;&#x8A00;&#x4E00;&#x4E2A;&#x65E5;&#x671F;&#x65F6;&#x95F4;&#x503C;&#x6709;&#x70B9;&#x68D8;&#x624B;&#xFF0C;&#x56E0;&#x4E3A;&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x65E5;&#x671F;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x7B97;&#x662F;&#x53EA;&#x6709;&#x6BEB;&#x79D2;&#x90E8;&#x5206;&#x4E0D;&#x540C;&#xFF0C;&#x4E24;&#x4E2A;&#x503C;&#x4E5F;&#x662F;&#x4E0D;&#x7B49;&#x7684;&#x3002;&#x66FF;&#x4EE3;&#x65B9;&#x6848;&#x662F;&#xFF0C;&#x68C0;&#x67E5; <code>DueAt</code> &#x7684;&#x503C;&#x8DDD;&#x79BB;&#x671F;&#x671B;&#x503C;&#x5C0F;&#x4E8E;&#x4E00;&#x79D2;&#x3002;</p>
 <blockquote>
 <p>&#x4E0D;&#x8BBA;&#x662F;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x8FD8;&#x662F;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#xFF0C;&#x90FD;&#x9075;&#x5FAA; AAA&#xFF08;&#x5E03;&#x7F6E;-&#x6267;&#x884C;-&#x65AD;&#x8A00;&#x2014;&#x2014;Arrange-Act-Assert&#xFF09;&#x6A21;&#x5F0F;&#xFF1A;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x636E;&#x9996;&#x5148;&#x88AB;&#x5EFA;&#x7ACB;&#x51FA;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x52A8;&#x4F5C;&#xFF0C;&#x6700;&#x540E;&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#x68C0;&#x67E5;&#xFF08;&#x65AD;&#x8A00;&#xFF09;&#x9884;&#x671F;&#x8868;&#x73B0;&#x7684;&#x5B58;&#x5728;&#x3002;</p>
 </blockquote>
-<p>&#x8FD9;&#x662F; <code>AddNewItem</code> &#x6D4B;&#x8BD5;&#x7684;&#x6700;&#x7EC8;&#x7248;&#x672C;&#xFF1A;</p>
-<p><strong><code>AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs</code></strong></p>
-<pre><code class="lang-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoItemServiceShould</span>
-{
-    [Fact]
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">AddNewItem</span>(<span class="hljs-params"></span>)
-    </span>{
-        <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">new</span> DbContextOptionsBuilder&lt;ApplicationDbContext&gt;()
-            .UseInMemoryDatabase(databaseName: <span class="hljs-string">&quot;Test_AddNewItem&quot;</span>)
-            .Options;
-
-        <span class="hljs-comment">// Set up a context (connection to the DB) for writing</span>
-        <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> inMemoryContext = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
-        {
-            <span class="hljs-keyword">var</span> service = <span class="hljs-keyword">new</span> TodoItemService(inMemoryContext);
-            <span class="hljs-keyword">await</span> service.AddItemAsync(<span class="hljs-keyword">new</span> NewTodoItem { Title = <span class="hljs-string">&quot;Testing?&quot;</span> }, <span class="hljs-keyword">null</span>);
-        }
-
-        <span class="hljs-comment">// Use a separate context to read the data back from the DB</span>
-        <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> inMemoryContext = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
-        {
-            Assert.Equal(<span class="hljs-number">1</span>, <span class="hljs-keyword">await</span> inMemoryContext.Items.CountAsync());
-
-            <span class="hljs-keyword">var</span> item = <span class="hljs-keyword">await</span> inMemoryContext.Items.FirstAsync();
-            Assert.Equal(<span class="hljs-string">&quot;Testing?&quot;</span>, item.Title);
-            Assert.Equal(<span class="hljs-keyword">false</span>, item.IsDone);
-            Assert.True(DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>) - item.DueAt &lt; TimeSpan.FromSeconds(<span class="hljs-number">1</span>));
-        }
-    }
-}
-</code></pre>
+<p>&#x65AD;&#x8A00;&#x4E00;&#x4E2A;&#x65E5;&#x671F;&#x65F6;&#x95F4;&#x503C;&#x6709;&#x70B9;&#x68D8;&#x624B;&#xFF0C;&#x56E0;&#x4E3A;&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x65E5;&#x671F;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x7B97;&#x662F;&#x53EA;&#x6709;&#x6BEB;&#x79D2;&#x90E8;&#x5206;&#x4E0D;&#x540C;&#xFF0C;&#x4E24;&#x4E2A;&#x503C;&#x4E5F;&#x662F;&#x4E0D;&#x7B49;&#x7684;&#x3002;&#x66FF;&#x4EE3;&#x65B9;&#x6848;&#x662F;&#xFF0C;&#x68C0;&#x67E5; <code>DueAt</code> &#x7684;&#x503C;&#x8DDD;&#x79BB;&#x671F;&#x671B;&#x503C;&#x5C0F;&#x4E8E;&#x4E00;&#x79D2;&#x3002;</p>
 <h3 id="&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;"><a name="&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;" class="plugin-anchor" href="#&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;</h3>
 <p>&#x5728;&#x7EC8;&#x7AEF;&#x7A97;&#x53E3;&#xFF0C;&#x8FD0;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF08;&#x8BF7;&#x786E;&#x4FDD;&#x4F60;&#x4F4D;&#x4E8E; <code>AspNetCoreTodo.UnitTests</code> &#x76EE;&#x5F55;&#xFF09;&#xFF1A;</p>
 <pre><code>dotnet test
 </code></pre><p><code>test</code> &#x547D;&#x4EE4;&#x5728;&#x5F53;&#x524D;&#x7684;&#x9879;&#x76EE;&#x91CC;&#x67E5;&#x627E;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#xFF08;&#x672C;&#x4F8B;&#x4E2D;&#xFF0C;&#x7531; <code>[Fact]</code> &#x5C5E;&#x6027;&#x6807;&#x8BB0;&#x51FA;&#x6765;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x8FD0;&#x884C;&#x5B83;&#x627E;&#x5230;&#x7684;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#xFF0C;&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;&#x7684;&#x8F93;&#x51FA;&#xFF1A;</p>
 <pre><code>Starting test execution, please wait...
-[xUnit.net 00:00:00.7595476]   Discovering: AspNetCoreTodo.UnitTests
-[xUnit.net 00:00:00.8511683]   Discovered:  AspNetCoreTodo.UnitTests
-[xUnit.net 00:00:00.9222450]   Starting:    AspNetCoreTodo.UnitTests
-[xUnit.net 00:00:01.3862430]   Finished:    AspNetCoreTodo.UnitTests
+ Discovering: AspNetCoreTodo.UnitTests
+ Discovered:  AspNetCoreTodo.UnitTests
+ Starting:    AspNetCoreTodo.UnitTests
+ Finished:    AspNetCoreTodo.UnitTests
 
 Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
 Test Run Successful.
 Test execution time: 1.9074 Seconds
 </code></pre><p>&#x4F60;&#x73B0;&#x5728;&#x6709;&#x4E86;&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#xFF0C;&#x8986;&#x76D6;&#x4E86; <code>TodoItemService</code> &#x7684;&#x6D4B;&#x8BD5;&#x8303;&#x56F4;&#x3002;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8865;&#x5145;&#x7EC3;&#x4E60;&#xFF0C;&#x8BF7;&#x5199;&#x51FA;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x4EE5;&#x786E;&#x4FDD;&#xFF1A;</p>
 <ul>
-<li>&#x5982;&#x679C;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684; ID&#xFF0C; <code>MarkDoneAsync</code> &#x8FD4;&#x56DE; false</li>
-<li>&#x5F53;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684;&#x6761;&#x76EE;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#xFF0C; <code>MarkDoneAsync</code> &#x8FD4;&#x56DE; true</li>
-<li><code>GetIncompleteItemsAsync</code> &#x53EA;&#x8FD4;&#x56DE;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x7528;&#x6237;&#x7684;&#x6761;&#x76EE;</li>
+<li>&#x5982;&#x679C;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684; ID&#xFF0C; <code>MarkDoneAsync()</code> &#x8FD4;&#x56DE; false</li>
+<li>&#x5F53;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684;&#x6761;&#x76EE;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#xFF0C; <code>MarkDoneAsync()</code> &#x8FD4;&#x56DE; true</li>
+<li><code>GetIncompleteItemsAsync()</code> &#x53EA;&#x8FD4;&#x56DE;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x7528;&#x6237;&#x7684;&#x6761;&#x76EE;</li>
 </ul>
 <hr>
 <h2 id="unit-testing"><a name="unit-testing" class="plugin-anchor" href="#unit-testing"><i class="fa fa-link" aria-hidden="true"></i></a>Unit testing</h2>
-<p>Unit tests are small, quick tests that check the behavior of a single method or chunk of logic. Instead of testing a whole group of classes, or the entire system (as integration tests do), unit tests rely on <strong>mocking</strong> or replacing the objects the method-under-test depends on.</p>
-<p>For example, the <code>TodoController</code> has two dependencies: an <code>ITodoItemService</code> and the <code>UserManager</code>. The <code>TodoItemService</code>, in turn, depends on the <code>ApplicationDbContext</code>. (The idea that you can draw a line from <code>TodoController</code> -&gt; <code>TodoItemService</code> -&gt; <code>ApplicationDbContext</code> is called a <em>dependency graph</em>).</p>
-<p>When the application runs normally, the ASP.NET Core dependency injection system injects each of those objects into the dependency graph when the <code>TodoController</code> or the <code>TodoItemService</code> is created.</p>
-<p>When you write a unit test, on the other hand, you&apos;ll manually inject mock or test-only versions of those dependencies. This means you can isolate just the logic in the class or method you are testing. (If you&apos;re testing a service, you don&apos;t want to also be accidentally writing to your database!)</p>
+<p>Unit tests are small, short tests that check the behavior of a single method or class. When the code you&apos;re testing relies on other methods or classes, unit tests rely on <strong>mocking</strong> those other classes so that the test only focuses on one thing at a time.</p>
+<p>For example, the <code>TodoController</code> class has two dependencies: an <code>ITodoItemService</code> and the <code>UserManager</code>. The <code>TodoItemService</code>, in turn, depends on the <code>ApplicationDbContext</code>. (The idea that you can draw a line from <code>TodoController</code> &gt; <code>TodoItemService</code> &gt; <code>ApplicationDbContext</code> is called a <strong>dependency graph</strong>).</p>
+<p>When the application runs normally, the ASP.NET Core service container and dependency injection system injects each of those objects into the dependency graph when the <code>TodoController</code> or the <code>TodoItemService</code> is created.</p>
+<p>When you write a unit test, on the other hand, you have to handle the dependency graph yourself. It&apos;s typical to provide test-only or &quot;mocked&quot; versions of those dependencies. This means you can isolate just the logic in the class or method you are testing. (This is important! If you&apos;re testing a service, you don&apos;t want to <strong>also</strong> be accidentally writing to your database.)</p>
 <h3 id="create-a-test-project"><a name="create-a-test-project" class="plugin-anchor" href="#create-a-test-project"><i class="fa fa-link" aria-hidden="true"></i></a>Create a test project</h3>
-<p>It&apos;s a common practice to create a separate project for your tests, to keep things clean and organized. The new test project should live in a directory that&apos;s next to (not inside) your main project&apos;s directory.</p>
-<p>If you&apos;re currently in your project directory, <code>cd</code> up one level. (This directory will also be called <code>AspNetCoreTodo</code>). Then use these commands to scaffold a new test project:</p>
-<pre><code>mkdir AspNetCoreTodo.UnitTests
-cd AspNetCoreTodo.UnitTests
-dotnet new xunit
+<p>It&apos;s a best practice to create a separate project for your tests, so they are kept separate from your application code. The new test project should live in a directory that&apos;s next to (not inside) your main project&apos;s directory.</p>
+<p>If you&apos;re currently in your project directory, <code>cd</code> up one level. (This root directory will also be called <code>AspNetCoreTodo</code>). Then use this command to scaffold a new test project:</p>
+<pre><code>dotnet new xunit -o AspNetCoreTodo.UnitTests
 </code></pre><p>xUnit.NET is a popular test framework for .NET code that can be used to write both unit and integration tests. Like everything else, it&apos;s a set of NuGet packages that can be installed in any project. The <code>dotnet new xunit</code> template already includes everything you need.</p>
 <p>Your directory structure should now look like this:</p>
 <pre><code>AspNetCoreTodo/
@@ -813,41 +800,41 @@ dotnet new xunit
 
     AspNetCoreTodo.UnitTests/
         AspNetCoreTodo.UnitTests.csproj
-</code></pre><p>Since the test project will use the classes defined in your main project, you&apos;ll need to add a reference to the main project:</p>
+</code></pre><p>Since the test project will use the classes defined in your main project, you&apos;ll need to add a reference to the <code>AspNetCoreTodo</code> project:</p>
 <pre><code>dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 </code></pre><p>Delete the <code>UnitTest1.cs</code> file that&apos;s automatically created. You&apos;re ready to write your first test.</p>
+<blockquote>
+<p>If you&apos;re using Visual Studio Code, you may need to close and reopen the Visual Studio Code window to get code completion working in the new project.</p>
+</blockquote>
 <h3 id="write-a-service-test"><a name="write-a-service-test" class="plugin-anchor" href="#write-a-service-test"><i class="fa fa-link" aria-hidden="true"></i></a>Write a service test</h3>
-<p>Take a look at the logic in the <code>AddItemAsync</code> method of the <code>TodoItemService</code>:</p>
-<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">AddItemAsync</span>(<span class="hljs-params">NewTodoItem newItem, ApplicationUser user</span>)
+<p>Take a look at the logic in the <code>AddItemAsync()</code> method of the <code>TodoItemService</code>:</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">AddItemAsync</span>(<span class="hljs-params">
+    TodoItem newItem, ApplicationUser user</span>)
 </span>{
-    <span class="hljs-keyword">var</span> entity = <span class="hljs-keyword">new</span> TodoItem
-    {
-        Id = Guid.NewGuid(),
-        OwnerId = user.Id,
-        IsDone = <span class="hljs-keyword">false</span>,
-        Title = newItem.Title,
-        DueAt = DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>)
-    };
+    newItem.Id = Guid.NewGuid();
+    newItem.IsDone = <span class="hljs-keyword">false</span>;
+    newItem.DueAt = DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>);
+    newItem.UserId = user.Id;
 
-    _context.Items.Add(entity);
+    _context.Items.Add(newItem);
 
     <span class="hljs-keyword">var</span> saveResult = <span class="hljs-keyword">await</span> _context.SaveChangesAsync();
     <span class="hljs-keyword">return</span> saveResult == <span class="hljs-number">1</span>;
 }
 </code></pre>
-<p>This method makes a number of decisions or assumptions about the new item before it actually saves it to the database:</p>
+<p>This method makes a number of decisions or assumptions about the new item (in other words, performs business logic on the new item) before it actually saves it to the database:</p>
 <ul>
-<li>The <code>OwnerId</code> property should be set to the user&apos;s ID</li>
+<li>The <code>UserId</code> property should be set to the user&apos;s ID</li>
 <li>New items should always be incomplete (<code>IsDone = false</code>)</li>
 <li>The title of the new item should be copied from <code>newItem.Title</code></li>
 <li>New items should always be due 3 days from now</li>
 </ul>
+<p>Imagine if you or someone else refactored the <code>AddItemAsync()</code> method and forgot about part of this business logic. The behavior of your application could change without you realizing it! You can prevent this by writing a test that double-checks that this business logic hasn&apos;t changed (even if the method&apos;s internal implementation changes).</p>
 <blockquote>
-<p>These types of decisions made by your code are called <em>business logic</em>, because it&apos;s logic that relates to the purpose or &quot;business&quot; of your application. Other examples of business logic include things like calculating a total cost based on product prices and tax rates, or checking whether a player has enough points to level up in a game.</p>
+<p>It might seem unlikely now that you could introduce a change in business logic without realizing it, but it becomes much harder to keep track of decisions and assumptions in a large, complex project. The larger your project is, the more important it is to have automated checks that make sure nothing has changed!</p>
 </blockquote>
-<p>These decisions make sense, and it also makes sense to have a test that ensures that this logic doesn&apos;t change down the road. (Imagine if you or someone else refactored the <code>AddItemAsync</code> method and forgot about one of these assumptions. It might be unlikely when your services are simple, but it becomes important to have automated checks as your application becomes more complicated.)</p>
 <p>To write a unit test that will verify the logic in the <code>TodoItemService</code>, create a new class in your test project:</p>
-<p><strong><code>AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs</code></strong></p>
+<p><strong>AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs</strong></p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
 <span class="hljs-keyword">using</span> System.Threading.Tasks;
 <span class="hljs-keyword">using</span> AspNetCoreTodo.Data;
@@ -861,102 +848,80 @@ dotnet new xunit
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoItemServiceShould</span>
     {
         [Fact]
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">AddNewItem</span>(<span class="hljs-params"></span>)
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">AddNewItemAsIncompleteWithDueDate</span>(<span class="hljs-params"></span>)
         </span>{
             <span class="hljs-comment">// ...</span>
         }
     }
 }
 </code></pre>
-<p>The <code>[Fact]</code> attribute comes from the xUnit.NET package, and it marks this method as a test method.</p>
 <blockquote>
 <p>There are many different ways of naming and organizing tests, all with different pros and cons. I like postfixing my test classes with <code>Should</code> to create a readable sentence with the test method name, but feel free to use your own style!</p>
 </blockquote>
-<p>The <code>TodoItemService</code> requires an <code>ApplicationDbContext</code>, which is normally connected to your development or live database. You won&apos;t want to use that for tests. Instead, you can use Entity Framework Core&apos;s in-memory database provider in your test code. Since the entire database exists in memory, it&apos;s wiped out every time the test is restarted. And, since it&apos;s a proper Entity Framework Core provider, the <code>TodoItemService</code> won&apos;t know the difference!</p>
-<p>Use a <code>DbContextOptionsBuilder</code> to configure the in-memory database provider, and then make a call to <code>AddItem</code>:</p>
+<p>The <code>[Fact]</code> attribute comes from the xUnit.NET package, and it marks this method as a test method.</p>
+<p>The <code>TodoItemService</code> requires an <code>ApplicationDbContext</code>, which is normally connected to your database. You won&apos;t want to use that for tests. Instead, you can use Entity Framework Core&apos;s in-memory database provider in your test code. Since the entire database exists in memory, it&apos;s wiped out every time the test is restarted. And, since it&apos;s a proper Entity Framework Core provider, the <code>TodoItemService</code> won&apos;t know the difference!</p>
+<p>Use a <code>DbContextOptionsBuilder</code> to configure the in-memory database provider, and then make a call to <code>AddItemAsync()</code>:</p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">var</span> options = <span class="hljs-keyword">new</span> DbContextOptionsBuilder&lt;ApplicationDbContext&gt;()
     .UseInMemoryDatabase(databaseName: <span class="hljs-string">&quot;Test_AddNewItem&quot;</span>).Options;
 
-<span class="hljs-comment">// Set up a context (connection to the DB) for writing</span>
-<span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> inMemoryContext = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
+<span class="hljs-comment">// Set up a context (connection to the &quot;DB&quot;) for writing</span>
+<span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> context = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
 {
-    <span class="hljs-keyword">var</span> service = <span class="hljs-keyword">new</span> TodoItemService(inMemoryContext);
+    <span class="hljs-keyword">var</span> service = <span class="hljs-keyword">new</span> TodoItemService(context);
 
     <span class="hljs-keyword">var</span> fakeUser = <span class="hljs-keyword">new</span> ApplicationUser
     {
         Id = <span class="hljs-string">&quot;fake-000&quot;</span>,
-        UserName = <span class="hljs-string">&quot;fake@fake&quot;</span>
+        UserName = <span class="hljs-string">&quot;fake@example.com&quot;</span>
     };
 
-    <span class="hljs-keyword">await</span> service.AddItemAsync(<span class="hljs-keyword">new</span> NewTodoItem { Title = <span class="hljs-string">&quot;Testing?&quot;</span> }, fakeUser);
+    <span class="hljs-keyword">await</span> service.AddItemAsync(<span class="hljs-keyword">new</span> TodoItem
+    {
+        Title = <span class="hljs-string">&quot;Testing?&quot;</span>
+    }, fakeUser);
 }
 </code></pre>
-<p>The last line creates a new to-do item called <code>Testing?</code>, and tells the service to save it to the (in-memory) database. To verify that the business logic ran correctly, retrieve the item:</p>
-<pre><code class="lang-csharp"><span class="hljs-comment">// Use a separate context to read the data back from the DB</span>
-<span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> inMemoryContext = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
+<p>The last line creates a new to-do item called <code>Testing?</code>, and tells the service to save it to the (in-memory) database.</p>
+<p>To verify that the business logic ran correctly, write some more code below the existing <code>using</code> block:</p>
+<pre><code class="lang-csharp"><span class="hljs-comment">// Use a separate context to read data back from the &quot;DB&quot;</span>
+<span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> context = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
 {
-    Assert.Equal(<span class="hljs-number">1</span>, <span class="hljs-keyword">await</span> inMemoryContext.Items.CountAsync());
+    <span class="hljs-keyword">var</span> itemsInDatabase = <span class="hljs-keyword">await</span> context
+        .Items.CountAsync();
+    Assert.Equal(<span class="hljs-number">1</span>, itemsInDatabase);
 
-    <span class="hljs-keyword">var</span> item = <span class="hljs-keyword">await</span> inMemoryContext.Items.FirstAsync();
+    <span class="hljs-keyword">var</span> item = <span class="hljs-keyword">await</span> context.Items.FirstAsync();
     Assert.Equal(<span class="hljs-string">&quot;Testing?&quot;</span>, item.Title);
     Assert.Equal(<span class="hljs-keyword">false</span>, item.IsDone);
-    Assert.True(DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>) - item.DueAt &lt; TimeSpan.FromSeconds(<span class="hljs-number">1</span>));
+
+    <span class="hljs-comment">// Item should be due 3 days from now (give or take a second)</span>
+    <span class="hljs-keyword">var</span> difference = DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>) - item.DueAt;
+    Assert.True(difference &lt; TimeSpan.FromSeconds(<span class="hljs-number">1</span>));
 }
 </code></pre>
-<p>The first verification step is a sanity check: there should never be more than one item saved to the in-memory database. Assuming that&apos;s true, the test retrieves the saved item with <code>FirstAsync</code> and then asserts that the properties are set to the expected values.</p>
-<p>Asserting a datetime value is a little tricky, since comparing two dates for equality will fail if even the millisecond components are different. Instead, the test checks that the <code>DueAt</code> value is less than a second away from the expected value.</p>
+<p>The first assertion is a sanity check: there should never be more than one item saved to the in-memory database. Assuming that&apos;s true, the test retrieves the saved item with <code>FirstAsync</code> and then asserts that the properties are set to the expected values.</p>
 <blockquote>
 <p>Both unit and integration tests typically follow the AAA (Arrange-Act-Assert) pattern: objects and data are set up first, then some action is performed, and finally the test checks (asserts) that the expected behavior occurred.</p>
 </blockquote>
-<p>Here&apos;s the final version of the <code>AddNewItem</code> test:</p>
-<p><strong><code>AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs</code></strong></p>
-<pre><code class="lang-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TodoItemServiceShould</span>
-{
-    [Fact]
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">AddNewItem</span>(<span class="hljs-params"></span>)
-    </span>{
-        <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">new</span> DbContextOptionsBuilder&lt;ApplicationDbContext&gt;()
-            .UseInMemoryDatabase(databaseName: <span class="hljs-string">&quot;Test_AddNewItem&quot;</span>)
-            .Options;
-
-        <span class="hljs-comment">// Set up a context (connection to the DB) for writing</span>
-        <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> inMemoryContext = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
-        {
-            <span class="hljs-keyword">var</span> service = <span class="hljs-keyword">new</span> TodoItemService(inMemoryContext);
-            <span class="hljs-keyword">await</span> service.AddItemAsync(<span class="hljs-keyword">new</span> NewTodoItem { Title = <span class="hljs-string">&quot;Testing?&quot;</span> }, <span class="hljs-keyword">null</span>);
-        }
-
-        <span class="hljs-comment">// Use a separate context to read the data back from the DB</span>
-        <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> inMemoryContext = <span class="hljs-keyword">new</span> ApplicationDbContext(options))
-        {
-            Assert.Equal(<span class="hljs-number">1</span>, <span class="hljs-keyword">await</span> inMemoryContext.Items.CountAsync());
-
-            <span class="hljs-keyword">var</span> item = <span class="hljs-keyword">await</span> inMemoryContext.Items.FirstAsync();
-            Assert.Equal(<span class="hljs-string">&quot;Testing?&quot;</span>, item.Title);
-            Assert.Equal(<span class="hljs-keyword">false</span>, item.IsDone);
-            Assert.True(DateTimeOffset.Now.AddDays(<span class="hljs-number">3</span>) - item.DueAt &lt; TimeSpan.FromSeconds(<span class="hljs-number">1</span>));
-        }
-    }
-}
-</code></pre>
+<p>Asserting a datetime value is a little tricky, since comparing two dates for equality will fail if even the millisecond components are different. Instead, the test checks that the <code>DueAt</code> value is less than a second away from the expected value.</p>
 <h3 id="run-the-test"><a name="run-the-test" class="plugin-anchor" href="#run-the-test"><i class="fa fa-link" aria-hidden="true"></i></a>Run the test</h3>
 <p>On the terminal, run this command (make sure you&apos;re still in the <code>AspNetCoreTodo.UnitTests</code> directory):</p>
 <pre><code>dotnet test
-</code></pre><p>The <code>test</code> command scans the current project for tests (marked with <code>[Fact]</code> attributes in this case), and runs all the tests it finds. You&apos;ll see an output similar to:</p>
+</code></pre><p>The <code>test</code> command scans the current project for tests (marked with <code>[Fact]</code> attributes in this case), and runs all the tests it finds. You&apos;ll see output similar to:</p>
 <pre><code>Starting test execution, please wait...
-[xUnit.net 00:00:00.7595476]   Discovering: AspNetCoreTodo.UnitTests
-[xUnit.net 00:00:00.8511683]   Discovered:  AspNetCoreTodo.UnitTests
-[xUnit.net 00:00:00.9222450]   Starting:    AspNetCoreTodo.UnitTests
-[xUnit.net 00:00:01.3862430]   Finished:    AspNetCoreTodo.UnitTests
+ Discovering: AspNetCoreTodo.UnitTests
+ Discovered:  AspNetCoreTodo.UnitTests
+ Starting:    AspNetCoreTodo.UnitTests
+ Finished:    AspNetCoreTodo.UnitTests
 
 Total tests: 1. Passed: 1. Failed: 0. Skipped: 0.
 Test Run Successful.
 Test execution time: 1.9074 Seconds
-</code></pre><p>You now have one test providing test coverage of the <code>TodoItemService</code>. As an extra-credit challenge, try writing unit tests that ensure:</p>
+</code></pre><p>You now have one test providing test coverage of the <code>TodoItemService</code>. As an extra challenge, try writing unit tests that ensure:</p>
 <ul>
-<li><code>MarkDoneAsync</code> returns false if it&apos;s passed an ID that doesn&apos;t exist</li>
-<li><code>MarkDoneAsync</code> returns true when it makes a valid item as complete</li>
-<li><code>GetIncompleteItemsAsync</code> returns only the items owned by a particular user</li>
+<li>The <code>MarkDoneAsync()</code> method returns false if it&apos;s passed an ID that doesn&apos;t exist</li>
+<li>The <code>MarkDoneAsync()</code> method returns true when it makes a valid item as complete</li>
+<li>The <code>GetIncompleteItemsAsync()</code> method returns only the items owned by a particular user</li>
 </ul>
 
                                 
@@ -1001,7 +966,7 @@ Test execution time: 1.9074 Seconds
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"单元测试","level":"1.8.1","depth":2,"next":{"title":"集成测试","level":"1.8.2","depth":2,"path":"chapters/automated-testing/integration-testing.md","ref":"chapters/automated-testing/integration-testing.md","articles":[]},"previous":{"title":"自动化测试","level":"1.8","depth":1,"path":"chapters/automated-testing/README.md","ref":"chapters/automated-testing/README.md","articles":[{"title":"单元测试","level":"1.8.1","depth":2,"path":"chapters/automated-testing/unit-testing.md","ref":"chapters/automated-testing/unit-testing.md","articles":[]},{"title":"集成测试","level":"1.8.2","depth":2,"path":"chapters/automated-testing/integration-testing.md","ref":"chapters/automated-testing/integration-testing.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"b5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":12,"left":12,"top":12,"bottom":12,"comment_from_windsting":"these margin settings not working."}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/automated-testing/unit-testing.md","mtime":"2018-04-26T03:11:42.854Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-28T07:47:03.635Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"单元测试","level":"1.8.1","depth":2,"next":{"title":"集成测试","level":"1.8.2","depth":2,"path":"chapters/automated-testing/integration-testing.md","ref":"chapters/automated-testing/integration-testing.md","articles":[]},"previous":{"title":"自动化测试","level":"1.8","depth":1,"path":"chapters/automated-testing/README.md","ref":"chapters/automated-testing/README.md","articles":[{"title":"单元测试","level":"1.8.1","depth":2,"path":"chapters/automated-testing/unit-testing.md","ref":"chapters/automated-testing/unit-testing.md","articles":[]},{"title":"集成测试","level":"1.8.2","depth":2,"path":"chapters/automated-testing/integration-testing.md","ref":"chapters/automated-testing/integration-testing.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/automated-testing/unit-testing.md","mtime":"2018-06-01T09:39:27.993Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-01T09:46:04.882Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
