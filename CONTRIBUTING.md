@@ -10,7 +10,7 @@
 
 ## 欢迎建议
 
-如果你有什么建议，欢迎提交一个 [议点](https://github.com/windsting/little-aspnetcore-book/issues) 或者发邮件到 nate@barbettini.com 给我。我不一定回复所有来信，但我会尽量都读一下。
+如果你有什么建议，欢迎提交一个 [议题](https://github.com/windsting/little-aspnetcore-book/issues) 或者发邮件到 nate@barbettini.com 给我。我不一定回复所有来信，但我会尽量都读一下。
 
 ---
 
