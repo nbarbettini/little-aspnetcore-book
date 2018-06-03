@@ -301,7 +301,7 @@ You can inject the `UserManager` directly into a view to do these types of autho
 
 @if (signInManager.IsSignedIn(User))
 {
-    var currentUser = await UserManager.GetUserAsync(User);
+    var currentUser = await userManager.GetUserAsync(User);
 
     var isAdmin = currentUser != null
         && await userManager.IsInRoleAsync(
