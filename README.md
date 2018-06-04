@@ -2,7 +2,7 @@
 
 *Nate Barbettini 著*
 
-*windsting 、 yuy 译*
+*windsting 、 yuyi 译*
 
 Copyright &copy; 2018. All rights reserved.
 
