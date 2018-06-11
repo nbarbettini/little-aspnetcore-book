@@ -37,7 +37,8 @@ To Jennifer, who always supports my crazy ideas.
 To the following contributors who improved the Little ASP.NET Core Book:
 
 * 0xNF
-* Matt Welke
+* Matt Welke (welke)
+* Raman Zhylich (zhilich)
 
 To these amazing polyglot programmers who translated the Little ASP.NET Core Book:
 
