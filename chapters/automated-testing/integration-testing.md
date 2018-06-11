@@ -6,7 +6,7 @@ Integration tests are slower and more involved than unit tests, so it's common f
 
 In order to test the whole stack (including controller routing), integration tests typically make HTTP calls to your application just like a web browser would.
 
-To write integration tests that make HTTP requests, you could manually start your application and tests at the same time, and write your tests to make requests to `http://localhost:5000`. ASP.NET Core provides a nicer way to host your application for testing, however: the `TestServer` class. `TestServer` can host your application for the duration of the test, and then stop it automatically when the test is complete.
+To perform an integration test, you could start your application and manually make requests to http://localhost:5000. However, ASP.NET Core provides a better alternative: the `TestServer` class. This class can host your application for the duration of the test, and then stop it automatically when the test is complete.
 
 ### Create a test project
 
