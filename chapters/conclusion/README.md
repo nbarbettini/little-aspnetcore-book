@@ -37,7 +37,8 @@ To Jennifer, who always supports my crazy ideas.
 To the following contributors who improved the Little ASP.NET Core Book:
 
 * 0xNF
-* Matt Welke
+* Matt Welke (welke)
+* Raman Zhylich (zhilich)
 
 To these amazing polyglot programmers who translated the Little ASP.NET Core Book:
 
@@ -49,6 +50,8 @@ To these amazing polyglot programmers who translated the Little ASP.NET Core Boo
 The full, detailed changelog is always available here:
 
 https://github.com/nbarbettini/little-aspnetcore-book/releases
+
+**1.1.1** (2018-06-11): Fixed typos found by readers.
 
 **1.1.0** (2018-05-03): Significantly reworked the *Add more features* chapter to use MVC thorough the whole stack and remove the AJAX pattern. Removed Facebook login to simplify the security chapter and streamline testing and deployment. Updated the Docker instructions to reflect the latest best practices. Fixed typos and added suggestions from readers. The book also sports a new, improved cover design!
 
