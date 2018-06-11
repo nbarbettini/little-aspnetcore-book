@@ -146,6 +146,7 @@ Create a new class in the root of the project called `SeedData`:
 
 ```csharp
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreTodo.Models;
 using Microsoft.AspNetCore.Identity;
