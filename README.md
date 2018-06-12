@@ -11,7 +11,7 @@ Released under the Creative Commons Attribution 4.0 license. You are free to sha
 For more information, visit https://creativecommons.org/licenses/by/4.0/
 
 ## Introduction
-Thanks for picking up The Little ASP.NET Core Book! I wrote this short book to help developers and people interested in web programming learn about ASP.NET Core, a new framework for building web applications and APIs.
+Thanks for picking up The Little ASP.NET Core Book! I wrote this short book to help developers and people interested in web programming learn about ASP.NET Core 2.0, a framework for building web applications and APIs.
 
 The Little ASP.NET Core Book is structured as a tutorial. You'll build an application from start to finish and learn:
 
