@@ -31,5 +31,6 @@
     * [Integration testing](chapters/automated-testing/integration-testing.md)
 * [Deploy the application](chapters/deploy-the-application/README.md)
     * [Deploy to Azure](chapters/deploy-the-application/deploy-to-azure.md)
+    * [Deploy to Heroku with PostgreSQL](chapters/deploy-the-application/deploy-to-heroku-with-postgresql.md)
     * [Deploy with Docker](chapters/deploy-the-application/deploy-with-docker.md)
 * [Conclusion](chapters/conclusion/README.md)
