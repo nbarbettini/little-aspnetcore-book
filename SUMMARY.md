@@ -33,6 +33,4 @@
     * [Deploy to Azure](chapters/deploy-the-application/deploy-to-azure.md)
     * [Deploy to Heroku with PostgreSQL](chapters/deploy-the-application/deploy-to-heroku-with-postgresql.md)
     * [Deploy with Docker](chapters/deploy-the-application/deploy-with-docker.md)
-* [Alternative databases](chapters/alternative-databases/README.md)
-    * [PostgreSQL](chapters/alternative-databases/postgresql.md)
 * [Conclusion](chapters/conclusion/README.md)
