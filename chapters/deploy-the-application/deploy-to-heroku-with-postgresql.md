@@ -204,7 +204,7 @@ public static class Extensions
 }
 ```
 
-The static method in this class adds a method to the `IWebHost` interface that has no parameters. The `this IWebHost webHost` parameter is what allows the method to be added to the `IWebHost` interface as an extension method.
+The static method `MigrateDatabase` in this class adds a method to the `IWebHost` interface that has no parameters. The `this IWebHost webHost` parameter is what allows the method to be added to the `IWebHost` interface as an extension method.
 
 The code inside will first check whether the application is running in Production, and therefore running on Heroku. If so, it will obtain a temporary DI scope inside which it will obtain an `ApplicationDbContext` instance and perform the pending migrations. Then, the application will continue to start up.
 
