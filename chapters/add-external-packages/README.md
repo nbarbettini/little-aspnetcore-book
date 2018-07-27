@@ -17,7 +17,7 @@ The Humanizer package on NuGet solves this problem by providing methods that can
 To add it to your project, run this command in the terminal:
 
 ```
-dotnet add package Humanizer
+dotnet add AspNetCoreTodo package Humanizer
 ```
 
 If you peek at the `AspNetCoreTodo.csproj` project file, you'll see a new `PackageReference` line that references `Humanizer`.
