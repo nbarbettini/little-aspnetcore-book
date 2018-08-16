@@ -41,7 +41,9 @@ Notice the `?` question mark after the `DateTimeOffset` type? That marks the Due
 
 Each property is followed by `get; set;`, which is a shorthand way of saying the property is read/write (or, more technically, it has a getter and setter methods).
 
-At this point, it doesn't matter what the underlying database technology is. It could be SQL Server, MySQL, MongoDB, Redis, or something more exotic. This model defines what the database row or entry will look like in C# so you don't have to worry about the low-level database stuff in your code. This simple style of model is sometimes called a "plain old C# object" or POCO.
+At this point, it doesn't matter what the underlying database technology is. It could be SQL Server, MySQL, MongoDB, Redis, or something more exotic. This model defines what the database row or entry will look like in C# so you don't have to worry about the low-level database stuff in your code. This simple style of model is sometimes called a "plain old CLR object" or POCO.
+
+> CLR (**C**ommon **L**anguage **R**untime) is a special component of the .NET framework, it manages the execution of C# programs. In other words, CLR is what really runs your application. All C# code gets translated into CLR code when you build your app.
 
 ### The view model
 
