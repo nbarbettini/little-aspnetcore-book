@@ -43,6 +43,8 @@ Each property is followed by `get; set;`, which is a shorthand way of saying the
 
 At this point, it doesn't matter what the underlying database technology is. It could be SQL Server, MySQL, MongoDB, Redis, or something more exotic. This model defines what the database row or entry will look like in C# so you don't have to worry about the low-level database stuff in your code. This simple style of model is sometimes called a "plain old CLR object" or POCO.
 
+> CLR (**C**ommon **L**anguage **R**untime) is a special component of the .NET framework, it manages the execution of C# programs. In other words, CLR is what really runs your application. All C# code gets translated into CLR code when you build your app.
+
 ### The view model
 
 Often, the model (entity) you store in the database is similar but not *exactly* the same as the model you want to use in MVC (the view model). In this case, the `TodoItem` model represents a single item in the database, but the view might need to display two, ten, or a hundred to-do items (depending on how badly the user is procrastinating).
