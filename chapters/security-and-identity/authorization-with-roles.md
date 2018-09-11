@@ -410,7 +410,6 @@ Next, create a view model:
 
 ```csharp
 using System.Collections.Generic;
-using AspNetCoreTodo.Models;
 
 namespace AspNetCoreTodo.Models
 {
@@ -494,6 +493,7 @@ Create a new class in the root of the project called `SeedData`:
 
 ```csharp
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreTodo.Models;
 using Microsoft.AspNetCore.Identity;
@@ -649,7 +649,7 @@ You can inject the `UserManager` directly into a view to do these types of autho
 
 @if (signInManager.IsSignedIn(User))
 {
-    var currentUser = await UserManager.GetUserAsync(User);
+    var currentUser = await userManager.GetUserAsync(User);
 
     var isAdmin = currentUser != null
         && await userManager.IsInRoleAsync(
