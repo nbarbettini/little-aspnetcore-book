@@ -35,7 +35,8 @@ Jennifer，她总是支持我各种疯狂的点子。
 以下这些贡献者，提升了这本书的质量：
 
 * 0xNF
-* Matt Welke
+* Matt Welke [welkie]
+* Raman Zhylich [zhilich]
 
 以下这些很棒的各国程序员，翻译了本书：
 
