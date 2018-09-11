@@ -299,7 +299,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 @if (signInManager.IsSignedIn(User))
 {
-    var currentUser = await UserManager.GetUserAsync(User);
+    var currentUser = await userManager.GetUserAsync(User);
 
     var isAdmin = currentUser != null
         && await userManager.IsInRoleAsync(
