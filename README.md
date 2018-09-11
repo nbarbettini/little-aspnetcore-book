@@ -12,7 +12,7 @@ Copyright &copy; 2018. All rights reserved.
 
 ## 前言
 
-感谢你捧起这本 简明 ASP.NET Core 手册！我写这本小书的目的，是帮助 web 编程开发者和爱好者了解 ASP.NET Core 2.0，一个崭新的，用于创建 Web应用 和 API 的框架。
+感谢你捧起这本 简明 ASP.NET Core 手册！我写这本小书的目的，是帮助 web 编程开发者和爱好者了解 ASP.NET Core 2.0，一个用于创建 Web应用 和 API 的框架。
 
 这本 简明 ASP.NET Core 手册 内容组织成了一篇教程。你将从头开始，完整地构建一个应用程序，同时了解以下内容：
 
