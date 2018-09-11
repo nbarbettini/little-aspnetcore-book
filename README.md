@@ -12,7 +12,7 @@ Copyright &copy; 2018. All rights reserved.
 
 ## 前言
 
-感谢你捧起这本 简明 ASP.NET Core 手册！我写这本小书的目的，是帮助 web 编程开发者和爱好者了解 ASP.NET Core 2.0，一个崭新的，用于创建 Web应用 和 API 的框架。
+感谢你捧起这本 简明 ASP.NET Core 手册！我写这本小书的目的，是帮助 web 编程开发者和爱好者了解 ASP.NET Core 2.0，一个用于创建 Web应用 和 API 的框架。
 
 这本 简明 ASP.NET Core 手册 内容组织成了一篇教程。你将从头开始，完整地构建一个应用程序，同时了解以下内容：
 
@@ -108,7 +108,7 @@ Released under the Creative Commons Attribution 4.0 license. You are free to sha
 For more information, visit https://creativecommons.org/licenses/by/4.0/
 
 ## Introduction
-Thanks for picking up The Little ASP.NET Core Book! I wrote this short book to help developers and people interested in web programming learn about ASP.NET Core, a new framework for building web applications and APIs.
+Thanks for picking up The Little ASP.NET Core Book! I wrote this short book to help developers and people interested in web programming learn about ASP.NET Core 2.0, a framework for building web applications and APIs.
 
 The Little ASP.NET Core Book is structured as a tutorial. You'll build an application from start to finish and learn:
 

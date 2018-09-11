@@ -6,7 +6,7 @@
 
 为了测试整个程序栈（包括控制器路由），集成测试往往像网络浏览器那样向程序发起 HTTP 请求。
 
-为了编写那种发起 HTTP 请求的集成测试，你可以同时手动开启程序，并运行测试项目，向 `http://localhost:5000` 发起请求。ASP.NET Core 提供了一个更好的方式来托管程序进行测试，就是：使用 `TestServer` 类。`TestServer` 能够在测试期间托管你的程序，并在测试结束之后自动关闭它。
+要执行一个集成测试，你也可以启动程序，并手动向`http://localhost:5000`发起请求。不过，ASP.NET Core 提供了一个上佳的替代品：`TestServer` 类。这个类能够在测试期间托管你的程序，并在测试完成之后自动关闭它。
 
 ### 创建一个测试项目
 
@@ -180,7 +180,7 @@ Integration tests are slower and more involved than unit tests, so it's common f
 
 In order to test the whole stack (including controller routing), integration tests typically make HTTP calls to your application just like a web browser would.
 
-To write integration tests that make HTTP requests, you could manually start your application and tests at the same time, and write your tests to make requests to `http://localhost:5000`. ASP.NET Core provides a nicer way to host your application for testing, however: the `TestServer` class. `TestServer` can host your application for the duration of the test, and then stop it automatically when the test is complete.
+To perform an integration test, you could start your application and manually make requests to http://localhost:5000. However, ASP.NET Core provides a better alternative: the `TestServer` class. This class can host your application for the duration of the test, and then stop it automatically when the test is complete.
 
 ### Create a test project
 
