@@ -145,6 +145,7 @@ namespace AspNetCoreTodo.Models
 
 ```csharp
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreTodo.Models;
 using Microsoft.AspNetCore.Identity;
