@@ -35,7 +35,8 @@ Jennifer，她总是支持我各种疯狂的点子。
 以下这些贡献者，提升了这本书的质量：
 
 * 0xNF
-* Matt Welke
+* Matt Welke [welkie]
+* Raman Zhylich [zhilich]
 
 以下这些很棒的各国程序员，翻译了本书：
 
@@ -47,6 +48,8 @@ Jennifer，她总是支持我各种疯狂的点子。
 需要完整、详尽的变更记录，可以到：
 
 https://github.com/nbarbettini/little-aspnetcore-book/releases
+
+**1.1.1** (2018-06-11): 修正了读者们发现的一些笔误。
 
 **1.1.0** (2018-05-03): 大幅度重写了 *添加新特性* 一章，深入地使用了整个 MVC 框架并移除了 AJAX 模式。移除 Facebook 登录以简化安全章节、流水线式的测试和部署。修改了 Docker 指令以反映最新的优秀实践。修正了笔误，添加了来自读者的建议。还弄了个新改良的封面得瑟了一下！
 
@@ -101,7 +104,8 @@ To Jennifer, who always supports my crazy ideas.
 To the following contributors who improved the Little ASP.NET Core Book:
 
 * 0xNF
-* Matt Welke
+* Matt Welke [welkie]
+* Raman Zhylich [zhilich]
 
 To these amazing polyglot programmers who translated the Little ASP.NET Core Book:
 
@@ -113,6 +117,8 @@ To these amazing polyglot programmers who translated the Little ASP.NET Core Boo
 The full, detailed changelog is always available here:
 
 https://github.com/nbarbettini/little-aspnetcore-book/releases
+
+**1.1.1** (2018-06-11): Fixed typos found by readers.
 
 **1.1.0** (2018-05-03): Significantly reworked the *Add more features* chapter to use MVC thorough the whole stack and remove the AJAX pattern. Removed Facebook login to simplify the security chapter and streamline testing and deployment. Updated the Docker instructions to reflect the latest best practices. Fixed typos and added suggestions from readers. The book also sports a new, improved cover design!
 

@@ -691,7 +691,6 @@
 <p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;&#x6A21;&#x578B;&#xFF1A;</p>
 <p><strong>Models/ManageUsersViewModel.cs</strong></p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> AspNetCoreTodo.Models;
 
 <span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
 {
@@ -760,6 +759,7 @@
 <p>&#x5728;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7C7B;&#xFF0C;&#x53D6;&#x540D;&#x4E3A; <code>SeedData</code>&#xFF1A;</p>
 <p><strong>SeedData.cs</strong></p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Linq;
 <span class="hljs-keyword">using</span> System.Threading.Tasks;
 <span class="hljs-keyword">using</span> AspNetCoreTodo.Models;
 <span class="hljs-keyword">using</span> Microsoft.AspNetCore.Identity;
@@ -886,7 +886,7 @@
 
 @if (signInManager.IsSignedIn(User))
 {
-    var currentUser = await UserManager.GetUserAsync(User);
+    var currentUser = await userManager.GetUserAsync(User);
 
     var isAdmin = currentUser != null
         &amp;&amp; await userManager.IsInRoleAsync(
@@ -976,7 +976,6 @@
 <p>Next, create a view model:</p>
 <p><strong>Models/ManageUsersViewModel.cs</strong></p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System.Collections.Generic;
-<span class="hljs-keyword">using</span> AspNetCoreTodo.Models;
 
 <span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
 {
@@ -1045,6 +1044,7 @@
 <p>Create a new class in the root of the project called <code>SeedData</code>:</p>
 <p><strong>SeedData.cs</strong></p>
 <pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Linq;
 <span class="hljs-keyword">using</span> System.Threading.Tasks;
 <span class="hljs-keyword">using</span> AspNetCoreTodo.Models;
 <span class="hljs-keyword">using</span> Microsoft.AspNetCore.Identity;
@@ -1171,7 +1171,7 @@
 
 @if (signInManager.IsSignedIn(User))
 {
-    var currentUser = await UserManager.GetUserAsync(User);
+    var currentUser = await userManager.GetUserAsync(User);
 
     var isAdmin = currentUser != null
         &amp;&amp; await userManager.IsInRoleAsync(
@@ -1250,7 +1250,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"按角色进行授权","level":"1.7.3","depth":2,"next":{"title":"附加资源","level":"1.7.4","depth":2,"path":"chapters/security-and-identity/more-resources.md","ref":"chapters/security-and-identity/more-resources.md","articles":[]},"previous":{"title":"在程序中使用身份","level":"1.7.2","depth":2,"path":"chapters/security-and-identity/using-identity-in-the-application.md","ref":"chapters/security-and-identity/using-identity-in-the-application.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/security-and-identity/authorization-with-roles.md","mtime":"2018-09-11T08:41:06.852Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-11T08:41:47.137Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"按角色进行授权","level":"1.7.3","depth":2,"next":{"title":"附加资源","level":"1.7.4","depth":2,"path":"chapters/security-and-identity/more-resources.md","ref":"chapters/security-and-identity/more-resources.md","articles":[]},"previous":{"title":"在程序中使用身份","level":"1.7.2","depth":2,"path":"chapters/security-and-identity/using-identity-in-the-application.md","ref":"chapters/security-and-identity/using-identity-in-the-application.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/security-and-identity/authorization-with-roles.md","mtime":"2018-09-11T08:48:51.783Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-11T08:49:03.120Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
