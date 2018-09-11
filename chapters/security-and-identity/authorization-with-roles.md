@@ -63,7 +63,6 @@ namespace AspNetCoreTodo.Controllers
 
 ```csharp
 using System.Collections.Generic;
-using AspNetCoreTodo.Models;
 
 namespace AspNetCoreTodo.Models
 {
