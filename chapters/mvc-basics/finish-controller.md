@@ -8,7 +8,7 @@ public async Task<IActionResult> Index()
 {
     var items = await _todoItemService.GetIncompleteItemsAsync();
 
-    var model = new TodoViewModel()
+    var model = new TodoViewModel
     {
         Items = items
     };

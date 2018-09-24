@@ -11,14 +11,13 @@ First, create a new controller:
 **Controllers/ManageUsersController.cs**
 
 ```csharp
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using AspNetCoreTodo.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using AspNetCoreTodo.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AspNetCoreTodo.Controllers
 {
@@ -145,13 +144,13 @@ Create a new class in the root of the project called `SeedData`:
 **SeedData.cs**
 
 ```csharp
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using AspNetCoreTodo.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AspNetCoreTodo
 {

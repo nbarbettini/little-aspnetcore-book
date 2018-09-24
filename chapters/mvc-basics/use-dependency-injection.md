@@ -91,4 +91,10 @@ This line tells ASP.NET Core to use the `FakeTodoItemService` whenever the `ITod
 
 `AddSingleton` adds your service to the service container as a **singleton**. This means that only one copy of the `FakeTodoItemService` is created, and it's reused whenever the service is requested. Later, when you write a different service class that talks to a database, you'll use a different approach (called **scoped**) instead. I'll explain why in the *Use a database* chapter.
 
+Once again, since both the `ITodoItemService` and `FakeTodoItemService` reside in the `Services` namespace, you'll also need to add a `using` statement at the top:
+
+```csharp
+using AspNetCoreTodo.Services;
+```
+
 That's it! When a request comes in and is routed to the `TodoController`, ASP.NET Core will look at the available services and automatically supply the `FakeTodoItemService` when the controller asks for an `ITodoItemService`. Because the services are "injected" from the service container, this pattern is called **dependency injection**.
