@@ -84,6 +84,7 @@ To write a unit test that will verify the logic in the `TodoItemService`, create
 using AspNetCoreTodo.Data;
 using AspNetCoreTodo.Models;
 using AspNetCoreTodo.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
