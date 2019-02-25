@@ -38,7 +38,7 @@ Since the test project will use the classes defined in your main project, you'll
 Use `cd` to navigate to the newly-created AspNetCoreTodo.UnitTests project directory, and type:
 
 ```
-dotnet add reference ..\AspNetCoreTodo\AspNetCoreTodo.csproj
+dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 ```
 
 Delete the `UnitTest1.cs` file that's automatically created. You're ready to write your first test.

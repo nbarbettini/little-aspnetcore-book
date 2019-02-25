@@ -37,7 +37,7 @@ AspNetCoreTodo/
 Since the test project will use the classes defined in your main project, you'll need to add a reference to the main project. `cd` to the newly-created project and type:
 
 ```
-dotnet add reference ..\AspNetCoreTodo\AspNetCoreTodo.csproj
+dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 ```
 
 You'll also need to add `Microsoft.AspNetCore.TestHost` and `Microsoft.Extensions.Configuration.Json` NuGet packages:

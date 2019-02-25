@@ -1,6 +1,6 @@
 ## Connect to a database
 
-There are a few things you need, to use Entity Framework Core to connect to a database. Since you used `dotnet new` and the MVC + Individual Auth template to set your project, you've already got them:
+There are a few things you need to use Entity Framework Core to connect to a database. Since you used `dotnet new` and the MVC + Individual Auth template to set your project, you've already got them:
 
 * **The Entity Framework Core packages**. These are included by default in all ASP.NET Core projects.
 
