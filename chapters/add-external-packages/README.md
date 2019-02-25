@@ -14,7 +14,7 @@ You could write code yourself that converted an ISO 8601 date into a human-frien
 
 The Humanizer package on NuGet solves this problem by providing methods that can "humanize" or rewrite almost anything: dates, times, durations, numbers, and so on. It's a fantastic and useful open-source project that's published under the permissive MIT license.
 
-To add it to your project, run this command in the terminal:
+To add it to your project, open the terminal and navigate to the `AspNetCoreTodo` project directory (use `cd` if necessary) and run this command:
 
 ```
 dotnet add package Humanizer

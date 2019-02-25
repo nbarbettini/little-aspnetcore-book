@@ -1,6 +1,6 @@
 ## Integration testing
 
-Compared to unit tests, integration tests are much larger in scope. exercise the whole application stack. Instead of isolating one class or method, integration tests ensure that all of the components of your application are working together properly: routing, controllers, services, database code, and so on.
+Compared to unit tests, integration tests are much larger in scope and exercise the whole application stack. Instead of isolating one class or method, integration tests ensure that all of the components of your application are working together properly: routing, controllers, services, database code, and so on.
 
 Integration tests are slower and more involved than unit tests, so it's common for a project to have lots of small unit tests but only a handful of integration tests.
 
@@ -34,16 +34,17 @@ AspNetCoreTodo/
 
 > If you prefer, you can keep your unit tests and integration tests in the same project. For large projects, it's common to split them up so it's easy to run them separately.
 
-Since the test project will use the classes defined in your main project, you'll need to add a reference to the main project:
+Since the test project will use the classes defined in your main project, you'll need to add a reference to the main project. `cd` to the newly-created project and type:
 
 ```
 dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
 ```
 
-You'll also need to add the `Microsoft.AspNetCore.TestHost` NuGet package:
+You'll also need to add `Microsoft.AspNetCore.TestHost` and `Microsoft.Extensions.Configuration.Json` NuGet packages:
 
 ```
 dotnet add package Microsoft.AspNetCore.TestHost
+dotnet add package Microsoft.Extensions.Configuration.Json
 ```
 
 Delete the `UnitTest1.cs` file that's created by `dotnet new`. You're ready to write an integration test.
@@ -55,13 +56,12 @@ There are a few things that need to be configured on the test server before each
 **AspNetCoreTodo.IntegrationTests/TestFixture.cs**
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.IO;
+using System.Net.Http;
 
 namespace AspNetCoreTodo.IntegrationTests
 {

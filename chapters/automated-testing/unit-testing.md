@@ -33,7 +33,9 @@ AspNetCoreTodo/
         AspNetCoreTodo.UnitTests.csproj
 ```
 
-Since the test project will use the classes defined in your main project, you'll need to add a reference to the `AspNetCoreTodo` project:
+Since the test project will use the classes defined in your main project, you'll need to add a reference to the `AspNetCoreTodo` project.
+
+Use `cd` to navigate to the newly-created AspNetCoreTodo.UnitTests project directory, and type:
 
 ```
 dotnet add reference ../AspNetCoreTodo/AspNetCoreTodo.csproj
@@ -79,12 +81,13 @@ To write a unit test that will verify the logic in the `TodoItemService`, create
 **AspNetCoreTodo.UnitTests/TodoItemServiceShould.cs**
 
 ```csharp
-using System;
-using System.Threading.Tasks;
 using AspNetCoreTodo.Data;
 using AspNetCoreTodo.Models;
 using AspNetCoreTodo.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace AspNetCoreTodo.UnitTests

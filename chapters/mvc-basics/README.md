@@ -22,4 +22,4 @@ In this book, you'll build a to-do app that lets the user add items to their to-
 * Web pages and an interface that the user will interact with via their browser, using HTML, CSS, and JavaScript (called the "frontend")
 * A login form and security checks so each user's to-do list is kept private
 
-Sound good? Let's built it! If you haven't already created a new ASP.NET Core project using `dotnet new mvc`, follow the steps in the previous chapter. You should be able to build and run the project and see the default welcome screen.
+Sound good? Let's build it! If you haven't already created a new ASP.NET Core project using `dotnet new mvc`, follow the steps in the previous chapter. You should be able to build and run the project and see the default welcome screen.

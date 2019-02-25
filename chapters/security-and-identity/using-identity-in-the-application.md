@@ -2,7 +2,7 @@
 
 The to-do list items themselves are still shared between all users, because the stored to-do entities aren't tied to a particular user. Now that the `[Authorize]` attribute ensures that you must be logged in to see the to-do view, you can filter the database query based on who is logged in.
 
-First, inject a `UserManager<ApplicationUser>` into the `TodoController`:
+First, inject a `UserManager<IdentityUser>` into the `TodoController`:
 
 **Controllers/TodoController.cs**
 
@@ -11,10 +11,10 @@ First, inject a `UserManager<ApplicationUser>` into the `TodoController`:
 public class TodoController : Controller
 {
     private readonly ITodoItemService _todoItemService;
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly UserManager<IdentityUser> _userManager;
 
     public TodoController(ITodoItemService todoItemService,
-        UserManager<ApplicationUser> userManager)
+        UserManager<IdentityUser> userManager)
     {
         _todoItemService = todoItemService;
         _userManager = userManager;
@@ -64,7 +64,7 @@ The value of `currentUser` should never be null, because the `[Authorize]` attri
 if (currentUser == null) return Challenge();
 ```
 
-Since you're now passing an `ApplicationUser` parameter to `GetIncompleteItemsAsync()`, you'll need to update the `ITodoItemService` interface:
+Since you're now passing an `IdentityUser` parameter to `GetIncompleteItemsAsync()`, you'll need to update the `ITodoItemService` interface:
 
 **Services/ITodoItemService.cs**
 
@@ -72,7 +72,7 @@ Since you're now passing an `ApplicationUser` parameter to `GetIncompleteItemsAs
 public interface ITodoItemService
 {
     Task<TodoItem[]> GetIncompleteItemsAsync(
-        ApplicationUser user);
+        IdentityUser user);
     
     // ...
 }
@@ -84,7 +84,7 @@ Since you changed the `ITodoItemService` interface, you also need to update the 
 
 ```csharp
 public async Task<TodoItem[]> GetIncompleteItemsAsync(
-    ApplicationUser user)
+    IdentityUser user)
 ```
 
 The next step is to update the database query and add a filter to show only the items created by the current user. Before you can do that, you need to add a new property to the database.
@@ -121,7 +121,7 @@ With the database and the database context updated, you can now update the `GetI
 
 ```csharp
 public async Task<TodoItem[]> GetIncompleteItemsAsync(
-    ApplicationUser user)
+    IdentityUser user)
 {
     return await _context.Items
         .Where(x => x.IsDone == false && x.UserId == user.Id)
@@ -185,19 +185,19 @@ public async Task<IActionResult> MarkDone(Guid id)
 }
 ```
 
-Both service methods must now accept an `ApplicationUser` parameter. Update the interface definition in `ITodoItemService`:
+Both service methods must now accept an `IdentityUser` parameter. Update the interface definition in `ITodoItemService`:
 
 ```csharp
-Task<bool> AddItemAsync(TodoItem newItem, ApplicationUser user);
+Task<bool> AddItemAsync(TodoItem newItem, IdentityUser user);
 
-Task<bool> MarkDoneAsync(Guid id, ApplicationUser user);
+Task<bool> MarkDoneAsync(Guid id, IdentityUser user);
 ```
 
 And finally, update the service method implementations in the `TodoItemService`. In `AddItemAsync` method, set the `UserId` property when you construct a `new TodoItem`:
 
 ```csharp
 public async Task<bool> AddItemAsync(
-    TodoItem newItem, ApplicationUser user)
+    TodoItem newItem, IdentityUser user)
 {
     newItem.Id = Guid.NewGuid();
     newItem.IsDone = false;
@@ -212,7 +212,7 @@ The `Where` clause in the `MarkDoneAsync` method also needs to check for the use
 
 ```csharp
 public async Task<bool> MarkDoneAsync(
-    Guid id, ApplicationUser user)
+    Guid id, IdentityUser user)
 {
     var item = await _context.Items
         .Where(x => x.Id == id && x.UserId == user.Id)

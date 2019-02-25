@@ -4,6 +4,22 @@ Roles are a common approach to handling authorization and permissions in a web a
 
 In this project, you'll add a Manage Users page that only administrators can see. If normal users try to access it, they'll see an error.
 
+### Setup Roles in the Service Configuration
+
+Open up `Startup.cs` and go to the `ConfigureServices` method. You should find the following code:
+
+```csharp
+services.AddDefaultIdentity<IdentityUser>()
+	.AddDefaultUI(UIFramework.Bootstrap4)
+	.AddEntityFrameworkStores<ApplicationDbContext>();
+```
+
+Place the following line right after the `AddDefaultIdentity` extension:
+
+```csharp
+.AddRoles<IdentityRole>()
+```
+
 ### Add a Manage Users page
 
 First, create a new controller:
@@ -11,25 +27,24 @@ First, create a new controller:
 **Controllers/ManageUsersController.cs**
 
 ```csharp
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using AspNetCoreTodo.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using AspNetCoreTodo.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AspNetCoreTodo.Controllers
 {
     [Authorize(Roles = "Administrator")]
     public class ManageUsersController : Controller
     {
-        private readonly UserManager<ApplicationUser>
+        private readonly UserManager<IdentityUser>
             _userManager;
         
         public ManageUsersController(
-            UserManager<ApplicationUser> userManager)
+            UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
         }
@@ -62,15 +77,15 @@ Next, create a view model:
 **Models/ManageUsersViewModel.cs**
 
 ```csharp
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
 
 namespace AspNetCoreTodo.Models
 {
     public class ManageUsersViewModel
     {
-        public ApplicationUser[] Administrators { get; set; }
+        public IdentityUser[] Administrators { get; set; }
 
-        public ApplicationUser[] Everyone { get; set;}
+        public IdentityUser[] Everyone { get; set;}
     }
 }
 ```
@@ -145,13 +160,12 @@ Create a new class in the root of the project called `SeedData`:
 **SeedData.cs**
 
 ```csharp
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using AspNetCoreTodo.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AspNetCoreTodo
 {
@@ -165,7 +179,7 @@ namespace AspNetCoreTodo
             await EnsureRolesAsync(roleManager);
 
             var userManager = services
-                .GetRequiredService<UserManager<ApplicationUser>>();
+                .GetRequiredService<UserManager<IdentityUser>>();
             await EnsureTestAdminAsync(userManager);
         }
     }
@@ -213,7 +227,7 @@ Next, write the `EnsureTestAdminAsync()` method:
 
 ```csharp
 private static async Task EnsureTestAdminAsync(
-    UserManager<ApplicationUser> userManager)
+    UserManager<IdentityUser> userManager)
 {
     var testAdmin = await userManager.Users
         .Where(x => x.UserName == "admin@todo.local")
@@ -221,7 +235,7 @@ private static async Task EnsureTestAdminAsync(
 
     if (testAdmin != null) return;
 
-    testAdmin = new ApplicationUser
+    testAdmin = new IdentityUser
     {
         UserName = "admin@todo.local",
         Email = "admin@todo.local"
@@ -295,10 +309,9 @@ You can inject the `UserManager` directly into a view to do these types of autho
 
 ```html
 @using Microsoft.AspNetCore.Identity
-@using AspNetCoreTodo.Models
 
-@inject SignInManager<ApplicationUser> signInManager
-@inject UserManager<ApplicationUser> userManager
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> userManager
 
 @if (signInManager.IsSignedIn(User))
 {
