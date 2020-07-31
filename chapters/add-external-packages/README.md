@@ -28,7 +28,7 @@ dotnet add package Humanizer
 
 要在代码里使用一个软件包，你通常需要在文件顶端添加一个 `using` 语句，以导入该软件包的内容。
 
-既然 Humanizer 将用于在视图中改写日期，你可以直接在视图里使用它。首先在试图顶端添加一个 `@using` 语句：
+既然 Humanizer 将用于在视图中改写日期，你可以直接在视图里使用它。首先在视图顶端添加一个 `@using` 语句：
 
 **`Views/Todo/Index.cshtml`**
 
