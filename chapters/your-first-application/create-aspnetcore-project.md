@@ -20,11 +20,11 @@ dotnet new mvc --auth Individual -o AspNetCoreTodo
 cd AspNetCoreTodo
 ```
 
-这个命令，使用 `mvc` 模板创建了一个新的项目，并添加了一些额外的验证和安全性相关的内容。（我会在 *安全性与身份* 一章讲解安全性的内容。）
+这个命令，使用 `mvc` 模板创建了一个新的项目，并添加了一些额外的验证和安全性相关的内容。（关于安全性的内容，我会在 *安全性与身份* 一章讲解。）
 
 > 你可能有点疑惑，为什么在一个 `AspNetCoreTodo` 目录里弄另一个 `AspNetCoreTodo` 目录。这个顶层或者说“根”目录可以容纳一个或多个项目目录。根目录有时候被称为 **解决方案目录**。后面，你将会在 `AspNetCoreTodo` 项目目录边上添加多个项目目录，它们全都在一个单一的根解决方案目录里。
 
-你会在这个新的项目目录里出现了几个文件。在你 `cd` 到新目录里之后，就只需要运行这个项目了：
+在这个新的项目目录里，你会发现多出来几个文件。在你 `cd` 到新目录里之后，就只需要运行这个项目了：
 
 ```shell
 dotnet run
@@ -45,9 +45,9 @@ Application started. Press Ctrl+C to shut down.
 
 * **Models**、**Views**，和 **Controllers**目录里放置着 模型-视图-控制器（MVC，Model-View-Controller）架构的组件。下一章，你将一探他们三者的究竟。
 
-* **wwwroot** 目录里放着 CSS、JavaScript、图片文件 这些静态资源。`wwwroot` 里的文件将作为静态内容，将会自动被打包和压缩。
+* **wwwroot** 目录里放着 CSS、JavaScript、图片文件 这些静态资源。`wwwroot` 里的文件将作为静态内容，自动被打包和压缩。
 
-* **appsettings.json** 文件里包含着 ASP.NET Core 启动时读取的配置信息。你可以用它来保存数据库连接字符串或者其它你不想硬编码的任何内容。
+* **appsettings.json** 文件里包含着 ASP.NET Core 启动时读取的配置信息。你可以用它来保存数据库连接字符串，或者其它你不想硬编码的任何内容。
 
 ### Visual Studio Code 技巧
 
@@ -63,7 +63,7 @@ Application started. Press Ctrl+C to shut down.
 
     ![小灯泡提示](lightbulb.png)
 
-* **随手编译**：使用快捷键 `Command-Shift-B` 或者 `Control-Shift-B` 运行编译任务，这跟 `dotnet build` 的效果一样。
+* **快捷编译**：使用快捷键 `Command-Shift-B` 或者 `Control-Shift-B` 运行编译任务，这跟 `dotnet build` 的效果一样。
 
 > 这些也可以用在 Widnows 版的 Visual Studio (不带 Code)。如果你用的是 Visual Studio，你需要直接打开 `.csproj` 项目文件所在的目录。 Visual Studio 后面会提示你保存解决方案文件，你应该把它保存在根目录（第一个 `AspNetCoreTodo` 文件夹）。你也可以在 Visual Studio 里使用模板直接创建 ASP.NET Core 项目，操作是 文件 > 新建 > 项目。
 
@@ -76,7 +76,7 @@ cd ..
 git init
 ```
 
-请确保你添加了一个 `.gitignore` 文件用以忽略 `bin` 和 `obj` 这些目录。 GitHub 上 gitignore 模板仓库（https://github.com/github/gitignore）里的 Visual Studio gitignore 模板就很好用。
+请确保你添加了一个 `.gitignore` 文件用以忽略 `bin` 和 `obj` 这些目录。 GitHub 上 gitignore 模板仓库（[https://github.com/github/gitignore](https://github.com/github/gitignore)）里的 [Visual Studio gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore) 模板就很好用。
 
 还有很多值得研究的内容，让我们着手构建这个应用吧！
 

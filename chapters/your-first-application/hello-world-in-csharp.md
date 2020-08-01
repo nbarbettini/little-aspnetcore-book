@@ -54,7 +54,7 @@ namespace CsharpHelloWorld
 }
 ```
 
-`static void Main` 是 C# 程序的入口点方法，按照惯例，会被置于一个叫 `Program` 的类（一种代码结构或模块）里。最上面的 `using` 语句引入了 .NET 内置于 `System` 的那些类，并使它们可以被用于这个类里。
+`static void Main` 是 C# 程序的入口点方法，按照惯例，会被置于一个叫 `Program` 的类（一种代码结构或模块）里。最上面的 `using` 语句引入了 .NET 内置于 `System` 的那些类，以便在你的这个类里使用它们。
 
 在项目的目录里，用 `dotnet run` 指令运行这个程序，在代码编译完成之后，你将看到输出在控制台里面的内容：
 
@@ -64,7 +64,7 @@ dotnet run
 Hello World!
 ```
 
-这就是构建一个 .NET 程序所需的所有步骤！下一节，你将把同样的流程应用在一个 ASP.NET Core 程序上。
+这就是构建一个 .NET 程序所需的全部！下一节，你将把同样的流程应用在一个 ASP.NET Core 程序上。
 
 ---
 
