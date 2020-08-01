@@ -12,7 +12,7 @@ dotnet ef migrations add AddItems
 
 > 如果你看到这样的报错: `No executable found matching command "dotnet-ef"`，请确保在正确的目录下。 这些命令必须在项目的根目录下执行(`Program.cs`所在目录)。
 
-> 译者注：如果你使用 3.0 或以上版本的 SDK，需要手动安装 dotnet-ef 工具，原因请参考 [dotnet ef not found in .NET Core 3](https://stackoverflow.com/questions/57066856/dotnet-ef-not-found-in-net-core-3)，使用如下命令进行安装。
+> 译者注：如果你使用 3.0 或以上版本的 SDK，需要手动安装 `dotnet-ef` 工具，原因请参考 [dotnet ef not found in .NET Core 3](https://stackoverflow.com/questions/57066856/dotnet-ef-not-found-in-net-core-3)，使用如下命令进行安装。
 
 ```shell
 dotnet tool install --global dotnet-ef
