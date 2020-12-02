@@ -1,0 +1,1313 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>按角色进行授权 · 简明 ASP.NET Core 手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Nate Barbettini">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="more-resources.html" />
+    
+    
+    <link rel="prev" href="using-identity-in-the-application.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../your-first-application/">
+            
+                <a href="../your-first-application/">
+            
+                    
+                    你的第一个程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../your-first-application/get-the-sdk.html">
+            
+                <a href="../your-first-application/get-the-sdk.html">
+            
+                    
+                    获取 SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../your-first-application/hello-world-in-csharp.html">
+            
+                <a href="../your-first-application/hello-world-in-csharp.html">
+            
+                    
+                    C# 版的 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../your-first-application/create-aspnetcore-project.html">
+            
+                <a href="../your-first-application/create-aspnetcore-project.html">
+            
+                    
+                    创建一个 ASP.NET Core 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mvc-basics/">
+            
+                <a href="../mvc-basics/">
+            
+                    
+                    MVC 基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mvc-basics/create-controller.html">
+            
+                <a href="../mvc-basics/create-controller.html">
+            
+                    
+                    创建控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../mvc-basics/create-models.html">
+            
+                <a href="../mvc-basics/create-models.html">
+            
+                    
+                    创建模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../mvc-basics/create-view.html">
+            
+                <a href="../mvc-basics/create-view.html">
+            
+                    
+                    创建视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../mvc-basics/add-service-class.html">
+            
+                <a href="../mvc-basics/add-service-class.html">
+            
+                    
+                    添加一个服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../mvc-basics/use-dependency-injection.html">
+            
+                <a href="../mvc-basics/use-dependency-injection.html">
+            
+                    
+                    运用依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../mvc-basics/finish-controller.html">
+            
+                <a href="../mvc-basics/finish-controller.html">
+            
+                    
+                    完成控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../mvc-basics/update-the-layout.html">
+            
+                <a href="../mvc-basics/update-the-layout.html">
+            
+                    
+                    修改布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../add-external-packages/">
+            
+                <a href="../add-external-packages/">
+            
+                    
+                    添加外来软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../use-a-database/">
+            
+                <a href="../use-a-database/">
+            
+                    
+                    运用数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../use-a-database/connect-to-a-database.html">
+            
+                <a href="../use-a-database/connect-to-a-database.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../use-a-database/update-context.html">
+            
+                <a href="../use-a-database/update-context.html">
+            
+                    
+                    修改数据库上下文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../use-a-database/create-migration.html">
+            
+                <a href="../use-a-database/create-migration.html">
+            
+                    
+                    创建变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../use-a-database/create-service-class.html">
+            
+                <a href="../use-a-database/create-service-class.html">
+            
+                    
+                    创建服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../add-more-features/">
+            
+                <a href="../add-more-features/">
+            
+                    
+                    添加新特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../add-more-features/add-todo-items.html">
+            
+                <a href="../add-more-features/add-todo-items.html">
+            
+                    
+                    添加 待办事项 条目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../add-more-features/complete-with-checkbox.html">
+            
+                <a href="../add-more-features/complete-with-checkbox.html">
+            
+                    
+                    使用复选框标记条目完成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    安全和身份
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="require-authentication.html">
+            
+                <a href="require-authentication.html">
+            
+                    
+                    提示认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="using-identity-in-the-application.html">
+            
+                <a href="using-identity-in-the-application.html">
+            
+                    
+                    在程序中使用身份
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.3" data-path="authorization-with-roles.html">
+            
+                <a href="authorization-with-roles.html">
+            
+                    
+                    按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="more-resources.html">
+            
+                <a href="more-resources.html">
+            
+                    
+                    附加资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../automated-testing/">
+            
+                <a href="../automated-testing/">
+            
+                    
+                    自动化测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../automated-testing/unit-testing.html">
+            
+                <a href="../automated-testing/unit-testing.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../automated-testing/integration-testing.html">
+            
+                <a href="../automated-testing/integration-testing.html">
+            
+                    
+                    集成测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../deploy-the-application/">
+            
+                <a href="../deploy-the-application/">
+            
+                    
+                    部署程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../deploy-the-application/deploy-to-azure.html">
+            
+                <a href="../deploy-the-application/deploy-to-azure.html">
+            
+                    
+                    部署到 Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../deploy-the-application/deploy-with-docker.html">
+            
+                <a href="../deploy-the-application/deploy-with-docker.html">
+            
+                    
+                    使用 Docker 进行部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../conclusion/">
+            
+                <a href="../conclusion/">
+            
+                    
+                    结束语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >按角色进行授权</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x6309;&#x89D2;&#x8272;&#x8FDB;&#x884C;&#x6388;&#x6743;"><a name="&#x6309;&#x89D2;&#x8272;&#x8FDB;&#x884C;&#x6388;&#x6743;" class="plugin-anchor" href="#&#x6309;&#x89D2;&#x8272;&#x8FDB;&#x884C;&#x6388;&#x6743;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6309;&#x89D2;&#x8272;&#x8FDB;&#x884C;&#x6388;&#x6743;</h2>
+<p>&#x5728;&#x7F51;&#x7EDC;&#x5E94;&#x7528;&#x91CC;&#xFF0C;&#x89D2;&#x8272;&#x662F;&#x7528;&#x4E8E;&#x5904;&#x7406; &#x6388;&#x6743; &#x548C; &#x8BB8;&#x53EF; &#x7684;&#x5E38;&#x89C1;&#x65B9;&#x6CD5;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x901A;&#x5E38;&#x4F1A;&#x4E3A;&#x7BA1;&#x7406;&#x5458;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Administrator &#x89D2;&#x8272;&#xFF0C;&#x76F8;&#x5BF9;&#x4E8E;&#x666E;&#x901A;&#x7528;&#x6237;&#xFF0C;&#x4ED6;&#x4EEC;&#x62E5;&#x6709;&#x66F4;&#x591A;&#x7684;&#x6743;&#x9650;&#x548C;&#x80FD;&#x529B;&#x3002;</p>
+<p>&#x5728;&#x6B64;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x4F60;&#x5C06;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A; &#x7528;&#x6237;&#x7BA1;&#x7406; &#x9875;&#x9762;&#xFF0C;&#x4EC5;&#x5BF9;&#x7BA1;&#x7406;&#x5458;&#x4EEC;&#x53EF;&#x89C1;&#x3002;&#x5982;&#x679C;&#x666E;&#x901A;&#x7528;&#x6237;&#x8BD5;&#x56FE;&#x8BBF;&#x95EE;&#x5B83;&#xFF0C;&#x5C06;&#x4F1A;&#x770B;&#x5230;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x3002;</p>
+<h3 id="&#x6DFB;&#x52A0;&#x7528;&#x6237;&#x7BA1;&#x7406;&#x9875;&#x9762;"><a name="&#x6DFB;&#x52A0;&#x7528;&#x6237;&#x7BA1;&#x7406;&#x9875;&#x9762;" class="plugin-anchor" href="#&#x6DFB;&#x52A0;&#x7528;&#x6237;&#x7BA1;&#x7406;&#x9875;&#x9762;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0;&#x7528;&#x6237;&#x7BA1;&#x7406;&#x9875;&#x9762;</h3>
+<p>&#x9996;&#x5148;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x63A7;&#x5236;&#x5668;&#xFF1A;</p>
+<p><strong>Controllers/ManageUsersController.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Linq;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Microsoft.AspNetCore.Mvc;
+<span class="hljs-keyword">using</span> Microsoft.AspNetCore.Authorization;
+<span class="hljs-keyword">using</span> Microsoft.AspNetCore.Identity;
+<span class="hljs-keyword">using</span> AspNetCoreTodo.Models;
+<span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Controllers</span>
+{
+    [Authorize(Roles = <span class="hljs-string">&quot;Administrator&quot;</span>)]
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ManageUsersController</span> : <span class="hljs-title">Controller</span>
+    {
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> UserManager&lt;ApplicationUser&gt;
+            _userManager;
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ManageUsersController</span>(<span class="hljs-params">
+            UserManager&lt;ApplicationUser&gt; userManager</span>)
+        </span>{
+            _userManager = userManager;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;IActionResult&gt; <span class="hljs-title">Index</span>(<span class="hljs-params"></span>)
+        </span>{
+            <span class="hljs-keyword">var</span> admins = (<span class="hljs-keyword">await</span> _userManager
+                .GetUsersInRoleAsync(<span class="hljs-string">&quot;Administrator&quot;</span>))
+                .ToArray();
+
+            <span class="hljs-keyword">var</span> everyone = <span class="hljs-keyword">await</span> _userManager.Users
+                .ToArrayAsync();
+
+            <span class="hljs-keyword">var</span> model = <span class="hljs-keyword">new</span> ManageUsersViewModel
+            {
+                Administrators = admins,
+                Everyone = everyone
+            };
+
+            <span class="hljs-keyword">return</span> View(model);
+        }
+    }
+}
+</code></pre>
+<p>&#x5728; <code>[Authorize]</code> &#x5C5E;&#x6027;&#x91CC;&#x52A0;&#x5165; <code>Roles</code> &#x5B57;&#x6BB5;&#xFF0C;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x7528;&#x6237;&#x5FC5;&#x987B;&#x5DF2;&#x7ECF;&#x767B;&#x5F55; <strong>&#x5E76;&#x4E14;</strong> &#x88AB;&#x5206;&#x914D;&#x4E86; <code>Administrator</code> &#x89D2;&#x8272;&#x624D;&#x80FD;&#x67E5;&#x770B;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;&#x6A21;&#x578B;&#xFF1A;</p>
+<p><strong>Models/ManageUsersViewModel.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System.Collections.Generic;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ManageUsersViewModel</span>
+    {
+        <span class="hljs-keyword">public</span> ApplicationUser[] Administrators { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-keyword">public</span> ApplicationUser[] Everyone { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>;}
+    }
+}
+</code></pre>
+<p>&#x6700;&#x540E;&#xFF0C;&#x4E3A; action Index &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;<code>Views/ManageUsers</code>&#x7684;&#x6587;&#x4EF6;&#x5939;&#x548C;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;&#xFF1A;</p>
+<p><strong>Views/ManageUsers/Index.cshtml</strong></p>
+<pre><code class="lang-html">@model ManageUsersViewModel
+
+@{
+    ViewData[&quot;Title&quot;] = &quot;Manage users&quot;;
+}
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>@ViewData[&quot;Title&quot;]<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Administrators<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Id<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+
+    @foreach (var user in Model.Administrators)
+    {
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@user.Id<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@user.Email<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    }
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Everyone<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Id<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+
+    @foreach (var user in Model.Everyone)
+    {
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@user.Id<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@user.Email<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    }
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p>&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x5E76;&#x4EE5;&#x666E;&#x901A;&#x7528;&#x6237;&#x8EAB;&#x4EFD;&#x767B;&#x5F55;&#xFF0C;&#x5C1D;&#x8BD5;&#x53BB;&#x8BBF;&#x95EE;&#x4E00;&#x4E0B; <code>/ManageUsers</code> &#x8DEF;&#x5F84;&#x3002;&#x4F60;&#x4F1A;&#x89C1;&#x5230;&#x8FD9;&#x6837;&#x7684; &#x62D2;&#x7EDD;&#x8BBF;&#x95EE; &#x9875;&#x9762;&#xFF1A;</p>
+<p><img src="access-denied.png" alt="Access denied error"></p>
+<p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x6CE8;&#x518C;&#x7528;&#x6237;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x83B7;&#x5F97; <code>Administrator</code> &#x8FD9;&#x4E2A;&#x89D2;&#x8272;&#x3002;</p>
+<h3 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x7684;&#x7BA1;&#x7406;&#x5458;&#x8D26;&#x53F7;"><a name="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x7684;&#x7BA1;&#x7406;&#x5458;&#x8D26;&#x53F7;" class="plugin-anchor" href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x7684;&#x7BA1;&#x7406;&#x5458;&#x8D26;&#x53F7;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x7684;&#x7BA1;&#x7406;&#x5458;&#x8D26;&#x53F7;</h3>
+<p>&#x51FA;&#x4E8E;&#x663E;&#x800C;&#x6613;&#x89C1;&#x7684;&#x5B89;&#x5168;&#x56E0;&#x7D20;&#xFF0C;&#x5BF9;&#x4E8E;&#x4EFB;&#x4F55;&#x4EBA;&#x6765;&#x8BF4;&#xFF0C;&#x90FD;&#x4E0D;&#x80FD;&#x81EA;&#x4E3B;&#x7684;&#x6CE8;&#x518C;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x5458;&#x8D26;&#x53F7;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;Administrator &#x8FD9;&#x4E2A;&#x89D2;&#x8272;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x5C1A;&#x4E0D;&#x5B58;&#x5728;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x8BE5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7B2C;&#x4E00;&#x6B21;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A; Administrator &#x89D2;&#x8272;&#x5916;&#x52A0;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x7684;&#x7BA1;&#x7406;&#x5458;&#x8D26;&#x53F7;&#x6DFB;&#x52A0;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x3002;&#x5411;&#x6570;&#x636E;&#x5E93;&#x6DFB;&#x52A0;&#x521D;&#x59CB;&#x6570;&#x636E;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x88AB;&#x79F0;&#x4E3A;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x6216;&#x8005; <strong>&#x586B;&#x5145;&#xFF08;seeding&#xFF09;</strong> &#x6570;&#x636E;&#x5E93;&#x3002;</p>
+<p>&#x5728;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7C7B;&#xFF0C;&#x53D6;&#x540D;&#x4E3A; <code>SeedData</code>&#xFF1A;</p>
+<p><strong>SeedData.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Linq;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> AspNetCoreTodo.Models;
+<span class="hljs-keyword">using</span> Microsoft.AspNetCore.Identity;
+<span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
+<span class="hljs-keyword">using</span> Microsoft.Extensions.DependencyInjection;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SeedData</span>
+    {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">InitializeAsync</span>(<span class="hljs-params">
+            IServiceProvider services</span>)
+        </span>{
+            <span class="hljs-keyword">var</span> roleManager = services
+                .GetRequiredService&lt;RoleManager&lt;IdentityRole&gt;&gt;();
+            <span class="hljs-keyword">await</span> EnsureRolesAsync(roleManager);
+
+            <span class="hljs-keyword">var</span> userManager = services
+                .GetRequiredService&lt;UserManager&lt;ApplicationUser&gt;&gt;();
+            <span class="hljs-keyword">await</span> EnsureTestAdminAsync(userManager);
+        }
+    }
+}
+</code></pre>
+<p><code>InitializeAsync()</code> &#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A; <code>IServiceProvider</code>&#xFF08;&#x5728;<code>Startup.ConfigureServices()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x8BBE;&#x7F6E;&#x8FC7;&#x7684;&#x670D;&#x52A1;&#x96C6;&#x5408;&#xFF09;&#x4ECE; ASP.NET Core Identity &#x4E2D;&#x83B7;&#x53D6;<code>RoleManager</code>&#x548C;<code>UserManager</code>&#x3002;</p>
+<p>&#x5728;<code>InitializeAsync()</code>&#x65B9;&#x6CD5;&#x4E0B;&#x9762;&#x518D;&#x6DFB;&#x52A0;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#xFF0C;<code>EnsureRolesAsync()</code>&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">EnsureRolesAsync</span>(<span class="hljs-params">
+    RoleManager&lt;IdentityRole&gt; roleManager</span>)
+</span>{
+    <span class="hljs-keyword">var</span> alreadyExists = <span class="hljs-keyword">await</span> roleManager
+        .RoleExistsAsync(Constants.AdministratorRole);
+
+    <span class="hljs-keyword">if</span> (alreadyExists) <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">await</span> roleManager.CreateAsync(
+        <span class="hljs-keyword">new</span> IdentityRole(Constants.AdministratorRole));
+}
+</code></pre>
+<p>&#x6B64;&#x65B9;&#x6CD5;&#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x662F;&#x5426;&#x5B58;&#x5728;&#x4E00;&#x4E2A; <code>Administrator</code> &#x89D2;&#x8272;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x5B83;&#x5C31;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x3002;&#x4E3A;&#x514D;&#x53CD;&#x590D;&#x5730;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#x4E32; <code>&quot;Administrator&quot;</code>&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>Constants</code> &#x7684;&#x5C0F;&#x7C7B;&#x4EE5;&#x4FDD;&#x5B58;&#x5B83;&#x7684;&#x503C;&#xFF1A;</p>
+<p><strong>Constants.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Constants</span>
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> AdministratorRole = <span class="hljs-string">&quot;Administrator&quot;</span>;
+    }
+}
+</code></pre>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x613F;&#x610F;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x4E4B;&#x524D;&#x521B;&#x5EFA;&#x7684; <code>ManageUsersController</code> &#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5E38;&#x91CF;&#x503C;&#x3002;</p>
+</blockquote>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x662F; <code>EnsureTestAdminAsync()</code> &#x65B9;&#x6CD5;&#xFF1A;</p>
+<p><strong>SeedData.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">EnsureTestAdminAsync</span>(<span class="hljs-params">
+    UserManager&lt;ApplicationUser&gt; userManager</span>)
+</span>{
+    <span class="hljs-keyword">var</span> testAdmin = <span class="hljs-keyword">await</span> userManager.Users
+        .Where(x =&gt; x.UserName == <span class="hljs-string">&quot;admin@todo.local&quot;</span>)
+        .SingleOrDefaultAsync();
+
+    <span class="hljs-keyword">if</span> (testAdmin != <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span>;
+
+    testAdmin = <span class="hljs-keyword">new</span> ApplicationUser
+    {
+        UserName = <span class="hljs-string">&quot;admin@todo.local&quot;</span>,
+        Email = <span class="hljs-string">&quot;admin@todo.local&quot;</span>
+    };
+    <span class="hljs-keyword">await</span> userManager.CreateAsync(
+        testAdmin, <span class="hljs-string">&quot;NotSecure123!!&quot;</span>);
+    <span class="hljs-keyword">await</span> userManager.AddToRoleAsync(
+        testAdmin, Constants.AdministratorRole);
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x4E0D;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x540D;&#x4E3A; <code>admin@todo.local</code> &#x7684;&#x7528;&#x6237;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C06;&#x521B;&#x5EFA;&#x5B83;&#x5E76;&#x7ED9;&#x5B83;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x7684;&#x5BC6;&#x7801;&#x3002;&#x5728;&#x4F60;&#x521D;&#x6B21;&#x767B;&#x5F55;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x5E94;&#x8BE5;&#x6539;&#x4E3A;&#x4E00;&#x4E2A;&#x66F4;&#x5B89;&#x5168;&#x7684;&#x5BC6;&#x7801;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x63D0;&#x9192;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x5728;&#x5B83;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x903B;&#x8F91;&#x3002;&#x4FEE;&#x6539;<code>Program.cs</code>&#xFF0C;&#x5E76;&#x66F4;&#x65B0;<code>Main()</code>&#x53BB;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x65B9;&#x6CD5;<code>InitializeDatabase()</code>&#xFF1A;</p>
+<p><strong>Program.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)
+</span>{
+    <span class="hljs-keyword">var</span> host = BuildWebHost(args);
+    InitializeDatabase(host);
+    host.Run();
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5728;<code>Main()</code>&#x7684;&#x4E0B;&#x9762;&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;&#x65B0;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">InitializeDatabase</span>(<span class="hljs-params">IWebHost host</span>)
+</span>{
+    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> scope = host.Services.CreateScope())
+    {
+        <span class="hljs-keyword">var</span> services = scope.ServiceProvider;
+
+        <span class="hljs-keyword">try</span>
+        {
+            SeedData.InitializeAsync(services).Wait();
+        }
+        <span class="hljs-keyword">catch</span> (Exception ex)
+        {
+            <span class="hljs-keyword">var</span> logger = services
+                .GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+            logger.LogError(ex, <span class="hljs-string">&quot;Error occurred seeding the DB.&quot;</span>);
+        }
+    }
+}
+</code></pre>
+<p>&#x5E76;&#x628A;&#x8FD9;&#x4E2A; <code>using</code> &#x8BED;&#x53E5;&#x6DFB;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x9876;&#x90E8;&#xFF1A;</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> Microsoft.Extensions.DependencyInjection;
+</code></pre>
+<p>&#x6B64;&#x65B9;&#x6CD5;&#x83B7;&#x53D6;<code>SeedData.InitializeAsync()</code>&#x6240;&#x9700;&#x7684;&#x670D;&#x52A1;&#x96C6;&#x5408;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#x5B83;&#x4EE5;&#x4FBF;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x5E93;&#x3002;&#x5982;&#x679C;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF0C;&#x5C06;&#x4F1A;&#x8BB0;&#x5F55;&#x4E00;&#x6761;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x3002;</p>
+<blockquote>
+<p>&#x56E0;&#x4E3A;<code>InitializeAsync()</code>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>Task</code>&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x4F7F;&#x7528; <code>Wait()</code> &#x65B9;&#x6CD5;&#x4EE5;&#x786E;&#x4FDD;&#x5B83;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x524D;&#x5B8C;&#x6210;&#x3002;&#x4F60;&#x4E00;&#x822C;&#x662F;&#x7528; <code>await</code> &#x505A;&#x8FD9;&#x4EF6;&#x4E8B;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x67D0;&#x4E9B;&#x6280;&#x672F;&#x539F;&#x56E0;&#xFF0C;&#x4F60;&#x65E0;&#x6CD5;&#x5728; <code>Program</code> &#x65B9;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528; <code>await</code>&#x3002;&#x8FD9;&#x662F;&#x4E2A;&#x7F55;&#x89C1;&#x7684;&#x4F8B;&#x5916; &#x2014;&#x2014; &#x6240;&#x6709;&#x5176;&#x5B83;&#x5730;&#x65B9;&#x4F60;&#x90FD;&#x5E94;&#x8BE5;&#x7528; <code>await</code>&#xFF01;</p>
+</blockquote>
+<p>&#x5F53;&#x4F60;&#x518D;&#x6B21;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;<code>admin@todo.local</code> &#x8FD9;&#x4E2A;&#x8D26;&#x53F7;&#x4F1A;&#x88AB;&#x521B;&#x5EFA;&#x5E76;&#x88AB;&#x8D4B;&#x4E88; Administrator &#x89D2;&#x8272;&#x3002;&#x8BF7;&#x5C1D;&#x8BD5;&#x7528;&#x8FD9;&#x4E2A;&#x8D26;&#x53F7;&#x767B;&#x5F55;&#xFF0C;&#x5E76;&#x6D4F;&#x89C8;&#x4F4D;&#x4E8E; <code>http://localhost:5000/ManageUsers</code> &#x7684;&#x9875;&#x9762;&#xFF0C;&#x4F60;&#x5C06;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#xFF0C;&#x5217;&#x51FA;&#x4E86;&#x672C;&#x7A0B;&#x5E8F;&#x7684;&#x6240;&#x6709;&#x6CE8;&#x518C;&#x7528;&#x6237;&#x3002;</p>
+<blockquote>
+<p>&#x4F5C;&#x4E3A;&#x7EC3;&#x4E60;&#xFF0C;&#x8BF7;&#x5728;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x6DFB;&#x52A0;&#x66F4;&#x591A;&#x7BA1;&#x7406;&#x529F;&#x80FD;&#x7279;&#x6027;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x4E3A;&#x7BA1;&#x7406;&#x5458;&#x63D0;&#x4F9B; &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7528;&#x6237; &#x7684;&#x529F;&#x80FD;&#x3002;</p>
+</blockquote>
+<h3 id="&#x5728;&#x89C6;&#x56FE;&#x91CC;&#x67E5;&#x770B;&#x8BA4;&#x8BC1;&#x72B6;&#x6001;"><a name="&#x5728;&#x89C6;&#x56FE;&#x91CC;&#x67E5;&#x770B;&#x8BA4;&#x8BC1;&#x72B6;&#x6001;" class="plugin-anchor" href="#&#x5728;&#x89C6;&#x56FE;&#x91CC;&#x67E5;&#x770B;&#x8BA4;&#x8BC1;&#x72B6;&#x6001;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728;&#x89C6;&#x56FE;&#x91CC;&#x67E5;&#x770B;&#x8BA4;&#x8BC1;&#x72B6;&#x6001;</h3>
+<p><code>[Authorize]</code> &#x5C5E;&#x6027;&#x8BA9;&#x63A7;&#x5236;&#x5668;&#x91CC;&#x6267;&#x884C;&#x8BA4;&#x8BC1;&#x64CD;&#x4F5C;&#x53D8;&#x5F97;&#x5F88;&#x65B9;&#x4FBF;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x5728;&#x89C6;&#x56FE;&#x91CC;&#x8FDB;&#x884C;&#x8BA4;&#x8BC1;&#x64CD;&#x4F5C;&#x5462;&#xFF1F;&#x6BD4;&#x5982;&#xFF0C;&#x5728;&#x5BFC;&#x822A;&#x6761;&#x4E0A;&#x4E3A;&#x767B;&#x5165;&#x7684;&#x7BA1;&#x7406;&#x5458;&#x7528;&#x6237;&#x663E;&#x793A;&#x4E00;&#x4E2A;&#x201C;&#x7BA1;&#x7406;&#x7528;&#x6237;&#x201D;&#x7684;&#x94FE;&#x63A5;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x628A; <code>UserManager</code> &#x76F4;&#x63A5;&#x6CE8;&#x5165;&#x5230;&#x89C6;&#x56FE;&#x91CC;&#x6765;&#x8FDB;&#x884C;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x3002;&#x4E3A;&#x4FDD;&#x6301;&#x4F60;&#x89C6;&#x56FE;&#x6574;&#x6D01;&#x6709;&#x5E8F;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5C40;&#x90E8;&#x89C6;&#x56FE;(partial view)&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x5E03;&#x5C40;&#x4E2D;&#x7684;&#x5BFC;&#x822A;&#x6761;&#x91CC;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#xFF1A;</p>
+<p><strong>Views/Shared/_AdminActionsPartial.cshtml</strong></p>
+<pre><code class="lang-html">@using Microsoft.AspNetCore.Identity
+@using AspNetCoreTodo.Models
+
+@inject SignInManager<span class="hljs-tag">&lt;<span class="hljs-name">ApplicationUser</span>&gt;</span> signInManager
+@inject UserManager<span class="hljs-tag">&lt;<span class="hljs-name">ApplicationUser</span>&gt;</span> userManager
+
+@if (signInManager.IsSignedIn(User))
+{
+    var currentUser = await userManager.GetUserAsync(User);
+
+    var isAdmin = currentUser != null
+        &amp;&amp; await userManager.IsInRoleAsync(
+            currentUser,
+            Constants.AdministratorRole);
+
+    if (isAdmin)
+    {
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav navbar-nav navbar-right&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">asp-controller</span>=<span class="hljs-string">&quot;ManageUsers&quot;</span> 
+                   <span class="hljs-attr">asp-action</span>=<span class="hljs-string">&quot;Index&quot;</span>&gt;</span>
+                   Manage Users
+                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    }
+}
+</code></pre>
+<blockquote>
+<p>&#x6309;&#x60EF;&#x4F8B;&#xFF0C;&#x901A;&#x5E38;&#x628A;&#x5C40;&#x90E8;&#x89C6;&#x56FE;&#x7684;&#x540D;&#x5B57;&#x4EE5; <code>_</code> &#x4E0B;&#x5212;&#x7EBF;&#x5F00;&#x59CB;&#xFF0C;&#x4F46;&#x8FD9;&#x4E0D;&#x662F;&#x5F3A;&#x5236;&#x6027;&#x7684;&#x3002;</p>
+</blockquote>
+<p>&#x8FD9;&#x4E2A;&#x5C40;&#x90E8;&#x89C6;&#x56FE;&#x9996;&#x5148;&#x4F7F;&#x7528; <code>SignInManager</code> &#x5224;&#x65AD;&#x7528;&#x6237;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x767B;&#x5F55;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x767B;&#x5F55;&#xFF0C;&#x5176;&#x4F59;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x90FD;&#x88AB;&#x8DF3;&#x8FC7;&#x3002;&#x5982;&#x679C;&#x8FD9; <strong>&#x662F;</strong> &#x4E2A;&#x5DF2;&#x767B;&#x5F55;&#x7528;&#x6237;&#xFF0C;<code>UserManager</code> &#x5C31;&#x88AB;&#x7528;&#x4E8E;&#x67E5;&#x627E;&#x7528;&#x6237;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x7528; <code>IsInRoleAsync()</code> &#x8FDB;&#x884C;&#x8BA4;&#x8BC1;&#x68C0;&#x67E5;&#x3002;&#x5982;&#x679C;&#x6240;&#x6709;&#x68C0;&#x67E5;&#x90FD;&#x901A;&#x8FC7;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;&#x7528;&#x6237;&#x662F;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x5458;&#xFF0C;&#x5BFC;&#x822A;&#x6761;&#x4E0A;&#x5C31;&#x4F1A;&#x52A0;&#x5165;&#x4E00;&#x4E2A; <strong>Manage Users</strong> &#x94FE;&#x63A5;&#x3002;</p>
+<p>&#x8981;&#x5728;&#x4E3B;&#x5E03;&#x5C40;&#x4E2D;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x5C40;&#x90E8;&#x89C6;&#x56FE;&#xFF0C;&#x7F16;&#x8F91; <code>_Layout.cshtml</code> &#x5E76;&#x5728;&#x5BFC;&#x822A;&#x6761;&#x90E8;&#x5206;&#x6DFB;&#x52A0;&#xFF1A;</p>
+<p><strong>Views/Shared/_Layout.cshtml</strong></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-collapse collapse&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav navbar-nav&quot;</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- existing code here --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    @await Html.PartialAsync(&quot;_LoginPartial&quot;)
+    @await Html.PartialAsync(&quot;_AdminActionsPartial&quot;)
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F60;&#x7528;&#x7BA1;&#x7406;&#x5458;&#x8D26;&#x53F7;&#x767B;&#x5F55;&#xFF0C;&#x5C06;&#x5728;&#x53F3;&#x4E0A;&#x89D2;&#x89C1;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BFC;&#x822A;&#x9879;&#xFF1A;</p>
+<p><img src="manage-users.png" alt="Manage Users link"></p>
+<hr>
+<h2 id="authorization-with-roles"><a name="authorization-with-roles" class="plugin-anchor" href="#authorization-with-roles"><i class="fa fa-link" aria-hidden="true"></i></a>Authorization with roles</h2>
+<p>Roles are a common approach to handling authorization and permissions in a web application. For example, it&apos;s common to create an Administrator role that gives admin users more permissions or power than normal users.</p>
+<p>In this project, you&apos;ll add a Manage Users page that only administrators can see. If normal users try to access it, they&apos;ll see an error.</p>
+<h3 id="add-a-manage-users-page"><a name="add-a-manage-users-page" class="plugin-anchor" href="#add-a-manage-users-page"><i class="fa fa-link" aria-hidden="true"></i></a>Add a Manage Users page</h3>
+<p>First, create a new controller:</p>
+<p><strong>Controllers/ManageUsersController.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Linq;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Microsoft.AspNetCore.Mvc;
+<span class="hljs-keyword">using</span> Microsoft.AspNetCore.Authorization;
+<span class="hljs-keyword">using</span> Microsoft.AspNetCore.Identity;
+<span class="hljs-keyword">using</span> AspNetCoreTodo.Models;
+<span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Controllers</span>
+{
+    [Authorize(Roles = <span class="hljs-string">&quot;Administrator&quot;</span>)]
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ManageUsersController</span> : <span class="hljs-title">Controller</span>
+    {
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> UserManager&lt;ApplicationUser&gt;
+            _userManager;
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ManageUsersController</span>(<span class="hljs-params">
+            UserManager&lt;ApplicationUser&gt; userManager</span>)
+        </span>{
+            _userManager = userManager;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;IActionResult&gt; <span class="hljs-title">Index</span>(<span class="hljs-params"></span>)
+        </span>{
+            <span class="hljs-keyword">var</span> admins = (<span class="hljs-keyword">await</span> _userManager
+                .GetUsersInRoleAsync(<span class="hljs-string">&quot;Administrator&quot;</span>))
+                .ToArray();
+
+            <span class="hljs-keyword">var</span> everyone = <span class="hljs-keyword">await</span> _userManager.Users
+                .ToArrayAsync();
+
+            <span class="hljs-keyword">var</span> model = <span class="hljs-keyword">new</span> ManageUsersViewModel
+            {
+                Administrators = admins,
+                Everyone = everyone
+            };
+
+            <span class="hljs-keyword">return</span> View(model);
+        }
+    }
+}
+</code></pre>
+<p>Setting the <code>Roles</code> property on the <code>[Authorize]</code> attribute will ensure that the user must be logged in <strong>and</strong> assigned the Administrator role in order to view the page.</p>
+<p>Next, create a view model:</p>
+<p><strong>Models/ManageUsersViewModel.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System.Collections.Generic;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo.Models</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ManageUsersViewModel</span>
+    {
+        <span class="hljs-keyword">public</span> ApplicationUser[] Administrators { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-keyword">public</span> ApplicationUser[] Everyone { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>;}
+    }
+}
+</code></pre>
+<p>Finally, create a <code>Views/ManageUsers</code> folder and a view for the <code>Index</code> action:</p>
+<p><strong>Views/ManageUsers/Index.cshtml</strong></p>
+<pre><code class="lang-html">@model ManageUsersViewModel
+
+@{
+    ViewData[&quot;Title&quot;] = &quot;Manage users&quot;;
+}
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>@ViewData[&quot;Title&quot;]<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Administrators<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Id<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+
+    @foreach (var user in Model.Administrators)
+    {
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@user.Id<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@user.Email<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    }
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Everyone<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Id<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+
+    @foreach (var user in Model.Everyone)
+    {
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@user.Id<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>@user.Email<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    }
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<p>Start up the application and try to access the <code>/ManageUsers</code> route while logged in as a normal user. You&apos;ll see this access denied page:</p>
+<p><img src="access-denied.png" alt="Access denied error"></p>
+<p>That&apos;s because users aren&apos;t assigned the Administrator role automatically.</p>
+<h3 id="create-a-test-administrator-account"><a name="create-a-test-administrator-account" class="plugin-anchor" href="#create-a-test-administrator-account"><i class="fa fa-link" aria-hidden="true"></i></a>Create a test administrator account</h3>
+<p>For obvious security reasons, it isn&apos;t possible for anyone to register a new administrator account themselves. In fact, the Administrator role doesn&apos;t even exist in the database yet!</p>
+<p>You can add the Administrator role plus a test administrator account to the database the first time the application starts up. Adding first-time data to the database is called initializing or <strong>seeding</strong> the database.</p>
+<p>Create a new class in the root of the project called <code>SeedData</code>:</p>
+<p><strong>SeedData.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Linq;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> AspNetCoreTodo.Models;
+<span class="hljs-keyword">using</span> Microsoft.AspNetCore.Identity;
+<span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
+<span class="hljs-keyword">using</span> Microsoft.Extensions.DependencyInjection;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SeedData</span>
+    {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">InitializeAsync</span>(<span class="hljs-params">
+            IServiceProvider services</span>)
+        </span>{
+            <span class="hljs-keyword">var</span> roleManager = services
+                .GetRequiredService&lt;RoleManager&lt;IdentityRole&gt;&gt;();
+            <span class="hljs-keyword">await</span> EnsureRolesAsync(roleManager);
+
+            <span class="hljs-keyword">var</span> userManager = services
+                .GetRequiredService&lt;UserManager&lt;ApplicationUser&gt;&gt;();
+            <span class="hljs-keyword">await</span> EnsureTestAdminAsync(userManager);
+        }
+    }
+}
+</code></pre>
+<p>The <code>InitializeAsync()</code> method uses an <code>IServiceProvider</code> (the collection of services that is set up in the <code>Startup.ConfigureServices()</code> method) to get the <code>RoleManager</code> and <code>UserManager</code> from ASP.NET Core Identity.</p>
+<p>Add two more methods below the <code>InitializeAsync()</code> method. First, the <code>EnsureRolesAsync()</code> method:</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">EnsureRolesAsync</span>(<span class="hljs-params">
+    RoleManager&lt;IdentityRole&gt; roleManager</span>)
+</span>{
+    <span class="hljs-keyword">var</span> alreadyExists = <span class="hljs-keyword">await</span> roleManager
+        .RoleExistsAsync(Constants.AdministratorRole);
+
+    <span class="hljs-keyword">if</span> (alreadyExists) <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">await</span> roleManager.CreateAsync(
+        <span class="hljs-keyword">new</span> IdentityRole(Constants.AdministratorRole));
+}
+</code></pre>
+<p>This method checks to see if an <code>Administrator</code> role exists in the database. If not, it creates one. Instead of repeatedly typing the string <code>&quot;Administrator&quot;</code>, create a small class called <code>Constants</code> to hold the value:</p>
+<p><strong>Constants.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">AspNetCoreTodo</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Constants</span>
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> AdministratorRole = <span class="hljs-string">&quot;Administrator&quot;</span>;
+    }
+}
+</code></pre>
+<blockquote>
+<p>If you want, you can update the <code>ManageUsersController</code> to use this constant value as well.</p>
+</blockquote>
+<p>Next, write the <code>EnsureTestAdminAsync()</code> method:</p>
+<p><strong>SeedData.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">EnsureTestAdminAsync</span>(<span class="hljs-params">
+    UserManager&lt;ApplicationUser&gt; userManager</span>)
+</span>{
+    <span class="hljs-keyword">var</span> testAdmin = <span class="hljs-keyword">await</span> userManager.Users
+        .Where(x =&gt; x.UserName == <span class="hljs-string">&quot;admin@todo.local&quot;</span>)
+        .SingleOrDefaultAsync();
+
+    <span class="hljs-keyword">if</span> (testAdmin != <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span>;
+
+    testAdmin = <span class="hljs-keyword">new</span> ApplicationUser
+    {
+        UserName = <span class="hljs-string">&quot;admin@todo.local&quot;</span>,
+        Email = <span class="hljs-string">&quot;admin@todo.local&quot;</span>
+    };
+    <span class="hljs-keyword">await</span> userManager.CreateAsync(
+        testAdmin, <span class="hljs-string">&quot;NotSecure123!!&quot;</span>);
+    <span class="hljs-keyword">await</span> userManager.AddToRoleAsync(
+        testAdmin, Constants.AdministratorRole);
+}
+</code></pre>
+<p>If there isn&apos;t already a user with the username <code>admin@todo.local</code> in the database, this method will create one and assign a temporary password. After you log in for the first time, you should change the account&apos;s password to something secure!</p>
+<p>Next, you need to tell your application to run this logic when it starts up. Modify <code>Program.cs</code> and update <code>Main()</code> to call a new method, <code>InitializeDatabase()</code>:</p>
+<p><strong>Program.cs</strong></p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>[] args</span>)
+</span>{
+    <span class="hljs-keyword">var</span> host = BuildWebHost(args);
+    InitializeDatabase(host);
+    host.Run();
+}
+</code></pre>
+<p>Then, add the new method to the class below <code>Main()</code>:</p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">InitializeDatabase</span>(<span class="hljs-params">IWebHost host</span>)
+</span>{
+    <span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> scope = host.Services.CreateScope())
+    {
+        <span class="hljs-keyword">var</span> services = scope.ServiceProvider;
+
+        <span class="hljs-keyword">try</span>
+        {
+            SeedData.InitializeAsync(services).Wait();
+        }
+        <span class="hljs-keyword">catch</span> (Exception ex)
+        {
+            <span class="hljs-keyword">var</span> logger = services
+                .GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+            logger.LogError(ex, <span class="hljs-string">&quot;Error occurred seeding the DB.&quot;</span>);
+        }
+    }
+}
+</code></pre>
+<p>Add this <code>using</code> statement to the top of the file:</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">using</span> Microsoft.Extensions.DependencyInjection;
+</code></pre>
+<p>This method gets the service collection that <code>SeedData.InitializeAsync()</code> needs and then runs the method to seed the database. If something goes wrong, an error is logged.</p>
+<blockquote>
+<p>Because <code>InitializeAsync()</code> returns a <code>Task</code>, the <code>Wait()</code> method must be used to make sure it finishes before the application starts up. You&apos;d normally use <code>await</code> for this, but for technical reasons you can&apos;t use <code>await</code> in the <code>Program</code> class. This is a rare exception. You should use <code>await</code> everywhere else!</p>
+</blockquote>
+<p>When you start the application next, the <code>admin@todo.local</code> account will be created and assigned the Administrator role. Try logging in with this account, and navigating to <code>http://localhost:5000/ManageUsers</code>. You&apos;ll see a list of all users registered for the application.</p>
+<blockquote>
+<p>As an extra challenge, try adding more administration features to this page. For example, you could add a button that gives an administrator the ability to delete a user account.</p>
+</blockquote>
+<h3 id="check-for-authorization-in-a-view"><a name="check-for-authorization-in-a-view" class="plugin-anchor" href="#check-for-authorization-in-a-view"><i class="fa fa-link" aria-hidden="true"></i></a>Check for authorization in a view</h3>
+<p>The <code>[Authorize]</code> attribute makes it easy to perform an authorization check in a controller or action method, but what if you need to check authorization in a view? For example, it would be nice to display a &quot;Manage users&quot; link in the navigation bar if the logged-in user is an administrator.</p>
+<p>You can inject the <code>UserManager</code> directly into a view to do these types of authorization checks. To keep your views clean and organized, create a new partial view that will add an item to the navbar in the layout:</p>
+<p><strong>Views/Shared/_AdminActionsPartial.cshtml</strong></p>
+<pre><code class="lang-html">@using Microsoft.AspNetCore.Identity
+@using AspNetCoreTodo.Models
+
+@inject SignInManager<span class="hljs-tag">&lt;<span class="hljs-name">ApplicationUser</span>&gt;</span> signInManager
+@inject UserManager<span class="hljs-tag">&lt;<span class="hljs-name">ApplicationUser</span>&gt;</span> userManager
+
+@if (signInManager.IsSignedIn(User))
+{
+    var currentUser = await userManager.GetUserAsync(User);
+
+    var isAdmin = currentUser != null
+        &amp;&amp; await userManager.IsInRoleAsync(
+            currentUser,
+            Constants.AdministratorRole);
+
+    if (isAdmin)
+    {
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav navbar-nav navbar-right&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">asp-controller</span>=<span class="hljs-string">&quot;ManageUsers&quot;</span> 
+                   <span class="hljs-attr">asp-action</span>=<span class="hljs-string">&quot;Index&quot;</span>&gt;</span>
+                   Manage Users
+                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    }
+}
+</code></pre>
+<blockquote>
+<p>It&apos;s conventional to name shared partial views starting with an <code>_</code> underscore, but it&apos;s not required.</p>
+</blockquote>
+<p>This partial view first uses the <code>SignInManager</code> to quickly determine whether the user is logged in. If they aren&apos;t, the rest of the view code can be skipped. If there <strong>is</strong> a logged-in user, the <code>UserManager</code> is used to look up their details and perform an authorization check with <code>IsInRoleAsync()</code>. If all checks succeed and the user is an adminstrator, a <strong>Manage users</strong> link is added to the navbar.</p>
+<p>To include this partial in the main layout, edit <code>_Layout.cshtml</code> and add it in the navbar section:</p>
+<p><strong>Views/Shared/_Layout.cshtml</strong></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-collapse collapse&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav navbar-nav&quot;</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- existing code here --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    @await Html.PartialAsync(&quot;_LoginPartial&quot;)
+    @await Html.PartialAsync(&quot;_AdminActionsPartial&quot;)
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>When you log in with an administrator account, you&apos;ll now see a new item on the top right:</p>
+<p><img src="manage-users.png" alt="Manage Users link"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="using-identity-in-the-application.html" class="navigation navigation-prev " aria-label="Previous page: 在程序中使用身份">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="more-resources.html" class="navigation navigation-next " aria-label="Next page: 附加资源">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"按角色进行授权","level":"1.7.3","depth":2,"next":{"title":"附加资源","level":"1.7.4","depth":2,"path":"chapters/security-and-identity/more-resources.md","ref":"chapters/security-and-identity/more-resources.md","articles":[]},"previous":{"title":"在程序中使用身份","level":"1.7.2","depth":2,"path":"chapters/security-and-identity/using-identity-in-the-application.md","ref":"chapters/security-and-identity/using-identity-in-the-application.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/security-and-identity/authorization-with-roles.md","mtime":"2020-12-02T18:04:53.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-02T18:52:41.522Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

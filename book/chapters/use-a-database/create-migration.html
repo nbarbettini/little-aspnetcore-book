@@ -1,0 +1,879 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>创建变更 · 简明 ASP.NET Core 手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Nate Barbettini">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="create-service-class.html" />
+    
+    
+    <link rel="prev" href="update-context.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../your-first-application/">
+            
+                <a href="../your-first-application/">
+            
+                    
+                    你的第一个程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../your-first-application/get-the-sdk.html">
+            
+                <a href="../your-first-application/get-the-sdk.html">
+            
+                    
+                    获取 SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../your-first-application/hello-world-in-csharp.html">
+            
+                <a href="../your-first-application/hello-world-in-csharp.html">
+            
+                    
+                    C# 版的 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../your-first-application/create-aspnetcore-project.html">
+            
+                <a href="../your-first-application/create-aspnetcore-project.html">
+            
+                    
+                    创建一个 ASP.NET Core 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mvc-basics/">
+            
+                <a href="../mvc-basics/">
+            
+                    
+                    MVC 基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mvc-basics/create-controller.html">
+            
+                <a href="../mvc-basics/create-controller.html">
+            
+                    
+                    创建控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../mvc-basics/create-models.html">
+            
+                <a href="../mvc-basics/create-models.html">
+            
+                    
+                    创建模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../mvc-basics/create-view.html">
+            
+                <a href="../mvc-basics/create-view.html">
+            
+                    
+                    创建视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../mvc-basics/add-service-class.html">
+            
+                <a href="../mvc-basics/add-service-class.html">
+            
+                    
+                    添加一个服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../mvc-basics/use-dependency-injection.html">
+            
+                <a href="../mvc-basics/use-dependency-injection.html">
+            
+                    
+                    运用依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../mvc-basics/finish-controller.html">
+            
+                <a href="../mvc-basics/finish-controller.html">
+            
+                    
+                    完成控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../mvc-basics/update-the-layout.html">
+            
+                <a href="../mvc-basics/update-the-layout.html">
+            
+                    
+                    修改布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../add-external-packages/">
+            
+                <a href="../add-external-packages/">
+            
+                    
+                    添加外来软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    运用数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="connect-to-a-database.html">
+            
+                <a href="connect-to-a-database.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="update-context.html">
+            
+                <a href="update-context.html">
+            
+                    
+                    修改数据库上下文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.3" data-path="create-migration.html">
+            
+                <a href="create-migration.html">
+            
+                    
+                    创建变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="create-service-class.html">
+            
+                <a href="create-service-class.html">
+            
+                    
+                    创建服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../add-more-features/">
+            
+                <a href="../add-more-features/">
+            
+                    
+                    添加新特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../add-more-features/add-todo-items.html">
+            
+                <a href="../add-more-features/add-todo-items.html">
+            
+                    
+                    添加 待办事项 条目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../add-more-features/complete-with-checkbox.html">
+            
+                <a href="../add-more-features/complete-with-checkbox.html">
+            
+                    
+                    使用复选框标记条目完成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../security-and-identity/">
+            
+                <a href="../security-and-identity/">
+            
+                    
+                    安全和身份
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/require-authentication.html">
+            
+                <a href="../security-and-identity/require-authentication.html">
+            
+                    
+                    提示认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/using-identity-in-the-application.html">
+            
+                <a href="../security-and-identity/using-identity-in-the-application.html">
+            
+                    
+                    在程序中使用身份
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/authorization-with-roles.html">
+            
+                <a href="../security-and-identity/authorization-with-roles.html">
+            
+                    
+                    按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/more-resources.html">
+            
+                <a href="../security-and-identity/more-resources.html">
+            
+                    
+                    附加资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../automated-testing/">
+            
+                <a href="../automated-testing/">
+            
+                    
+                    自动化测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../automated-testing/unit-testing.html">
+            
+                <a href="../automated-testing/unit-testing.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../automated-testing/integration-testing.html">
+            
+                <a href="../automated-testing/integration-testing.html">
+            
+                    
+                    集成测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../deploy-the-application/">
+            
+                <a href="../deploy-the-application/">
+            
+                    
+                    部署程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../deploy-the-application/deploy-to-azure.html">
+            
+                <a href="../deploy-the-application/deploy-to-azure.html">
+            
+                    
+                    部署到 Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../deploy-the-application/deploy-with-docker.html">
+            
+                <a href="../deploy-the-application/deploy-with-docker.html">
+            
+                    
+                    使用 Docker 进行部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../conclusion/">
+            
+                <a href="../conclusion/">
+            
+                    
+                    结束语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >创建变更</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x521B;&#x5EFA;&#x53D8;&#x66F4;"><a name="&#x521B;&#x5EFA;&#x53D8;&#x66F4;" class="plugin-anchor" href="#&#x521B;&#x5EFA;&#x53D8;&#x66F4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x53D8;&#x66F4;</h2>
+<p>&#x53D8;&#x66F4;&#x6309;&#x65F6;&#x95F4;&#x8BB0;&#x5F55;&#x7740;&#x6570;&#x636E;&#x5E93;&#x7ED3;&#x6784;&#x7684;&#x53D8;&#x5316;&#x3002;&#x5B83;&#x4EEC;&#x4F7F;&#x4EE5;&#x4E0B;&#x7684;&#x64CD;&#x4F5C;&#x6210;&#x4E3A;&#x53EF;&#x80FD;&#xFF1A;&#x64A4;&#x9500;(&#x56DE;&#x6EDA;)&#x4E00;&#x90E8;&#x5206;&#x4FEE;&#x6539;&#xFF0C;&#x6216;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x636E;&#x5E93;&#x2014;&#x2014;&#x4E0E;&#x539F;&#x6709;&#x6570;&#x636E;&#x5E93;&#x7ED3;&#x6784;&#x4E00;&#x81F4;&#x3002;&#x6709;&#x4E86;&#x53D8;&#x66F4;&#xFF0C;&#x4F60;&#x6709;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x6570;&#x636E;&#x5E93;&#x5386;&#x53F2;&#xFF0C;&#x8BB0;&#x5F55;&#x7740;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x4F8B;&#x5982;&#x6DFB;&#x52A0;&#x6216;&#x5220;&#x9664;&#x5B57;&#x6BB5;&#xFF08;&#x4EE5;&#x53CA;&#x6574;&#x4E2A;&#x8868;&#xFF09;&#x3002;</p>
+<p>&#x4E0A;&#x4E00;&#x7AE0;&#x8282;&#x91CC;&#xFF0C;&#x4F60;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#x91CC;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A; Items &#x96C6;&#x5408;&#x3002;&#x65E2;&#x7136;&#x73B0;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#x91CC;&#x5305;&#x62EC;&#x4E86;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#xFF08;&#x6216;&#x8005;&#x8BF4;&#x8868;&#xFF09;&#xFF0C;&#x800C;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x6CA1;&#x6709;&#x5B83;&#xFF0C;&#x4F60;&#x5C31;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53D8;&#x66F4;&#x6765;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x5E93;&#xFF1A;</p>
+<pre><code>dotnet ef migrations add AddItems
+</code></pre><p>&#x8FD9;&#x884C;&#x4EE3;&#x7801;&#x901A;&#x8FC7;&#x68C0;&#x67E5;&#x4F60;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#x91CC;&#x6240;&#x505A;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x53D8;&#x66F4;&#xFF0C;&#x540D;&#x4E3A; <code>AddItems</code>&#x3002;</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x770B;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x62A5;&#x9519;: <code>No executable found matching command &quot;dotnet-ef&quot;</code>&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x5728;&#x6B63;&#x786E;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x3002; &#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x5FC5;&#x987B;&#x5728;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;(<code>Program.cs</code>&#x6240;&#x5728;&#x76EE;&#x5F55;)&#x3002;</p>
+<p>&#x8BD1;&#x8005;&#x6CE8;&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528; 3.0 &#x6216;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#x7684; SDK&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x5B89;&#x88C5; <code>dotnet-ef</code> &#x5DE5;&#x5177;&#xFF0C;&#x539F;&#x56E0;&#x8BF7;&#x53C2;&#x8003; <a href="https://stackoverflow.com/questions/57066856/dotnet-ef-not-found-in-net-core-3" target="_blank">dotnet ef not found in .NET Core 3</a>&#xFF0C;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-shell">dotnet tool install --global dotnet-ef
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F60;&#x6253;&#x5F00; <code>Data/Migrations</code> &#x76EE;&#x5F55;&#xFF0C;&#x4F60;&#x5C06;&#x4F1A;&#x770B;&#x5230;:</p>
+<p><img src="migrations.png" alt="Multiple migrations"></p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x53D8;&#x66F4;&#x6587;&#x4EF6;&#xFF08;<code>00_CreateIdentitySchema.cs</code>&#xFF09;&#xFF0C;&#x662F;&#x5728;&#x4F60;&#x6267;&#x884C; <code>dotnet new</code> &#x7684;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#x5E76;&#x5E94;&#x7528;&#x7684;&#x3002; &#x53D8;&#x66F4; <code>AddItem</code> &#x5E26;&#x6709;&#x4F60;&#x521B;&#x5EFA;&#x5B83;&#x65F6;&#x5019;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x3002;</p>
+<blockquote>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x7528; <code>dotnet ef migrations list</code> &#x547D;&#x4EE4;&#x67E5;&#x770B;&#x4E00;&#x4E2A;&#x53D8;&#x66F4;&#x7684;&#x5217;&#x8868;&#x3002;</p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x53D8;&#x66F4;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x540D;&#x5B57;&#x5206;&#x522B;&#x662F; <code>Up</code> &#x548C; <code>Down</code>:</p>
+<p><strong>Data/Migrations/<date>_AddItems.cs</date></strong></p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Up</span>(<span class="hljs-params">MigrationBuilder migrationBuilder</span>)
+</span>{
+    <span class="hljs-comment">// (... some code)</span>
+
+    migrationBuilder.CreateTable(
+        name: <span class="hljs-string">&quot;Items&quot;</span>,
+        columns: table =&gt; <span class="hljs-keyword">new</span>
+        {
+            Id = table.Column&lt;Guid&gt;(nullable: <span class="hljs-keyword">false</span>),
+            DueAt = table.Column&lt;DateTimeOffset&gt;(nullable: <span class="hljs-keyword">true</span>),
+            IsDone = table.Column&lt;<span class="hljs-keyword">bool</span>&gt;(nullable: <span class="hljs-keyword">false</span>),
+            Title = table.Column&lt;<span class="hljs-keyword">string</span>&gt;(nullable: <span class="hljs-keyword">true</span>)
+        },
+        constraints: table =&gt;
+        {
+            table.PrimaryKey(<span class="hljs-string">&quot;PK_Items&quot;</span>, x =&gt; x.Id);
+        });
+
+    <span class="hljs-comment">// (some code...)</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Down</span>(<span class="hljs-params">MigrationBuilder migrationBuilder</span>)
+</span>{
+    <span class="hljs-comment">// (... some code)</span>
+
+    migrationBuilder.DropTable(
+        name: <span class="hljs-string">&quot;Items&quot;</span>);
+
+    <span class="hljs-comment">// (some code...)</span>
+}
+</code></pre>
+<p>&#x5C06;&#x53D8;&#x66F4;&#x5E94;&#x7528;&#x5230;&#x6570;&#x636E;&#x5E93;&#x65F6; <code>Up</code> &#x65B9;&#x6CD5;&#x5C06;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x3002;&#x56E0;&#x4E3A;&#x4F60;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#x91CC;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A; <code>DbSet&lt;TodoItem&gt;</code> &#xFF0C;&#x5E94;&#x7528;&#x53D8;&#x66F4;&#x65F6; Entity Framework Core &#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <code>Items</code> &#x8868;&#xFF08;&#x5176;&#x5217;&#x4E0E; <code>TodoItem</code> &#x76F8;&#x5339;&#x914D;)&#x3002;</p>
+<p> <code>Down</code> &#x65B9;&#x6CD5;&#x521A;&#x597D;&#x76F8;&#x53CD;&#xFF1A;&#x5F53;&#x4F60;&#x9700;&#x8981;&#x64A4;&#x9500;(&#x56DE;&#x6EDA;)&#x53D8;&#x66F4;&#x65F6;&#xFF0C;<code>Items</code> &#x8868;&#x5C06;&#x4F1A;&#x88AB;&#x4E22;&#x5F03;&#x3002;</p>
+<h3 id="&#x7ED5;&#x5F00;-sqlite-&#x7684;&#x5C40;&#x9650;&#x6027;"><a name="&#x7ED5;&#x5F00;-sqlite-&#x7684;&#x5C40;&#x9650;&#x6027;" class="plugin-anchor" href="#&#x7ED5;&#x5F00;-sqlite-&#x7684;&#x5C40;&#x9650;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7ED5;&#x5F00; SQLite &#x7684;&#x5C40;&#x9650;&#x6027;</h3>
+<p>&#x5982;&#x679C;&#x4F60;&#x6309;&#x539F;&#x6837;&#x6267;&#x884C;&#x53D8;&#x66F4;&#xFF0C;&#x4F1A;&#x906D;&#x9047; SQLite &#x6570;&#x636E;&#x5E93;&#x7684;&#x5C40;&#x9650;&#x6027;&#x5E26;&#x6765;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8981;&#x4FEE;&#x590D;&#x5B83;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7ED5;&#x5F00;&#xFF1A;</p>
+<ul>
+<li>&#x5728; <code>Up</code> &#x65B9;&#x6CD5;&#x91CC;&#x6CE8;&#x91CA;&#x6389;&#x6216;&#x5220;&#x9664; <code>migrationBuilder.AddForeignKey</code> &#x90A3;&#x4E9B;&#x884C;&#x3002;</li>
+<li>&#x5728; <code>Down</code> &#x65B9;&#x6CD5;&#x91CC;&#x6CE8;&#x91CA;&#x6389;&#x6216;&#x5220;&#x9664; <code>migrationBuilder.DropForeignKey</code> &#x90A3;&#x4E9B;&#x884C;&#x3002;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x5B8C;&#x5584;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5982; SQL Server &#x6216;&#x8005; MySQL&#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x8FD9;&#x6837;&#xFF08;&#x6709;&#x70B9;&#x65C1;&#x95E8;&#x5DE6;&#x9053;&#x7684;&#xFF09;&#x7ED5;&#x5F2F;&#x4E86;&#x3002;</p>
+<h3 id="&#x5E94;&#x7528;&#x53D8;&#x66F4;"><a name="&#x5E94;&#x7528;&#x53D8;&#x66F4;" class="plugin-anchor" href="#&#x5E94;&#x7528;&#x53D8;&#x66F4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E94;&#x7528;&#x53D8;&#x66F4;</h3>
+<p>&#x521B;&#x5EFA;&#x53D8;&#x66F4;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B65;&#xFF0C;&#x5C31;&#x662F;&#x8981;&#x5E94;&#x7528;&#x5B83;(&#x4EEC;)&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;:</p>
+<pre><code>dotnet ef database update
+</code></pre><p>&#x8FD9;&#x6761;&#x547D;&#x4EE4;&#x4F1A;&#x5BFC;&#x81F4; Entity Framework Core &#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x521B;&#x5EFA; <code>Items</code> &#x8868;&#x3002;</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x56DE;&#x6EDA;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B; <em>&#x4E0A;&#x4E00;&#x4E2A;</em> &#x8FC1;&#x79FB;&#x7684;&#x540D;&#x79F0;&#xFF1A;<code>dotnet ef database update CreateIdentitySchema</code> &#x8FD9;&#x5C06;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x8FDF;&#x4E8E;&#x4F60;&#x6307;&#x5B9A;&#x53D8;&#x66F4;&#x7684; <code>Down</code> &#x65B9;&#x6CD5;&#x3002;<br>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x5B8C;&#x6574;&#x7684;&#x62B9;&#x6389;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x91CD;&#x65B0;&#x5F00;&#x59CB;&#xFF0C;&#x8FD0;&#x884C; <code>dotnet ef database drop</code> &#x7136;&#x540E;&#x8FD0;&#x884C; <code>dotnet ef database update</code>&#xFF0C;&#x91CD;&#x65B0;&#x642D;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x5E94;&#x7528;&#x5230;&#x5230;&#x5F53;&#x524D;&#x7684;&#x53D8;&#x66F4;&#x3002;</p>
+</blockquote>
+<p>&#x641E;&#x5B9A;! &#x6570;&#x636E;&#x5E93;&#x548C;&#x4E0A;&#x4E0B;&#x6587;&#x90FD;&#x5DF2;&#x5C31;&#x7EEA;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x4F60;&#x5C06;&#x5728;&#x670D;&#x52A1;&#x5C42;&#x4F7F;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#x3002;</p>
+<hr>
+<h2 id="create-a-migration"><a name="create-a-migration" class="plugin-anchor" href="#create-a-migration"><i class="fa fa-link" aria-hidden="true"></i></a>Create a migration</h2>
+<p>Migrations keep track of changes to the database structure over time. They make it possible to undo (roll back) a set of changes, or create a second database with the same structure as the first. With migrations, you have a full history of modifications like adding or removing columns (and entire tables).</p>
+<p>In the previous chapter, you added an <code>Items</code> set to the context. Since the context now includes a set (or table) that doesn&apos;t exist in the database, you need to create a migration to update the database:</p>
+<pre><code>dotnet ef migrations add AddItems
+</code></pre><p>This creates a new migration called <code>AddItems</code> by examining any changes you&apos;ve made to the context.</p>
+<blockquote>
+<p>If you get an error like <code>No executable found matching command &quot;dotnet-ef&quot;</code>, make sure you&apos;re in the right directory. These commands must be run from the project root directory (where the <code>Program.cs</code> file is).</p>
+</blockquote>
+<p>If you open up the <code>Data/Migrations</code> directory, you&apos;ll see a few files:</p>
+<p><img src="migrations.png" alt="Multiple migrations"></p>
+<p>The first migration file (with a name like <code>00_CreateIdentitySchema.cs</code>) was created and applied for you way back when you ran <code>dotnet new</code>. Your new <code>AddItem</code> migration is prefixed with a timestamp when you create it.</p>
+<blockquote>
+<p>You can see a list of migrations with <code>dotnet ef migrations list</code>.</p>
+</blockquote>
+<p>If you open your migration file, you&apos;ll see two methods called <code>Up</code> and <code>Down</code>:</p>
+<p><strong>Data/Migrations/<date>_AddItems.cs</date></strong></p>
+<pre><code class="lang-csharp"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Up</span>(<span class="hljs-params">MigrationBuilder migrationBuilder</span>)
+</span>{
+    <span class="hljs-comment">// (... some code)</span>
+
+    migrationBuilder.CreateTable(
+        name: <span class="hljs-string">&quot;Items&quot;</span>,
+        columns: table =&gt; <span class="hljs-keyword">new</span>
+        {
+            Id = table.Column&lt;Guid&gt;(nullable: <span class="hljs-keyword">false</span>),
+            DueAt = table.Column&lt;DateTimeOffset&gt;(nullable: <span class="hljs-keyword">true</span>),
+            IsDone = table.Column&lt;<span class="hljs-keyword">bool</span>&gt;(nullable: <span class="hljs-keyword">false</span>),
+            Title = table.Column&lt;<span class="hljs-keyword">string</span>&gt;(nullable: <span class="hljs-keyword">true</span>)
+        },
+        constraints: table =&gt;
+        {
+            table.PrimaryKey(<span class="hljs-string">&quot;PK_Items&quot;</span>, x =&gt; x.Id);
+        });
+
+    <span class="hljs-comment">// (some code...)</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Down</span>(<span class="hljs-params">MigrationBuilder migrationBuilder</span>)
+</span>{
+    <span class="hljs-comment">// (... some code)</span>
+
+    migrationBuilder.DropTable(
+        name: <span class="hljs-string">&quot;Items&quot;</span>);
+
+    <span class="hljs-comment">// (some code...)</span>
+}
+</code></pre>
+<p>The <code>Up</code> method runs when you apply the migration to the database. Since you added a <code>DbSet&lt;TodoItem&gt;</code> to the database context, Entity Framework Core will create an <code>Items</code> table (with columns that match a <code>TodoItem</code>) when you apply the migration.</p>
+<p>The <code>Down</code> method does the opposite: if you need to undo (roll back) the migration, the <code>Items</code> table will be dropped.</p>
+<h3 id="workaround-for-sqlite-limitations"><a name="workaround-for-sqlite-limitations" class="plugin-anchor" href="#workaround-for-sqlite-limitations"><i class="fa fa-link" aria-hidden="true"></i></a>Workaround for SQLite limitations</h3>
+<p>There are some limitations of SQLite that get in the way if you try to run the migration as-is. Until this problem is fixed, use this workaround:</p>
+<ul>
+<li>Comment out or remove the <code>migrationBuilder.AddForeignKey</code> lines in the <code>Up</code> method.</li>
+<li>Comment out or remove any <code>migrationBuilder.DropForeignKey</code> lines in the <code>Down</code> method.</li>
+</ul>
+<p>If you use a full-fledged SQL database, like SQL Server or MySQL, this won&apos;t be an issue and you won&apos;t need to do this (admittedly hackish) workaround.</p>
+<h3 id="apply-the-migration"><a name="apply-the-migration" class="plugin-anchor" href="#apply-the-migration"><i class="fa fa-link" aria-hidden="true"></i></a>Apply the migration</h3>
+<p>The final step after creating one (or more) migrations is to actually apply them to the database:</p>
+<pre><code>dotnet ef database update
+</code></pre><p>This command will cause Entity Framework Core to create the <code>Items</code> table in the database.</p>
+<blockquote>
+<p>If you want to roll back the database, you can provide the name of the <em>previous</em> migration:
+<code>dotnet ef database update CreateIdentitySchema</code>
+This will run the <code>Down</code> methods of any migrations newer than the migration you specify.</p>
+<p>If you need to completely erase the database and start over, run <code>dotnet ef database drop</code> followed by <code>dotnet ef database update</code> to re-scaffold the database and bring it up to the current migration.</p>
+</blockquote>
+<p>That&apos;s it! Both the database and the context are ready to go. Next, you&apos;ll use the context in your service layer.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="update-context.html" class="navigation navigation-prev " aria-label="Previous page: 修改数据库上下文">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="create-service-class.html" class="navigation navigation-next " aria-label="Next page: 创建服务类">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"创建变更","level":"1.5.3","depth":2,"next":{"title":"创建服务类","level":"1.5.4","depth":2,"path":"chapters/use-a-database/create-service-class.md","ref":"chapters/use-a-database/create-service-class.md","articles":[]},"previous":{"title":"修改数据库上下文","level":"1.5.2","depth":2,"path":"chapters/use-a-database/update-context.md","ref":"chapters/use-a-database/update-context.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/use-a-database/create-migration.md","mtime":"2020-12-02T18:04:53.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-02T18:52:41.522Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

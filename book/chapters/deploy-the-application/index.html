@@ -1,0 +1,789 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>部署程序 · 简明 ASP.NET Core 手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Nate Barbettini">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="deploy-to-azure.html" />
+    
+    
+    <link rel="prev" href="../automated-testing/integration-testing.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../your-first-application/">
+            
+                <a href="../your-first-application/">
+            
+                    
+                    你的第一个程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../your-first-application/get-the-sdk.html">
+            
+                <a href="../your-first-application/get-the-sdk.html">
+            
+                    
+                    获取 SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../your-first-application/hello-world-in-csharp.html">
+            
+                <a href="../your-first-application/hello-world-in-csharp.html">
+            
+                    
+                    C# 版的 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../your-first-application/create-aspnetcore-project.html">
+            
+                <a href="../your-first-application/create-aspnetcore-project.html">
+            
+                    
+                    创建一个 ASP.NET Core 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mvc-basics/">
+            
+                <a href="../mvc-basics/">
+            
+                    
+                    MVC 基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mvc-basics/create-controller.html">
+            
+                <a href="../mvc-basics/create-controller.html">
+            
+                    
+                    创建控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../mvc-basics/create-models.html">
+            
+                <a href="../mvc-basics/create-models.html">
+            
+                    
+                    创建模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../mvc-basics/create-view.html">
+            
+                <a href="../mvc-basics/create-view.html">
+            
+                    
+                    创建视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../mvc-basics/add-service-class.html">
+            
+                <a href="../mvc-basics/add-service-class.html">
+            
+                    
+                    添加一个服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../mvc-basics/use-dependency-injection.html">
+            
+                <a href="../mvc-basics/use-dependency-injection.html">
+            
+                    
+                    运用依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../mvc-basics/finish-controller.html">
+            
+                <a href="../mvc-basics/finish-controller.html">
+            
+                    
+                    完成控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../mvc-basics/update-the-layout.html">
+            
+                <a href="../mvc-basics/update-the-layout.html">
+            
+                    
+                    修改布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../add-external-packages/">
+            
+                <a href="../add-external-packages/">
+            
+                    
+                    添加外来软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../use-a-database/">
+            
+                <a href="../use-a-database/">
+            
+                    
+                    运用数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../use-a-database/connect-to-a-database.html">
+            
+                <a href="../use-a-database/connect-to-a-database.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../use-a-database/update-context.html">
+            
+                <a href="../use-a-database/update-context.html">
+            
+                    
+                    修改数据库上下文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../use-a-database/create-migration.html">
+            
+                <a href="../use-a-database/create-migration.html">
+            
+                    
+                    创建变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../use-a-database/create-service-class.html">
+            
+                <a href="../use-a-database/create-service-class.html">
+            
+                    
+                    创建服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../add-more-features/">
+            
+                <a href="../add-more-features/">
+            
+                    
+                    添加新特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../add-more-features/add-todo-items.html">
+            
+                <a href="../add-more-features/add-todo-items.html">
+            
+                    
+                    添加 待办事项 条目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../add-more-features/complete-with-checkbox.html">
+            
+                <a href="../add-more-features/complete-with-checkbox.html">
+            
+                    
+                    使用复选框标记条目完成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../security-and-identity/">
+            
+                <a href="../security-and-identity/">
+            
+                    
+                    安全和身份
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/require-authentication.html">
+            
+                <a href="../security-and-identity/require-authentication.html">
+            
+                    
+                    提示认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/using-identity-in-the-application.html">
+            
+                <a href="../security-and-identity/using-identity-in-the-application.html">
+            
+                    
+                    在程序中使用身份
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/authorization-with-roles.html">
+            
+                <a href="../security-and-identity/authorization-with-roles.html">
+            
+                    
+                    按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/more-resources.html">
+            
+                <a href="../security-and-identity/more-resources.html">
+            
+                    
+                    附加资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../automated-testing/">
+            
+                <a href="../automated-testing/">
+            
+                    
+                    自动化测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../automated-testing/unit-testing.html">
+            
+                <a href="../automated-testing/unit-testing.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../automated-testing/integration-testing.html">
+            
+                <a href="../automated-testing/integration-testing.html">
+            
+                    
+                    集成测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    部署程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="deploy-to-azure.html">
+            
+                <a href="deploy-to-azure.html">
+            
+                    
+                    部署到 Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="deploy-with-docker.html">
+            
+                <a href="deploy-with-docker.html">
+            
+                    
+                    使用 Docker 进行部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../conclusion/">
+            
+                <a href="../conclusion/">
+            
+                    
+                    结束语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >部署程序</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x90E8;&#x7F72;&#x7A0B;&#x5E8F;"><a name="&#x90E8;&#x7F72;&#x7A0B;&#x5E8F;" class="plugin-anchor" href="#&#x90E8;&#x7F72;&#x7A0B;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90E8;&#x7F72;&#x7A0B;&#x5E8F;</h1>
+<p>&#x4E07;&#x4E8B;&#x4FF1;&#x5907;&#xFF0C;&#x53EA;&#x6B20;&#x4E1C;&#x98CE;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x826F;&#x597D;&#x7684;&#x7A0B;&#x5E8F;&#x6784;&#x5EFA;&#x5B8C;&#x6210;&#xFF0C;&#x5C31;&#x5E94;&#x8BE5;&#x4E0E;&#x5168;&#x4E16;&#x754C;&#x5206;&#x4EAB;&#x5B83;&#x4E86;&#x3002;</p>
+<p>&#x56E0;&#x4E3A; ASP.NET Core &#x7A0B;&#x5E8F;&#x80FD;&#x591F;&#x8FD0;&#x884C;&#x5728; Windows&#x3001;Mac &#x4EE5;&#x53CA; Linux &#x4E0A;&#xFF0C;&#x4F60;&#x62E5;&#x6709;&#x591A;&#x79CD;&#x90E8;&#x7F72;&#x7A0B;&#x5E8F;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x8FD9;&#x4E00;&#x7AE0;&#x91CC;&#xFF0C;&#x6211;&#x5C06;&#x6559;&#x7ED9;&#x4F60;&#x6700;&#x5E38;&#x7528;(&#x4E5F;&#x662F;&#x6700;&#x7B80;&#x5355;)&#x7684;&#x4E0A;&#x7EBF;&#x65B9;&#x5F0F;&#x3002;</p>
+<h2 id="&#x90E8;&#x7F72;&#x65B9;&#x5F0F;"><a name="&#x90E8;&#x7F72;&#x65B9;&#x5F0F;" class="plugin-anchor" href="#&#x90E8;&#x7F72;&#x65B9;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90E8;&#x7F72;&#x65B9;&#x5F0F;</h2>
+<p>ASP.NET Core &#x901A;&#x5E38;&#x4F1A;&#x90E8;&#x7F72;&#x5230;&#x4E0B;&#x5217;&#x73AF;&#x5883;&#x4E4B;&#x4E00;&#xFF1A;</p>
+<ul>
+<li><p><strong>&#x4E00;&#x90E8; Dockers &#x4E3B;&#x673A;</strong> &#x4EFB;&#x4F55;&#x6709;&#x80FD;&#x529B;&#x6258;&#x7BA1; Docker &#x5BB9;&#x5668;&#x7684;&#x673A;&#x5668;&#x90FD;&#x80FD;&#x7528;&#x6765;&#x6258;&#x7BA1; ASP.NET Core &#x7A0B;&#x5E8F;&#x3002;&#x521B;&#x5EFA; Docker &#x955C;&#x50CF;&#x662F;&#x4E2A;&#x975E;&#x5E38;&#x5FEB;&#x6377;&#x7684;&#x90E8;&#x7F72;&#x7A0B;&#x5E8F;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5728;&#x4F60;&#x719F;&#x6089; Docker &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x3002;&#xFF08;&#x5982;&#x679C;&#x4F60;&#x8FD8;&#x4E0D;&#x719F;&#x6089;&#xFF0C;&#x522B;&#x62C5;&#x5FC3;&#xFF01;&#x6211;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x9010;&#x6B65;&#x4ECB;&#x7ECD;&#x3002;&#xFF09;</p>
+</li>
+<li><p><strong>Azure</strong> &#x5FAE;&#x8F6F;&#x7684; Azure &#x5BF9; ASP.NET Core &#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x539F;&#x751F;&#x7684;&#x652F;&#x6301;&#x3002;&#x5982;&#x679C;&#x4F60;&#x6709;&#x4E00;&#x4E2A; Azure &#x8BA2;&#x9605;&#xFF0C;&#x4F60;&#x53EA;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Web App &#x5E76;&#x4E0A;&#x4F20;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5373;&#x53EF;&#x3002;&#x4E0B;&#x4E00;&#x8282;&#xFF0C;&#x6211;&#x4F1A;&#x4ECB;&#x7ECD;&#x901A;&#x8FC7; Azure CLI &#x5B8C;&#x6210;&#x8FD9;&#x79CD;&#x64CD;&#x4F5C;&#x3002;</p>
+</li>
+<li><p><strong>Linux (&#x8FDE;&#x540C; Nginx)</strong> &#x5982;&#x679C;&#x4F60;&#x4E0D;&#x60F3;&#x7528; Docker &#x90A3;&#x4E2A;&#x65B9;&#x5F0F;&#xFF0C;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x610F; Linux &#x670D;&#x52A1;&#x5668;&#xFF08;&#x8FD9;&#x5305;&#x62EC;&#x4E9A;&#x9A6C;&#x900A;&#x7684; EC2 &#x548C; DigitalOcean &#x865A;&#x62DF;&#x673A;&#xFF09;&#x4E0A;&#x6258;&#x7BA1;&#x7A0B;&#x5E8F;&#x3002;&#x901A;&#x5E38;&#x628A; ASP.NET Core &#x8DDF; Nginx &#x53CD;&#x5411;&#x4EE3;&#x7406;&#x914D;&#x5BF9;&#x5DE5;&#x4F5C;&#x3002;&#xFF08;&#x4E0B;&#x9762;&#x6709;&#x66F4;&#x8BE6;&#x7EC6;&#x7684; Nginx &#x76F8;&#x5173;&#x5185;&#x5BB9;&#x3002;&#xFF09;</p>
+</li>
+<li><p><strong>Winddows</strong> &#x4F60;&#x53EF;&#x4EE5;&#x5728; Windows &#x4E0A;&#x4F7F;&#x7528; IIS &#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x5668;&#x6258;&#x7BA1; ASP.NET Core &#x7A0B;&#x5E8F;&#x3002;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x90E8;&#x7F72;&#x5230; Azure &#x66F4;&#x5BB9;&#x6613;&#xFF08;&#x4E5F;&#x66F4;&#x4FBF;&#x5B9C;&#xFF09;&#xFF0C;&#x4E0D;&#x8FC7;&#x4F60;&#x8981;&#x662F;&#x613F;&#x610F;&#x81EA;&#x5DF1;&#x7BA1;&#x7406; Windows &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x4E2A;&#x53EF;&#x884C;&#x7684;&#x65B9;&#x6848;&#x3002;</p>
+</li>
+</ul>
+<h2 id="kestrel-&#x548C;-&#x53CD;&#x5411;&#x4EE3;&#x7406;"><a name="kestrel-&#x548C;-&#x53CD;&#x5411;&#x4EE3;&#x7406;" class="plugin-anchor" href="#kestrel-&#x548C;-&#x53CD;&#x5411;&#x4EE3;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>Kestrel &#x548C; &#x53CD;&#x5411;&#x4EE3;&#x7406;</h2>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x5728;&#x610F; ASP.NET Core &#x7A0B;&#x5E8F;&#x6258;&#x7BA1;&#x5DE5;&#x4F5C;&#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x800C;&#x53EA;&#x5E0C;&#x671B;&#x53C2;&#x8003;&#x5206;&#x6B65;&#x7684;&#x6307;&#x5BFC;&#xFF0C;&#x53EF;&#x4EE5;&#x8DF3;&#x8F6C;&#x5230;&#x540E;&#x7EED;&#x4E24;&#x5C0F;&#x8282;&#x7684;&#x4EFB;&#x4E00;&#x4E2A;&#x7EE7;&#x7EED;&#x9605;&#x8BFB;&#x3002;</p>
+</blockquote>
+<p>ASP.NET Core &#x91CC;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; Kestrel &#x7684;&#x5FEB;&#x901F;&#x8F7B;&#x91CF;&#x7EA7;&#x7684; web &#x5F00;&#x53D1;&#x670D;&#x52A1;&#x5668;&#x3002;&#x4F60;&#x6BCF;&#x6B21;&#x8FD0;&#x884C; <code>dotnet run</code> &#x5E76;&#x6D4F;&#x89C8; <code>http://localhost:5000</code> &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7528;&#x7684;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x3002;&#x5F53;&#x4F60;&#x628A;&#x7A0B;&#x5E8F;&#x90E8;&#x7F72;&#x5230;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x4ECD;&#x4F1A;&#x5728;&#x5E55;&#x540E;&#x4F7F;&#x7528; Kestrel&#x3002;&#x4F46;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x4F60;&#x5728; Kestrel &#x4E4B;&#x524D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#xFF0C;&#x56E0;&#x4E3A; Kestrel &#x5E76;&#x4E0D;&#x5177;&#x6709;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x548C;&#x5176;&#x5B83;&#x66F4;&#x6210;&#x719F;&#x7684; Web &#x670D;&#x52A1;&#x5668;&#x6240;&#x5177;&#x6709;&#x7684;&#x5176;&#x5B83;&#x7279;&#x6027;&#x3002;</p>
+<p>&#x5728; Linux&#xFF08;&#x548C; Docker &#x5BB9;&#x5668;&#xFF09;&#x91CC;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7528; Nginx &#x6216;&#x8005; Apache web &#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x4ECE;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x4F20;&#x5165;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x6D3E;&#x53D1;&#x5230;&#x4F60;&#x7528; Kestrel &#x6258;&#x7BA1;&#x7684;&#x7A0B;&#x5E8F;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7528;&#x7684;&#x662F; Windows&#xFF0C;IIS &#x4E5F;&#x80FD;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x628A;&#x7A0B;&#x5E8F;&#x6258;&#x7BA1;&#x5728; Azure&#xFF0C;&#x8FD9;&#x4E9B;&#x5C31;&#x90FD;&#x662F;&#x81EA;&#x52A8;&#x4E3A;&#x4F60;&#x5904;&#x7406;&#x7684;&#x3002;&#x5728; Docker &#x90A3;&#x4E00;&#x8282;&#xFF0C;&#x6211;&#x4F1A;&#x8BB2;&#x8FF0;&#x5982;&#x4F55;&#x914D;&#x7F6E; Nginx &#x8FDB;&#x884C;&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x3002;</p>
+<hr>
+<h1 id="deploy-the-application"><a name="deploy-the-application" class="plugin-anchor" href="#deploy-the-application"><i class="fa fa-link" aria-hidden="true"></i></a>Deploy the application</h1>
+<p>You&apos;ve come a long way, but you&apos;re not quite done yet. Once you&apos;ve created a great application, you need to share it with the world!</p>
+<p>Because ASP.NET Core applications can run on Windows, Mac, or Linux, there are a number of different ways you can deploy your application. In this chapter, I&apos;ll show you the most common (and easiest) ways to go live.</p>
+<h2 id="deployment-options"><a name="deployment-options" class="plugin-anchor" href="#deployment-options"><i class="fa fa-link" aria-hidden="true"></i></a>Deployment options</h2>
+<p>ASP.NET Core applications are typically deployed to one of these environments:</p>
+<ul>
+<li><p><strong>A Docker host</strong>. Any machine capable of hosting Docker containers can be used to host an ASP.NET Core application. Creating a Docker image is a very quick way to get your application deployed, especially if you&apos;re familiar with Docker. (If you&apos;re not, don&apos;t worry! I&apos;ll cover the steps later.)</p>
+</li>
+<li><p><strong>Azure</strong>. Microsoft Azure has native support for ASP.NET Core applications. If you have an Azure subscription, you just need to create a Web App and upload your project files. I&apos;ll cover how to do this with the Azure CLI in the next section.</p>
+</li>
+<li><p><strong>Linux (with Nginx)</strong>. If you don&apos;t want to go the Docker route, you can still host your application on any Linux server (this includes Amazon EC2 and DigitalOcean virtual machines). It&apos;s typical to pair ASP.NET Core with the Nginx reverse proxy. (More about Nginx below.)</p>
+</li>
+<li><p><strong>Windows</strong>. You can use the IIS web server on Windows to host ASP.NET Core applications. It&apos;s usually easier (and cheaper) to just deploy to Azure, but if you prefer managing Windows servers yourself, it&apos;ll work just fine.</p>
+</li>
+</ul>
+<h2 id="kestrel-and-reverse-proxies"><a name="kestrel-and-reverse-proxies" class="plugin-anchor" href="#kestrel-and-reverse-proxies"><i class="fa fa-link" aria-hidden="true"></i></a>Kestrel and reverse proxies</h2>
+<blockquote>
+<p>If you don&apos;t care about the guts of hosting ASP.NET Core applications and just want the step-by-step instructions, feel free to skip to one of the next two sections.</p>
+</blockquote>
+<p>ASP.NET Core includes a fast, lightweight web server called Kestrel. It&apos;s the server you&apos;ve been using every time you ran <code>dotnet run</code> and browsed to <code>http://localhost:5000</code>. When you deploy your application to a production environment, it&apos;ll still use Kestrel behind the scenes. However, it&apos;s recommended that you put a reverse proxy in front of Kestrel, because Kestrel doesn&apos;t yet have load balancing and other features that more mature web servers have.</p>
+<p>On Linux (and in Docker containers), you can use Nginx or the Apache web server to receive incoming requests from the internet and route them to your application hosted with Kestrel. If you&apos;re on Windows, IIS does the same thing.</p>
+<p>If you&apos;re using Azure to host your application, this is all done for you automatically. I&apos;ll cover setting up Nginx as a reverse proxy in the Docker section.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../automated-testing/integration-testing.html" class="navigation navigation-prev " aria-label="Previous page: 集成测试">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="deploy-to-azure.html" class="navigation navigation-next " aria-label="Next page: 部署到 Azure">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"部署程序","level":"1.9","depth":1,"next":{"title":"部署到 Azure","level":"1.9.1","depth":2,"path":"chapters/deploy-the-application/deploy-to-azure.md","ref":"chapters/deploy-the-application/deploy-to-azure.md","articles":[]},"previous":{"title":"集成测试","level":"1.8.2","depth":2,"path":"chapters/automated-testing/integration-testing.md","ref":"chapters/automated-testing/integration-testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/deploy-the-application/README.md","mtime":"2020-12-02T18:41:00.001Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-02T18:52:41.522Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

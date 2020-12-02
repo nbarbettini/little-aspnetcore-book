@@ -1,0 +1,862 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>创建一个 ASP.NET Core 项目 · 简明 ASP.NET Core 手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Nate Barbettini">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../mvc-basics/" />
+    
+    
+    <link rel="prev" href="hello-world-in-csharp.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    你的第一个程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="get-the-sdk.html">
+            
+                <a href="get-the-sdk.html">
+            
+                    
+                    获取 SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="hello-world-in-csharp.html">
+            
+                <a href="hello-world-in-csharp.html">
+            
+                    
+                    C# 版的 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="create-aspnetcore-project.html">
+            
+                <a href="create-aspnetcore-project.html">
+            
+                    
+                    创建一个 ASP.NET Core 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mvc-basics/">
+            
+                <a href="../mvc-basics/">
+            
+                    
+                    MVC 基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mvc-basics/create-controller.html">
+            
+                <a href="../mvc-basics/create-controller.html">
+            
+                    
+                    创建控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../mvc-basics/create-models.html">
+            
+                <a href="../mvc-basics/create-models.html">
+            
+                    
+                    创建模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../mvc-basics/create-view.html">
+            
+                <a href="../mvc-basics/create-view.html">
+            
+                    
+                    创建视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../mvc-basics/add-service-class.html">
+            
+                <a href="../mvc-basics/add-service-class.html">
+            
+                    
+                    添加一个服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../mvc-basics/use-dependency-injection.html">
+            
+                <a href="../mvc-basics/use-dependency-injection.html">
+            
+                    
+                    运用依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../mvc-basics/finish-controller.html">
+            
+                <a href="../mvc-basics/finish-controller.html">
+            
+                    
+                    完成控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../mvc-basics/update-the-layout.html">
+            
+                <a href="../mvc-basics/update-the-layout.html">
+            
+                    
+                    修改布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../add-external-packages/">
+            
+                <a href="../add-external-packages/">
+            
+                    
+                    添加外来软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../use-a-database/">
+            
+                <a href="../use-a-database/">
+            
+                    
+                    运用数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../use-a-database/connect-to-a-database.html">
+            
+                <a href="../use-a-database/connect-to-a-database.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../use-a-database/update-context.html">
+            
+                <a href="../use-a-database/update-context.html">
+            
+                    
+                    修改数据库上下文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../use-a-database/create-migration.html">
+            
+                <a href="../use-a-database/create-migration.html">
+            
+                    
+                    创建变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../use-a-database/create-service-class.html">
+            
+                <a href="../use-a-database/create-service-class.html">
+            
+                    
+                    创建服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../add-more-features/">
+            
+                <a href="../add-more-features/">
+            
+                    
+                    添加新特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../add-more-features/add-todo-items.html">
+            
+                <a href="../add-more-features/add-todo-items.html">
+            
+                    
+                    添加 待办事项 条目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../add-more-features/complete-with-checkbox.html">
+            
+                <a href="../add-more-features/complete-with-checkbox.html">
+            
+                    
+                    使用复选框标记条目完成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../security-and-identity/">
+            
+                <a href="../security-and-identity/">
+            
+                    
+                    安全和身份
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/require-authentication.html">
+            
+                <a href="../security-and-identity/require-authentication.html">
+            
+                    
+                    提示认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/using-identity-in-the-application.html">
+            
+                <a href="../security-and-identity/using-identity-in-the-application.html">
+            
+                    
+                    在程序中使用身份
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/authorization-with-roles.html">
+            
+                <a href="../security-and-identity/authorization-with-roles.html">
+            
+                    
+                    按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/more-resources.html">
+            
+                <a href="../security-and-identity/more-resources.html">
+            
+                    
+                    附加资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../automated-testing/">
+            
+                <a href="../automated-testing/">
+            
+                    
+                    自动化测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../automated-testing/unit-testing.html">
+            
+                <a href="../automated-testing/unit-testing.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../automated-testing/integration-testing.html">
+            
+                <a href="../automated-testing/integration-testing.html">
+            
+                    
+                    集成测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../deploy-the-application/">
+            
+                <a href="../deploy-the-application/">
+            
+                    
+                    部署程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../deploy-the-application/deploy-to-azure.html">
+            
+                <a href="../deploy-the-application/deploy-to-azure.html">
+            
+                    
+                    部署到 Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../deploy-the-application/deploy-with-docker.html">
+            
+                <a href="../deploy-the-application/deploy-with-docker.html">
+            
+                    
+                    使用 Docker 进行部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../conclusion/">
+            
+                <a href="../conclusion/">
+            
+                    
+                    结束语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >创建一个 ASP.NET Core 项目</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;-aspnet-core-&#x9879;&#x76EE;"><a name="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;-aspnet-core-&#x9879;&#x76EE;" class="plugin-anchor" href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;-aspnet-core-&#x9879;&#x76EE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x4E00;&#x4E2A; ASP.NET Core &#x9879;&#x76EE;</h2>
+<p>&#x5982;&#x679C;&#x4F60;&#x8FD8;&#x5728; Hello World &#x793A;&#x4F8B;&#x7684;&#x90A3;&#x4E2A;&#x76EE;&#x5F55;&#x91CC;&#xFF0C;&#x8BF7;&#x9000;&#x56DE;&#x5230; &#x6211;&#x7684;&#x6587;&#x6863; &#x6216;&#x8005; home &#x76EE;&#x5F55;&#xFF1A;</p>
+<pre><code class="lang-shell">cd ..
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x76EE;&#x5F55;&#x4EE5;&#x4FDD;&#x5B58;&#x4F60;&#x7684;&#x6574;&#x4E2A;&#x9879;&#x76EE;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x5230;&#x8BE5;&#x76EE;&#x5F55;&#x91CC;&#xFF1A;</p>
+<pre><code class="lang-shell">mkdir AspNetCoreTodo
+cd AspNetCoreTodo
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x4F7F;&#x7528; <code>dotnet new</code> &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x9879;&#x76EE;&#xFF0C;&#x8FD9;&#x4E00;&#x6B21;&#x6DFB;&#x52A0;&#x51E0;&#x4E2A;&#x9009;&#x9879;&#xFF1A;</p>
+<pre><code class="lang-shell">dotnet new mvc --auth Individual -o AspNetCoreTodo
+cd AspNetCoreTodo
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#xFF0C;&#x4F7F;&#x7528; <code>mvc</code> &#x6A21;&#x677F;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E9B;&#x989D;&#x5916;&#x7684;&#x9A8C;&#x8BC1;&#x548C;&#x5B89;&#x5168;&#x6027;&#x76F8;&#x5173;&#x7684;&#x5185;&#x5BB9;&#x3002;&#xFF08;&#x5173;&#x4E8E;&#x5B89;&#x5168;&#x6027;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6211;&#x4F1A;&#x5728; <em>&#x5B89;&#x5168;&#x6027;&#x4E0E;&#x8EAB;&#x4EFD;</em> &#x4E00;&#x7AE0;&#x8BB2;&#x89E3;&#x3002;&#xFF09;</p>
+<blockquote>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x6709;&#x70B9;&#x7591;&#x60D1;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x4E00;&#x4E2A; <code>AspNetCoreTodo</code> &#x76EE;&#x5F55;&#x91CC;&#x5F04;&#x53E6;&#x4E00;&#x4E2A; <code>AspNetCoreTodo</code> &#x76EE;&#x5F55;&#x3002;&#x8FD9;&#x4E2A;&#x9876;&#x5C42;&#x6216;&#x8005;&#x8BF4;&#x201C;&#x6839;&#x201D;&#x76EE;&#x5F55;&#x53EF;&#x4EE5;&#x5BB9;&#x7EB3;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x3002;&#x6839;&#x76EE;&#x5F55;&#x6709;&#x65F6;&#x5019;&#x88AB;&#x79F0;&#x4E3A; <strong>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x76EE;&#x5F55;</strong>&#x3002;&#x540E;&#x9762;&#xFF0C;&#x4F60;&#x5C06;&#x4F1A;&#x5728; <code>AspNetCoreTodo</code> &#x9879;&#x76EE;&#x76EE;&#x5F55;&#x8FB9;&#x4E0A;&#x6DFB;&#x52A0;&#x591A;&#x4E2A;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF0C;&#x5B83;&#x4EEC;&#x5168;&#x90FD;&#x5728;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x6839;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x76EE;&#x5F55;&#x91CC;&#x3002;</p>
+</blockquote>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x65B0;&#x7684;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x91CC;&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x591A;&#x51FA;&#x6765;&#x51E0;&#x4E2A;&#x6587;&#x4EF6;&#x3002;&#x5728;&#x4F60; <code>cd</code> &#x5230;&#x65B0;&#x76EE;&#x5F55;&#x91CC;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x53EA;&#x9700;&#x8981;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-shell">dotnet run
+
+Now listening on: http://localhost:5000
+Application started. Press Ctrl+C to shut down.
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x4E0D;&#x518D;&#x6253;&#x5370;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x540E;&#x76F4;&#x63A5;&#x9000;&#x51FA;&#xFF0C;&#x800C;&#x662F;&#x542F;&#x52A8;&#x4E86;&#x4E00;&#x4E2A; web &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5E76;&#x5728;&#x7AEF;&#x53E3; 5000 &#x4E0A;&#x7B49;&#x5F85;&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;&#x3002;</p>
+<p>&#x5F00;&#x542F;&#x4F60;&#x7684;&#x7F51;&#x7EDC;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x6D4F;&#x89C8; <code>http://localhost:5000</code>&#x3002;&#x4F60;&#x5C06;&#x770B;&#x5230; ASP.NET Core &#x7A0B;&#x5E8F;&#x7684;&#x9ED8;&#x8BA4;&#x6B22;&#x8FCE;&#x9875;&#x9762;&#xFF0C;&#x8BF4;&#x660E;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#x5DE5;&#x4F5C;&#x6B63;&#x5E38;&#xFF01;&#x770B;&#x591F;&#x4E86;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E4B;&#x540E;&#xFF0C;&#x5728;&#x7EC8;&#x7AEF;&#x7A97;&#x53E3;&#x5185;&#x6309;&#x4E0B; Ctrl-C &#x4EE5;&#x4FBF;&#x505C;&#x6B62;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<h3 id="&#x4E00;&#x4E2A;-aspnet-core-&#x9879;&#x76EE;&#x7684;&#x5404;&#x90E8;&#x5206;"><a name="&#x4E00;&#x4E2A;-aspnet-core-&#x9879;&#x76EE;&#x7684;&#x5404;&#x90E8;&#x5206;" class="plugin-anchor" href="#&#x4E00;&#x4E2A;-aspnet-core-&#x9879;&#x76EE;&#x7684;&#x5404;&#x90E8;&#x5206;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x4E2A; ASP.NET Core &#x9879;&#x76EE;&#x7684;&#x5404;&#x90E8;&#x5206;</h3>
+<p><code>dotnet new mvc</code> &#x6A21;&#x677F;&#x4E3A;&#x4F60;&#x751F;&#x6210;&#x4E86;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x3002;&#x5728;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x7684;&#x57FA;&#x672C;&#x5185;&#x5BB9;&#x91CC;&#xFF0C;&#x8FD9;&#x51E0;&#x4E2A;&#x662F;&#x6700;&#x91CD;&#x8981;&#x7684;&#xFF1A;</p>
+<ul>
+<li><p><strong>Program.cs</strong> &#x548C; <strong>Startup.cs</strong> &#x6587;&#x4EF6;&#xFF0C;&#x8BBE;&#x7F6E; web &#x670D;&#x52A1;&#x5668;&#x548C; ASP.NET Core &#x7684;&#x5904;&#x7406;&#x7BA1;&#x7EBF;&#x3002;&#x5728; <strong>Startup</strong> &#x7C7B;&#x91CC;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x5B83;&#x4EEC;&#x7528;&#x4E8E; &#x5904;&#x7406;&#x548C;&#x8C03;&#x6574;&#x4F20;&#x5165;&#x7684;&#x8BF7;&#x6C42;&#x3001;&#x63D0;&#x4F9B;&#x9759;&#x6001;&#x5185;&#x5BB9;&#x548C;&#x9519;&#x8BEF;&#x9875;&#x9762;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x4F60;&#x8FD8;&#x53EF;&#x4EE5;&#x5411;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x5BB9;&#x5668;&#x4E2D;&#x6DFB;&#x52A0;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x670D;&#x52A1;&#xFF08;&#x540E;&#x9762;&#x7EC6;&#x8BF4;&#xFF09;&#x3002;</p>
+</li>
+<li><p><strong>Models</strong>&#x3001;<strong>Views</strong>&#xFF0C;&#x548C; <strong>Controllers</strong>&#x76EE;&#x5F55;&#x91CC;&#x653E;&#x7F6E;&#x7740; &#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x63A7;&#x5236;&#x5668;&#xFF08;MVC&#xFF0C;Model-View-Controller&#xFF09;&#x67B6;&#x6784;&#x7684;&#x7EC4;&#x4EF6;&#x3002;&#x4E0B;&#x4E00;&#x7AE0;&#xFF0C;&#x4F60;&#x5C06;&#x4E00;&#x63A2;&#x4ED6;&#x4EEC;&#x4E09;&#x8005;&#x7684;&#x7A76;&#x7ADF;&#x3002;</p>
+</li>
+<li><p><strong>wwwroot</strong> &#x76EE;&#x5F55;&#x91CC;&#x653E;&#x7740; CSS&#x3001;JavaScript&#x3001;&#x56FE;&#x7247;&#x6587;&#x4EF6; &#x8FD9;&#x4E9B;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x3002;<code>wwwroot</code> &#x91CC;&#x7684;&#x6587;&#x4EF6;&#x5C06;&#x4F5C;&#x4E3A;&#x9759;&#x6001;&#x5185;&#x5BB9;&#xFF0C;&#x81EA;&#x52A8;&#x88AB;&#x6253;&#x5305;&#x548C;&#x538B;&#x7F29;&#x3002;</p>
+</li>
+<li><p><strong>appsettings.json</strong> &#x6587;&#x4EF6;&#x91CC;&#x5305;&#x542B;&#x7740; ASP.NET Core &#x542F;&#x52A8;&#x65F6;&#x8BFB;&#x53D6;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x6765;&#x4FDD;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6216;&#x8005;&#x5176;&#x5B83;&#x4F60;&#x4E0D;&#x60F3;&#x786C;&#x7F16;&#x7801;&#x7684;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x3002;</p>
+</li>
+</ul>
+<h3 id="visual-studio-code-&#x6280;&#x5DE7;"><a name="visual-studio-code-&#x6280;&#x5DE7;" class="plugin-anchor" href="#visual-studio-code-&#x6280;&#x5DE7;"><i class="fa fa-link" aria-hidden="true"></i></a>Visual Studio Code &#x6280;&#x5DE7;</h3>
+<p>&#x5982;&#x679C;&#x4F60;&#x662F;&#x521D;&#x6B21;&#x4F7F;&#x7528; Visual Studio Code&#xFF08;&#x6216;&#x8005; Visual Studio&#xFF09;&#xFF0C;&#x4E0B;&#x9762;&#x8FD9;&#x51E0;&#x4E2A;&#x6709;&#x76CA;&#x7684;&#x5C0F;&#x6280;&#x5DE7;&#x5C06;&#x5E2E;&#x4F60;&#x8F7B;&#x677E;&#x4E0A;&#x624B;&#xFF1A;</p>
+<ul>
+<li><p><strong>&#x6253;&#x5F00;&#x9879;&#x76EE;&#x7684;&#x6839;&#x6587;&#x4EF6;&#x5939;</strong> &#xFF1A; &#x5728; Visual Studio Code &#x91CC;&#xFF0C;&#x9009;&#x62E9; &#x6587;&#x4EF6; -&gt; &#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5939;&#x3002;&#x6253;&#x5F00; <code>AspNetCoreTodo</code> &#x6587;&#x4EF6;&#x5939;&#xFF08;&#x6839;&#x76EE;&#x5F55;&#xFF09;&#xFF0C;&#x4E0D;&#x662F;&#x5185;&#x5C42;&#x7684;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x3002;&#x5982;&#x679C; Visual Studio Code &#x63D0;&#x793A;&#x4F60;&#x5B89;&#x88C5;&#x7F3A;&#x5931;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x70B9;&#x51FB;&#x201C;&#x662F;&#x201D;&#x4EE5;&#x6DFB;&#x52A0;&#x5B83;&#x4EEC;&#x3002;</p>
+</li>
+<li><p><strong>&#x7528; F5 &#x8FD0;&#x884C;&#xFF08;&#x5E76;&#x8C03;&#x8BD5;&#x65AD;&#x70B9;&#xFF09;</strong>&#xFF1A;&#x4F7F;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x5904;&#x4E8E;&#x6253;&#x5F00;&#x72B6;&#x6001;&#xFF0C;&#x6309;&#x4E0B; F5 &#x4EE5;&#x8C03;&#x8BD5;&#x6A21;&#x5F0F;&#x8FD0;&#x884C;&#x9879;&#x76EE;&#x3002;&#x8FD9;&#x8DDF;&#x547D;&#x4EE4;&#x884C;&#x7684; <code>dotnet run</code> &#x529F;&#x80FD;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x6709;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x597D;&#x5904;&#x2014;&#x2014;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4EE3;&#x7801;&#x7F16;&#x8F91;&#x5668;&#x7684;&#x5DE6;&#x8FB9;&#x680F;&#x4E0A;&#x70B9;&#x51FB;&#xFF0C;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x65AD;&#x70B9;&#xFF1A;</p>
+<p>  <img src="breakpoint.png" alt="Visual Studio Code &#x4E2D;&#x7684;&#x65AD;&#x70B9;"></p>
+</li>
+<li><p><strong>&#x6F5C;&#x5728;&#x95EE;&#x9898;&#x7684;&#x5C0F;&#x706F;&#x6CE1;&#x63D0;&#x793A;</strong>&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x91CC;&#x6709;&#x7EA2;&#x8272;&#x6CE2;&#x6D6A;&#x7EBF;&#xFF08;&#x7F16;&#x8BD1;&#x9519;&#x8BEF;&#xFF09;&#xFF0C;&#x628A;&#x7F16;&#x8F91;&#x7684;&#x5149;&#x6807;&#x653E;&#x5728;&#x7EA2;&#x7EBF;&#x91CC;&#xFF0C;&#x5230;&#x5DE6;&#x8FB9;&#x680F;&#x91CC;&#x627E;&#x90A3;&#x4E2A;&#x5C0F;&#x706F;&#x6CE1;&#x7684;&#x56FE;&#x6807;&#xFF0C;&#x5C0F;&#x706F;&#x6CE1;&#x7684;&#x63D0;&#x793A;&#x4FE1;&#x606F;&#x4F1A;&#x7ED9;&#x51FA;&#x5E38;&#x89C1;&#x95EE;&#x9898;&#x7684;&#x4FEE;&#x6539;&#x5EFA;&#x8BAE;&#xFF0C;&#x6BD4;&#x5982;&#x5728;&#x4EE3;&#x7801;&#x91CC;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A; <code>using</code> &#x8BED;&#x53E5;&#xFF1A;</p>
+<p>  <img src="lightbulb.png" alt="&#x5C0F;&#x706F;&#x6CE1;&#x63D0;&#x793A;"></p>
+</li>
+<li><p><strong>&#x5FEB;&#x6377;&#x7F16;&#x8BD1;</strong>&#xFF1A;&#x4F7F;&#x7528;&#x5FEB;&#x6377;&#x952E; <code>Command-Shift-B</code> &#x6216;&#x8005; <code>Control-Shift-B</code> &#x8FD0;&#x884C;&#x7F16;&#x8BD1;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x8DDF; <code>dotnet build</code> &#x7684;&#x6548;&#x679C;&#x4E00;&#x6837;&#x3002;</p>
+</li>
+</ul>
+<blockquote>
+<p>&#x8FD9;&#x4E9B;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x5728; Widnows &#x7248;&#x7684; Visual Studio (&#x4E0D;&#x5E26; Code)&#x3002;&#x5982;&#x679C;&#x4F60;&#x7528;&#x7684;&#x662F; Visual Studio&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x6253;&#x5F00; <code>.csproj</code> &#x9879;&#x76EE;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;&#x3002; Visual Studio &#x540E;&#x9762;&#x4F1A;&#x63D0;&#x793A;&#x4F60;&#x4FDD;&#x5B58;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x6587;&#x4EF6;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x628A;&#x5B83;&#x4FDD;&#x5B58;&#x5728;&#x6839;&#x76EE;&#x5F55;&#xFF08;&#x7B2C;&#x4E00;&#x4E2A; <code>AspNetCoreTodo</code> &#x6587;&#x4EF6;&#x5939;&#xFF09;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5728; Visual Studio &#x91CC;&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x76F4;&#x63A5;&#x521B;&#x5EFA; ASP.NET Core &#x9879;&#x76EE;&#xFF0C;&#x64CD;&#x4F5C;&#x662F; &#x6587;&#x4EF6; &gt; &#x65B0;&#x5EFA; &gt; &#x9879;&#x76EE;&#x3002;</p>
+</blockquote>
+<h3 id="git-&#x5C0F;&#x8D34;&#x58EB;&#xFF1A;"><a name="git-&#x5C0F;&#x8D34;&#x58EB;&#xFF1A;" class="plugin-anchor" href="#git-&#x5C0F;&#x8D34;&#x58EB;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>Git &#x5C0F;&#x8D34;&#x58EB;&#xFF1A;</h3>
+<p>&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528; Git &#x6216;&#x8005; GitHub &#x7BA1;&#x7406;&#x4F60;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x773C;&#x4E0B;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x9002;&#x5408;&#x7684;&#x65F6;&#x673A;&#xFF0C;&#x5728;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E0B;&#x7528; <code>git init</code> &#x6765;&#x521D;&#x59CB;&#x5316;&#x4F60;&#x7684; Git &#x4ED3;&#x5E93;&#xFF1A;</p>
+<pre><code class="lang-shell">cd ..
+git init
+</code></pre>
+<p>&#x8BF7;&#x786E;&#x4FDD;&#x4F60;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A; <code>.gitignore</code> &#x6587;&#x4EF6;&#x7528;&#x4EE5;&#x5FFD;&#x7565; <code>bin</code> &#x548C; <code>obj</code> &#x8FD9;&#x4E9B;&#x76EE;&#x5F55;&#x3002; GitHub &#x4E0A; gitignore &#x6A21;&#x677F;&#x4ED3;&#x5E93;&#xFF08;<a href="https://github.com/github/gitignore" target="_blank">https://github.com/github/gitignore</a>&#xFF09;&#x91CC;&#x7684; <a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore" target="_blank">Visual Studio gitignore</a> &#x6A21;&#x677F;&#x5C31;&#x5F88;&#x597D;&#x7528;&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x503C;&#x5F97;&#x7814;&#x7A76;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x7740;&#x624B;&#x6784;&#x5EFA;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x5427;&#xFF01;</p>
+<hr>
+<h2 id="create-an-aspnet-core-project"><a name="create-an-aspnet-core-project" class="plugin-anchor" href="#create-an-aspnet-core-project"><i class="fa fa-link" aria-hidden="true"></i></a>Create an ASP.NET Core project</h2>
+<p>If you&apos;re still in the directory you created for the Hello World sample, move back up to your Documents or home directory:</p>
+<pre><code>cd ..
+</code></pre><p>Next, create a new directory to store your entire project, and move into it:</p>
+<pre><code>mkdir AspNetCoreTodo
+cd AspNetCoreTodo
+</code></pre><p>Next, create a new project with <code>dotnet new</code>, this time with some extra options:</p>
+<pre><code>dotnet new mvc --auth Individual -o AspNetCoreTodo
+cd AspNetCoreTodo
+</code></pre><p>This creates a new project from the <code>mvc</code> template, and adds some additional authentication and security bits to the project. (I&apos;ll cover security in the <em>Security and identity</em> chapter.)</p>
+<blockquote>
+<p>You might be wondering why you have a directory called <code>AspNetCoreTodo</code> inside another directory called <code>AspNetCoreTodo</code>. The top-level or &quot;root&quot; directory can contain one or more project directories. The root directory is sometimes called a <strong>solution directory</strong>. Later, you&apos;ll add more project directories side-by-side with the <code>AspNetCoreTodo</code> project directory, all within a single root solution directory.</p>
+</blockquote>
+<p>You&apos;ll see quite a few files show up in the new project directory. Once you <code>cd</code> into the new directory, all you have to do is run the project:</p>
+<pre><code>dotnet run
+
+Now listening on: http://localhost:5000
+Application started. Press Ctrl+C to shut down.
+</code></pre><p>Instead of printing to the console and exiting, this program starts a web server and waits for requests on port 5000.</p>
+<p>Open your web browser and navigate to <code>http://localhost:5000</code>. You&apos;ll see the default ASP.NET Core splash page, which means your project is working! When you&apos;re done, press Ctrl-C in the terminal window to stop the server.</p>
+<h3 id="the-parts-of-an-aspnet-core-project"><a name="the-parts-of-an-aspnet-core-project" class="plugin-anchor" href="#the-parts-of-an-aspnet-core-project"><i class="fa fa-link" aria-hidden="true"></i></a>The parts of an ASP.NET Core project</h3>
+<p>The <code>dotnet new mvc</code> template generates a number of files and directories for you. Here are the most important things you get out of the box:</p>
+<ul>
+<li><p>The <strong>Program.cs</strong> and <strong>Startup.cs</strong> files set up the web server and ASP.NET Core pipeline. The <code>Startup</code> class is where you can add middleware that handles and modifies incoming requests, and serves things like static content or error pages. It&apos;s also where you add your own services to the dependency injection container (more on this later).</p>
+</li>
+<li><p>The <strong>Models</strong>, <strong>Views</strong>, and <strong>Controllers</strong> directories contain the components of the Model-View-Controller (MVC) architecture. You&apos;ll explore all three in the next chapter.</p>
+</li>
+<li><p>The <strong>wwwroot</strong> directory contains static assets like CSS, JavaScript, and image files. Files in <code>wwwroot</code> will be served as static content, and can be bundled and minified automatically.</p>
+</li>
+<li><p>The <strong>appsettings.json</strong> file contains configuration settings ASP.NET Core will load on startup. You can use this to store database connection strings or other things that you don&apos;t want to hard-code.</p>
+</li>
+</ul>
+<h3 id="tips-for-visual-studio-code"><a name="tips-for-visual-studio-code" class="plugin-anchor" href="#tips-for-visual-studio-code"><i class="fa fa-link" aria-hidden="true"></i></a>Tips for Visual Studio Code</h3>
+<p>If you&apos;re using Visual Studio Code for the first time, here are a couple of helpful tips to get you started:</p>
+<ul>
+<li><p><strong>Open the project root folder</strong>: In Visual Studio Code, choose File - Open or File - Open Folder. Open the <code>AspNetCoreTodo</code> folder (the root directory), not the inner project directory. If Visual Studio Code prompts you to install missing files, click Yes to add them.</p>
+</li>
+<li><p><strong>F5 to run (and debug breakpoints)</strong>: With your project open, press F5 to run the project in debug mode. This is the same as <code>dotnet run</code> on the command line, but you have the benefit of setting breakpoints in your code by clicking on the left margin:</p>
+</li>
+</ul>
+<p><img src="breakpoint.png" alt="Breakpoint in Visual Studio Code"></p>
+<ul>
+<li><strong>Lightbulb to fix problems</strong>: If your code contains red squiggles (compiler errors), put your cursor on the code that&apos;s red and look for the lightbulb icon on the left margin. The lightbulb menu will suggest common fixes, like adding a missing <code>using</code> statement to your code:</li>
+</ul>
+<p><img src="lightbulb.png" alt="Lightbulb suggestions"></p>
+<ul>
+<li><strong>Compile quickly</strong>: Use the shortcut <code>Command-Shift-B</code> or <code>Control-Shift-B</code> to run the Build task, which does the same thing as <code>dotnet build</code>.</li>
+</ul>
+<blockquote>
+<p>These tips apply to Visual Studio (not Code) on Windows too. If you&apos;re using Visual Studio, you&apos;ll need to open the <code>.csproj</code> project file directly. Visual Studio will later prompt you to save the Solution file, which you should save in the root directory (the first <code>AspNetCoreTodo</code> folder). You can also create an ASP.NET Core project directly within Visual Studio using the templates in File - New Project.</p>
+</blockquote>
+<h3 id="a-note-about-git"><a name="a-note-about-git" class="plugin-anchor" href="#a-note-about-git"><i class="fa fa-link" aria-hidden="true"></i></a>A note about Git</h3>
+<p>If you use Git or GitHub to manage your source code, now is a good time to do <code>git init</code> and initialize a Git repository in the project root directory:</p>
+<pre><code>cd ..
+git init
+</code></pre><p>Make sure you add a <code>.gitignore</code> file that ignores the <code>bin</code> and <code>obj</code> directories. The Visual Studio template on GitHub&apos;s gitignore template repo (<a href="https://github.com/github/gitignore" target="_blank">https://github.com/github/gitignore</a>) works great.</p>
+<p>There&apos;s plenty more to explore, so let&apos;s dive in and start building an application!</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="hello-world-in-csharp.html" class="navigation navigation-prev " aria-label="Previous page: C# 版的 Hello World">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../mvc-basics/" class="navigation navigation-next " aria-label="Next page: MVC 基础">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"创建一个 ASP.NET Core 项目","level":"1.2.3","depth":2,"next":{"title":"MVC 基础","level":"1.3","depth":1,"path":"chapters/mvc-basics/README.md","ref":"chapters/mvc-basics/README.md","articles":[{"title":"创建控制器","level":"1.3.1","depth":2,"path":"chapters/mvc-basics/create-controller.md","ref":"chapters/mvc-basics/create-controller.md","articles":[]},{"title":"创建模型","level":"1.3.2","depth":2,"path":"chapters/mvc-basics/create-models.md","ref":"chapters/mvc-basics/create-models.md","articles":[]},{"title":"创建视图","level":"1.3.3","depth":2,"path":"chapters/mvc-basics/create-view.md","ref":"chapters/mvc-basics/create-view.md","articles":[]},{"title":"添加一个服务类","level":"1.3.4","depth":2,"path":"chapters/mvc-basics/add-service-class.md","ref":"chapters/mvc-basics/add-service-class.md","articles":[]},{"title":"运用依赖注入","level":"1.3.5","depth":2,"path":"chapters/mvc-basics/use-dependency-injection.md","ref":"chapters/mvc-basics/use-dependency-injection.md","articles":[]},{"title":"完成控制器","level":"1.3.6","depth":2,"path":"chapters/mvc-basics/finish-controller.md","ref":"chapters/mvc-basics/finish-controller.md","articles":[]},{"title":"修改布局","level":"1.3.7","depth":2,"path":"chapters/mvc-basics/update-the-layout.md","ref":"chapters/mvc-basics/update-the-layout.md","articles":[]}]},"previous":{"title":"C# 版的 Hello World","level":"1.2.2","depth":2,"path":"chapters/your-first-application/hello-world-in-csharp.md","ref":"chapters/your-first-application/hello-world-in-csharp.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/your-first-application/create-aspnetcore-project.md","mtime":"2020-12-02T18:04:53.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-02T18:52:41.522Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
