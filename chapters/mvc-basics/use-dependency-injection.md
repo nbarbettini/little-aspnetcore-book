@@ -91,4 +91,25 @@ This line tells ASP.NET Core to use the `FakeTodoItemService` whenever the `ITod
 
 `AddSingleton` adds your service to the service container as a **singleton**. This means that only one copy of the `FakeTodoItemService` is created, and it's reused whenever the service is requested. Later, when you write a different service class that talks to a database, you'll use a different approach (called **scoped**) instead. I'll explain why in the *Use a database* chapter.
 
+**Note for .NET 6**: In .NET 6, the `Startup.cs` class is no longer used for wiring what class to use for each interface. It is therefore not automatically generated for you when you use the MVC template. Instead, the logic has been moved to the `Program.cs` class. Instead of adding the singleton to `Startup.cs`, look for the following section in `Program.cs`:
+
+```csharp
+// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+```
+
+Add the following line right after `builder.Services.AddControllersWithViews()`:
+
+`builder.Services.AddSingleton<ITodoItemService, FakeTodoItemService>();`
+
+
 That's it! When a request comes in and is routed to the `TodoController`, ASP.NET Core will look at the available services and automatically supply the `FakeTodoItemService` when the controller asks for an `ITodoItemService`. Because the services are "injected" from the service container, this pattern is called **dependency injection**.
