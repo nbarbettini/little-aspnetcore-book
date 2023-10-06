@@ -10,6 +10,10 @@ Copyright &copy; 2018. All rights reserved.
 
 详情请访问：https://creativecommons.org/licenses/by/4.0/deed.zh
 
+- If you like this project, please consider 
+
+  <a href="https://www.buymeacoffee.com/windstings"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=windstings&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
 ## 前言
 
 感谢你选择这本 简明 ASP.NET Core 手册！我写这本小书的目的，是帮助 web 编程开发者以及爱好者了解 ASP.NET Core 2.0，一个用于创建 Web应用 和 API 的框架。
