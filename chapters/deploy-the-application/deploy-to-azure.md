@@ -1,3 +1,110 @@
+## 部署到 Azure
+
+把你的 ASP.NET Core 程序部署到 Azure 只需要简单几步。你可以通过 Azure 的网上门户实施，也可以在 Azure CLI 命令行工具里实施。我会讲解后者。
+
+### 准备材料
+
+* Git（使用 `git --version` 命令确认它已经安装了）
+* Azure CLI（按照 https://github.com/Azure/azure-cli 的指示进行安装）
+* 一个 Azure 订阅（免费的订阅就可以了）
+* 项目的根目录里要有一个部署配置文件
+
+### 创建部署配置文件
+
+因为你的目录结构里存在多个项目（Web项目和两个测试项目），Azure 并不知道该把哪个发布出去。为解决这个问题，在你的目录结构顶层创建一个名为 `.deployment` 的文件：
+
+**.deployment**
+
+```ini
+[config]
+project = AspNetCoreTodo/AspNetCoreTodo.csproj
+```
+
+确保你把这个文件保存为 `.deployment`，而不带有什么其它的零碎儿。（在 Windows 上，你可能需要把文件名用引号括起来，比如 `".deployment"`，以此避免被添加一个 `.txt` 扩展名。）
+
+如果你在顶层目录里执行 `ls` 或者 `dir` 命令，应该看到如下的内容：
+
+```
+.deployment
+AspNetCoreTodo
+AspNetCoreTodo.IntegrationTests
+AspNetCoreTodo.UnitTests
+```
+
+### 设置 Azure 资源
+
+如果你的 Azure CLI 才初次安装完成，运行：
+
+```
+az login
+```
+
+并按照提示在你的电脑上登录，然后，为这个程序创建一个新的 资源组(Resource Group)：
+
+```
+az group create -l westus -n AspNetCoreTodoGroup
+```
+
+这个命令在美国西部(West US)地区创建了一个资源组。如果你距离美国西部很远，请使用 `az account list-locations` 命令获取一个地点列表，并找出距离你比较近的一个。
+
+接下来，在你刚刚创建的组里，创建一个 App Service 方案：
+
+```
+az appservice plan create -g AspNetCoreTodoGroup -n AspNetCoreTodoPlan --sku F1
+```
+
+> 提示：`F1` 是免费的 app 方案。如果想在你的应用上使用自己指定的域名，请使用 D1($10/月)或更高级的方案。
+
+现在，在这个 App Service 方案里创建一个 Web 应用：
+
+```
+az webapp create -g AspNetCoreTodoGroup -p AspNetCoreTodoPlan -n MyTodoApp
+```
+
+这个应用的名称（上面的 `MyTodoApp`）在 Azure 上必须是全局唯一的。一旦这个应用创建好了，会具有一个以下格式的默认 URL：http://mytodoapp.azurewebsites.net
+
+### 把项目文件部署到 Azure
+
+你可以用 Git 把程序文件推送到 Azure 网络应用。如果你本地目录尚未作为一个 Git 仓库管理，执行下列命令进行设置：
+
+```
+git init
+git add .
+git commit -m "First commit!"
+```
+
+接下来，为部署工作创建一个 Azure 用户名和密码，
+
+```
+az webapp deployment user set --user-name nate
+```
+
+按提示创建密码。然后用 `config-local-git` 得到一个 Git URL：
+
+```
+az webapp deployment source config-local-git -g AspNetCoreTodoGroup -n MyTodoApp --out tsv
+
+https://nate@mytodoapp.scm.azurewebsites.net/MyTodoApp.git
+```
+
+复制这个 URL 到剪切板，并把它在本地仓库里添加为一个 Git remote：
+
+```
+git remote add azure <粘贴>
+```
+
+你只需要执行这些步骤一次。现在开始，任何时候，你需要推送程序文件到 Azure ，只需要在 Git 里提交它们，然后运行：
+
+```
+git push azure master
+```
+
+程序部署到 Azure 的时候，你会看到一系列的日志信息。
+
+输出结束之后，浏览 http://yourappname.azurewebsites.net 以检验结果。
+
+---
+
 ## Deploy to Azure
 
 Deploying your ASP.NET Core application to Azure only takes a few steps. You can do it through the Azure web portal, or on the command line using the Azure CLI. I'll cover the latter.

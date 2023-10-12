@@ -1,17 +1,21 @@
 {
-    "title": "The Little ASP.NET Core Book",
-    "description": "A friendly introduction to building web applications with the ASP.NET Core framework.",
+    "title": "简明 ASP.NET Core 手册",
+    "description": "一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。",
     "author": "Nate Barbettini",
-    "isbn": "978-1-387-75615-5",
+    "language": "zh-hans",
     "pdf": {
+        "fontSize": 13,
         "paperSize": "a5",
-        "fontFamily": "Lato"
+        "fontFamily": "Microsoft YaHei"
     },
-    "plugins": ["expandable-chapters-small", "anchors", "forkmegithub"],
+    "plugins": ["expandable-chapters-small", "disqus", "splitter", "anchors", "copy-code-button", "forkmegithub"],
     "pluginsConfig": {
+        "disqus": {
+            "shortName": "little-aspnetcore-book-cn"
+        },
         "forkmegithub": {
-            "color": "green",
-            "url": "https://github.com/nbarbettini/little-aspnetcore-book"
+            "color": "orange",
+            "url": "https://github.com/windsting/little-aspnetcore-book"
         }
     }
 }

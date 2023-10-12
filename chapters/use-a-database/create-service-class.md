@@ -1,3 +1,93 @@
+## 创建服务类
+
+回顾 *MVC基础* 章节, 你创建了一个 `FakeTodoItemService`，其中包含硬编码的 待办事项。现在你有了数据库上下文，就可以创建一个新的服务类，从而借助 Entity Framework Core 从数据库中获取真实内容。
+
+删除文件 `FakeTodoItemService.cs`，并创建一个新文件:
+
+**Services/TodoItemService.cs**
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AspNetCoreTodo.Data;
+using AspNetCoreTodo.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace AspNetCoreTodo.Services
+{
+    public class TodoItemService : ITodoItemService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public TodoItemService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<TodoItem[]> GetIncompleteItemsAsync()
+        {
+            var items = await _context.Items
+                .Where(x => x.IsDone == false)
+                .ToArrayAsync();
+            return items;
+        }
+    }
+}
+```
+
+你应该注意到相同的依赖注入模式，如你在 *MVC基础* 章节所见到的那样，只是这次被注入的服务是 `ApplicationDbContext`。`ApplicationDbContext` 已经在`ConfigureServices` 方法里被添加到服务容器里，所以在这里可以直接使用。
+
+让我们仔细探究 `GetIncompleteItemsAsync` 方法的代码。首先，它用数据库上下文中的 `Items` 的属性获取 `DbSet` 中所有的 待办事项:
+
+```csharp
+var items = await _context.Items
+```
+
+然后，`Where` 用于过滤出所有“未完成”的条目:
+
+```csharp
+.Where(x => x.IsDone == false)
+```
+
+`Where` 方法来自 C# 里的一个名为 `LINQ`(**l**anguage **in**tegrated **q**uery) 的特性，它受到函数式编程的启发，简化了在程序代码里数据库查询的写法。在底层，Entity Framework Core 把这个方法翻译成一个类似的语句 `SELECT * FROM Items WHERE IsDone = 0`，或在 NoSQL数据库 里的一个等效查询。
+
+最后，`ToArrayAsync` 方法吩咐 Entity Framework Core 取出所有过滤后的数据，并作为一个数组返回。`ToArrayAsync` 是异步的(返回一个 `Task`)，所以必须执行一次 `await`（等待） 以获取其中的值。
+
+如果想使这个方法变简短一点，你可以删除中间变量 `items`，直接返回查询结果（跟原来功能一样）：
+
+```csharp
+public async Task<TodoItem[]> GetIncompleteItemsAsync()
+{
+    return await _context.Items
+        .Where(x => x.IsDone == false)
+        .ToArrayAsync();
+}
+```
+
+### 修改服务容器
+
+由于你删除了 `FakeTodoItemService` 类，就需要修改 `ConfigureServices` 方法里配置`ITodoItemService` 接口的那一行:
+
+```csharp
+services.AddScoped<ITodoItemService, TodoItemService>();
+```
+
+`AddScoped` 会以 **scoped** 的生命周期把你的服务添加到容器里。这意味着每次 web 请求中，一个 `TodoItemService` 类的新实例就会被创建出来。这对于那些跟数据库打交道的类来说，是必要的。
+
+> 添加一个服务类去跟 Entity Framework Core（以及你的数据库）打交道，如果用单件（或其它）生命周期会引发麻烦，原因在于 Entity Framework Core 底层以请求为单位管数据库连接。要避免这些问题，请在跟 Entity Framework Core 打交道的服务上，始终采用 scoped 生命周期。
+
+依赖于被注入的 `ITodoItemService` 的 `TodoController` 将幸福地对这个变化毫无察觉，但在底层，你将使用 Entity Framework Core 与真实的数据库进行交互！
+
+### 试试看
+
+启动程序并导航至 `http://localhost:5000/todo`。硬编码的那些条目不见了，你的程序对数据库发起了真正的查询。数据库里刚好还没有任何已存的 待办事项条目，所以页面目前还是空白的。
+
+下一章，你将在程序中添加更多的功能，从“创建新 待办事项 的能力”开始。
+
+---
+
 ## Create a new service class
 
 Back in the *MVC basics* chapter, you created a `FakeTodoItemService` that contained hard-coded to-do items. Now that you have a database context, you can create a new service class that will use Entity Framework Core to get the real items from the database.

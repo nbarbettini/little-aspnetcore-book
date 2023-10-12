@@ -1,0 +1,783 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>连接数据库 · 简明 ASP.NET Core 手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Nate Barbettini">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-forkmegithub/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="update-context.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../your-first-application/">
+            
+                <a href="../your-first-application/">
+            
+                    
+                    你的第一个程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../your-first-application/get-the-sdk.html">
+            
+                <a href="../your-first-application/get-the-sdk.html">
+            
+                    
+                    获取 SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../your-first-application/hello-world-in-csharp.html">
+            
+                <a href="../your-first-application/hello-world-in-csharp.html">
+            
+                    
+                    C# 版的 Hello World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../your-first-application/create-aspnetcore-project.html">
+            
+                <a href="../your-first-application/create-aspnetcore-project.html">
+            
+                    
+                    创建一个 ASP.NET Core 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../mvc-basics/">
+            
+                <a href="../mvc-basics/">
+            
+                    
+                    MVC 基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../mvc-basics/create-controller.html">
+            
+                <a href="../mvc-basics/create-controller.html">
+            
+                    
+                    创建控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../mvc-basics/create-models.html">
+            
+                <a href="../mvc-basics/create-models.html">
+            
+                    
+                    创建模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../mvc-basics/create-view.html">
+            
+                <a href="../mvc-basics/create-view.html">
+            
+                    
+                    创建视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../mvc-basics/add-service-class.html">
+            
+                <a href="../mvc-basics/add-service-class.html">
+            
+                    
+                    添加一个服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../mvc-basics/use-dependency-injection.html">
+            
+                <a href="../mvc-basics/use-dependency-injection.html">
+            
+                    
+                    运用依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../mvc-basics/finish-controller.html">
+            
+                <a href="../mvc-basics/finish-controller.html">
+            
+                    
+                    完成控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../mvc-basics/update-the-layout.html">
+            
+                <a href="../mvc-basics/update-the-layout.html">
+            
+                    
+                    修改布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../add-external-packages/">
+            
+                <a href="../add-external-packages/">
+            
+                    
+                    添加外来软件包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    运用数据库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="connect-to-a-database.html">
+            
+                <a href="connect-to-a-database.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="update-context.html">
+            
+                <a href="update-context.html">
+            
+                    
+                    修改数据库上下文
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="create-migration.html">
+            
+                <a href="create-migration.html">
+            
+                    
+                    创建变更
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="create-service-class.html">
+            
+                <a href="create-service-class.html">
+            
+                    
+                    创建服务类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../add-more-features/">
+            
+                <a href="../add-more-features/">
+            
+                    
+                    添加新特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../add-more-features/add-todo-items.html">
+            
+                <a href="../add-more-features/add-todo-items.html">
+            
+                    
+                    添加 待办事项 条目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../add-more-features/complete-with-checkbox.html">
+            
+                <a href="../add-more-features/complete-with-checkbox.html">
+            
+                    
+                    使用复选框标记条目完成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../security-and-identity/">
+            
+                <a href="../security-and-identity/">
+            
+                    
+                    安全和身份
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../security-and-identity/require-authentication.html">
+            
+                <a href="../security-and-identity/require-authentication.html">
+            
+                    
+                    提示认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../security-and-identity/using-identity-in-the-application.html">
+            
+                <a href="../security-and-identity/using-identity-in-the-application.html">
+            
+                    
+                    在程序中使用身份
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../security-and-identity/authorization-with-roles.html">
+            
+                <a href="../security-and-identity/authorization-with-roles.html">
+            
+                    
+                    按角色进行授权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../security-and-identity/more-resources.html">
+            
+                <a href="../security-and-identity/more-resources.html">
+            
+                    
+                    附加资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../automated-testing/">
+            
+                <a href="../automated-testing/">
+            
+                    
+                    自动化测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../automated-testing/unit-testing.html">
+            
+                <a href="../automated-testing/unit-testing.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../automated-testing/integration-testing.html">
+            
+                <a href="../automated-testing/integration-testing.html">
+            
+                    
+                    集成测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../deploy-the-application/">
+            
+                <a href="../deploy-the-application/">
+            
+                    
+                    部署程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../deploy-the-application/deploy-to-azure.html">
+            
+                <a href="../deploy-the-application/deploy-to-azure.html">
+            
+                    
+                    部署到 Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../deploy-the-application/deploy-with-docker.html">
+            
+                <a href="../deploy-the-application/deploy-with-docker.html">
+            
+                    
+                    使用 Docker 进行部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../conclusion/">
+            
+                <a href="../conclusion/">
+            
+                    
+                    结束语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >连接数据库</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;"><a name="&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;" class="plugin-anchor" href="#&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;</h2>
+<p>&#x901A;&#x8FC7; Entity Framework Core &#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x9700;&#x8981;&#x505A;&#x4E00;&#x4E9B;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x3002;&#x56E0;&#x4E3A;&#x4F60;&#x901A;&#x8FC7; <code>dotnet new</code> &#x8BA9;&#x9879;&#x76EE;&#x4F7F;&#x7528;&#x4E86; MVC + Individual&#x8BA4;&#x8BC1; &#x9879;&#x76EE;&#x6A21;&#x677F;&#xFF0C;&#x8FD9;&#x4E9B;&#x51C6;&#x5907;&#x5DF2;&#x7ECF;&#x5C31;&#x7EEA;&#x4E86;:</p>
+<ul>
+<li><p><strong>Entity Framework Core&#x5305;</strong> &#x8FD9;&#x4E9B;&#x90FD;&#x9ED8;&#x8BA4;&#x5305;&#x62EC;&#x5728;&#x4E86;&#x6240;&#x6709; ASP.NET Core &#x9879;&#x76EE;&#x4E2D;&#x3002;</p>
+</li>
+<li><p><strong>&#x6570;&#x636E;&#x5E93;</strong>(&#x5FC5;&#x987B;&#x5730;&#x5440;) &#x7ECF;&#x7531; <code>dotnet new</code> &#x6307;&#x4EE4;&#xFF0C;&#x5728;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x751F;&#x6210;&#x4E86;&#x5C0F;&#x578B;&#x7684; SQLite &#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6; <code>app.db</code>&#x3002; SQLite &#x662F;&#x4E00;&#x4E2A;&#x8F7B;&#x91CF;&#x7EA7;&#x6570;&#x636E;&#x5E93;&#x5F15;&#x64CE;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x5728;&#x4F60;&#x7684;&#x673A;&#x5668;&#x4E0A;&#x800C;&#x4E0D;&#x5FC5;&#x5B89;&#x88C5;&#x4EFB;&#x4F55;&#x989D;&#x5916;&#x5DE5;&#x5177;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x4E0B;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x65E2;&#x65B9;&#x4FBF;&#x53C8;&#x5FEB;&#x6377;&#x3002;</p>
+</li>
+<li><p><strong>&#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;</strong> &#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;(database context)&#x662F;&#x4E00;&#x4E2A; C# &#x7C7B;&#x63D0;&#x4F9B;&#x7684;&#x6570;&#x636E;&#x5E93;&#x5165;&#x53E3;&#x70B9;&#x3002; &#x4F60;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x5B83;&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x4EA4;&#x4E92;&#xFF0C;&#x8FDB;&#x884C;&#x8BFB;&#x5199;&#x7684;&#x3002;<code>Data/ApplicationDbContext.cs</code> &#x6587;&#x4EF6;&#x91CC;&#xFF0C;&#x5C31;&#x4FDD;&#x5B58;&#x7740;&#x4E00;&#x4E2A;&#x5F88;&#x57FA;&#x672C;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#x3002;</p>
+</li>
+<li><p><strong>&#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32;</strong> &#x65E0;&#x8BBA;&#x4F60;&#x8FDE;&#x63A5;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x5E93;(SQLite)&#x8FD8;&#x662F;&#x4F4D;&#x4E8E;&#x5176;&#x5B83;&#x4E3B;&#x673A;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B; &#x6570;&#x636E;&#x5E93;&#x7684;&#x540D;&#x5B57; &#x6216; &#x7528;&#x6765;&#x8FDE;&#x63A5;&#x7684;&#x6570;&#x636E;&#x5E93;&#x5730;&#x5740;&#x3002; &#x8FD9;&#x4E00;&#x9879;&#x5DF2;&#x7ECF;&#x5728; <code>appsettings.json</code> &#x6587;&#x4EF6;&#x91CC;&#x4E3A;&#x4F60;&#x8BBE;&#x7F6E;&#x597D;&#x4E86;: SQLite &#x6570;&#x636E;&#x5E93;&#x7684; &#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32; &#x662F; <code>DataSource=app.db</code>&#x3002;</p>
+</li>
+</ul>
+<p>Entity Framework Core &#x501F;&#x52A9; &#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#x3001;&#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32; &#x4E0E;&#x6570;&#x636E;&#x5E93;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x3002;&#x4F60;&#x9700;&#x8981;&#x5728; <code>Startup</code> &#x7C7B;&#x91CC;&#x7684; <code>ConfigureServices</code> &#x65B9;&#x6CD5;&#x4E2D;&#x4E3A; Entity Framework Core &#x6307;&#x5B9A;&#x6240;&#x7528;&#x7684; &#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#x3001;&#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x6570;&#x636E;&#x5E93;&#x7C7B;&#x578B;&#x3002;&#x611F;&#x8C22;&#x9879;&#x76EE;&#x6A21;&#x677F;&#xFF1A;</p>
+<pre><code class="lang-csharp">services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseSqlite(
+        Configuration.GetConnectionString(<span class="hljs-string">&quot;DefaultConnection&quot;</span>)));
+</code></pre>
+<p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x628A; <code>ApplicationDbContext</code> &#x6DFB;&#x52A0;&#x5230;&#x670D;&#x52A1;&#x5BB9;&#x5668;&#x91CC;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x914D;&#x7F6E;(<code>appsettings.json</code>)&#x4E2D;&#x7684; &#x8FDE;&#x63A5;&#x5B57;&#x7B26;&#x4E32; &#x6307;&#x5B9A; Entity Framework Core &#x4F7F;&#x7528; SQLite &#x6570;&#x636E;&#x5E93;&#x3002;</p>
+<p>&#x5982;&#x4F60;&#x6240;&#x89C1;&#xFF0C;<code>dotnet new</code> &#x4E3A;&#x4F60;&#x5B8C;&#x6210;&#x4E86;&#x5F88;&#x591A;&#x5DE5;&#x4F5C;! &#x6570;&#x636E;&#x5E93;&#x5DF2;&#x7ECF;&#x914D;&#x7F6E;&#x597D;&#x5F85;&#x7528;&#x4E86;&#x3002;&#x4F46;&#x662F;&#x8FD8;&#x6CA1;&#x6709;&#x8868;&#x7528;&#x4E8E;&#x4FDD;&#x5B58; &#x5F85;&#x529E;&#x4E8B;&#x9879;&#x6761;&#x76EE;&#x3002;&#x4E3A;&#x4E86;&#x80FD;&#x5B58;&#x50A8; <code>TodoItem</code> &#x5B9E;&#x4F53;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x5E93;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5E76;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x8FDB;&#x884C;&#x53D8;&#x66F4;&#x3002;</p>
+<hr>
+<h2 id="connect-to-a-database"><a name="connect-to-a-database" class="plugin-anchor" href="#connect-to-a-database"><i class="fa fa-link" aria-hidden="true"></i></a>Connect to a database</h2>
+<p>There are a few things you need to use Entity Framework Core to connect to a database. Since you used <code>dotnet new</code> and the MVC + Individual Auth template to set your project, you&apos;ve already got them:</p>
+<ul>
+<li><p><strong>The Entity Framework Core packages</strong>. These are included by default in all ASP.NET Core projects.</p>
+</li>
+<li><p><strong>A database</strong> (naturally). The <code>app.db</code> file in the project root directory is a small SQLite database created for you by <code>dotnet new</code>. SQLite is a lightweight database engine that can run without requiring you to install any extra tools on your machine, so it&apos;s easy and quick to use in development.</p>
+</li>
+<li><p><strong>A database context class</strong>. The database context is a C# class that provides an entry point into the database. It&apos;s how your code will interact with the database to read and save items. A basic context class already exists in the <code>Data/ApplicationDbContext.cs</code> file.</p>
+</li>
+<li><p><strong>A connection string</strong>. Whether you are connecting to a local file database (like SQLite) or a database hosted elsewhere, you&apos;ll define a string that contains the name or address of the database to connect to. This is already set up for you in the <code>appsettings.json</code> file: the connection string for the SQLite database is <code>DataSource=app.db</code>.</p>
+</li>
+</ul>
+<p>Entity Framework Core uses the database context, together with the connection string, to establish a connection to the database. You need to tell Entity Framework Core which context, connection string, and database provider to use in the <code>ConfigureServices</code> method of the <code>Startup</code> class. Here&apos;s what&apos;s defined for you, thanks to the template:</p>
+<pre><code class="lang-csharp">services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseSqlite(
+        Configuration.GetConnectionString(<span class="hljs-string">&quot;DefaultConnection&quot;</span>)));
+</code></pre>
+<p>This code adds the <code>ApplicationDbContext</code> to the service container, and tells Entity Framework Core to use the SQLite database provider, with the connection string from configuration (<code>appsettings.json</code>).</p>
+<p>As you can see, <code>dotnet new</code> creates a lot of stuff for you! The database is set up and ready to be used. However, it doesn&apos;t have any tables for storing to-do items. In order to store your <code>TodoItem</code> entities, you&apos;ll need to update the context and migrate the database.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 运用数据库">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="update-context.html" class="navigation navigation-next " aria-label="Next page: 修改数据库上下文">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"连接数据库","level":"1.5.1","depth":2,"next":{"title":"修改数据库上下文","level":"1.5.2","depth":2,"path":"chapters/use-a-database/update-context.md","ref":"chapters/use-a-database/update-context.md","articles":[]},"previous":{"title":"运用数据库","level":"1.5","depth":1,"path":"chapters/use-a-database/README.md","ref":"chapters/use-a-database/README.md","articles":[{"title":"连接数据库","level":"1.5.1","depth":2,"path":"chapters/use-a-database/connect-to-a-database.md","ref":"chapters/use-a-database/connect-to-a-database.md","articles":[]},{"title":"修改数据库上下文","level":"1.5.2","depth":2,"path":"chapters/use-a-database/update-context.md","ref":"chapters/use-a-database/update-context.md","articles":[]},{"title":"创建变更","level":"1.5.3","depth":2,"path":"chapters/use-a-database/create-migration.md","ref":"chapters/use-a-database/create-migration.md","articles":[]},{"title":"创建服务类","level":"1.5.4","depth":2,"path":"chapters/use-a-database/create-service-class.md","ref":"chapters/use-a-database/create-service-class.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","disqus","splitter","anchors","copy-code-button","forkmegithub"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"little-aspnetcore-book-cn"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"forkmegithub":{"color":"orange","url":"https://github.com/windsting/little-aspnetcore-book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Nate Barbettini","pdf":{"pageNumbers":true,"fontSize":13,"fontFamily":"Microsoft YaHei","paperSize":"a5","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"简明 ASP.NET Core 手册","language":"zh-hans","gitbook":"*","description":"一个关于“使用 ASP.NET Core 框架的构建 web 应用程序”的入门简介。"},"file":{"path":"chapters/use-a-database/connect-to-a-database.md","mtime":"2020-12-02T18:04:53.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-02T18:52:41.522Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-forkmegithub/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
